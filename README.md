@@ -1,6 +1,6 @@
 # Many Abis
 
-Get different DEX abis easily for block chain developer.
+Get different DEXs abis easily for block chain developer.
 
 ## Installation
 
