@@ -7,7 +7,7 @@ Get different DEX abis easily for block chain developers.
 * Download with pypi
 
 ```bash
-pip install many_abis
+pip install many-abis
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ Chain-3: MATIC
 ----------------------
 ```
 
-* If contract not in the default settings, we can get abis from address.
+* If one DEX contract is not in the default settings, we can get abis from the contract address.
 
 * you need to specify your `api_key` from the Block Explorer.
 
