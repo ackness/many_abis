@@ -16,7 +16,7 @@ pip install many_abis
 
 ```python
 from web3 import Web3
-from many_abis import print_all_support
+from many_abis import get, print_all_support
 from many_abis.chain_rpc_enum import CHAIN_RPC_API as rpc
 
 # get dex and eth 
