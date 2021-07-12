@@ -2,6 +2,33 @@
 
 Get different DEX abis easily for block chain developers.
 
+---
+
+Now we support: 
+
+- BSC:
+  - DEX:
+    - [0] [BakerySwap](https://www.bakeryswap.org/)
+    - [1] [Just Liquidity](https://dexbeta.julswap.com/)
+    - [2] [MDEX](https://bsc.mdex.co/#/swap/)
+    - [3] [PancakeSwap v1](https://v1exchange.pancakeswap.finance/#/)
+    - [4] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
+- ETH:
+  - DEX:
+    - [0] [Uniswap V2](https://app.uniswap.org/)
+- HECO:
+  - DEX:
+    - [0] [MDEX](https://ht.mdex.co/#/swap/)
+- MATIC:
+  - DEX:
+    - [0] [QuickSwap](https://quickswap.exchange/)
+- KCC:
+  - DEX:
+    - [0] [KoffeeSwap](https://koffeeswap.exchange/)
+
+---
+
+
 ## Installation
 
 * Download with pypi
@@ -44,25 +71,30 @@ dict_keys(['name', 'symbol', 'address', 'abi', 'expolorer'])
 
 * Print all supported chains and dexs.
 
-```python
+```
 print_all_support()
 
 # output
 ----------------------
-Chain-0: BSC
-        DEX-0: bakery
-        DEX-1: jul
-        DEX-2: mdex_bsc
-        DEX-3: pancake_v1
-        DEX-4: pancake_v2
-Chain-1: ETH
-        DEX-0: uniswap_v2
-Chain-2: HECO
-        DEX-0: mdex_heco
-Chain-3: MATIC
-        DEX-0: quickswap
-Chain-4: KCC
-        DEX-0: koffeeswap
+- BSC:
+  - DEX:
+    - [0] [BakerySwap](https://www.bakeryswap.org/)
+    - [1] [Just Liquidity](https://dexbeta.julswap.com/)
+    - [2] [MDEX](https://bsc.mdex.co/#/swap/)
+    - [3] [PancakeSwap v1](https://v1exchange.pancakeswap.finance/#/)
+    - [4] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
+- ETH:
+  - DEX:
+    - [0] [Uniswap V2](https://app.uniswap.org/)
+- HECO:
+  - DEX:
+    - [0] [MDEX](https://ht.mdex.co/#/swap/)
+- MATIC:
+  - DEX:
+    - [0] [QuickSwap](https://quickswap.exchange/)
+- KCC:
+  - DEX:
+    - [0] [KoffeeSwap](https://koffeeswap.exchange/)
 ----------------------
 ```
 

@@ -64,9 +64,11 @@ def get(chain, dex):
 
 def print_all_support():
     for i, chain in enumerate(SUPPORT_CHAIN):
-        print(f"Chain-{i}: {chain}")
+        print(f"- {chain}:")
         chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
+        print('  - DEX:')
         for j, dex in enumerate(chain_module.SUPPORT_DEX):
-            print(f"\tDEX-{j}: {dex}")
+            dex_module = importlib.import_module(f".assets.{chain}.{dex}", package='many_abis')
+            print(f"    - [{j}] [{dex_module.DEX['name']}]({dex_module.DEX['website']})")
 
 
