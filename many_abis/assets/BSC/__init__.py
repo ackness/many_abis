@@ -7,7 +7,8 @@ WETH = {
     'name': 'Wrapped BNB',
     'symbol': 'WBNB',
     'address': '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-    'abi': W_ERC20_ABI
+    'abi': W_ERC20_ABI,
+    'expolorer': 'https://bscscan.com/',
 }
 
 

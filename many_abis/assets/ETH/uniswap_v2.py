@@ -11,4 +11,5 @@ DEX = {
     'router_abi': ROUTER_ABI,
     'factory_address': '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',  # UniswapV2Factory
     'factory_abi': FACTORY_ABI,
+    'website': 'https://app.uniswap.org/',
 }

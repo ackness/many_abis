@@ -11,4 +11,5 @@ DEX = {
     'router_abi': ROUTER_ABI,
     'factory_address': '0x553990F2CBA90272390f62C5BDb1681fFc899675', #　DemaxFactory
     'factory_abi': FACTORY_ABI,
+    'website': 'https://dexbeta.julswap.com/'
 }

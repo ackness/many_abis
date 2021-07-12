@@ -43,6 +43,15 @@ def get_factory_from_router(router_address, api_key, chain_api=contract_api.BSC,
             print(e)
 
 
+def get_chain():
+    return SUPPORT_CHAIN
+
+
+def get_dex(chain='BSC'):
+    chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
+    return chain_module.SUPPORT_DEX
+
+
 def get(chain, dex):
     assert chain in SUPPORT_CHAIN, f"{chain} is not supported, support = [{SUPPORT_CHAIN}]"
     chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
@@ -59,3 +68,5 @@ def print_all_support():
         chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
         for j, dex in enumerate(chain_module.SUPPORT_DEX):
             print(f"\tDEX-{j}: {dex}")
+
+

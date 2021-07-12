@@ -11,4 +11,5 @@ DEX = {
     'router_abi': ROUTER_ABI,
     'factory_address': '0xBCfCcbde45cE874adCB698cC183deBcF17952812', # PancakeFactory
     'factory_abi': FACTORY_ABI,
+    'website': 'https://v1exchange.pancakeswap.finance/#/',
 }

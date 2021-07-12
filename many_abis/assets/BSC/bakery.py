@@ -11,4 +11,5 @@ DEX = {
     'router_abi': ROUTER_ABI,
     'factory_address': '0x8a1E9d3aEbBBd5bA2A64d3355A48dD5E9b511256', #　DemaxFactory
     'factory_abi': FACTORY_ABI,
+    'website': 'https://www.bakeryswap.org/',
 }

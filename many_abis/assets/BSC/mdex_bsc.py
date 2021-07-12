@@ -11,6 +11,7 @@ DEX = {
     'router_abi': ROUTER_ABI,
     'factory_address': '0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8', # MdexFactory
     'factory_abi': FACTORY_ABI,
+    'website': 'https://bsc.mdex.co/#/swap/',
 }
 
 

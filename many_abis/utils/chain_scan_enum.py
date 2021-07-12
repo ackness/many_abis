@@ -8,4 +8,5 @@ class CHAIN_SCANA_API:
     BSC:str = 'https://api.bscscan.com/api?module='
     HECO:str = 'https://api.hecoinfo.com/api?module='
     MATIC:str = 'https://api.polygonscan.com/api?module='
+    KCC:str = ''  # not supported 
 
