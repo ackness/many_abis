@@ -21,5 +21,5 @@ BASIC = {
     'chain': 'Binance Smart Chain',
     'explorer': 'https://bscscan.com/',
     'weth' : WETH,
-    'coin': COINS
+    'coins': COINS
 }

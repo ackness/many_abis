@@ -19,5 +19,5 @@ BASIC = {
     'chain': 'KuCoin Community Chain',
     'explorer': 'https://explorer.kcc.io/en/',
     'weth' : WETH,
-    'coin': COINS
+    'coins': COINS
 }

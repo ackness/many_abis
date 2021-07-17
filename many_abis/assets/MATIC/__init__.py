@@ -20,5 +20,5 @@ BASIC = {
     'chain': 'Polygon PoS Chain',
     'explorer': 'https://polygonscan.com/',
     'weth' : WETH,
-    'coin': COINS
+    'coins': COINS
 }

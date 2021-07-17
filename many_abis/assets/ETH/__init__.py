@@ -21,6 +21,6 @@ BASIC = {
     'chain': 'Ethereum Chain',
     'explorer': 'https://etherscan.io/',
     'weth' : WETH,
-    'coin': COINS
+    'coins': COINS
 }
 

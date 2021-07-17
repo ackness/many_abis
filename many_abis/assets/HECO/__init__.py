@@ -21,5 +21,5 @@ BASIC = {
     'chain': 'Huobi Eco Chain',
     'explorer': 'https://hecoinfo.com/',
     'weth' : WETH,
-    'coin': COINS
+    'coins': COINS
 }
