@@ -42,33 +42,73 @@ def get_factory_from_router(router_address, api_key, chain_api=contract_api.BSC,
         except Exception as e:
             print(e)
 
+def assert_chain_supported(chain):
+    assert chain in SUPPORT_CHAIN, f"{chain} is not supported, support = [{SUPPORT_CHAIN}]" 
 
-def get_chain():
+def assert_dex_supported(chain, dex):
+    assert_chain_supported(chain)
+    support_dex = get_support_dex(chain)
+    assert dex in support_dex, f"{dex} is not supported, support = {support_dex}"
+
+
+def get_chain(chain='BSC'):
+    return get_chain_info(chain)
+
+def get_support_chain():
     return SUPPORT_CHAIN
 
-
-def get_dex(chain='BSC'):
+def get_chain_module(chain='BSC'):
+    assert_chain_supported(chain)
     chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
+    return chain_module
+
+def get_chain_info(chain='BSC'):
+    chain_module = get_chain_module(chain)
+    return chain_module.BASIC
+
+def get_chain_weth(chain='BSC'):
+    chain_module = get_chain_module(chain)
+    return chain_module.BASIC['weth']
+
+def get_chain_stable_coins(chain='BSC'):
+    chain_module = get_chain_module(chain)
+    return chain_module.BASIC['coins']
+
+def get_chain_explorer(chain='BSC'):
+    chain_module = get_chain_module(chain)
+    return chain_module.BASIC['explorer']
+
+
+def get_support_dex(chain='BSC'):
+    chain_module = get_chain_module(chain)
     return chain_module.SUPPORT_DEX
 
+def get_dex_module(chain='BSC', dex='pancake_v2'):
+    assert_dex_supported(chain, dex)
+    dex_module = importlib.import_module(f".assets.{chain}.{dex}", package='many_abis')
+    return dex_module
+
+def get_dex(chain='BSC', dex='pancake_v2'):
+    dex_module = get_dex_module(chain, dex)
+    return dex_module.DEX
+
+
+def get_module(chain, dex):
+    return get_chain_module(chain), get_dex_module(chain, dex)
 
 def get(chain, dex):
-    assert chain in SUPPORT_CHAIN, f"{chain} is not supported, support = [{SUPPORT_CHAIN}]"
-    chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
-    assert dex in chain_module.SUPPORT_DEX, f"{dex} is not supported, support = [{chain_module.SUPPORT_DEX}]"
-    dex_module = importlib.import_module(f".assets.{chain}.{dex}", package='many_abis')
-    dex = dex_module.DEX
-    weth = chain_module.WETH
-    return dex, weth
+    basic = get_chain_info(chain)
+    dex = get_dex(chain, dex)
+    return basic, dex
 
 
 def print_all_support():
     for i, chain in enumerate(SUPPORT_CHAIN):
         print(f"- {chain}:")
-        chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
+        supported_dex = get_support_dex(chain)
         print('  - DEX:')
-        for j, dex in enumerate(chain_module.SUPPORT_DEX):
-            dex_module = importlib.import_module(f".assets.{chain}.{dex}", package='many_abis')
-            print(f"    - [{j}] [{dex_module.DEX['name']}]({dex_module.DEX['website']})")
+        for j, dex in enumerate(supported_dex):
+            dex_info = get_dex(chain, dex)
+            print(f"    - [{j}] [{dex_info['name']}]({dex_info['website']})")
 
 

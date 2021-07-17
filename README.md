@@ -46,23 +46,24 @@ from web3 import Web3
 from many_abis import get, print_all_support
 from many_abis.utils.chain_rpc_enum import CHAIN_RPC_API as rpc
 
-# get dex and eth 
-dex, weth = get(chain='BSC', dex='pancake_v2')
-print(dex.keys())
-print(weth.keys())
+# get dex and chain info 
+chain_info, dex_info = get(chain='BSC', dex='pancake_v2')
+print(chain_info.keys())
+print(dex_info.keys())
 
 # and we can use web3 to get dex contract
 web3 = Web3(Web3.HTTPProvider(rpc.BSC))
-contract = web3.eth.contract(address=dex['router_address'], abi=dex['router_abi'])
+contract = web3.eth.contract(address=dex_info['router_address'], abi=dex_info['router_abi'])
 print(contract.all_functions())
 
 # output
 ----------------------
-# dex
-dict_keys(['name', 'router_address', 'router_abi', 'factory_address', 'factory_abi', 'website'])
+
+# chain info
+dict_keys(['chain', 'explorer', 'weth', 'coin'])
 ----------------------
-# weth
-dict_keys(['name', 'symbol', 'address', 'abi', 'expolorer'])
+# dex info
+dict_keys(['name', 'router_address', 'router_abi', 'factory_address', 'factory_abi', 'website'])
 ----------------------
 # contract
 [<Function WETH()>, ...]
