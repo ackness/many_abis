@@ -31,10 +31,16 @@ Now we support:
 
 ## Installation
 
-* Download with pypi
+* Download
 
 ```bash
 pip install many-abis
+
+# pypi
+pip install -i https://pypi.org/simple many-abis
+
+# update
+pip install -U -i https://pypi.org/simple many-abis
 ```
 
 ## Usage
