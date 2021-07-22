@@ -21,10 +21,15 @@ CHARTS = {
     'Sell/Buy On KoffeeSwap': 'https://koffeeswap.exchange/#/swap?outputCurrency={address}',
 }
 
+RPC = [
+    'https://rpc-mainnet.kcc.network',
+]
+
 BASIC = {
     'chain': 'KuCoin Community Chain',
     'explorer': 'https://explorer.kcc.io/en/',
     'weth' : WETH,
     'coins': COINS,
     'charts': CHARTS,
+    'rpc': RPC,
 }

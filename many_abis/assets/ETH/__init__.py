@@ -22,11 +22,16 @@ CHARTS = {
     'Sell/Buy On Uniswap-V2': 'https://app.uniswap.org/#/swap?outputCurrency={address}&use=V2',
 }
 
+RPC = [
+    'https://cloudflare-eth.com',
+]
+
 BASIC = {
     'chain': 'Ethereum Chain',
     'explorer': 'https://etherscan.io/',
     'weth' : WETH,
     'coins': COINS,
     'charts': CHARTS,
+    'rpc': RPC,
 }
 

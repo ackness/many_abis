@@ -59,6 +59,10 @@ def get_chain_module(chain='BSC'):
     chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
     return chain_module
 
+def get_chain_rpc(chain='BSC'):
+    chain_module = get_chain_module(chain)
+    return chain_module.RPC
+
 def get_chain_charts(chain='BSC'):
     chain_module = get_chain_module(chain)
     return chain_module.CHARTS

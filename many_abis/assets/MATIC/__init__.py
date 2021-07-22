@@ -26,10 +26,20 @@ CHARTS = {
     'Sell/Buy On QuickSwap': 'https://quickswap.exchange/#/swap?outputCurrency={address}',
 }
 
+RPC = [
+    'https://rpc-mainnet.matic.network',
+    'https://rpc-mainnet.maticvigil.com',
+    'https://rpc-mainnet.matic.quiknode.pro',
+    'https://matic-mainnet.chainstacklabs.com',
+    'https://matic-mainnet-full-rpc.bwarelabs.com',
+    'https://matic-mainnet-archive-rpc.bwarelabs.com',
+]
+
 BASIC = {
     'chain': 'Polygon PoS Chain',
     'explorer': 'https://polygonscan.com/',
     'weth' : WETH,
     'coins': COINS,
     'charts': CHARTS,
+    'rpc': RPC,
 }

@@ -25,10 +25,17 @@ CHARTS = {
     'Sell/Buy On MDEX-HECO': 'https://ht.mdex.co/#/swap?outputCurrency={address}', 
 }
 
+RPC = [
+    'https://http-mainnet.hecochain.com',        # other
+    'https://http-mainnet-node.huobichain.com',  # china
+    'https://http-mainnet-node.defibox.com',
+]
+
 BASIC = {
     'chain': 'Huobi Eco Chain',
     'explorer': 'https://hecoinfo.com/',
     'weth' : WETH,
     'coins': COINS,
     'charts': CHARTS,
+    'rpc': RPC,
 }
