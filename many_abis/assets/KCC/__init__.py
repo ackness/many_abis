@@ -15,9 +15,16 @@ COINS = {
     'USDC': '0x980a5afef3d17ad98635f6c5aebcbaeded3c3430'
 }
 
+CHARTS = {
+    'default': 'https://koffeeswap.exchange/#/pro',
+    'koffeeswap': 'https://koffeeswap.exchange/#/pro',
+    'Sell/Buy On KoffeeSwap': 'https://koffeeswap.exchange/#/swap?outputCurrency={address}',
+}
+
 BASIC = {
     'chain': 'KuCoin Community Chain',
     'explorer': 'https://explorer.kcc.io/en/',
     'weth' : WETH,
-    'coins': COINS
+    'coins': COINS,
+    'charts': CHARTS,
 }

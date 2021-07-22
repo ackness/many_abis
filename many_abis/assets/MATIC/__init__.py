@@ -16,9 +16,20 @@ COINS = {
     'PUSD': '0x9af3b7dc29d3c4b1a5731408b6a9656fa7ac3b72'
 }
 
+CHARTS = {
+    'default': 'https://app.polychart.io/explorer/polygon/{address}',
+    'poocoin': 'https://polygon.poocoin.app/tokens/{address}',
+    'kek': 'https://kek.tools/t/{address}',
+    'quickcharts': 'https://quickchart.app/token/{address}',
+    'polychart': 'https://app.polychart.io/explorer/polygon/{address}',
+    'dex.guru': 'https://dex.guru/token/{address}-polygon',
+    'Sell/Buy On QuickSwap': 'https://quickswap.exchange/#/swap?outputCurrency={address}',
+}
+
 BASIC = {
     'chain': 'Polygon PoS Chain',
     'explorer': 'https://polygonscan.com/',
     'weth' : WETH,
-    'coins': COINS
+    'coins': COINS,
+    'charts': CHARTS,
 }

@@ -17,9 +17,18 @@ COINS = {
 
 }
 
+CHARTS = {
+    'default': 'https://info.nut.money/token/{address}',
+    'pippi': 'https://info.pippi.finance/token/{address}', # only support
+    'nut': 'https://info.nut.money/token/{address}',
+    'xfarmer': 'https://xfarmer.net/trade.html?pair_address={address}', # xfarmer shold input pair address
+    'Sell/Buy On MDEX-HECO': 'https://ht.mdex.co/#/swap?outputCurrency={address}', 
+}
+
 BASIC = {
     'chain': 'Huobi Eco Chain',
     'explorer': 'https://hecoinfo.com/',
     'weth' : WETH,
-    'coins': COINS
+    'coins': COINS,
+    'charts': CHARTS,
 }

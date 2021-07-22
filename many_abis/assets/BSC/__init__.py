@@ -17,9 +17,20 @@ COINS = {
     'USDC': '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
 }
 
+CHARTS = {
+    'default': 'https://poocoin.app/tokens/{address}',
+    'poocoin': 'https://poocoin.app/tokens/{address}',
+    'dextools': 'https://www.dextools.io/app/pancakeswap/pair-explorer/{address}',
+    'dex.guru': 'https://dex.guru/token/{address}-bsc',
+    'bogged': 'https://charts.bogged.finance/?token={address}',
+    'avedex':'https://avedex.org/token/{address}',
+    'Sell/Buy On Pancake-V2': 'https://exchange.pancakeswap.finance/#/swap?outputCurrency={address}',
+}
+
 BASIC = {
     'chain': 'Binance Smart Chain',
     'explorer': 'https://bscscan.com/',
     'weth' : WETH,
-    'coins': COINS
+    'coins': COINS,
+    'charts': CHARTS,
 }

@@ -16,12 +16,10 @@ def get_abi_from_address(address, api_key, chain_api=contract_api.BSC):
     session.close()
     result = eval(result.content.decode())
 
-
     if result['status'] == '1' and result['message'] == 'OK':
         return result['result']
     else:
         return None
-
 
 def get_factory_from_router(router_address, api_key, chain_api=contract_api.BSC, rpc=rpc.BSC):
     web3 = Web3(Web3.HTTPProvider(rpc))
@@ -50,7 +48,6 @@ def assert_dex_supported(chain, dex):
     support_dex = get_support_dex(chain)
     assert dex in support_dex, f"{dex} is not supported, support = {support_dex}"
 
-
 def get_chain(chain='BSC'):
     return get_chain_info(chain)
 
@@ -61,6 +58,10 @@ def get_chain_module(chain='BSC'):
     assert_chain_supported(chain)
     chain_module = importlib.import_module(f".assets.{chain}", package='many_abis')
     return chain_module
+
+def get_chain_charts(chain='BSC'):
+    chain_module = get_chain_module(chain)
+    return chain_module.CHARTS
 
 def get_chain_info(chain='BSC'):
     chain_module = get_chain_module(chain)
@@ -78,7 +79,6 @@ def get_chain_explorer(chain='BSC'):
     chain_module = get_chain_module(chain)
     return chain_module.BASIC['explorer']
 
-
 def get_support_dex(chain='BSC'):
     chain_module = get_chain_module(chain)
     return chain_module.SUPPORT_DEX
@@ -92,7 +92,6 @@ def get_dex(chain='BSC', dex='pancake_v2'):
     dex_module = get_dex_module(chain, dex)
     return dex_module.DEX
 
-
 def get_module(chain, dex):
     return get_chain_module(chain), get_dex_module(chain, dex)
 
@@ -100,7 +99,6 @@ def get(chain, dex):
     basic = get_chain_info(chain)
     dex = get_dex(chain, dex)
     return basic, dex
-
 
 def print_all_support():
     for i, chain in enumerate(SUPPORT_CHAIN):
