@@ -1,10 +1,13 @@
-# Many Abis [v0.0.7]
+# Many Abis [v0.0.8]
 
 Get different DEX abis easily for block chain developers.
 
 ---
 
 Now we support: 
+
+!!! OKEX now not full supports. Their Chain and DEX are really bad to read and search.
+
 
 - BSC:
   - DEX:
@@ -25,7 +28,6 @@ Now we support:
 - KCC:
   - DEX:
     - [0] [KoffeeSwap](https://koffeeswap.exchange/)
-
 ---
 
 
