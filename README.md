@@ -31,7 +31,7 @@ Now we support:
     - [0] [KoffeeSwap](https://koffeeswap.exchange/)
 - OKEX:
   - DEX:
-    - [0] [Pandaswap](https://app.pandaex.org/)
+    - [0] [PandaSwap](https://app.pandaex.org/)
     - [1] [CherrySwap](https://www.cherryswap.net/)
     - [2] [JSwap](https://app.jswap.finance/)
 ---
@@ -112,7 +112,7 @@ print_all_support()
     - [0] [KoffeeSwap](https://koffeeswap.exchange/)
 - OKEX:
   - DEX:
-    - [0] [Pandaswap](https://app.pandaex.org/)
+    - [0] [PandaSwap](https://app.pandaex.org/)
     - [1] [CherrySwap](https://www.cherryswap.net/)
     - [2] [JSwap](https://app.jswap.finance/)
 ----------------------
