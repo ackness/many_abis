@@ -8,6 +8,7 @@ Now we support:
 
 !!! OKEX now not full supports. Their Chain and DEX are really bad to read and search.
 
+---
 
 - BSC:
   - DEX:
@@ -28,6 +29,11 @@ Now we support:
 - KCC:
   - DEX:
     - [0] [KoffeeSwap](https://koffeeswap.exchange/)
+- OKEX:
+  - DEX:
+    - [0] [Pandaswap](https://app.pandaex.org/)
+    - [1] [CherrySwap](https://www.cherryswap.net/)
+    - [2] [JSwap](https://app.jswap.finance/)
 ---
 
 
