@@ -1,7 +1,7 @@
 from .. import W_ERC20_ABI
 
 
-SUPPORT_DEX = ['pandaex', 'cherryswap']
+SUPPORT_DEX = ['pandaex', 'cherryswap', 'jswap']
 
 WETH = {
     'name': 'Wrapped OKT',
@@ -16,8 +16,10 @@ COINS = {
 }
 
 CHARTS = {
-    'default': 'https://app.pandaex.org/#/swap?outputCurrency={address}',
-    'Sell/Buy On QuickSwap': 'https://app.pandaex.org/#/swap?outputCurrency={address}',
+    'default': 'https://www.cherryswap.net/#/swap?outputCurrency={address}',
+    'Sell/Buy On CherrySwap': 'https://www.cherryswap.net/#/swap?outputCurrency={address}',
+    'Sell/Buy On JSwap': 'https://app.jswap.finance/#/swap?outputCurrency={address}',
+    'Sell/Buy On Pandaex': 'https://app.pandaex.org/#/swap?outputCurrency={address}',
 }
 
 RPC = [

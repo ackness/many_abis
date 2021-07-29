@@ -68,7 +68,7 @@ print(contract.all_functions())
 ----------------------
 
 # chain info
-dict_keys(['chain', 'explorer', 'weth', 'coin'])
+dict_keys(['chain', 'explorer', 'weth', 'coins', 'charts', 'rpc'])
 ----------------------
 # dex info
 dict_keys(['name', 'router_address', 'router_abi', 'factory_address', 'factory_abi', 'website'])
@@ -104,6 +104,11 @@ print_all_support()
 - KCC:
   - DEX:
     - [0] [KoffeeSwap](https://koffeeswap.exchange/)
+- OKEX:
+  - DEX:
+    - [0] [Pandaswap](https://app.pandaex.org/)
+    - [1] [CherrySwap](https://www.cherryswap.net/)
+    - [2] [JSwap](https://app.jswap.finance/)
 ----------------------
 ```
 
