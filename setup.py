@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
   name = 'many_abis',
   packages = find_packages(),
-  version = '0.0.9',
+  version = '0.0.10',
   license='MIT',
   description = 'A simple way to get different DEXs abis for block chains.',
   author = 'Yong',
