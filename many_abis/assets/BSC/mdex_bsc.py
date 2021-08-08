@@ -6,7 +6,7 @@ FACTORY_ABI = json.loads('[{"inputs":[{"internalType":"address","name":"_feeToSe
 
 
 DEX = {
-    'name': 'MDEX',
+    'name': 'MDEX (BSC)',
     'router_address': '0x7DAe51BD3E3376B8c7c4900E9107f12Be3AF1bA8',
     'router_abi': ROUTER_ABI,
     'factory_address': '0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8', # MdexFactory

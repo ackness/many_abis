@@ -1,7 +1,7 @@
 from .. import W_ERC20_ABI
 
 
-SUPPORT_DEX = ['bakery', 'jul', 'mdex_bsc', 'pancake_v1', 'pancake_v2']
+SUPPORT_DEX = ['bakery', 'jul', 'mdex_bsc', 'pancake_v1', 'pancake_v2', 'apeswap']
 
 
 WETH = {
