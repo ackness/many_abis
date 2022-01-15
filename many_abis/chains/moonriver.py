@@ -30,7 +30,7 @@ RPC = BaseRPC(
 DEX = AttributeDict(
     solarbeam=BaseDEX(
         name='Solarbeam', router_address='0xAA30eF758139ae4a7f798112902Bf6d65612045f',
-        factory_address='0x049581aEB6Fe262727f290165C29BDAB065a1B68', website='https://quickswap.exchange/',
+        factory_address='0x049581aEB6Fe262727f290165C29BDAB065a1B68', website='https://app.solarbeam.io/exchange/swap',
     )
 )
 

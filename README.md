@@ -1,4 +1,4 @@
-# Many Abis [v0.1.0]
+# Many Abis [v0.1.1]
 
 Get different DEX abis easily for blockchain developers.
 
@@ -32,7 +32,7 @@ Now we support dex:
 	- [2] [JSwap](https://app.jswap.finance/)
 	- [3] [PandaSwap](https://app.pandaex.org/)
 - MOONRIVER:
-	- [1] [Solarbeam](https://quickswap.exchange/)
+	- [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
 - ARBITRUM:
 	- [1] [SushiSwap](https://app.sushi.com/en/swap)
 - BSC_TEST:
@@ -139,7 +139,7 @@ ma.print_all_dex()
 	- [2] [JSwap](https://app.jswap.finance/)
 	- [3] [PandaSwap](https://app.pandaex.org/)
 - MOONRIVER:
-	- [1] [Solarbeam](https://quickswap.exchange/)
+	- [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
 - ARBITRUM:
 	- [1] [SushiSwap](https://app.sushi.com/en/swap)
 - BSC_TEST:
