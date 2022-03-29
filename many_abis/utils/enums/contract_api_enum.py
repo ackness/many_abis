@@ -13,3 +13,5 @@ class CHAIN_CONTRACT_API:
     AVAX: str = 'https://api.snowtrace.io/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'  # showtrace
     KCC: str = ''  # not support
     ARBITRUM: str = 'https://api.arbiscan.io/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'
+    CRONOS: str = 'https://api.cronoscan.com/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'
+    

@@ -1,4 +1,4 @@
-# Many Abis [v0.1.1]
+# Many Abis [v0.1.2]
 
 Get different DEX abis easily for blockchain developers.
 
@@ -9,34 +9,36 @@ Now we support dex:
 ---
 
 - BSC:
-	- [1] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
-	- [2] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
-	- [3] [ApeSwap Finance](https://app.apeswap.finance/swap)
-	- [4] [BiSwap](https://exchange.biswap.org/#/swap)
-	- [5] [Just Liquidity](https://dexbeta.julswap.com/)
+  - [1] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
+  - [2] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
+  - [3] [ApeSwap Finance](https://app.apeswap.finance/swap)
+  - [4] [BiSwap](https://exchange.biswap.org/#/swap)
+  - [5] [Just Liquidity](https://dexbeta.julswap.com/)
 - ETH:
-	- [1] [Uniswap V2](https://app.uniswap.org/)
+  - [1] [Uniswap V2](https://app.uniswap.org/)
 - AVAX:
-	- [1] [traderjoexyz](https://traderjoexyz.com/#/home)
+  - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
 - FANTOM:
-	- [1] [SpookySwap](https://spookyswap.finance/)
-	- [2] [SpiritSwap](https://www.spiritswap.finance/)
+  - [1] [SpookySwap](https://spookyswap.finance/)
+  - [2] [SpiritSwap](https://www.spiritswap.finance/)
 - POLYGON:
-	- [1] [QuickSwap](https://quickswap.exchange/)
+  - [1] [QuickSwap](https://quickswap.exchange/)
+- CRONOS:
+  - [1] [Mad Meerkat Finance](https://mm.finance/swap)
 - HECO:
-	- [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
+  - [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
 - KCC:
-	- [1] [KoffeeSwap](https://koffeeswap.exchange/)
+  - [1] [KoffeeSwap](https://koffeeswap.exchange/)
 - OKEX:
-	- [1] [CherrySwap](https://www.cherryswap.net/)
-	- [2] [JSwap](https://app.jswap.finance/)
-	- [3] [PandaSwap](https://app.pandaex.org/)
+  - [1] [CherrySwap](https://www.cherryswap.net/)
+  - [2] [JSwap](https://app.jswap.finance/)
+  - [3] [PandaSwap](https://app.pandaex.org/)
 - MOONRIVER:
-	- [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
+  - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
 - ARBITRUM:
-	- [1] [SushiSwap](https://app.sushi.com/en/swap)
+  - [1] [SushiSwap](https://app.sushi.com/en/swap)
 - BSC_TEST:
-	- [1] [PancakeSwap v2 (TEST)]()
+  - [1] [PancakeSwap v2 (TEST)]()
 
     
 ---
@@ -53,6 +55,8 @@ pip install many-abis
 pip install -i https://pypi.org/simple many-abis
 
 # update
+pip install -U many-abis
+# or
 pip install -U -i https://pypi.org/simple many-abis
 ```
 
@@ -116,34 +120,36 @@ ma.print_all_dex()
 # output
 ----------------------
 - BSC:
-	- [1] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
-	- [2] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
-	- [3] [ApeSwap Finance](https://app.apeswap.finance/swap)
-	- [4] [BiSwap](https://exchange.biswap.org/#/swap)
-	- [5] [Just Liquidity](https://dexbeta.julswap.com/)
+  - [1] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
+  - [2] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
+  - [3] [ApeSwap Finance](https://app.apeswap.finance/swap)
+  - [4] [BiSwap](https://exchange.biswap.org/#/swap)
+  - [5] [Just Liquidity](https://dexbeta.julswap.com/)
 - ETH:
-	- [1] [Uniswap V2](https://app.uniswap.org/)
+  - [1] [Uniswap V2](https://app.uniswap.org/)
 - AVAX:
-	- [1] [traderjoexyz](https://traderjoexyz.com/#/home)
+  - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
 - FANTOM:
-	- [1] [SpookySwap](https://spookyswap.finance/)
-	- [2] [SpiritSwap](https://www.spiritswap.finance/)
+  - [1] [SpookySwap](https://spookyswap.finance/)
+  - [2] [SpiritSwap](https://www.spiritswap.finance/)
 - POLYGON:
-	- [1] [QuickSwap](https://quickswap.exchange/)
+  - [1] [QuickSwap](https://quickswap.exchange/)
+- CRONOS:
+  - [1] [Mad Meerkat Finance](https://mm.finance/swap)
 - HECO:
-	- [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
+  - [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
 - KCC:
-	- [1] [KoffeeSwap](https://koffeeswap.exchange/)
+  - [1] [KoffeeSwap](https://koffeeswap.exchange/)
 - OKEX:
-	- [1] [CherrySwap](https://www.cherryswap.net/)
-	- [2] [JSwap](https://app.jswap.finance/)
-	- [3] [PandaSwap](https://app.pandaex.org/)
+  - [1] [CherrySwap](https://www.cherryswap.net/)
+  - [2] [JSwap](https://app.jswap.finance/)
+  - [3] [PandaSwap](https://app.pandaex.org/)
 - MOONRIVER:
-	- [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
+  - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
 - ARBITRUM:
-	- [1] [SushiSwap](https://app.sushi.com/en/swap)
+  - [1] [SushiSwap](https://app.sushi.com/en/swap)
 - BSC_TEST:
-	- [1] [PancakeSwap v2 (TEST)]()
+  - [1] [PancakeSwap v2 (TEST)]()
 ```
 
 * If one DEX contract is not in the default settings, we can get abis from the contract address.
@@ -155,9 +161,13 @@ ma.print_all_dex()
 Here is an example to access open source dex abi from address.
 
 ```python
-from many_abis.utils.utils import get_factory_from_router, get_abi_from_address
-from many_abis.utils.enum.chain_rpc_enum import CHAIN_RPC_API as rpc
-from many_abis.utils.enum.contract_api_enum import CHAIN_CONTRACT_API as contract_api
+from many_abis.utils.enums.chain_rpc_enum import CHAIN_RPC_API as rpc
+from many_abis.utils.enums.contract_api_enum import CHAIN_CONTRACT_API as contract_api
+from many_abis.utils.tools import get_factory_from_router, get_abi_from_address, create_dex_router
+
+# get router
+pancake = create_dex_router('BSC', 'pancake-v2')
+print(pancake)
 
 # get router abi
 abi = get_abi_from_address('0x10ED43C718714eb63d5aA57B78B54704E256024E', 'YOUR_API_KEY', chain_api=contract_api.BSC)

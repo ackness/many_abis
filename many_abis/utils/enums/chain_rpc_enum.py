@@ -13,3 +13,4 @@ class CHAIN_RPC_API:
     FTM: str = 'https://rpc.ftm.tools'
     AVAX: str = 'https://api.avax.network/ext/bc/C/rpc'
     ARBITRUM: str = 'https://arb1.arbitrum.io/rpc'
+    CRONOS: str = 'https://evm.cronos.org'

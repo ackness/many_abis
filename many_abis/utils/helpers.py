@@ -38,9 +38,12 @@ def get_dex(chain: str, dex: str) -> BaseDEX:
 
 
 def get(chain, dex=None):
+    # replace "-" to "_"
+    chain = chain.replace('-', '_')
     if dex is None:
         return get_chain(chain)
     else:
+        dex = dex.replace('-', '_')
         return get_dex(chain, dex)
 
 
@@ -49,4 +52,4 @@ def print_all_dex():
         print(f"- {name}:")
         # print("\t- DEX:")
         for j, (d_name, dex) in enumerate(chain.dex.items()):
-            print(f"\t- [{j + 1}] [{dex.name}]({dex.website})")
+            print(f"  - [{j + 1}] [{dex.name}]({dex.website})")

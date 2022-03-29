@@ -1,6 +1,29 @@
-from typing import Tuple
+from typing import Tuple, Optional
 
+import many_abis as ma
 import requests
+from web3 import Web3
+from web3 import exceptions as web3exceptions
+
+
+def create_dex_router(chain: str, dex_name: str, client: Optional[Tuple[str, Web3]] = None):
+    if client is None:
+        rpc = ma.get_chain(chain).rpcs.all[0]
+        client = Web3(Web3.HTTPProvider(rpc))
+    elif isinstance(client, str):
+        if client.startswith('http'):
+            client = Web3(Web3.HTTPProvider(client))
+        elif client.startswith('ws'):
+            client = Web3(Web3.WebsocketProvider(client))
+        else:
+            raise NotImplementedError
+    elif isinstance(client, Web3):
+        pass
+    else:
+        raise NotImplementedError
+
+    dex = ma.get(chain, dex_name)
+    return client.eth.contract(dex.router_address, abi=dex.router_abi)
 
 
 def get_abi_from_address(address: str, api_key: str, chain_api: str):
@@ -29,8 +52,6 @@ def get_abi_from_address(address: str, api_key: str, chain_api: str):
 
 
 def get_factory_from_router(router_address: str, api_key: str, chain_api: str, rpc: str) -> Tuple[str, dict]:
-    from web3 import Web3
-    from web3 import exceptions as web3exceptions
     web3 = Web3(Web3.HTTPProvider(rpc))
     router_address = web3.toChecksumAddress(router_address)
     router_abi = get_abi_from_address(router_address, api_key, chain_api)
