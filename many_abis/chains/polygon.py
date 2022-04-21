@@ -16,7 +16,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://app.polychart.io/explorer/polygon/{address}',
+        'default': 'https://dexscreener.com/polygon/{address}',
+        'dexscreener': 'https://dexscreener.com/polygon/{address}',
         'poocoin': 'https://polygon.poocoin.app/tokens/{address}',
         'kek': 'https://kek.tools/t/{address}',
         'quickcharts': 'https://quickchart.app/token/{address}',

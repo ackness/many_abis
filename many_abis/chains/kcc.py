@@ -15,7 +15,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://koffeeswap.exchange/#/pro',
+        'default': 'https://dexscreener.com/kcc/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/kcc/{lp_address}',
         'koffeeswap': 'https://koffeeswap.exchange/#/pro',
         'Sell/Buy On KoffeeSwap': 'https://koffeeswap.exchange/#/swap?outputCurrency={address}',
     }

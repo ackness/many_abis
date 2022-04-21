@@ -1,5 +1,5 @@
 from typing import Any
-
+from web3 import Web3
 from ._assets import *
 
 
@@ -10,6 +10,7 @@ class AttributeDict(dict):
 
     def __init__(self, *args, **kwargs):
         dict.__init__(self, *args, **kwargs)
+        self.__parse_address()
 
     def __setattr__(self, __name: str, __value: Any) -> None:
         if type(__value) == dict:
@@ -17,6 +18,11 @@ class AttributeDict(dict):
             for __key in __value:
                 __value.__setattr__(__key, __value[__key])
         self.__setitem__(__name, __value)
+
+    def __parse_address(self, ):
+        for k, v in self.items():
+            if bool(Web3.isAddress(v)):
+                self[k] = Web3.toChecksumAddress(v)
 
     __getattr__ = dict.get
     __delattr__ = dict.__delitem__

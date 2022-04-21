@@ -15,7 +15,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://app.sushi.com/en/swap',
+        'default': 'https://dexscreener.com/arbitrum/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/arbitrum/{lp_address}',
         'SushiSwap': 'https://app.sushi.com/en/swap',
         'Sell/Buy On SushiSwap': 'https://app.sushi.com/en/swap',
     }

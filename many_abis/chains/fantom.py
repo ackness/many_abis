@@ -15,6 +15,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
+        'default': 'https://dexscreener.com/fantom/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/fantom/{lp_address}',
         'ChartEX': 'https://chartex.pro/dashboard',
         'Sell/Buy On SpookySwap': 'https://spookyswap.finance/swap',
         'Sell/Buy On SpiritSwap': 'https://swap.spiritswap.finance/#/exchange/swap/{address}',

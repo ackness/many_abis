@@ -1,4 +1,12 @@
-# Many Abis [v0.1.2]
+# Many Abis 
+
+![Version](https://img.shields.io/badge/many--abis-v0.1.3-green)
+![Pypi](https://img.shields.io/pypi/dm/many-abis)
+
+![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
+![GitHub forks](https://img.shields.io/github/forks/ackness/many_abis?style=social)
+
+---
 
 Get different DEX abis easily for blockchain developers.
 

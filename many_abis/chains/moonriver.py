@@ -15,6 +15,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
+        'default': 'https://dexscreener.com/moonriver/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/moonriver/{lp_address}',
         'ChartEX': 'https://chartex.pro/dashboard',
         'Moonlit': 'https://moonlit.finance/',
         'Sell/Buy On Solarbeam': 'https://app.solarbeam.io/exchange/swap',

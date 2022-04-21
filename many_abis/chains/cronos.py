@@ -16,7 +16,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://mm.finance/swap?outputCurrency={address}',
+        'default': 'https://dexscreener.com/cronos/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/cronos/{lp_address}',
         'Sell/Buy On MMF': 'https://mm.finance/swap?outputCurrency={address}',
     }
 )

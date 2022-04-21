@@ -16,7 +16,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://www.dextools.io/app/uniswap/pair-explorer/{address}',
+        'default': 'https://dexscreener.com/ethereum/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/ethereum/{lp_address}',
         'dextools': 'https://www.dextools.io/app/uniswap/pair-explorer/{address}',
         'Sell/Buy On Uniswap-V2': 'https://app.uniswap.org/#/swap?outputCurrency={address}&use=V2',
     }

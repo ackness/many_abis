@@ -22,6 +22,7 @@ CHARTS = BaseChart(
         'dex.guru': 'https://dex.guru/token/{address}-bsc',
         'bogged': 'https://charts.bogged.finance/?token={address}',
         'avedex': 'https://avedex.org/token/{address}',
+        'dexscreener': 'https://dexscreener.com/bsc/{lp_address}',
         'Sell/Buy On Pancake-V2': 'https://exchange.pancakeswap.finance/#/swap?outputCurrency={address}',
     }
 )
@@ -51,7 +52,7 @@ DEX = AttributeDict(
         website='https://exchange.pancakeswap.finance/#/swap'
     ),
     mdex_bsc=BaseDEX(
-        name='MDEX (BSC)', router_address='0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8',
+        name='MDEX (BSC)', router_address='0x7DAe51BD3E3376B8c7c4900E9107f12Be3AF1bA8',
         factory_address='0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8', website='https://bsc.mdex.co/#/swap/'
     ),
     apeswap=BaseDEX(

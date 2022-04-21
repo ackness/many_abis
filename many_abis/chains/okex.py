@@ -15,7 +15,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://www.cherryswap.net/#/swap?outputCurrency={address}',
+        'default': 'https://dexscreener.com/oec/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/oec/{lp_address}',
         'Sell/Buy On CherrySwap': 'https://www.cherryswap.net/#/swap?outputCurrency={address}',
         'Sell/Buy On JSwap': 'https://app.jswap.finance/#/swap?outputCurrency={address}',
         'Sell/Buy On Pandaex': 'https://app.pandaex.org/#/swap?outputCurrency={address}',

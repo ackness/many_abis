@@ -17,7 +17,9 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
+        'default': 'https://dexscreener.com/avalanche/{lp_address}',
         'ChartEX': 'https://chartex.pro/dashboard',
+        'dexscreener': 'https://dexscreener.com/avalanche/{lp_address}',
         'Sell/Buy On traderjoexyz': 'https://traderjoexyz.com/#/trade',
     }
 )

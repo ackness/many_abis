@@ -14,8 +14,7 @@ def assert_chain_supported(chain: str):
 def get_chain(chain: str) -> BaseChain:
     assert_chain_supported(chain)
     chain_name = chain.upper()
-    chain_module = CHAINS[chain_name]
-    return chain_module
+    return CHAINS[chain_name]
 
 
 def get_support_dex(chain: str) -> list:
@@ -33,8 +32,7 @@ def get_dex(chain: str, dex: str) -> BaseDEX:
     assert_dex_supported(chain, dex)
     dex_name = dex.lower()
     chain_name = chain.upper()
-    dex_module = CHAINS[chain_name].dex[dex_name]
-    return dex_module
+    return CHAINS[chain_name].dex[dex_name]
 
 
 def get(chain, dex=None):
@@ -42,14 +40,12 @@ def get(chain, dex=None):
     chain = chain.replace('-', '_')
     if dex is None:
         return get_chain(chain)
-    else:
-        dex = dex.replace('-', '_')
-        return get_dex(chain, dex)
+    dex = dex.replace('-', '_')
+    return get_dex(chain, dex)
 
 
 def print_all_dex():
-    for i, (name, chain) in enumerate(CHAINS.items()):
+    for name, chain in CHAINS.items():
         print(f"- {name}:")
-        # print("\t- DEX:")
         for j, (d_name, dex) in enumerate(chain.dex.items()):
             print(f"  - [{j + 1}] [{dex.name}]({dex.website})")

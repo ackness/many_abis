@@ -16,7 +16,8 @@ STABLE_COINS = BaseCoin(
 
 CHARTS = BaseChart(
     {
-        'default': 'https://info.nut.money/token/{address}',
+        'default': 'https://dexscreener.com/heco/{lp_address}',
+        'dexscreener': 'https://dexscreener.com/heco/{lp_address}',
         'pippi': 'https://info.pippi.finance/token/{address}',  # only support
         'nut': 'https://info.nut.money/token/{address}',
         # xfarmer shold input pair address

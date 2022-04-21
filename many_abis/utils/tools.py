@@ -17,9 +17,7 @@ def create_dex_router(chain: str, dex_name: str, client: Optional[Tuple[str, Web
             client = Web3(Web3.WebsocketProvider(client))
         else:
             raise NotImplementedError
-    elif isinstance(client, Web3):
-        pass
-    else:
+    elif not isinstance(client, Web3):
         raise NotImplementedError
 
     dex = ma.get(chain, dex_name)
@@ -54,8 +52,7 @@ def get_abi_from_address(address: str, api_key: str, chain_api: str):
 def get_factory_from_router(router_address: str, api_key: str, chain_api: str, rpc: str) -> Tuple[str, dict]:
     web3 = Web3(Web3.HTTPProvider(rpc))
     router_address = web3.toChecksumAddress(router_address)
-    router_abi = get_abi_from_address(router_address, api_key, chain_api)
-    if router_abi:
+    if router_abi := get_abi_from_address(router_address, api_key, chain_api):
         try:
             router_contract = web3.eth.contract(address=router_address, abi=router_abi)
             factory_address = router_contract.functions.factory().call()
