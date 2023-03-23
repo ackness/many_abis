@@ -27,6 +27,12 @@ CHARTS = BaseChart(
 RPC = BaseRPC(
     all=[
         'https://api.avax.network/ext/bc/C/rpc',
+        'https://avalanche.public-rpc.com',
+        'https://rpc.ankr.com/avalanche',
+        'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc',
+        'https://avalanche-c-chain.publicnode.com',
+        'https://1rpc.io/avax/c',
+        'https://avalanche.blockpi.network/v1/rpc/public'
     ]
 )
 

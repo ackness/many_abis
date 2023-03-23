@@ -42,6 +42,16 @@ RPC = BaseRPC(
         'https://bsc-dataseed2.ninicoin.io/',
         'https://bsc-dataseed3.ninicoin.io/',
         'https://bsc-dataseed4.ninicoin.io/',
+        'https://rpc-bsc.48.club',
+        'https://koge-rpc-bsc.48.club',
+        'https://rpc.ankr.com/bsc',
+        'https://bscrpc.com',
+        'https://binance.nodereal.io',
+        'https://1rpc.io/bnb',
+        'https://bsc.rpc.blxrbdn.com',
+        'https://bsc.blockpi.network/v1/rpc/public',
+        'https://bnb.api.onfinality.io/public',
+        'https://bsc.publicnode.com'
     ]
 )
 

@@ -26,6 +26,16 @@ CHARTS = BaseChart(
 RPC = BaseRPC(
     all=[
         'https://rpc.ftm.tools',
+        'https://rpcapi.fantom.network',
+        'https://rpc.ankr.com/fantom',
+        'https://rpc.fantom.network',
+        'https://rpc2.fantom.network',
+        'https://rpc3.fantom.network',
+        'https://1rpc.io/ftm',
+        'https://fantom-mainnet.public.blastapi.io',
+        'https://fantom.blockpi.network/v1/rpc/public',
+        'https://fantom.publicnode.com',
+        'https://fantom.api.onfinality.io/public'
     ]
 )
 

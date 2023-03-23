@@ -26,6 +26,20 @@ CHARTS = BaseChart(
 RPC = BaseRPC(
     all=[
         'https://cloudflare-eth.com',
+        'https://eth.llamarpc.com',
+        'https://rpc.ankr.com/eth',
+        'https://ethereum.publicnode.com',
+        'https://1rpc.io/eth',
+        'https://rpc.builder0x69.io',
+        'https://rpc.flashbots.net',
+        'https://virginia.rpc.blxrbdn.com',
+        'https://uk.rpc.blxrbdn.com',
+        'https://singapore.rpc.blxrbdn.com',
+        'https://eth.rpc.blxrbdn.com',
+        'https://api.securerpc.com/v1',
+        'https://eth-rpc.gateway.pokt.network',
+        'https://rpc.payload.de',
+        'https://eth.api.onfinality.io/public',
     ]
 )
 

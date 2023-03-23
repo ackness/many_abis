@@ -35,6 +35,17 @@ RPC = BaseRPC(
         'https://matic-mainnet.chainstacklabs.com',
         'https://matic-mainnet-full-rpc.bwarelabs.com',
         'https://matic-mainnet-archive-rpc.bwarelabs.com',
+        'https://polygon.llamarpc.com',
+        'https://polygon-rpc.com',
+        'https://matic-mainnet.chainstacklabs.com',
+        'https://poly-rpc.gateway.pokt.network',
+        'https://rpc.ankr.com/polygon',
+        'https://polygon-mainnet.public.blastapi.io',
+        'https://1rpc.io/matic',
+        'https://polygon-bor.publicnode.com',
+        'https://polygon.blockpi.network/v1/rpc/public',
+        'https://polygon.api.onfinality.io/public',
+        'https://polygon.rpc.blxrbdn.com'
     ]
 )
 
