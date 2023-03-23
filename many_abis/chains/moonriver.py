@@ -26,6 +26,10 @@ CHARTS = BaseChart(
 RPC = BaseRPC(
     all=[
         'https://rpc.moonriver.moonbeam.network',
+        'https://moonriver.public.blastapi.io',
+        'https://rpc.api.moonriver.moonbeam.network',
+        'https://moonriver.api.onfinality.io/public',
+        'https://moonriver.unitedbloc.com:2000'
     ]
 )
 

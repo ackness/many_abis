@@ -27,7 +27,9 @@ RPC = BaseRPC(
         'https://evm-cronos.crypto.org',  
         'https://evm.cronos.org', 
         'https://cronosrpc-1.xstaking.sg',
-        'https://cronos-rpc.elk.finance'
+        'https://cronos-rpc.elk.finance',
+        'https://cronos-evm.publicnode.com',
+        'https://node.croswap.com/rpc'
     ]
 )
 

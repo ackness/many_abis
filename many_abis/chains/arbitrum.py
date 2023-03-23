@@ -9,7 +9,9 @@ WETH = BaseWETH(
 STABLE_COINS = BaseCoin(
     {
         'USDT': '0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9',
-        'USDC': '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8'
+        'USDC': '0xff970a61a04b1ca14834a43f5de4533ebddb5cc8',
+        'DAI': '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+        'TUSD': '0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07'
     }
 )
 
@@ -25,6 +27,9 @@ CHARTS = BaseChart(
 RPC = BaseRPC(
     all=[
         'https://arb1.arbitrum.io/rpc',
+        'https://arbitrum-one.public.blastapi.io',
+        'https://arbitrum.blockpi.network/v1/rpc/public',
+        'https://1rpc.io/arb',
     ]
 )
 
