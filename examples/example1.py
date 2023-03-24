@@ -45,3 +45,6 @@ print(joe['factory_address'])
 
 # print all support dex
 ma.print_all_dex()
+
+bsc = ma.from_id(chain_id=56)
+print(bsc)
