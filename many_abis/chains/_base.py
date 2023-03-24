@@ -100,4 +100,4 @@ class BaseChain(AttributeDict):
         )
 
     def __repr__(self):
-        return f'Chain Name: {self.name}, Explorer: {self.explorer}, DEX: {self.dex.keys()}'
+        return f'Chain Name: {self.name}, ID: {self.chain_id}, Explorer: {self.explorer}, DEX: {self.dex.keys()}'

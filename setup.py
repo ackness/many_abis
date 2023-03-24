@@ -6,7 +6,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 setup(
     name='many_abis',
     packages=find_packages(),
-    version='0.1.4',
+    version='0.1.4.1',
     license='MIT',
     description='A simple way to get different DEXs abis for block chains.',
     long_description=long_description,
