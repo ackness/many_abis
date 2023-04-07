@@ -48,6 +48,8 @@ Now we support dex:
   - [1] [CherrySwap](https://www.cherryswap.net/)
 - polygon:
   - [1] [QuickSwap](https://quickswap.exchange/)
+- optimism:
+  - [1] [Uniswap V3](https://app.uniswap.org/#/swap)
 
 ---
 
@@ -105,6 +107,14 @@ bsc = ma.get_chain(chain_id=56)
 bsc = ma.chain(name="bsc")
 bsc = ma.chain(chain_id=56)
 print(bsc)
+
+# use ['key'] or dot key name to access chain info
+print(bsc['chain_id'])
+# 56
+print(bsc.name)
+# Binance Smart Chain Mainnet
+print(bsc.dex.pancake_v2.router_address)
+# 0x10ED43C718714eb63d5aA57B78B54704E256024E
 
 # to get some items from chain
 eth_weth = ma.get('eth', 'weth')
