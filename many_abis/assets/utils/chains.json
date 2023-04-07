@@ -74,7 +74,7 @@
     }
   },
   "bsc": {
-    "chain": 56,
+    "chain_id": 56,
     "charts": {
       "Sell/Buy On Pancake-V2": "https://exchange.pancakeswap.finance/#/swap?outputCurrency:{address}",
       "avedex": "https://avedex.org/token/{address}",
@@ -161,7 +161,7 @@
     }
   },
   "bsc-test": {
-    "chain": 97,
+    "chain_id": 97,
     "charts": {
       "Sell/Buy On UNREAL SWAP": "https://test-binance-chain-swap/this-is-not-real-url/{address}/#/swap?outputCurrency:{address}",
       "default": "https://test-binance-chain-charts/this-is-not-real-url/{address}"

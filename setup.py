@@ -21,7 +21,8 @@ setup(
               'uniswap', 'koffeeswap'],
 
     install_requires=[
-        "eth_utils"
+        "eth_utils",
+        "addict"
     ],
 
 )
