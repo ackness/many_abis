@@ -1,4 +1,4 @@
-# Many Abis 
+# Many Abis
 
 ![Version](https://img.shields.io/badge/many--abis-v0.1.4.1-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
@@ -12,49 +12,48 @@ Get different DEX abis easily for blockchain developers.
 
 ---
 
-Now we support dex: 
+Now we support dex:
 
 ---
 
-- BSC:
-  - [1] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
-  - [2] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
-  - [3] [ApeSwap Finance](https://app.apeswap.finance/swap)
-  - [4] [BiSwap](https://exchange.biswap.org/#/swap)
-  - [5] [Just Liquidity](https://dexbeta.julswap.com/)
-- ETH:
-  - [1] [Uniswap V2](https://app.uniswap.org/)
-- AVAX:
-  - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
-- FANTOM:
-  - [1] [SpookySwap](https://spookyswap.finance/)
-  - [2] [SpiritSwap](https://www.spiritswap.finance/)
-- POLYGON:
-  - [1] [QuickSwap](https://quickswap.exchange/)
-- CRONOS:
-  - [1] [Mad Meerkat Finance](https://mm.finance/swap)
-- HECO:
-  - [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
-- KCC:
-  - [1] [KoffeeSwap](https://koffeeswap.exchange/)
-- OKEX:
-  - [1] [CherrySwap](https://www.cherryswap.net/)
-  - [2] [JSwap](https://app.jswap.finance/)
-  - [3] [PandaSwap](https://app.pandaex.org/)
-- MOONRIVER:
-  - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
-- ARBITRUM:
+- arbitrum-one:
   - [1] [SushiSwap](https://app.sushi.com/en/swap)
-- BSC_TEST:
+- avax-c:
+  - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
+- bsc:
+  - [1] [ApeSwap Finance](https://app.apeswap.finance/swap)
+  - [2] [BiSwap](https://exchange.biswap.org/#/swap)
+  - [3] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
+  - [4] [PancakeSwap v2](https://pancakeswap.finance/swap)
+  - [5] [PancakeSwap v3](https://pancakeswap.finance/swap)
+  - [6] [uniswap](https://app.uniswap.org/#/swap)
+- bsc-test:
   - [1] [PancakeSwap v2 (TEST)]()
+  - [2] [PancakeSwap v3 (TEST)](https://pancakeswap.finance/swap?chain:bscTestnet)
+- cronos:
+  - [1] [Mad Meerkat Finance](https://mm.finance/swap)
+- eth:
+  - [1] [Uniswap V2](https://app.uniswap.org/)
+  - [2] [Uniswap V3](https://app.uniswap.org/)
+- fantom:
+  - [1] [SpiritSwap](https://www.spiritswap.finance/)
+  - [2] [SpookySwap](https://spookyswap.finance/)
+- heco:
+  - [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
+- kcc:
+  - [1] [KoffeeSwap](https://koffeeswap.exchange/)
+- moonriver:
+  - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
+- okex:
+  - [1] [CherrySwap](https://www.cherryswap.net/)
+- polygon:
+  - [1] [QuickSwap](https://quickswap.exchange/)
 
-    
 ---
-
 
 ## Installation
 
-* Download
+- Download
 
 ```bash
 pip install many-abis
@@ -70,118 +69,50 @@ pip install -U -i https://pypi.org/simple many-abis
 
 ## Usage
 
-* Get dex and eth from default settings.
-
 ```python
 import many_abis as ma
 
-# ===================================
-# chain, use upper str to access
-chain = ma.get('BSC')
+# ======================================================================
+# get all abi names
+print(ma.ALL_ABIS_NAME)
 
-# for now, we collect this chains
-support_chains = ma.SUPPORT_CHAIN
-print(support_chains)
-# ['BSC', 'ETH', 'AVAX', 'FANTOM', 'POLYGON', 'HECO', 'KCC', 'OKEX', 'MOONRIVER', 'ARBITRUM', 'BSC_TEST']
+# get all abis
+print(ma.ABIS)
 
-# print basic chain information
-print(chain)
-# Chain Name: Binance Smart Chain, Explorer: https://bscscan.com/, DEX: dict_keys(['pancake_v2', 'mdex_bsc', 'apeswap', 'biswap', 'jul'])
+# you can access ABI by dot name
+print(ma.ABIS.ERC20)
 
-# all chain keys
-print(chain.keys())
-# dict_keys(['name', 'explorer', 'weth', 'coins', 'charts', 'rpcs', 'chain_id', 'dex'])
 
-# you can use "." to access value
-print(chain.coins)
-# {'BUSD': '0xe9e7cea3dedca5984780bafc599bd69add087d56', 'USDT': '0x55d398326f99059ff775485246999027b3197955', 'USDC': '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d'}
+# ======================================================================
+# get abi from address using etherscan api
+ma.get_abi_from_address(
+    "0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6",
+    "YOUR API KEY",
+    ma.CHAIN_CONTRACT_API.BSC
+)
 
-# you can also use dict like format
-print(chain['weth'])
-# {'name': 'Wrapped BNB', 'symbol': 'WBNB', 'address': '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 'abi': xxxx}
+# ======================================================================
+# chains
+chains = ma.all_chains()
+print(chains)
+# ['arbitrum-one', 'avax-c', 'bsc', 'bsc-test', 'cronos', 'eth', 'fantom', 'heco', 'kcc', 'moonriver', 'okex', 'polygon']
 
-# ===================================
-# dex, you should use upper str chain name, an lower str dex name
-joe = ma.get('AVAX', 'joe')
+# different methods to get chain
+bsc = ma.get_chain_by_id(chain_id=56)
+bsc = ma.get_chain_by_name(name="bsc")
+bsc = ma.get_chain(name="bsc")
+bsc = ma.get_chain(chain_id=56)
+bsc = ma.chain(name="bsc")
+bsc = ma.chain(chain_id=56)
+print(bsc)
 
-# print basic dex information
-print(joe)
-# DEX Name: traderjoexyz, Website: https://traderjoexyz.com/#/home, Router: 0x60ae616a2155ee3d9a68541ba4544862310933d4, Factory: 0x9ad6c38be94206ca50bb0d90783181662f0cfa10
+# to get some items from chain
+eth_weth = ma.get('eth', 'weth')
+print(eth_weth)
+# {'address': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 'name': 'Wrapped ETH', 'symbol': 'WETH'}
 
-# all dex keys
-print(joe.keys())
-# dict_keys(['name', 'router_address', 'router_abi', 'factory_address', 'factory_abi', 'lp_abi', 'website'])
-
-# use "." to access value
-print(joe.router_address)
-
-# use dict like format
-print(joe['factory_address'])
-
-```
-
-* Print all supported chains and dexs.
-
-```
-ma.print_all_dex()
-
-# output
-----------------------
-- BSC:
-  - [1] [PancakeSwap v2](https://exchange.pancakeswap.finance/#/swap)
-  - [2] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
-  - [3] [ApeSwap Finance](https://app.apeswap.finance/swap)
-  - [4] [BiSwap](https://exchange.biswap.org/#/swap)
-  - [5] [Just Liquidity](https://dexbeta.julswap.com/)
-- ETH:
-  - [1] [Uniswap V2](https://app.uniswap.org/)
-- AVAX:
-  - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
-- FANTOM:
-  - [1] [SpookySwap](https://spookyswap.finance/)
-  - [2] [SpiritSwap](https://www.spiritswap.finance/)
-- POLYGON:
-  - [1] [QuickSwap](https://quickswap.exchange/)
-- CRONOS:
-  - [1] [Mad Meerkat Finance](https://mm.finance/swap)
-- HECO:
-  - [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
-- KCC:
-  - [1] [KoffeeSwap](https://koffeeswap.exchange/)
-- OKEX:
-  - [1] [CherrySwap](https://www.cherryswap.net/)
-  - [2] [JSwap](https://app.jswap.finance/)
-  - [3] [PandaSwap](https://app.pandaex.org/)
-- MOONRIVER:
-  - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
-- ARBITRUM:
-  - [1] [SushiSwap](https://app.sushi.com/en/swap)
-- BSC_TEST:
-  - [1] [PancakeSwap v2 (TEST)]()
-```
-
-* If one DEX contract is not in the default settings, we can get abis from the contract address.
-
-* you need to specify your `api_key` from the Block Explorer.
-
-* KCC is not supported!
-
-Here is an example to access open source dex abi from address.
-
-```python
-from many_abis.utils.enums.chain_rpc_enum import CHAIN_RPC_API as rpc
-from many_abis.utils.enums.contract_api_enum import CHAIN_CONTRACT_API as contract_api
-from many_abis.utils.tools import get_factory_from_router, get_abi_from_address, create_dex_router
-
-# get router
-pancake = create_dex_router('BSC', 'pancake-v2')
-print(pancake)
-
-# get router abi
-abi = get_abi_from_address('0x10ED43C718714eb63d5aA57B78B54704E256024E', 'YOUR_API_KEY', chain_api=contract_api.BSC)
-
-# get factory abi
-factory_address, factory_abi = get_factory_from_router('0x10ED43C718714eb63d5aA57B78B54704E256024E', 'YOUR_API_KEY',
-                                                       chain_api=contract_api.BSC, rpc=rpc.BSC)
+ds = ma.get('bsc', 'dex', 'pancake_v2')
+print(ds)
+# {'factory_address': '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73', 'name': 'PancakeSwap v2', 'router_address': '0x10ED43C718714eb63d5aA57B78B54704E256024E', 'website': 'https://pancakeswap.finance/swap'}
 
 ```

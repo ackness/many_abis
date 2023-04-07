@@ -1,0 +1,528 @@
+{
+  "arbitrum-one": {
+    "chain_id": 42161,
+    "charts": {
+      "Sell/Buy On SushiSwap": "https://app.sushi.com/en/swap",
+      "SushiSwap": "https://app.sushi.com/en/swap",
+      "default": "https://dexscreener.com/arbitrum/{lp_address}",
+      "dexscreener": "https://dexscreener.com/arbitrum/{lp_address}"
+    },
+    "dex": {
+      "sushi": {
+        "factory_address": "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+        "name": "SushiSwap",
+        "router_address": "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+        "website": "https://app.sushi.com/en/swap"
+      }
+    },
+    "explorer": "https://arbiscan.io",
+    "name": "Arbitrum One",
+    "rpc": [
+      "https://arb1.arbitrum.io/rpc",
+      "https://arbitrum-one.public.blastapi.io",
+      "https://arbitrum.blockpi.network/v1/rpc/public",
+      "https://1rpc.io/arb"
+    ],
+    "stable_coins": {
+      "DAI": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "TUSD": "0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07",
+      "USDC": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "USDT": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+    },
+    "weth": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "name": "Wrapped ETH",
+      "symbol": "WETH"
+    }
+  },
+  "avax-c": {
+    "chain_id": 43114,
+    "charts": {
+      "ChartEX": "https://chartex.pro/dashboard",
+      "Sell/Buy On traderjoexyz": "https://traderjoexyz.com/#/trade",
+      "default": "https://dexscreener.com/avalanche/{lp_address}",
+      "dexscreener": "https://dexscreener.com/avalanche/{lp_address}"
+    },
+    "dex": {
+      "traderjoe": {
+        "factory_address": "0x9ad6c38be94206ca50bb0d90783181662f0cfa10",
+        "name": "traderjoexyz",
+        "router_address": "0x60ae616a2155ee3d9a68541ba4544862310933d4",
+        "website": "https://traderjoexyz.com/#/home"
+      }
+    },
+    "explorer": "https://snowtrace.io/",
+    "name": "Avalanche Network",
+    "rpc": [
+      "https://api.avax.network/ext/bc/C/rpc",
+      "https://avalanche.public-rpc.com",
+      "https://rpc.ankr.com/avalanche",
+      "https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc",
+      "https://avalanche-c-chain.publicnode.com",
+      "https://1rpc.io/avax/c",
+      "https://avalanche.blockpi.network/v1/rpc/public"
+    ],
+    "stable_coins": {
+      "Dai.e": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+      "USDC.e": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "USDT.e": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118"
+    },
+    "weth": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "name": "Wrapped AVAX",
+      "symbol": "WAVAX"
+    }
+  },
+  "bsc": {
+    "chain_id": 56,
+    "charts": {
+      "Sell/Buy On Pancake-V2": "https://exchange.pancakeswap.finance/#/swap?outputCurrency:{address}",
+      "avedex": "https://avedex.org/token/{address}",
+      "bogged": "https://charts.bogged.finance/?token:{address}",
+      "default": "https://poocoin.app/tokens/{address}",
+      "dex.guru": "https://dex.guru/token/{address}-bsc",
+      "dexscreener": "https://dexscreener.com/bsc/{lp_address}",
+      "dextools": "https://www.dextools.io/app/pancakeswap/pair-explorer/{address}",
+      "poocoin": "https://poocoin.app/tokens/{address}"
+    },
+    "dex": {
+      "apeswap": {
+        "factory_address": "0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6",
+        "name": "ApeSwap Finance",
+        "router_address": "0xcF0feBd3f17CEf5b47b0cD257aCf6025c5BFf3b7",
+        "website": "https://app.apeswap.finance/swap"
+      },
+      "biswap": {
+        "factory_address": "0x858E3312ed3A876947EA49d572A7C42DE08af7EE",
+        "name": "BiSwap",
+        "router_address": "0x3a6d8cA21D1CF76F653A67577FA0D27453350dD8",
+        "website": "https://exchange.biswap.org/#/swap"
+      },
+      "mdex": {
+        "factory_address": "0x3CD1C46068dAEa5Ebb0d3f55F6915B10648062B8",
+        "name": "MDEX (BSC)",
+        "router_address": "0x7DAe51BD3E3376B8c7c4900E9107f12Be3AF1bA8",
+        "website": "https://bsc.mdex.co/#/swap/"
+      },
+      "pancake_v2": {
+        "factory_address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+        "name": "PancakeSwap v2",
+        "router_address": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+        "website": "https://pancakeswap.finance/swap"
+      },
+      "pancake_v3": {
+        "factory_address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "name": "PancakeSwap v3",
+        "router_address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+        "website": "https://pancakeswap.finance/swap"
+      },
+      "uniswap": {
+        "address": "0x5Dc88340E1c5c6366864Ee415d6034cadd1A9897",
+        "name": "uniswap",
+        "website": "https://app.uniswap.org/#/swap"
+      }
+    },
+    "explorer": "https://bscscan.com/",
+    "name": "Binance Smart Chain Mainnet",
+    "rpc": [
+      "https://bsc-dataseed.binance.org/",
+      "https://bsc-dataseed1.binance.org/",
+      "https://bsc-dataseed2.binance.org/",
+      "https://bsc-dataseed3.binance.org/",
+      "https://bsc-dataseed4.binance.org/",
+      "https://bsc-dataseed1.defibit.io/",
+      "https://bsc-dataseed2.defibit.io/",
+      "https://bsc-dataseed3.defibit.io/",
+      "https://bsc-dataseed4.defibit.io/",
+      "https://bsc-dataseed1.ninicoin.io/",
+      "https://bsc-dataseed2.ninicoin.io/",
+      "https://bsc-dataseed3.ninicoin.io/",
+      "https://bsc-dataseed4.ninicoin.io/",
+      "https://rpc-bsc.48.club",
+      "https://koge-rpc-bsc.48.club",
+      "https://rpc.ankr.com/bsc",
+      "https://bscrpc.com",
+      "https://binance.nodereal.io",
+      "https://1rpc.io/bnb",
+      "https://bsc.rpc.blxrbdn.com",
+      "https://bsc.blockpi.network/v1/rpc/public",
+      "https://bnb.api.onfinality.io/public",
+      "https://bsc.publicnode.com"
+    ],
+    "stable_coins": {
+      "BUSD": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "USDC": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "USDT": "0x55d398326f99059ff775485246999027b3197955"
+    },
+    "weth": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "name": "Warpped BNB",
+      "symbol": "WBNB"
+    }
+  },
+  "bsc-test": {
+    "chain_id": 97,
+    "charts": {
+      "Sell/Buy On UNREAL SWAP": "https://test-binance-chain-swap/this-is-not-real-url/{address}/#/swap?outputCurrency:{address}",
+      "default": "https://test-binance-chain-charts/this-is-not-real-url/{address}"
+    },
+    "dex": {
+      "pancake_v2_test": {
+        "factory_address": "0x6725F303b657a9451d8BA641348b6761A6CC7a17",
+        "name": "PancakeSwap v2 (TEST)",
+        "router_address": "0xD99D1c33F9fC3444f8101754aBC46c52416550D1",
+        "website": ""
+      },
+      "pancake_v3_test": {
+        "factory_address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "name": "PancakeSwap v3 (TEST)",
+        "router_address": "0x9a489505a00cE272eAa5e07Dba6491314CaE3796",
+        "website": "https://pancakeswap.finance/swap?chain:bscTestnet"
+      }
+    },
+    "explorer": "https://testnet.bscscan.com/",
+    "name": "Binance Smart Chain Testnet",
+    "rpc": [
+      "https://data-seed-prebsc-1-s1.binance.org:8545/",
+      "https://data-seed-prebsc-2-s1.binance.org:8545/",
+      "https://data-seed-prebsc-1-s2.binance.org:8545/",
+      "https://data-seed-prebsc-2-s2.binance.org:8545/",
+      "https://data-seed-prebsc-1-s3.binance.org:8545/",
+      "https://data-seed-prebsc-2-s3.binance.org:8545/",
+      "https://bsc-testnet.public.blastapi.io"
+    ],
+    "stable_coins": {
+      "BUSD": "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee",
+      "USDC": "0x64544969ed7EBf5f083679233325356EbE738930",
+      "USDT": "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd"
+    },
+    "test_coins": {
+      "BTCB": "0x6ce8dA28E2f864420840cF74474eFf5fD80E65B8",
+      "ETH": "0xd66c6B4F0be8CE5b39D52E0Fd1344c389929B378",
+      "XRP": "0xa83575490D7df4E2F47b7D38ef351a2722cA45b9"
+    },
+    "weth": {
+      "address": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+      "name": "Warpped BNB(testnet)",
+      "symbol": "TWBNB"
+    }
+  },
+  "cronos": {
+    "chain_id": 25,
+    "charts": {
+      "Sell/Buy On MMF": "https://mm.finance/swap?outputCurrency:{address}",
+      "default": "https://dexscreener.com/cronos/{lp_address}",
+      "dexscreener": "https://dexscreener.com/cronos/{lp_address}"
+    },
+    "dex": {
+      "mmf": {
+        "factory_address": "0xd590cC180601AEcD6eeADD9B7f2B7611519544f4",
+        "name": "Mad Meerkat Finance",
+        "router_address": "0x145677FC4d9b8F19B5D56d1820c48e0443049a30",
+        "website": "https://mm.finance/swap"
+      }
+    },
+    "explorer": "https://cronoscan.com/",
+    "name": "Cronos Mainnet",
+    "rpc": [
+      "https://evm-cronos.crypto.org",
+      "https://evm.cronos.org",
+      "https://cronosrpc-1.xstaking.sg",
+      "https://cronos-rpc.elk.finance",
+      "https://cronos-evm.publicnode.com",
+      "https://node.croswap.com/rpc"
+    ],
+    "stable_coins": {
+      "DAI": "0xF2001B145b43032AAF5Ee2884e456CCd805F677D",
+      "USDC": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "USDT": "0x66e428c3f67a68878562e79A0234c1F83c208770"
+    },
+    "weth": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "name": "Wrapped CRO",
+      "symbol": "WCRO"
+    }
+  },
+  "eth": {
+    "chain_id": 1,
+    "charts": {
+      "Sell/Buy On Uniswap-V2": "https://app.uniswap.org/#/swap?outputCurrency:{address}&use:V2",
+      "default": "https://dexscreener.com/ethereum/{lp_address}",
+      "dexscreener": "https://dexscreener.com/ethereum/{lp_address}",
+      "dextools": "https://www.dextools.io/app/uniswap/pair-explorer/{address}"
+    },
+    "dex": {
+      "uniswap_v2": {
+        "factory_address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+        "name": "Uniswap V2",
+        "router_address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "website": "https://app.uniswap.org/"
+      },
+      "uniswap_v3": {
+        "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "name": "Uniswap V3",
+        "router_address": "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://etherscan.io/",
+    "name": "Ethereum Chain",
+    "rpc": [
+      "https://cloudflare-eth.com",
+      "https://eth.llamarpc.com",
+      "https://rpc.ankr.com/eth",
+      "https://ethereum.publicnode.com",
+      "https://1rpc.io/eth",
+      "https://rpc.builder0x69.io",
+      "https://rpc.flashbots.net",
+      "https://virginia.rpc.blxrbdn.com",
+      "https://uk.rpc.blxrbdn.com",
+      "https://singapore.rpc.blxrbdn.com",
+      "https://eth.rpc.blxrbdn.com",
+      "https://api.securerpc.com/v1",
+      "https://eth-rpc.gateway.pokt.network",
+      "https://rpc.payload.de",
+      "https://eth.api.onfinality.io/public"
+    ],
+    "stable_coins": {
+      "DAI": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "USDC": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "USDT": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+    },
+    "weth": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "name": "Wrapped ETH",
+      "symbol": "WETH"
+    }
+  },
+  "fantom": {
+    "chain_id": 250,
+    "charts": {
+      "ChartEX": "https://chartex.pro/dashboard",
+      "Sell/Buy On SpiritSwap": "https://swap.spiritswap.finance/#/exchange/swap/{address}",
+      "Sell/Buy On SpookySwap": "https://spookyswap.finance/swap",
+      "default": "https://dexscreener.com/fantom/{lp_address}",
+      "dexscreener": "https://dexscreener.com/fantom/{lp_address}"
+    },
+    "dex": {
+      "spiritswap": {
+        "factory_address": "0xEF45d134b73241eDa7703fa787148D9C9F4950b0",
+        "name": "SpiritSwap",
+        "router_address": "0x16327E3FbDaCA3bcF7E38F5Af2599D2DDc33aE52",
+        "website": "https://www.spiritswap.finance/"
+      },
+      "spookyswap": {
+        "factory_address": "0x152eE697f2E276fA89E96742e9bB9aB1F2E61bE3",
+        "name": "SpookySwap",
+        "router_address": "0xF491e7B69E4244ad4002BC14e878a34207E38c29",
+        "website": "https://spookyswap.finance/"
+      }
+    },
+    "explorer": "https://ftmscan.com/",
+    "name": "Fantom Opera",
+    "rpc": [
+      "https://rpc.ftm.tools",
+      "https://rpcapi.fantom.network",
+      "https://rpc.ankr.com/fantom",
+      "https://rpc.fantom.network",
+      "https://rpc2.fantom.network",
+      "https://rpc3.fantom.network",
+      "https://1rpc.io/ftm",
+      "https://fantom-mainnet.public.blastapi.io",
+      "https://fantom.blockpi.network/v1/rpc/public",
+      "https://fantom.publicnode.com",
+      "https://fantom.api.onfinality.io/public"
+    ],
+    "stable_coins": {
+      "DAI": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "USDC": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75"
+    },
+    "weth": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "name": "Wrapped Fantom Token",
+      "symbol": "WFTM"
+    }
+  },
+  "heco": {
+    "chain_id": 128,
+    "charts": {
+      "Sell/Buy On MDEX-HECO": "https://ht.mdex.co/#/swap?outputCurrency={address}",
+      "default": "https://dexscreener.com/heco/{lp_address}",
+      "dexscreener": "https://dexscreener.com/heco/{lp_address}",
+      "nut": "https://info.nut.money/token/{address}",
+      "pippi": "https://info.pippi.finance/token/{address}",
+      "xfarmer": "https://xfarmer.net/trade.html?pair_address={address}"
+    },
+    "dex": {
+      "mdex": {
+        "factory_address": "0xb0b670fc1F7724119963018DB0BfA86aDb22d941",
+        "name": "MDEX (HECO)",
+        "router_address": "0xED7d5F38C79115ca12fe6C0041abb22F0A06C300",
+        "website": "https://ht.mdex.co/#/swap/"
+      }
+    },
+    "explorer": "https://hecoinfo.com/",
+    "name": "Huobi Eco Chain",
+    "rpc": [
+      "https://http-mainnet.hecochain.com",
+      "https://http-mainnet-node.huobichain.com",
+      "https://http-mainnet-node.defibox.com"
+    ],
+    "stable_coins": {
+      "DAI HECO": "0x3d760a45d0887dfd89a2f5385a236b29cb46ed2a",
+      "USDC HECO": "0x9362bbef4b8313a8aa9f0c9808b80577aa26b73b",
+      "USDT HECO": "0xa71edc38d189767582c38a3145b5873052c3e47a"
+    },
+    "weth": {
+      "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
+      "name": "Wrapped HT",
+      "symbol": "WHT"
+    }
+  },
+  "kcc": {
+    "chain_id": 321,
+    "charts": {
+      "Sell/Buy On KoffeeSwap": "https://koffeeswap.exchange/#/swap?outputCurrency={address}",
+      "default": "https://dexscreener.com/kcc/{lp_address}",
+      "dexscreener": "https://dexscreener.com/kcc/{lp_address}",
+      "koffeeswap": "https://koffeeswap.exchange/#/pro"
+    },
+    "dex": {
+      "koffeeswap": {
+        "factory_address": "0xC0fFeE00000e1439651C6aD025ea2A71ED7F3Eab",
+        "name": "KoffeeSwap",
+        "router_address": "0xc0fFee0000C824D24E0F280f1e4D21152625742b",
+        "website": "https://koffeeswap.exchange/"
+      }
+    },
+    "explorer": "https://explorer.kcc.io/en/",
+    "name": "KuCoin Community Chain",
+    "rpc": ["https://rpc-mainnet.kcc.network"],
+    "stable_coins": {
+      "USDC": "0x980a5afef3d17ad98635f6c5aebcbaeded3c3430",
+      "USDT": "0x0039f574ee5cc39bdd162e9a88e3eb1f111baf48"
+    },
+    "weth": {
+      "address": "0x4446fc4eb47f2f6586f9faab68b3498f86c07521",
+      "name": "Wrapped KCS",
+      "symbol": "WKCS"
+    }
+  },
+  "moonriver": {
+    "chain_id": 1285,
+    "charts": {
+      "ChartEX": "https://chartex.pro/dashboard",
+      "Moonlit": "https://moonlit.finance/",
+      "Sell/Buy On Solarbeam": "https://app.solarbeam.io/exchange/swap",
+      "default": "https://dexscreener.com/moonriver/{lp_address}",
+      "dexscreener": "https://dexscreener.com/moonriver/{lp_address}"
+    },
+    "dex": {
+      "solarbeam": {
+        "factory_address": "0x049581aEB6Fe262727f290165C29BDAB065a1B68",
+        "name": "Solarbeam",
+        "router_address": "0xAA30eF758139ae4a7f798112902Bf6d65612045f",
+        "website": "https://app.solarbeam.io/exchange/swap"
+      }
+    },
+    "explorer": "https://moonriver.moonscan.io",
+    "name": "Moonriver",
+    "rpc": [
+      "https://rpc.moonriver.moonbeam.network",
+      "https://moonriver.public.blastapi.io",
+      "https://rpc.api.moonriver.moonbeam.network",
+      "https://moonriver.api.onfinality.io/public",
+      "https://moonriver.unitedbloc.com:2000"
+    ],
+    "stable_coins": {
+      "DAI": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "USDC": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D"
+    },
+    "weth": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "name": "Wrapped MOVR",
+      "symbol": "WMOVR"
+    }
+  },
+  "okex": {
+    "chain_id": 66,
+    "charts": {
+      "Sell/Buy On CherrySwap": "https://www.cherryswap.net/#/swap?outputCurrency={address}",
+      "default": "https://dexscreener.com/oec/{lp_address}",
+      "dexscreener": "https://dexscreener.com/oec/{lp_address}"
+    },
+    "dex": {
+      "cherryswap": {
+        "factory_address": "0x709102921812B3276A65092Fe79eDfc76c4D4AFe",
+        "name": "CherrySwap",
+        "router_address": "0x865bfde337C8aFBffF144Ff4C29f9404EBb22b15",
+        "website": "https://www.cherryswap.net/"
+      }
+    },
+    "explorer": "https://www.oklink.com/okexchain/",
+    "name": "OKExChain",
+    "rpc": ["https://exchainrpc.okex.org"],
+    "stable_coins": {
+      "USDC": "0xc946daf81b08146b1c7a8da2a851ddf2b3eaaf85",
+      "USDT": "0x382bb369d343125bfb2117af9c149795c6c65c50"
+    },
+    "weth": {
+      "address": "0x8f8526dbfd6e38e3d8307702ca8469bae6c56c15",
+      "name": "Wrapped OKT",
+      "symbol": "WOKT"
+    }
+  },
+  "polygon": {
+    "chain_id": 137,
+    "charts": {
+      "Sell/Buy On QuickSwap": "https://quickswap.exchange/#/swap?outputCurrency={address}",
+      "default": "https://dexscreener.com/polygon/{address}",
+      "dex.guru": "https://dex.guru/token/{address}-polygon",
+      "dexscreener": "https://dexscreener.com/polygon/{address}",
+      "kek": "https://kek.tools/t/{address}",
+      "polychart": "https://app.polychart.io/explorer/polygon/{address}",
+      "poocoin": "https://polygon.poocoin.app/tokens/{address}",
+      "quickcharts": "https://quickchart.app/token/{address}"
+    },
+    "dex": {
+      "quickswap": {
+        "factory_address": "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+        "name": "QuickSwap",
+        "router_address": "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+        "website": "https://quickswap.exchange/"
+      }
+    },
+    "explorer": "https://polygonscan.com/",
+    "name": "Polygon PoS Chain",
+    "rpc": [
+      "https://rpc-mainnet.matic.network",
+      "https://rpc-mainnet.maticvigil.com",
+      "https://rpc-mainnet.matic.quiknode.pro",
+      "https://matic-mainnet.chainstacklabs.com",
+      "https://matic-mainnet-full-rpc.bwarelabs.com",
+      "https://matic-mainnet-archive-rpc.bwarelabs.com",
+      "https://polygon.llamarpc.com",
+      "https://polygon-rpc.com",
+      "https://matic-mainnet.chainstacklabs.com",
+      "https://poly-rpc.gateway.pokt.network",
+      "https://rpc.ankr.com/polygon",
+      "https://polygon-mainnet.public.blastapi.io",
+      "https://1rpc.io/matic",
+      "https://polygon-bor.publicnode.com",
+      "https://polygon.blockpi.network/v1/rpc/public",
+      "https://polygon.api.onfinality.io/public",
+      "https://polygon.rpc.blxrbdn.com"
+    ],
+    "stable_coins": {
+      "DAI": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "PUSD": "0x9af3b7dc29d3c4b1a5731408b6a9656fa7ac3b72",
+      "USDC": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "USDT": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+    },
+    "weth": {
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "name": "Wrapped Matic",
+      "symbol": "WMATIC"
+    }
+  }
+}
