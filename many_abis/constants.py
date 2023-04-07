@@ -14,7 +14,7 @@ class CHAIN_SCAN_API:
     KCC: str = ''  # not supported
     ARBITRUM: str = 'https://api.arbiscan.io/'
     CRONOS: str = 'https://api.cronoscan.com/api'
-
+    OPT: str = 'https://api-optimistic.etherscan.io/api'
 
 @dataclass(frozen=True)
 class CHAIN_CONTRACT_API:
@@ -30,3 +30,4 @@ class CHAIN_CONTRACT_API:
     KCC: str = ''  # not support
     ARBITRUM: str = 'https://api.arbiscan.io/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'
     CRONOS: str = 'https://api.cronoscan.com/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'
+    OPT: str = 'https://api-optimistic.etherscan.io/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'
