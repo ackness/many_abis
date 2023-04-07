@@ -26,3 +26,11 @@ def load_all_abis():
 def load_chains():
     fp = os.path.join(root_path, "utils", "chains.json")
     return _load_json_file(fp)
+
+
+def print_all_dex():
+    from .chains import CHAINS
+    for name, chain in CHAINS.items():
+        print(f"- {name}:")
+        for j, (d_name, dex) in enumerate(chain.dex.items()):
+            print(f"  - [{j + 1}] [{dex.name}]({dex.website})")

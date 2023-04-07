@@ -52,7 +52,7 @@
       }
     },
     "explorer": "https://snowtrace.io/",
-    "name": "Avalanche Network",
+    "name": "Avalanche C-Chain",
     "rpc": [
       "https://api.avax.network/ext/bc/C/rpc",
       "https://avalanche.public-rpc.com",
@@ -523,6 +523,40 @@
       "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
       "name": "Wrapped Matic",
       "symbol": "WMATIC"
+    }
+  },
+  "optimism": {
+    "chain_id": 10,
+    "charts": {
+      "default": "https://dexscreener.com/polygon/{address}",
+      "dexscreener": "https://dexscreener.com/optimism/{address}"
+    },
+    "dex": {
+      "uniswap_v3": {
+        "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "name": "Uniswap V3",
+        "router_address": "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+        "website": "https://app.uniswap.org/#/swap"
+      }
+    },
+    "explorer": "https://optimistic.etherscan.io/",
+    "name": "Optimism Ethereum L2",
+    "rpc": [
+      "https://mainnet.optimism.io",
+      "https://rpc.ankr.com/optimism",
+      "https://1rpc.io/op",
+      "https://optimism.blockpi.network/v1/rpc/public",
+      "https://endpoints.omniatech.io/v1/op/mainnet/public"
+    ],
+    "stable_coins": {
+      "DAI": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "USDC": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "USDT": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
+    },
+    "weth": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "name": "Wrapped Ether",
+      "symbol": "WETH"
     }
   }
 }
