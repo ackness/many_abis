@@ -1,50 +1,44 @@
 import many_abis as ma
 
-# ===================================
-# chain, use upper str to access
-chain = ma.get('BSC')
+# ======================================================================
+# get all abi names
+print(ma.ALL_ABIS_NAME)
 
-# for now, we collect this chains
-support_chains = ma.SUPPORT_CHAIN
-print(support_chains)
-# ['BSC', 'ETH', 'AVAX', 'FANTOM', 'POLYGON', 'HECO', 'KCC', 'OKEX', 'MOONRIVER', 'ARBITRUM', 'BSC_TEST']
+# get all abis
+print(ma.ABIS)
 
-# print basic chain information
-print(chain)
-# Chain Name: Binance Smart Chain, Explorer: https://bscscan.com/, DEX: dict_keys(['pancake_v2', 'mdex_bsc', 'apeswap', 'biswap', 'jul'])
+# you can access ABI by dot name
+print(ma.ABIS.ERC20)
 
-# all chain keys
-print(chain.keys())
-# dict_keys(['name', 'explorer', 'weth', 'coins', 'charts', 'rpcs', 'chain_id', 'dex'])
 
-# you can use "." to access value
-print(chain.coins)
-# {'BUSD': '0xe9e7cea3dedca5984780bafc599bd69add087d56', 'USDT': '0x55d398326f99059ff775485246999027b3197955', 'USDC': '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d'}
+# ======================================================================
+# get abi from address using etherscan api
+ma.get_abi_from_address(
+    "0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6",
+    "YOUR API KEY",
+    ma.CHAIN_CONTRACT_API.BSC
+)
 
-# you can also use dict like format
-print(chain['weth'])
-# {'name': 'Wrapped BNB', 'symbol': 'WBNB', 'address': '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 'abi': xxxx}
+# ======================================================================
+# chains
+chains = ma.all_chains()
+print(chains)
+# ['arbitrum-one', 'avax-c', 'bsc', 'bsc-test', 'cronos', 'eth', 'fantom', 'heco', 'kcc', 'moonriver', 'okex', 'polygon']
 
-# ===================================
-# dex, you should use upper str chain name, an lower str dex name
-joe = ma.get('AVAX', 'joe')
-
-# print basic dex information
-print(joe)
-# DEX Name: traderjoexyz, Website: https://traderjoexyz.com/#/home, Router: 0x60ae616a2155ee3d9a68541ba4544862310933d4, Factory: 0x9ad6c38be94206ca50bb0d90783181662f0cfa10
-
-# all dex keys
-print(joe.keys())
-# dict_keys(['name', 'router_address', 'router_abi', 'factory_address', 'factory_abi', 'lp_abi', 'website'])
-
-# use "." to access value
-print(joe.router_address)
-
-# use dict like format
-print(joe['factory_address'])
-
-# print all support dex
-ma.print_all_dex()
-
-bsc = ma.from_id(chain_id=56)
+# different methods to get chain
+bsc = ma.get_chain_by_id(chain_id=56)
+bsc = ma.get_chain_by_name(name="bsc")
+bsc = ma.get_chain(name="bsc")
+bsc = ma.get_chain(chain_id=56)
+bsc = ma.chain(name="bsc")
+bsc = ma.chain(chain_id=56)
 print(bsc)
+
+# to get some items from chain
+eth_weth = ma.get('eth', 'weth')
+print(eth_weth)
+# {'address': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 'name': 'Wrapped ETH', 'symbol': 'WETH'}
+
+ds = ma.get('bsc', 'dex', 'pancake_v2')
+print(ds)
+# {'factory_address': '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73', 'name': 'PancakeSwap v2', 'router_address': '0x10ED43C718714eb63d5aA57B78B54704E256024E', 'website': 'https://pancakeswap.finance/swap'}
