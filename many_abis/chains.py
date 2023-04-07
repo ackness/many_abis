@@ -2,7 +2,7 @@ from .utils import load_chains
 from addict import Dict
 from functools import reduce
 
-CHAINS = Dict(load_chain_swap())
+CHAINS = Dict(load_chains())
 SUPPORTED_CHAINS = list(CHAINS.keys())
 
 

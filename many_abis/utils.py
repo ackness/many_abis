@@ -23,10 +23,6 @@ def load_all_abis():
     return {f'{p[len(root_path):][:-4]}': _load_json_file(p) for p in all_abis_fp}
 
 
-def load_chainS():
-    fp = os.path.join(root_path, "utils", "chain_swap.json")
+def load_chains():
+    fp = os.path.join(root_path, "utils", "chains.json")
     return _load_json_file(fp)
-
-
-def build_contract(address, abi):
-    pass
