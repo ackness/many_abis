@@ -132,3 +132,6 @@ dmypy.json
 .xml
 examples/test*
 test*
+temp.json
+.vscode/*
+test/*
