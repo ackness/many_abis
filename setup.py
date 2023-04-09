@@ -9,7 +9,7 @@ setup(
     package_dir={'many_abis': 'many_abis'},
     package_data={'': [
         '**/*.abi', '**/*.json']},
-    version='0.1.6',
+    version='0.1.6.1',
     license='MIT',
     description='A simple way to get different DEXs abis for block chains.',
     long_description=long_description,

@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.1.6-green)
+![Version](https://img.shields.io/badge/many--abis-v0.1.6.1-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -26,7 +26,7 @@ Now we support dex:
   - [3] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
   - [4] [PancakeSwap v2](https://pancakeswap.finance/swap)
   - [5] [PancakeSwap v3](https://pancakeswap.finance/swap)
-  - [6] [uniswap](https://app.uniswap.org/#/swap)
+  - [6] [Uniswap](https://app.uniswap.org/#/swap)
 - bsc-test:
   - [1] [PancakeSwap v2 (TEST)]()
   - [2] [PancakeSwap v3 (TEST)](https://pancakeswap.finance/swap?chain:bscTestnet)
@@ -50,6 +50,7 @@ Now we support dex:
   - [1] [QuickSwap](https://quickswap.exchange/)
 - optimism:
   - [1] [Uniswap V3](https://app.uniswap.org/#/swap)
+  - [2] [Velodrome V1](https://app.velodrome.finance/swap)
 
 ---
 
@@ -124,5 +125,8 @@ print(eth_weth)
 ds = ma.get('bsc', 'dex', 'pancake_v2')
 print(ds)
 # {'factory_address': '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73', 'name': 'PancakeSwap v2', 'router_address': '0x10ED43C718714eb63d5aA57B78B54704E256024E', 'website': 'https://pancakeswap.finance/swap'}
+
+# print all dex
+ma.print_all_dex()
 
 ```
