@@ -537,6 +537,12 @@
         "name": "Uniswap V3",
         "router_address": "0xE592427A0AEce92De3Edee1F18E0157C05861564",
         "website": "https://app.uniswap.org/#/swap"
+      },
+      "velodrome_v1": {
+        "factory_address": "0xC5be2c918EB04B091962fDF095A217A55CFA42C5",
+        "name": "Velodrome V1",
+        "router_address": "0x9c12939390052919aF3155f41Bf4160Fd3666A6f",
+        "website": "https://app.velodrome.finance/swap"
       }
     },
     "explorer": "https://optimistic.etherscan.io/",
@@ -551,7 +557,9 @@
     "stable_coins": {
       "DAI": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
       "USDC": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
-      "USDT": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
+      "USDT": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+      "sUSD": "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9",
+      "agEUR": "0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED"
     },
     "weth": {
       "address": "0x4200000000000000000000000000000000000006",
