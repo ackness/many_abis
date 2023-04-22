@@ -34,3 +34,9 @@ def print_all_dex():
         print(f"- {name}:")
         for j, (d_name, dex) in enumerate(chain.dex.items()):
             print(f"  - [{j + 1}] [{dex.name}]({dex.website})")
+
+
+def supported_abis():
+    from .abis import ALL_ABIS_NAME
+    # print(ALL_ABIS_NAME)
+    return ALL_ABIS_NAME

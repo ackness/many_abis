@@ -1,5 +1,5 @@
 {
-  "arbitrum-one": {
+  "arbitrum": {
     "chain_id": 42161,
     "charts": {
       "Sell/Buy On SushiSwap": "https://app.sushi.com/en/swap",
@@ -35,7 +35,7 @@
       "symbol": "WETH"
     }
   },
-  "avax-c": {
+  "avalanche": {
     "chain_id": 43114,
     "charts": {
       "ChartEX": "https://chartex.pro/dashboard",
@@ -444,7 +444,7 @@
       "symbol": "WMOVR"
     }
   },
-  "okex": {
+  "okx": {
     "chain_id": 66,
     "charts": {
       "Sell/Buy On CherrySwap": "https://www.cherryswap.net/#/swap?outputCurrency={address}",
