@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.1.6.1-green)
+![Version](https://img.shields.io/badge/many--abis-v0.1.7-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -16,9 +16,9 @@ Now we support dex:
 
 ---
 
-- arbitrum-one:
+- arbitrum:
   - [1] [SushiSwap](https://app.sushi.com/en/swap)
-- avax-c:
+- avalanche:
   - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
 - bsc:
   - [1] [ApeSwap Finance](https://app.apeswap.finance/swap)
@@ -44,7 +44,7 @@ Now we support dex:
   - [1] [KoffeeSwap](https://koffeeswap.exchange/)
 - moonriver:
   - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
-- okex:
+- okx:
   - [1] [CherrySwap](https://www.cherryswap.net/)
 - polygon:
   - [1] [QuickSwap](https://quickswap.exchange/)
@@ -98,7 +98,7 @@ ma.get_abi_from_address(
 # chains
 chains = ma.all_chains()
 print(chains)
-# ['arbitrum-one', 'avax-c', 'bsc', 'bsc-test', 'cronos', 'eth', 'fantom', 'heco', 'kcc', 'moonriver', 'okex', 'polygon']
+# ['arbitrum', 'avalanche', 'bsc', 'bsc-test', 'cronos', 'eth', 'fantom', 'heco', 'kcc', 'moonriver', 'okx', 'polygon', 'optimism']
 
 # different methods to get chain
 bsc = ma.get_chain_by_id(chain_id=56)
