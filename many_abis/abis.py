@@ -1,14 +1,21 @@
-from .utils import load_all_abis
-from addict import Dict
+from pathlib import PurePath
+
 import requests
+from addict import Dict
+
+from .meta import ABIMetaData
+from .utils import load_all_abis
 
 
-def all_abis():
+# __all__ = ["ABIS"]
+
+def all_abis() -> tuple[list[str], ABIMetaData]:
     all_abis = load_all_abis()
     names = []
     all_abis_rename = {}
     for k, v in all_abis.items():
-        ns = k.split('/')[2:]
+        ns = list(PurePath(k).parts)[2:]
+        # ns = k.split('/')[2:]  # only for linux or mac
         name = '_'.join(ns).upper()
         names.append(name)
         all_abis_rename[name] = v
@@ -16,7 +23,6 @@ def all_abis():
 
 
 ALL_ABIS_NAME, ABIS = all_abis()
-globals().update(ABIS)
 
 
 def get_abi_from_address(address: str, api_key: str, chain_api: str):

@@ -16,6 +16,7 @@ class CHAIN_SCAN_API:
     CRONOS: str = 'https://api.cronoscan.com/api'
     OPT: str = 'https://api-optimistic.etherscan.io/api'
 
+
 @dataclass(frozen=True)
 class CHAIN_CONTRACT_API:
     ETH: str = 'https://api.etherscan.io/api?module=contract&action=getabi&address={contract_address}&apikey={api_key}'
