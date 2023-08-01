@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 
 with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
-# print(find_packages())
+
 setup(
     name='many_abis',
-    packages=['many_abis'],
+    # packages=['many_abis'],
+    packages=find_packages(where="many_abis"),
     package_dir={'many_abis': 'many_abis'},
-    package_data={'': [
-        '**/*.abi', '**/*.json']},
-    version='0.1.7',
+    package_data={'': ["assets/*"]},
+    version='0.1.8',
     license='MIT',
     description='A simple way to get different DEXs abis for block chains.',
     long_description=long_description,
@@ -24,5 +24,6 @@ setup(
         "eth_utils",
         "addict"
     ],
+    python_requires='>=3.8',
 
 )
