@@ -8,8 +8,8 @@ setup(
     # packages=['many_abis'],
     packages=find_packages(where="many_abis"),
     package_dir={'many_abis': 'many_abis'},
-    package_data={'': ["assets/*"]},
-    version='0.1.8',
+    package_data={'': ["assets/*", "tea.yaml"]},
+    version='0.1.9',
     license='MIT',
     description='A simple way to get different DEXs abis for block chains.',
     long_description=long_description,
@@ -18,7 +18,7 @@ setup(
     author_email='ackness8@gmail.com',
     url='https://github.com/ackness/many_abis',
     keywords=['abi', 'dex', 'block chain', 'bsc', 'eth', 'matic', 'heco',
-              'kcc', 'pancakeswap', 'mdex', 'quickswap', 'uniswap', 'koffeeswap'],
+              'kcc', 'pancakeswap', 'mdex', 'quickswap', 'uniswap', 'koffeeswap', "web3"],
 
     install_requires=[
         "eth_utils",
