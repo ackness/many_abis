@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.1.8-green)
+![Version](https://img.shields.io/badge/many--abis-v0.1.9-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
