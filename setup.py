@@ -18,7 +18,7 @@ setup(
     author_email='ackness8@gmail.com',
     url='https://github.com/ackness/many_abis',
     keywords=['abi', 'dex', 'block chain', 'bsc', 'eth', 'matic', 'heco',
-              'kcc', 'pancakeswap', 'mdex', 'quickswap', 'uniswap', 'koffeeswap'],
+              'kcc', 'pancakeswap', 'mdex', 'quickswap', 'uniswap', 'koffeeswap', "web3"],
 
     install_requires=[
         "eth_utils",
