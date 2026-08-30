@@ -1,0 +1,32 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "hyperevm",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 999,
+    "charts": {
+      "default": "https://dexscreener.com/hyperevm/{lp_address}",
+      "dexscreener": "https://dexscreener.com/hyperevm/{lp_address}"
+    },
+    "dex": {},
+    "explorer": "https://hyperevmscan.io/",
+    "name": "HyperEVM",
+    "rpc": [
+      "https://rpc.hyperliquid.xyz/evm"
+    ],
+    "stable_coins": {
+      "USDC": "0xb88339CB7199b77E23DB6E890353E22632Ba630f",
+      "USDT0": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"
+    },
+    "weth": {
+      "address": "0x5555555555555555555555555555555555555555",
+      "name": "Wrapped HYPE",
+      "symbol": "WHYPE"
+    }
+  }
+}

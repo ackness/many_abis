@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "chains": [
+    "arbitrum",
+    "avalanche",
+    "base",
+    "bsc",
+    "bsc-test",
+    "cronos",
+    "eth",
+    "hyperevm",
+    "monad",
+    "polygon",
+    "optimism",
+    "robinhood",
+    "sonic",
+    "unichain",
+    "xlayer"
+  ]
+}

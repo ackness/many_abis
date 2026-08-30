@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ackness/many_abis/registry/schemas/chain-source.schema.json",
+  "title": "many-abis chain source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "slug",
+    "verified_at",
+    "provenance",
+    "data"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chain",
+        "review"
+      ],
+      "properties": {
+        "chain": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "review": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chain_id",
+        "charts",
+        "dex",
+        "explorer",
+        "name",
+        "rpc",
+        "stable_coins",
+        "weth"
+      ],
+      "properties": {
+        "chain_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "charts": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        },
+        "dex": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dex"
+          }
+        },
+        "explorer": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rpc": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          }
+        },
+        "stable_coins": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/address"
+          }
+        },
+        "test_coins": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/address"
+          }
+        },
+        "weth": {
+          "$ref": "#/$defs/wrapped_native"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$"
+    },
+    "wrapped_native": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "address",
+        "name",
+        "symbol"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "symbol": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "factory_address",
+        "name",
+        "router_address",
+        "website"
+      ],
+      "properties": {
+        "deployment_source": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "factory_abi": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_]+$"
+        },
+        "factory_address": {
+          "$ref": "#/$defs/address"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocol_family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "protocol_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "router_abi": {
+          "type": "string",
+          "pattern": "^[A-Z0-9_]+$"
+        },
+        "router_address": {
+          "$ref": "#/$defs/address"
+        },
+        "router_variant": {
+          "type": "string",
+          "minLength": 1
+        },
+        "website": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": ""
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "protocol_family"
+            ]
+          },
+          "then": {
+            "required": [
+              "deployment_source",
+              "factory_abi",
+              "protocol_version",
+              "router_abi"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

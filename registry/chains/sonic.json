@@ -1,0 +1,44 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "sonic",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.soniclabs.com/sonic/build-on-sonic/getting-started",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 146,
+    "charts": {
+      "default": "https://dexscreener.com/sonic/{lp_address}",
+      "dexscreener": "https://dexscreener.com/sonic/{lp_address}"
+    },
+    "dex": {
+      "shadow_clmm": {
+        "deployment_source": "https://docs.shadow.so/pages/contract-addresses",
+        "factory_abi": "SHADOW_CLMM_V3_FACTORY",
+        "factory_address": "0xcD2d0637c94fe77C2896BbCBB174cefFb08DE6d7",
+        "name": "Shadow Exchange CLMM",
+        "protocol_family": "shadow_clmm",
+        "protocol_version": "3",
+        "router_abi": "SHADOW_CLMM_V3_ROUTER",
+        "router_address": "0x5543c6176feb9b4b179078205d7c29eea2e2d695",
+        "router_variant": "SwapRouter",
+        "website": "https://www.shadow.so/"
+      }
+    },
+    "explorer": "https://sonicscan.org/",
+    "name": "Sonic Mainnet",
+    "rpc": [
+      "https://rpc.soniclabs.com"
+    ],
+    "stable_coins": {
+      "USDC": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894"
+    },
+    "weth": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "name": "Wrapped Sonic",
+      "symbol": "wS"
+    }
+  }
+}

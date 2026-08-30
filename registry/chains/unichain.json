@@ -1,0 +1,45 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "unichain",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://developers.uniswap.org/docs/unichain/technical-information/network-information",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 130,
+    "charts": {
+      "default": "https://dexscreener.com/unichain/{lp_address}",
+      "dexscreener": "https://dexscreener.com/unichain/{lp_address}"
+    },
+    "dex": {
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-unichain-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0x1f98400000000000000000000000000000000003",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0x73855d06de49d0fe4a9c42636ba96c62da12ff9c",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://uniscan.xyz/",
+    "name": "Unichain Mainnet",
+    "rpc": [
+      "https://mainnet.unichain.org"
+    ],
+    "stable_coins": {
+      "USDC": "0x078D782b760474a361dDA0AF3839290b0EF57AD6",
+      "USDT0": "0x9151434b16b9763660705744891fA906F660EcC5"
+    },
+    "weth": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "name": "Wrapped ETH",
+      "symbol": "WETH"
+    }
+  }
+}

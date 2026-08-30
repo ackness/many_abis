@@ -1,0 +1,206 @@
+{
+  "$schema": "schemas/legacy-abi-allowlist.schema.json",
+  "schema_version": 1,
+  "abis": {
+    "AAVE_V1_ATOKEN": {
+      "canonical_sha256": "217c0e1d09c9d5e7a043c3af9613a7fb0175d75be39136ef8039cb94b08826e4",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V1_LENDING_POOL": {
+      "canonical_sha256": "6dc9fb20c7a68934d45ff1c40fd00d06d6edc1bfd20739872fc48360ce0ed341",
+      "contract_role": "pool",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V1_LENDING_POOL_ADDRESSES_PROVIDER": {
+      "canonical_sha256": "7530bfbdcc8b9460354b96bbf5c1448649ed34b5c85832debd8a739eb84ca2ca",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V1_LENDING_POOL_CORE": {
+      "canonical_sha256": "bbef2a404719f133cb83b9cb98a123e5305ab4814e2de9d4f415d78a7536f8a8",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_COLLECTOR": {
+      "canonical_sha256": "5bc8a0fe2b70a5c96b8142ced115802eb2d233e05cd7fea466b806cae46cb0d7",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_INCENTIVES_CONTROLLER": {
+      "canonical_sha256": "630ba0f7754b1ff2fac0a229c426402cec954febc48076d2e3ce662514ea6f77",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_LENDING_POOL": {
+      "canonical_sha256": "40d6a5a7ff93c0c8d6786e3cd608f59dd176d35d70844726462fa705f37b9af7",
+      "contract_role": "pool",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_LENDING_POOL_ADDRESSES_PROVIDER_REGISTRY": {
+      "canonical_sha256": "18132ee652b1c18a2b675b183895da4f47e6f0cef519464664cb7da451da5593",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_LENDING_POOL_COLLATERAL_MANAGER": {
+      "canonical_sha256": "15139088603033b3ecf3ef7e9f8be040dfcfd5c5e4cab93c5b0b32a84375d20b",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_LENDING_POOL_CONFIGURATOR": {
+      "canonical_sha256": "7cfef8f89c6e3f2bb3786a7118a6c2383e696860a4d09f5c06a762a9afa93e7d",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_LENDING_RATE_ORACLE": {
+      "canonical_sha256": "92c3abfa431e28edea2370e03d86c414fbeec8624bae7165c594c62fe72de68d",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_POOL_ADMIN": {
+      "canonical_sha256": "4b2b49941cb27430367d4f84cb614e5431da2530c21d3f42ce32ba47201de500",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_PRICE_ORACLE": {
+      "canonical_sha256": "943843872b0dbab4283326e1b1d00ba28eb8e5362dbe90d1a3d5659cf2fbce1e",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_PROTOCAL_DATA_PROVIDER": {
+      "canonical_sha256": "db7a98c932c229c77306a9c5ed9fd1d612a5c7d2e6ea85db148e7e9b4ccd420d",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_UI_INCENTIVE_DATA_PROVIDER": {
+      "canonical_sha256": "9391fb188261988c7a50408d3b1581e35d801bcf47e8ad67f078aee897b16b24",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_UI_POOL_DATA_PROVIDER": {
+      "canonical_sha256": "0d1b731d11ccb548714022411f5f3f686912b8ddabd0ff81155d2791a2c11325",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "AAVE_V2_WETH_GATEWAY": {
+      "canonical_sha256": "43d5b38b01d3a179a3f3ea735c91eae1388bf6647cf274a206bdb4ebb7fbbab4",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "ERC1155": {
+      "canonical_sha256": "82d3dbf0f6e34a75c26a9471e7a262260c78e64c00c8c726abfb5058202b982f",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "ERC20": {
+      "canonical_sha256": "8677cba24af40b66f2a87b4d236f9a27d3d4a5de946c01e8443fc6c29ef9a5b0",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "ERC721": {
+      "canonical_sha256": "e3bddd053577712c64ef76885f838b36da9b1f785a23181945cf27871294d637",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "ERC777": {
+      "canonical_sha256": "d9599a24b7ff91566336f196117418b4fdd7f96a900f536dbfc06a80aa260b38",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "JOE_V2_FACTORY": {
+      "canonical_sha256": "896217b524a35ed79f8028bca83f07c03bffbe5dc1744a66c0b781491deac43d",
+      "contract_role": "factory",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "JOE_V2_PAIR": {
+      "canonical_sha256": "8b6ea5111961a9e1fce257953d5148fbcea8fa481838dd924302bbec536583f2",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "JOE_V2_ROUTER": {
+      "canonical_sha256": "47f82df03723d2afc19456d1839a2dd7a7b10e5a747c5ff71f7c630148afe688",
+      "contract_role": "router",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_IPERIPHERY_PAYMENTS_WITH_FEE": {
+      "canonical_sha256": "fc5e816ee6f68267afd37ca17382a095d7077f10bb676b27c2b9cf1c4920e7ad",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_MASTER_CHEF_V3": {
+      "canonical_sha256": "2cd00efaad925afc5cd33f275b8e68cacf237e4a9692b8f7e5a9945784c7a3a6",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_NON_FUNGIBLE_POSITION_MANAGER": {
+      "canonical_sha256": "8b9a8fbd8faaa4a7eba89304e6ac099eafdc9b2413e1e91f16b23fbe0fce3def",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_QUOTER": {
+      "canonical_sha256": "7c1edd1462e8c4735eba230d51d47fc6129aa8c02813657de7659cb9e1c1dd28",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_QUOTER_V2": {
+      "canonical_sha256": "cc32cad3552d9f016ac38fb4f5d54094f3693f919fc6ba73322616cf6c078256",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_SELF_PERMIT": {
+      "canonical_sha256": "61f1999b8dfb96c57462f2749962c1250525b0fe113c99a92763084f6aa5806e",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "PANCAKE_V3_STAKER": {
+      "canonical_sha256": "17e051fe47e848ef3aa715167db31a39c1073e89e92f084d4190992d1d170031",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_BSC_ROUTER": {
+      "canonical_sha256": "90a727a5edc45740fefcbbfd785b8d6f48b87c163f508f7867a71443aa3c1924",
+      "contract_role": "router",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V1_FACTORY": {
+      "canonical_sha256": "7bd5129d1a7a708db6e3cf9b0769644a980a58d45d1c868c4d0420a3ef1850b5",
+      "contract_role": "factory",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V2_PAIR": {
+      "canonical_sha256": "028a21c54379447a103cca879cf45adc2fbebd50fc7ed5d7e1f6f93e5a5aad3d",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V3_MULTICALL": {
+      "canonical_sha256": "5624e7e2d97e4e671972ca5b85d135268385671e7ae776b0ef68306e48ef8f52",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V3_NON_FUNGIBLE_POSITION_MANAGE": {
+      "canonical_sha256": "82528e836584af021aa9c1cb9c0463eef2758a146f8a5221fdaa366060132c83",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V3_POOL": {
+      "canonical_sha256": "ad35708734bf3131a452370efa32b747caaca88b3276e9711cfef4b0d7a67c1e",
+      "contract_role": "pool",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V3_QUOTER": {
+      "canonical_sha256": "d925fe9e86207a35aa9cd1e40e37679eba6385922ca5ff1feee3abb374f9b74a",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "UNISWAP_V3_ROUTER": {
+      "canonical_sha256": "4f9cef44420f7884ef393c9a2d67a9794c1ec97d6f0b91f27c96ccdd7234e5cf",
+      "contract_role": "router",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    },
+    "WETH9": {
+      "canonical_sha256": "ef60c7b37939199aa2437ec2c832688e1eb77d2b4c472fd9ab06ccf8bad71522",
+      "contract_role": "other",
+      "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required."
+    }
+  }
+}

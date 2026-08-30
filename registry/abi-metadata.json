@@ -1,0 +1,348 @@
+{
+  "$schema": "schemas/abi-metadata.schema.json",
+  "schema_version": 1,
+  "abis": {
+    "AAVE_V2_LENDING_POOL_ADDRESSES_PROVIDER": {
+      "contract_role": "other",
+      "interface_name": "LendingPoolAddressesProvider",
+      "required_signatures": [
+        "function:getLendingPool()",
+        "function:setLendingPoolImpl(address)"
+      ],
+      "license": {
+        "spdx_expression": "AGPL-3.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://unpkg.com/@aave/protocol-v2@1.0.1/LICENSE.md"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@aave/protocol-v2/-/protocol-v2-1.0.1.tgz",
+        "immutable_ref": "npm:@aave/protocol-v2@1.0.1#sha512-MU3WiigW89DWDpCtvaw4rafih7RbADB45uUM/zqfnOD4g9JNUVfeT6MrjV4/DP/JPA2Iv5ySKSx+a1OfUES0Pg=="
+      }
+    },
+    "AERODROME_SLIPSTREAM_V3_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "CLFactory",
+      "required_signatures": [
+        "function:createPool(address,address,int24,uint160)",
+        "function:getPool(address,address,int24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/aerodrome-finance/slipstream/tree/f8717faaae6e6717db3c8e3850149c01a79c0603"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0xf8f2eB4940CFE7d13603DDDD87f123820Fc061Ef?fields=abi,metadata",
+        "immutable_ref": "chain:8453:0xf8f2eB4940CFE7d13603DDDD87f123820Fc061Ef"
+      }
+    },
+    "AERODROME_SLIPSTREAM_V3_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "required_signatures": [
+        "function:exactInputSingle((address,address,int24,address,uint256,uint256,uint256,uint160))",
+        "function:factory()"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/aerodrome-finance/slipstream/tree/f8717faaae6e6717db3c8e3850149c01a79c0603"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0x698Cb2b6dd822994581fEa6eA4Fc755d1363A92F?fields=abi,metadata",
+        "immutable_ref": "chain:8453:0x698Cb2b6dd822994581fEa6eA4Fc755d1363A92F"
+      }
+    },
+    "LFJ_LIQUIDITY_BOOK_V2_2_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "LBFactory",
+      "required_signatures": [
+        "function:createLBPair(address,address,uint24,uint16)",
+        "function:getPreset(uint256)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/lfj-gg/joe-v2/tree/067c6ccf5b8ff1526d03fa3e4c65ec45d01c1f73"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/43114/0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c?fields=abi,metadata",
+        "immutable_ref": "chain:43114:0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c"
+      }
+    },
+    "LFJ_LIQUIDITY_BOOK_V2_2_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "LBRouter",
+      "required_signatures": [
+        "function:getFactory()",
+        "function:getWNATIVE()"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/lfj-gg/joe-v2/tree/067c6ccf5b8ff1526d03fa3e4c65ec45d01c1f73"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan/api?module=contract&action=getabi&address=0x18556DA13313f3532c54711497A8FedAC273220E",
+        "immutable_ref": "chain:43114:0x18556DA13313f3532c54711497A8FedAC273220E"
+      }
+    },
+    "PANCAKE_V3_BASE_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "PlunderV3Factory",
+      "required_signatures": [
+        "function:createPool(address,address,uint24)",
+        "function:getPool(address,address,uint24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865?fields=abi,metadata",
+        "immutable_ref": "chain:8453:0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+      }
+    },
+    "PANCAKE_V3_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "PancakeV3Factory",
+      "required_signatures": [
+        "function:createPool(address,address,uint24)",
+        "function:getPool(address,address,uint24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865?fields=abi,metadata",
+        "immutable_ref": "chain:56:0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865"
+      }
+    },
+    "PANCAKE_V3_POOL_V3": {
+      "contract_role": "pool",
+      "interface_name": "PancakeV3Pool",
+      "required_signatures": [
+        "function:mint(address,int24,int24,uint128,bytes)",
+        "function:swap(address,bool,int256,uint160,bytes)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@pancakeswap/v3-core/-/v3-core-1.0.2.tgz",
+        "immutable_ref": "npm:@pancakeswap/v3-core@1.0.2#sha512-9aZU8I1J6SbZOSW7NcNxuyaAC17tGkOaZJM9aJgvl6MMUOExpq0i0EC/jc3HxWbpC8sbZL+8eG544NEJs8CS+w=="
+      }
+    },
+    "PANCAKE_V3_ROUTER_V3": {
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "required_signatures": [
+        "function:exactInputSingle((address,address,uint24,address,uint256,uint256,uint256,uint160))",
+        "function:pancakeV3SwapCallback(int256,int256,bytes)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0x1b81D678ffb9C0263b24A97847620C99d213eB14?fields=abi,metadata",
+        "immutable_ref": "chain:8453:0x1b81D678ffb9C0263b24A97847620C99d213eB14"
+      }
+    },
+    "PANCAKE_V3_SMART_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "SmartRouter",
+      "required_signatures": [
+        "function:exactInputStableSwap(address[],uint256[],uint256,uint256,address)",
+        "function:factoryV2()"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x13f4EA83D0bd40E75C8222255bc855a974568Dd4?fields=abi,metadata",
+        "immutable_ref": "chain:56:0x13f4EA83D0bd40E75C8222255bc855a974568Dd4"
+      }
+    },
+    "SHADOW_CLMM_V3_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "ShadowV3Factory",
+      "required_signatures": [
+        "function:createPool(address,address,int24,uint160)",
+        "function:getPool(address,address,int24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Shadow-Exchange/shadow-core/tree/bb3fa4fc6a257aee99cdcf58a0b8b38e51d4a9f7"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sonicscan.org/address/0xcD2d0637c94fe77C2896BbCBB174cefFb08DE6d7#code",
+        "immutable_ref": "chain:146:0xcD2d0637c94fe77C2896BbCBB174cefFb08DE6d7"
+      }
+    },
+    "SHADOW_CLMM_V3_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "required_signatures": [
+        "function:exactInputSingle((address,address,int24,address,uint256,uint256,uint256,uint160))",
+        "function:uniswapV3SwapCallback(int256,int256,bytes)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Shadow-Exchange/shadow-core/tree/bb3fa4fc6a257aee99cdcf58a0b8b38e51d4a9f7"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sonicscan.org/address/0x5543c6176feb9b4b179078205d7c29eea2e2d695#code",
+        "immutable_ref": "chain:146:0x5543c6176feb9b4b179078205d7c29eea2e2d695"
+      }
+    },
+    "UNISWAP_V1_EXCHANGE": {
+      "contract_role": "pool",
+      "interface_name": "Exchange",
+      "required_signatures": [
+        "function:addLiquidity(uint256,uint256,uint256)",
+        "function:tokenToTokenSwapInput(uint256,uint256,uint256,uint256,address)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-3.0-only",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/v1-contracts/blob/c10c08d81d6114f694baa8bd32f555a40f6264da/LICENSE.md"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://github.com/Uniswap/v1-contracts/blob/c10c08d81d6114f694baa8bd32f555a40f6264da/abi/uniswap_exchange.json",
+        "immutable_ref": "git:Uniswap/v1-contracts@c10c08d81d6114f694baa8bd32f555a40f6264da"
+      }
+    },
+    "UNISWAP_V2_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "IUniswapV2Factory",
+      "required_signatures": [
+        "function:createPair(address,address)",
+        "function:getPair(address,address)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-3.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@uniswap/v2-core/1.0.1"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v2-core/-/v2-core-1.0.1.tgz",
+        "immutable_ref": "npm:@uniswap/v2-core@1.0.1#sha512-MtybtkUPSyysqLY2U210NBDeCHX+ltHt3oADGdjqoThZaFRDKwM6k1Nb3F0A3hk5hwuQvytFWhrWHOEq6nVJ8Q=="
+      }
+    },
+    "UNISWAP_V2_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "IUniswapV2Router02",
+      "required_signatures": [
+        "function:factory()",
+        "function:swapExactTokensForTokens(uint256,uint256,address[],address,uint256)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-3.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@uniswap/v2-periphery/1.1.0-beta.0"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v2-periphery/-/v2-periphery-1.1.0-beta.0.tgz",
+        "immutable_ref": "npm:@uniswap/v2-periphery@1.1.0-beta.0#sha512-6dkwAMKza8nzqYiXEr2D86dgW3TTavUvCR0w2Tu33bAbM8Ah43LKAzH7oKKPRT5VJQaMi1jtkGs1E8JPor1n5g=="
+      }
+    },
+    "UNISWAP_V3_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "UniswapV3Factory",
+      "required_signatures": [
+        "function:createPool(address,address,uint24)",
+        "function:getPool(address,address,uint24)"
+      ],
+      "license": {
+        "spdx_expression": "BUSL-1.1",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@uniswap/v3-core/1.0.1"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v3-core/-/v3-core-1.0.1.tgz",
+        "immutable_ref": "npm:@uniswap/v3-core@1.0.1#sha512-7pVk4hEm00j9tc71Y9+ssYpO6ytkeI0y7WE9P6UcmNzhxPePwyAxImuhVsTqWK9YFvzgtvzJHi64pBl4jUzKMQ=="
+      }
+    },
+    "UNISWAP_V3_ROUTER_02": {
+      "contract_role": "router",
+      "interface_name": "SwapRouter02",
+      "required_signatures": [
+        "function:exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+        "function:factory()"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://registry.npmjs.org/@uniswap/swap-router-contracts/1.3.1"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/swap-router-contracts/-/swap-router-contracts-1.3.1.tgz",
+        "immutable_ref": "npm:@uniswap/swap-router-contracts@1.3.1#sha512-mh/YNbwKb7Mut96VuEtL+Z5bRe0xVIbjjiryn+iMMrK2sFKhR4duk/86mEz0UO5gSx4pQIw9G5276P5heY/7Rg=="
+      }
+    },
+    "VELODROME_SLIPSTREAM_V3_FACTORY": {
+      "contract_role": "factory",
+      "interface_name": "CLFactory",
+      "required_signatures": [
+        "function:createPool(address,address,int24,uint160)",
+        "function:getPool(address,address,int24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/velodrome-finance/slipstream/tree/193a6b85f836a229b76a8df3541a284a2368427b"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/10/0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879?fields=abi,metadata",
+        "immutable_ref": "chain:10:0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879"
+      }
+    },
+    "VELODROME_SLIPSTREAM_V3_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "required_signatures": [
+        "function:exactInputSingle((address,address,int24,address,uint256,uint256,uint256,uint160))",
+        "function:factory()"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/velodrome-finance/slipstream/tree/193a6b85f836a229b76a8df3541a284a2368427b"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/10/0xbA3aEe516399388C779463183d00bB579f5041Ca?fields=abi,metadata",
+        "immutable_ref": "chain:10:0xbA3aEe516399388C779463183d00bB579f5041Ca"
+      }
+    }
+  }
+}

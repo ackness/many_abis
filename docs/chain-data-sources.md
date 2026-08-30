@@ -1,7 +1,9 @@
 # Chain Data Sources and Verification
 
 This document records the evidence and acceptance criteria used to maintain
-`many_abis/assets/utils/chains.json`. It is intentionally stricter than a list
+`registry/chains/*.json`. The packaged `many_abis/assets/utils/chains.json` is
+generated from those reviewed source files. This policy is intentionally
+stricter than a list
 of projects shown by an aggregator: an entry is added to the runtime data only
 after its identity and deployed contracts can be independently verified.
 
@@ -275,6 +277,8 @@ interfaces, not hand-written approximations:
 | Velodrome Slipstream | [Factory](https://sourcify.dev/server/v2/contract/10/0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879?fields=abi,metadata), [router](https://sourcify.dev/server/v2/contract/10/0xbA3aEe516399388C779463183d00bB579f5041Ca?fields=abi,metadata) exact matches | [Velodrome Slipstream](https://github.com/velodrome-finance/slipstream), contract files identify GPL-2.0-or-later; repository licensing terms also apply |
 | Shadow CLMM V3 | SonicScan Exact Match ABI for the configured factory and router | [Shadow core](https://github.com/Shadow-Exchange/shadow-core), relevant contract files identify GPL-2.0-or-later |
 | PancakeSwap V3 | Sourcify verified metadata for the BSC `PancakeV3Factory`, BSC `SmartRouter`, Base `PlunderV3Factory`, and Base `SwapRouter` deployments | [PancakeSwap v3 contracts](https://github.com/pancakeswap/pancake-v3-contracts), GPL-2.0-or-later |
+| Uniswap V1 Exchange | Official ABI at fixed commit `c10c08d` | [Uniswap v1-contracts](https://github.com/Uniswap/v1-contracts/blob/c10c08d81d6114f694baa8bd32f555a40f6264da/abi/uniswap_exchange.json), GPL-3.0-only |
+| Aave V2 LendingPoolAddressesProvider | Official package artifact | [`@aave/protocol-v2@1.0.1`](https://www.npmjs.com/package/@aave/protocol-v2/v/1.0.1), AGPL-3.0-or-later |
 
 The Slipstream and Shadow routers use `int24 tickSpacing`; Uniswap V3 uses
 `uint24 fee`. Those types produce different selectors, so the interfaces must
@@ -286,3 +290,12 @@ bundled `UNISWAP_V3_ROUTER_02` ABI was extracted from version 1.3.1 of the
 official [`@uniswap/swap-router-contracts`](https://www.npmjs.com/package/@uniswap/swap-router-contracts/v/1.3.1)
 artifact. Entries using `SwapRouter02` explicitly reference this ABI; they must
 not use the older deadline-bearing `UNISWAP_V3_ROUTER` interface.
+
+During the 0.3 registry migration, three historical copy errors were detected
+and replaced from fixed official artifacts without changing their public ABI
+names: `PANCAKE_V3_POOL_V3` had contained a factory ABI,
+`AAVE_V2_LENDING_POOL_ADDRESSES_PROVIDER` had contained the Aave V1 core ABI,
+and `UNISWAP_V1_EXCHANGE` had contained an Aave incentive-provider ABI. Tests
+now require identity-specific signatures for all three. The remaining
+pre-0.3 ABI assets without complete provenance are hash-pinned in the explicit
+legacy allowlist and cannot change silently.

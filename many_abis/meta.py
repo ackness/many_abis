@@ -1,13 +1,13 @@
-from typing import Iterable, Mapping, Optional, Sequence
+from typing import Any, Iterable, Mapping, Optional, Sequence
 
 
-class WethMetaData:
+class WethMetaData(Mapping[str, Any]):
     address: str
     name: str
     symbol: str
 
 
-class SingleDexMetaData:
+class SingleDexMetaData(Mapping[str, Any]):
     deployment_source: Optional[str]
     factory_abi: Optional[str]
     factory_address: str
@@ -21,7 +21,7 @@ class SingleDexMetaData:
     website: str
 
 
-class ChainMetaData:
+class ChainMetaData(Mapping[str, Any]):
     chain_id: int
     charts: Mapping[str, str]
     dex: Mapping[str, SingleDexMetaData]
@@ -34,7 +34,7 @@ class ChainMetaData:
     weth: WethMetaData
 
 
-class ChainsMetaData:
+class ChainsMetaData(Mapping[str, ChainMetaData]):
     eth: ChainMetaData
     bsc: ChainMetaData
     base: ChainMetaData

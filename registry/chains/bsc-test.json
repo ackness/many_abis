@@ -1,0 +1,54 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "bsc-test",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.bnbchain.org/bnb-smart-chain/developers/json_rpc/bsc_rpc/",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 97,
+    "charts": {
+      "default": "https://testnet.bscscan.com/address/{address}"
+    },
+    "dex": {
+      "pancake_v2_test": {
+        "factory_address": "0x6725F303b657a9451d8BA641348b6761A6CC7a17",
+        "name": "PancakeSwap v2 (TEST)",
+        "router_address": "0xD99D1c33F9fC3444f8101754aBC46c52416550D1",
+        "website": ""
+      },
+      "pancake_v3_test": {
+        "deployment_source": "https://developer.pancakeswap.finance/contracts/v3/addresses",
+        "factory_abi": "PANCAKE_V3_FACTORY",
+        "factory_address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "name": "PancakeSwap v3 (TEST)",
+        "protocol_family": "pancake_v3",
+        "protocol_version": "3",
+        "router_abi": "PANCAKE_V3_SMART_ROUTER",
+        "router_address": "0x9a489505a00cE272eAa5e07Dba6491314CaE3796",
+        "website": "https://pancakeswap.finance/swap?chain=bscTestnet"
+      }
+    },
+    "explorer": "https://testnet.bscscan.com/",
+    "name": "Binance Smart Chain Testnet",
+    "rpc": [
+      "https://bsc-testnet-dataseed.bnbchain.org"
+    ],
+    "stable_coins": {
+      "BUSD": "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee",
+      "USDC": "0x64544969ed7EBf5f083679233325356EbE738930",
+      "USDT": "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd"
+    },
+    "test_coins": {
+      "BTCB": "0x6ce8dA28E2f864420840cF74474eFf5fD80E65B8",
+      "ETH": "0xd66c6B4F0be8CE5b39D52E0Fd1344c389929B378"
+    },
+    "weth": {
+      "address": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
+      "name": "Wrapped BNB (testnet)",
+      "symbol": "WBNB"
+    }
+  }
+}

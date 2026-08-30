@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ackness/many_abis/registry/schemas/abi-index.schema.json",
+  "title": "many-abis generated ABI index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "abis"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "abis": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "canonical_sha256",
+          "contract_role",
+          "interface_name",
+          "item_count",
+          "license",
+          "provenance",
+          "required_signatures",
+          "resource",
+          "selector_fingerprint"
+        ],
+        "properties": {
+          "canonical_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "contract_role": {
+            "enum": [
+              "factory",
+              "other",
+              "pool",
+              "router"
+            ]
+          },
+          "interface_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "item_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "license": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "redistribution",
+              "spdx_expression"
+            ],
+            "properties": {
+              "redistribution": {
+                "enum": [
+                  "allowed",
+                  "legacy_exception"
+                ]
+              },
+              "spdx_expression": {
+                "type": "string"
+              }
+            }
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "status",
+              "source_url"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "legacy",
+                  "verified"
+                ]
+              },
+              "source_url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "required_signatures": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "resource": {
+            "type": "string",
+            "pattern": "^assets/.+\\.abi$"
+          },
+          "selector_fingerprint": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

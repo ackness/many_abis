@@ -137,3 +137,5 @@ test/*
 *test*
 !tests/
 !tests/*.py
+!.github/workflows/test.yml
+!registry/chains/bsc-test.json

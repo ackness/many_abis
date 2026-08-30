@@ -1,0 +1,56 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install .
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python scripts/generate_registry.py --check
+      - run: python -m unittest discover -s tests -v
+      - run: python -m mypy
+
+  wheel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m build
+      - run: python -m pip install --target /tmp/many-abis-wheel dist/*.whl
+      - name: Verify installed wheel resources
+        working-directory: /tmp
+        run: |
+          PYTHONPATH=/tmp/many-abis-wheel python - <<'PY'
+          from pathlib import Path
+
+          import many_abis as m
+
+          root = Path("/tmp/many-abis-wheel")
+          assert m.__version__ == "0.3.0"
+          assert len(m.ALL_ABIS_NAME) == 59
+          assert m.loaded_abis() == []
+          assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
+          assert len(m.loaded_abis()) == 59
+          assert (root / "many_abis" / "abis.pyi").is_file()
+          assert (root / "many_abis" / "py.typed").is_file()
+          license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))
+          assert len(license_dirs) == 1
+          assert (license_dirs[0] / "LICENSE").is_file()
+          assert (license_dirs[0] / "THIRD_PARTY_NOTICES.md").is_file()
+          PY

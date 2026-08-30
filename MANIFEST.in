@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include THIRD_PARTY_NOTICES.md
+include pyproject.toml
+include requirements-dev.txt
+include many_abis/abis.pyi
+include many_abis/py.typed
+recursive-include many_abis/assets *.abi *.json
+recursive-include registry *.json
+recursive-include scripts *.py
+recursive-include docs *.md

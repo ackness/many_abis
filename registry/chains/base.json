@@ -1,0 +1,67 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "base",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.base.org/base-chain/quickstart/connecting-to-base",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 8453,
+    "charts": {
+      "default": "https://dexscreener.com/base/{lp_address}",
+      "dexscreener": "https://dexscreener.com/base/{lp_address}"
+    },
+    "dex": {
+      "aerodrome_slipstream": {
+        "deployment_source": "https://github.com/aerodrome-finance/slipstream#deployments",
+        "factory_abi": "AERODROME_SLIPSTREAM_V3_FACTORY",
+        "factory_address": "0xf8f2eB4940CFE7d13603DDDD87f123820Fc061Ef",
+        "name": "Aerodrome Slipstream (Gauges V3)",
+        "protocol_family": "aerodrome_slipstream",
+        "protocol_version": "3",
+        "router_abi": "AERODROME_SLIPSTREAM_V3_ROUTER",
+        "router_address": "0x698Cb2b6dd822994581fEa6eA4Fc755d1363A92F",
+        "router_variant": "SwapRouter",
+        "website": "https://aerodrome.finance/swap"
+      },
+      "pancake_v3": {
+        "deployment_source": "https://developer.pancakeswap.finance/contracts/v3/addresses",
+        "factory_abi": "PANCAKE_V3_BASE_FACTORY",
+        "factory_address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "name": "PancakeSwap V3",
+        "protocol_family": "pancake_v3",
+        "protocol_version": "3",
+        "router_abi": "PANCAKE_V3_ROUTER_V3",
+        "router_address": "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+        "website": "https://pancakeswap.finance/swap"
+      },
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-base-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0x2626664c2603336E57B271c5C0b26F421741e481",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://base.blockscout.com/",
+    "name": "Base Mainnet",
+    "rpc": [
+      "https://mainnet.base.org"
+    ],
+    "stable_coins": {
+      "USDC": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    },
+    "weth": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "name": "Wrapped ETH",
+      "symbol": "WETH"
+    }
+  }
+}

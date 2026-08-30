@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.2.0-green)
+![Version](https://img.shields.io/badge/many--abis-v0.3.0-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -89,11 +89,14 @@ import many_abis as ma
 # get all abi names
 print(ma.ALL_ABIS_NAME)
 
-# get all abis
+# ABIS is a read-only mapping. Listing it does not parse every ABI file.
 print(ma.ABIS)
 
-# you can access ABI by dot name
+# The first access loads and caches only this ABI. Dot and item access work.
 print(ma.ABIS.ERC20)
+print(ma.ABIS["ERC20"])
+print(ma.get_abi("erc20"))
+print(ma.loaded_abis())
 
 
 # ======================================================================
@@ -142,3 +145,26 @@ print(ds)
 ma.print_all_dex()
 
 ```
+
+## Registry maintenance
+
+Runtime data is generated offline. Edit one reviewed source file under
+`registry/chains/` or `registry/abi-metadata.json`, then regenerate and verify:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python scripts/generate_registry.py --write
+python scripts/generate_registry.py --check
+python -m unittest discover -s tests -v
+python -m mypy
+```
+
+Do not edit `many_abis/assets/utils/chains.json`, `abi-index.json`, generated
+documentation, or `many_abis/abis.pyi` directly. Generation is deterministic
+and never accesses the network. See the generated [chain registry](docs/generated/supported-chains.md),
+[ABI provenance](docs/generated/abi-provenance.md), and the detailed
+[verification policy](docs/chain-data-sources.md).
+Pre-0.3 ABI files without complete provenance are pinned by canonical hash in
+`registry/legacy-abi-allowlist.json`; new or changed ABI files must instead add
+audited metadata, an immutable source reference, license evidence, and required
+function/event signatures.

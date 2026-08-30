@@ -1,0 +1,58 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "optimism",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.optimism.io/chain/networks",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 10,
+    "charts": {
+      "default": "https://dexscreener.com/optimism/{lp_address}",
+      "dexscreener": "https://dexscreener.com/optimism/{lp_address}"
+    },
+    "dex": {
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-optimism-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/#/swap"
+      },
+      "velodrome_slipstream": {
+        "deployment_source": "https://github.com/velodrome-finance/slipstream#deployment",
+        "factory_abi": "VELODROME_SLIPSTREAM_V3_FACTORY",
+        "factory_address": "0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879",
+        "name": "Velodrome Slipstream",
+        "protocol_family": "velodrome_slipstream",
+        "protocol_version": "3",
+        "router_abi": "VELODROME_SLIPSTREAM_V3_ROUTER",
+        "router_address": "0xbA3aEe516399388C779463183d00bB579f5041Ca",
+        "router_variant": "SwapRouter",
+        "website": "https://velodrome.finance/swap"
+      }
+    },
+    "explorer": "https://optimistic.etherscan.io/",
+    "name": "Optimism Ethereum L2",
+    "rpc": [
+      "https://mainnet.optimism.io"
+    ],
+    "stable_coins": {
+      "EURA": "0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED",
+      "USDC": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "USDT0": "0x01bFF41798a0BcF287b996046Ca68b395DbC1071"
+    },
+    "weth": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "name": "Wrapped Ether",
+      "symbol": "WETH"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "cronos",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.cronos.org/for-dapp-developers/chain-integration",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 25,
+    "charts": {
+      "default": "https://dexscreener.com/cronos/{lp_address}",
+      "dexscreener": "https://dexscreener.com/cronos/{lp_address}"
+    },
+    "dex": {
+      "vvs_v2": {
+        "deployment_source": "https://docs.vvs.finance/docs/smart-contracts-and-security",
+        "factory_abi": "UNISWAP_V2_FACTORY",
+        "factory_address": "0x3B44B2a187a7b3824131F8db5a74194D0a42Fc15",
+        "name": "VVS Finance V2",
+        "protocol_family": "uniswap_v2",
+        "protocol_version": "2",
+        "router_abi": "UNISWAP_V2_ROUTER",
+        "router_address": "0x145863Eb42Cf62847A6Ca784e6416C1682b1b2Ae",
+        "router_variant": "VVSRouter02",
+        "website": "https://vvs.finance/swap"
+      }
+    },
+    "explorer": "https://cronoscan.com/",
+    "name": "Cronos Mainnet",
+    "rpc": [
+      "https://evm.cronos.org",
+      "https://cronos-evm-rpc.publicnode.com"
+    ],
+    "stable_coins": {
+      "USDC": "0x3D7F2C478aAfdB65542BCB44bCeeC05849999d2D"
+    },
+    "weth": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "name": "Wrapped CRO",
+      "symbol": "WCRO"
+    }
+  }
+}

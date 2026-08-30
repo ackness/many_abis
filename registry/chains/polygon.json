@@ -1,0 +1,53 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "polygon",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.polygon.technology/pos/reference/rpc-endpoints/",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 137,
+    "charts": {
+      "default": "https://dexscreener.com/polygon/{lp_address}",
+      "dexscreener": "https://dexscreener.com/polygon/{lp_address}"
+    },
+    "dex": {
+      "quickswap": {
+        "factory_address": "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+        "name": "QuickSwap",
+        "router_address": "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+        "website": "https://quickswap.exchange/"
+      },
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-polygon-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://polygonscan.com/",
+    "name": "Polygon PoS Chain",
+    "rpc": [
+      "https://polygon.drpc.org",
+      "https://1rpc.io/matic",
+      "https://polygon-bor-rpc.publicnode.com"
+    ],
+    "stable_coins": {
+      "USDC": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "USDT0": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"
+    },
+    "weth": {
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "name": "Wrapped POL",
+      "symbol": "WPOL"
+    }
+  }
+}

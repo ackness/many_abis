@@ -1,0 +1,1143 @@
+{
+  "abis": {
+    "AAVE_V1_ATOKEN": {
+      "canonical_sha256": "217c0e1d09c9d5e7a043c3af9613a7fb0175d75be39136ef8039cb94b08826e4",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 35,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v1/atoken.abi",
+      "selector_fingerprint": "ce37a52d7e28707fe31750bfce0c84a5019ff24a7b7b45f8e47513774a99a931"
+    },
+    "AAVE_V1_LENDING_POOL": {
+      "canonical_sha256": "6dc9fb20c7a68934d45ff1c40fd00d06d6edc1bfd20739872fc48360ce0ed341",
+      "contract_role": "pool",
+      "interface_name": null,
+      "item_count": 32,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v1/lending_pool.abi",
+      "selector_fingerprint": "fcd659f1a500b2ec5d943c0ef196682ff314b0468e853d446a71df18a7f6d36d"
+    },
+    "AAVE_V1_LENDING_POOL_ADDRESSES_PROVIDER": {
+      "canonical_sha256": "7530bfbdcc8b9460354b96bbf5c1448649ed34b5c85832debd8a739eb84ca2ca",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 41,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v1/lending_pool_addresses_provider.abi",
+      "selector_fingerprint": "0bff0b597928ef05ea403d76aaad11aef9aab03618eae9e8913f047d36952277"
+    },
+    "AAVE_V1_LENDING_POOL_CORE": {
+      "canonical_sha256": "bbef2a404719f133cb83b9cb98a123e5305ab4814e2de9d4f415d78a7536f8a8",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 73,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v1/lending_pool_core.abi",
+      "selector_fingerprint": "266e7f36ade5fdbb9ec386317926d32c42affca76e77f6f8dc744b276645eb05"
+    },
+    "AAVE_V2_COLLECTOR": {
+      "canonical_sha256": "5bc8a0fe2b70a5c96b8142ced115802eb2d233e05cd7fea466b806cae46cb0d7",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 18,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/collector.abi",
+      "selector_fingerprint": "329ee3f0979fb6c9380fc8cba6ebf70336ea3af48deb61a56563e05778739136"
+    },
+    "AAVE_V2_INCENTIVES_CONTROLLER": {
+      "canonical_sha256": "630ba0f7754b1ff2fac0a229c426402cec954febc48076d2e3ce662514ea6f77",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 29,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/incentives_controller.abi",
+      "selector_fingerprint": "576f324b5522be9eeb3a42548eacb31ffae4a33deca3c8996461dc3adff2d3de"
+    },
+    "AAVE_V2_LENDING_POOL": {
+      "canonical_sha256": "40d6a5a7ff93c0c8d6786e3cd608f59dd176d35d70844726462fa705f37b9af7",
+      "contract_role": "pool",
+      "interface_name": null,
+      "item_count": 41,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/lending_pool.abi",
+      "selector_fingerprint": "c31ae00edc371572a99ba0e820cbac53533da66419be1e44c3ce118fd43c451e"
+    },
+    "AAVE_V2_LENDING_POOL_ADDRESSES_PROVIDER": {
+      "canonical_sha256": "2bf2b172ab8ca8616bfa4b735e0d714bf9f807024c8924ffeb66e962c408b4d6",
+      "contract_role": "other",
+      "interface_name": "LendingPoolAddressesProvider",
+      "item_count": 34,
+      "license": {
+        "evidence_url": "https://unpkg.com/@aave/protocol-v2@1.0.1/LICENSE.md",
+        "redistribution": "allowed",
+        "spdx_expression": "AGPL-3.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "npm:@aave/protocol-v2@1.0.1#sha512-MU3WiigW89DWDpCtvaw4rafih7RbADB45uUM/zqfnOD4g9JNUVfeT6MrjV4/DP/JPA2Iv5ySKSx+a1OfUES0Pg==",
+        "source_url": "https://registry.npmjs.org/@aave/protocol-v2/-/protocol-v2-1.0.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:getLendingPool()",
+        "function:setLendingPoolImpl(address)"
+      ],
+      "resource": "assets/dex/aave/v2/lending_pool_addresses_provider.abi",
+      "selector_fingerprint": "ad442cca3bbc0f770cd81badb2213113e0ceba49ba987631c740d0ce0fe7c587"
+    },
+    "AAVE_V2_LENDING_POOL_ADDRESSES_PROVIDER_REGISTRY": {
+      "canonical_sha256": "18132ee652b1c18a2b675b183895da4f47e6f0cef519464664cb7da451da5593",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 10,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/lending_pool_addresses_provider_registry.abi",
+      "selector_fingerprint": "351df7306300bf1bf4726b90a224f226fe8e4852aa0471efdac4624ab7d04bc5"
+    },
+    "AAVE_V2_LENDING_POOL_COLLATERAL_MANAGER": {
+      "canonical_sha256": "15139088603033b3ecf3ef7e9f8be040dfcfd5c5e4cab93c5b0b32a84375d20b",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 4,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/lending_pool_collateral_manager.abi",
+      "selector_fingerprint": "34240f8f41928c8e8754f28df358eae7f185845c4970a0eb4e876047f949e0c1"
+    },
+    "AAVE_V2_LENDING_POOL_CONFIGURATOR": {
+      "canonical_sha256": "7cfef8f89c6e3f2bb3786a7118a6c2383e696860a4d09f5c06a762a9afa93e7d",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 33,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/lending_pool_configurator.abi",
+      "selector_fingerprint": "91a005f49e2942b04866f66cbabaaa47f65d91a5c689e73e256022784d650464"
+    },
+    "AAVE_V2_LENDING_RATE_ORACLE": {
+      "canonical_sha256": "92c3abfa431e28edea2370e03d86c414fbeec8624bae7165c594c62fe72de68d",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 7,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/lending_rate_oracle.abi",
+      "selector_fingerprint": "503064b39347997248277e51ae2f8c549daf83d4d3bb6c9e7155a855c418dc86"
+    },
+    "AAVE_V2_POOL_ADMIN": {
+      "canonical_sha256": "4b2b49941cb27430367d4f84cb614e5431da2530c21d3f42ce32ba47201de500",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 35,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/pool_admin.abi",
+      "selector_fingerprint": "a95eae40ba6bd25828bda5930c62ec1479e97779303d8d7992202d9af09b618d"
+    },
+    "AAVE_V2_PRICE_ORACLE": {
+      "canonical_sha256": "943843872b0dbab4283326e1b1d00ba28eb8e5362dbe90d1a3d5659cf2fbce1e",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 15,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/price_oracle.abi",
+      "selector_fingerprint": "be9c6714693f0d9b37c2cb6c283b43df38655e7128dc8bf703350607df597b69"
+    },
+    "AAVE_V2_PROTOCAL_DATA_PROVIDER": {
+      "canonical_sha256": "db7a98c932c229c77306a9c5ed9fd1d612a5c7d2e6ea85db148e7e9b4ccd420d",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 8,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/protocal_data_provider.abi",
+      "selector_fingerprint": "487dc112717fd76317f1bc534b7f81c29bf12d61e34e2f8509cac429ef92f840"
+    },
+    "AAVE_V2_UI_INCENTIVE_DATA_PROVIDER": {
+      "canonical_sha256": "9391fb188261988c7a50408d3b1581e35d801bcf47e8ad67f078aee897b16b24",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 7,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/ui_incentive_data_provider.abi",
+      "selector_fingerprint": "58d6081b63762227a332ab309e688004210d014a1d639ba0d56b637ecd18e06d"
+    },
+    "AAVE_V2_UI_POOL_DATA_PROVIDER": {
+      "canonical_sha256": "0d1b731d11ccb548714022411f5f3f686912b8ddabd0ff81155d2791a2c11325",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 9,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/ui_pool_data_provider.abi",
+      "selector_fingerprint": "8c8581878aed30d5f2e8d45e68640a58679fbdfa95bfe0cf1c2eaef4ca93164e"
+    },
+    "AAVE_V2_WETH_GATEWAY": {
+      "canonical_sha256": "43d5b38b01d3a179a3f3ea735c91eae1388bf6647cf274a206bdb4ebb7fbbab4",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 16,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/aave/v2/weth_gateway.abi",
+      "selector_fingerprint": "febb971fca8b690ec367de9aadf6676cb63907a01591159798fc82638f1e4bd1"
+    },
+    "AERODROME_SLIPSTREAM_V3_FACTORY": {
+      "canonical_sha256": "6d59372b668585d7a0bea38729564ac3bb4ce12a8ce458ede4036f146da5f37a",
+      "contract_role": "factory",
+      "interface_name": "CLFactory",
+      "item_count": 35,
+      "license": {
+        "evidence_url": "https://github.com/aerodrome-finance/slipstream/tree/f8717faaae6e6717db3c8e3850149c01a79c0603",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:8453:0xf8f2eB4940CFE7d13603DDDD87f123820Fc061Ef",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0xf8f2eB4940CFE7d13603DDDD87f123820Fc061Ef?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPool(address,address,int24,uint160)",
+        "function:getPool(address,address,int24)"
+      ],
+      "resource": "assets/dex/aerodrome/slipstream/v3/factory.abi",
+      "selector_fingerprint": "9dc9c9be5ce5d238d15e0725e9d7fe16df498415f2abfd8a523d1ae277cc4805"
+    },
+    "AERODROME_SLIPSTREAM_V3_ROUTER": {
+      "canonical_sha256": "6723eb22409036c418032c077d5889416fcb0cdb454600efb46c9a250137b11a",
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "item_count": 19,
+      "license": {
+        "evidence_url": "https://github.com/aerodrome-finance/slipstream/tree/f8717faaae6e6717db3c8e3850149c01a79c0603",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:8453:0x698Cb2b6dd822994581fEa6eA4Fc755d1363A92F",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0x698Cb2b6dd822994581fEa6eA4Fc755d1363A92F?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:exactInputSingle((address,address,int24,address,uint256,uint256,uint256,uint160))",
+        "function:factory()"
+      ],
+      "resource": "assets/dex/aerodrome/slipstream/v3/router.abi",
+      "selector_fingerprint": "77293356956453b0c2c5b484f7f8ea3ed3b7249f843578586abf64b335082ec6"
+    },
+    "ERC1155": {
+      "canonical_sha256": "82d3dbf0f6e34a75c26a9471e7a262260c78e64c00c8c726abfb5058202b982f",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 13,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/erc/ERC1155.abi",
+      "selector_fingerprint": "50ea10343cf6109aa36851bc400d196b757637c792b8752a00186bd8186c868c"
+    },
+    "ERC20": {
+      "canonical_sha256": "8677cba24af40b66f2a87b4d236f9a27d3d4a5de946c01e8443fc6c29ef9a5b0",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 12,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/erc/ERC20.abi",
+      "selector_fingerprint": "f55b901c07748957594c029dc8db5b9c9c1a5cfcff838a200d7b6d32a087b4ce"
+    },
+    "ERC721": {
+      "canonical_sha256": "e3bddd053577712c64ef76885f838b36da9b1f785a23181945cf27871294d637",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 17,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/erc/ERC721.abi",
+      "selector_fingerprint": "1f2f7194e15eb779539c3d6bcfd190a7bc44ca0e32fa70ee59382a76811611e4"
+    },
+    "ERC777": {
+      "canonical_sha256": "d9599a24b7ff91566336f196117418b4fdd7f96a900f536dbfc06a80aa260b38",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 26,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/erc/ERC777.abi",
+      "selector_fingerprint": "02bfa9db9f3ddf11282ea317ad20c8a9ebb5f3e9f611b97672d02482060e892a"
+    },
+    "JOE_V2_FACTORY": {
+      "canonical_sha256": "896217b524a35ed79f8028bca83f07c03bffbe5dc1744a66c0b781491deac43d",
+      "contract_role": "factory",
+      "interface_name": null,
+      "item_count": 13,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/joe/v2/factory.abi",
+      "selector_fingerprint": "9e4a3bf4a09a4ca2560eb9e9faddcf20d332c29d6dbddb5fa9fbe4875a99950d"
+    },
+    "JOE_V2_PAIR": {
+      "canonical_sha256": "8b6ea5111961a9e1fce257953d5148fbcea8fa481838dd924302bbec536583f2",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 34,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/joe/v2/pair.abi",
+      "selector_fingerprint": "97088676cb821a8be00bb5ba525af102737a4d56d54e428ae1e06f86d42f7896"
+    },
+    "JOE_V2_ROUTER": {
+      "canonical_sha256": "47f82df03723d2afc19456d1839a2dd7a7b10e5a747c5ff71f7c630148afe688",
+      "contract_role": "router",
+      "interface_name": null,
+      "item_count": 26,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/joe/v2/router.abi",
+      "selector_fingerprint": "cb80a71a722c8824ad5d63e8bc2311f5b30a26afd2c90e046467202c3df6bf20"
+    },
+    "LFJ_LIQUIDITY_BOOK_V2_2_FACTORY": {
+      "canonical_sha256": "a33d15356a3adede4a4c3070917aab17dfd45c15def8b18a2ef8bc27618b507b",
+      "contract_role": "factory",
+      "interface_name": "LBFactory",
+      "item_count": 88,
+      "license": {
+        "evidence_url": "https://github.com/lfj-gg/joe-v2/tree/067c6ccf5b8ff1526d03fa3e4c65ec45d01c1f73",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "immutable_ref": "chain:43114:0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c",
+        "source_url": "https://sourcify.dev/server/v2/contract/43114/0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createLBPair(address,address,uint24,uint16)",
+        "function:getPreset(uint256)"
+      ],
+      "resource": "assets/dex/lfj/liquidity_book/v2_2/factory.abi",
+      "selector_fingerprint": "6356b033fed4b0f1747451dd37df25e01211d2f8dcb45be22e8b6a6da7ebdb65"
+    },
+    "LFJ_LIQUIDITY_BOOK_V2_2_ROUTER": {
+      "canonical_sha256": "36fef2dd11a677c4f6c1e129f214cbb4c2c09e6940053aeb4118fe70b3d0fe19",
+      "contract_role": "router",
+      "interface_name": "LBRouter",
+      "item_count": 54,
+      "license": {
+        "evidence_url": "https://github.com/lfj-gg/joe-v2/tree/067c6ccf5b8ff1526d03fa3e4c65ec45d01c1f73",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "immutable_ref": "chain:43114:0x18556DA13313f3532c54711497A8FedAC273220E",
+        "source_url": "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan/api?module=contract&action=getabi&address=0x18556DA13313f3532c54711497A8FedAC273220E",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:getFactory()",
+        "function:getWNATIVE()"
+      ],
+      "resource": "assets/dex/lfj/liquidity_book/v2_2/router.abi",
+      "selector_fingerprint": "05bbbbd66132d236a376e48223dcccc841a805f22130345292cb56b3576c941b"
+    },
+    "PANCAKE_V3_BASE_FACTORY": {
+      "canonical_sha256": "cbc4009d9af160beb55d60f0b38fcc0ffa3969e432d5bcac5321e56119f55dbe",
+      "contract_role": "factory",
+      "interface_name": "PlunderV3Factory",
+      "item_count": 22,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:8453:0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPool(address,address,uint24)",
+        "function:getPool(address,address,uint24)"
+      ],
+      "resource": "assets/dex/pancake/v3/base_factory.abi",
+      "selector_fingerprint": "3495d057f290b27a6dd90adf6f96caf60322b9553ff3b924a9d4525b6cc09d2c"
+    },
+    "PANCAKE_V3_FACTORY": {
+      "canonical_sha256": "cbc4009d9af160beb55d60f0b38fcc0ffa3969e432d5bcac5321e56119f55dbe",
+      "contract_role": "factory",
+      "interface_name": "PancakeV3Factory",
+      "item_count": 22,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:56:0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPool(address,address,uint24)",
+        "function:getPool(address,address,uint24)"
+      ],
+      "resource": "assets/dex/pancake/v3/factory.abi",
+      "selector_fingerprint": "3495d057f290b27a6dd90adf6f96caf60322b9553ff3b924a9d4525b6cc09d2c"
+    },
+    "PANCAKE_V3_IPERIPHERY_PAYMENTS_WITH_FEE": {
+      "canonical_sha256": "fc5e816ee6f68267afd37ca17382a095d7077f10bb676b27c2b9cf1c4920e7ad",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 5,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/IPeriphery_payments_with_fee.abi",
+      "selector_fingerprint": "6bb1567748da30826401e19e44533d2f083ccd71b34a2ddbd11bec319e0c8d1a"
+    },
+    "PANCAKE_V3_MASTER_CHEF_V3": {
+      "canonical_sha256": "2cd00efaad925afc5cd33f275b8e68cacf237e4a9692b8f7e5a9945784c7a3a6",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 87,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/master_chef_v3.abi",
+      "selector_fingerprint": "ef51b8260ee3482a8cdfb40bdf2ff4d90f879d3fae59c27ff5e84d4525c60c2a"
+    },
+    "PANCAKE_V3_NON_FUNGIBLE_POSITION_MANAGER": {
+      "canonical_sha256": "8b9a8fbd8faaa4a7eba89304e6ac099eafdc9b2413e1e91f16b23fbe0fce3def",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 47,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/non_fungible_position_manager.abi",
+      "selector_fingerprint": "6459e0706af35948016cc0cab836974341653879dd0ec69497a6fc19a139b338"
+    },
+    "PANCAKE_V3_POOL_V3": {
+      "canonical_sha256": "00303f5ede64fb863a0be16e646f86bd006bccd587efc1f23a8b4fc6c7d682a8",
+      "contract_role": "pool",
+      "interface_name": "PancakeV3Pool",
+      "item_count": 39,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "npm:@pancakeswap/v3-core@1.0.2#sha512-9aZU8I1J6SbZOSW7NcNxuyaAC17tGkOaZJM9aJgvl6MMUOExpq0i0EC/jc3HxWbpC8sbZL+8eG544NEJs8CS+w==",
+        "source_url": "https://registry.npmjs.org/@pancakeswap/v3-core/-/v3-core-1.0.2.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:mint(address,int24,int24,uint128,bytes)",
+        "function:swap(address,bool,int256,uint160,bytes)"
+      ],
+      "resource": "assets/dex/pancake/v3/pool_v3.abi",
+      "selector_fingerprint": "335821440a64fc482a30b6b494d863ea4dfa52ef604761242f516b7ec89cabc2"
+    },
+    "PANCAKE_V3_QUOTER": {
+      "canonical_sha256": "7c1edd1462e8c4735eba230d51d47fc6129aa8c02813657de7659cb9e1c1dd28",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 9,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/quoter.abi",
+      "selector_fingerprint": "103403b081b5b02fd00bbdef850f6d141211f2f500de1eb34ada5355ac0a9875"
+    },
+    "PANCAKE_V3_QUOTER_V2": {
+      "canonical_sha256": "cc32cad3552d9f016ac38fb4f5d54094f3693f919fc6ba73322616cf6c078256",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 9,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/quoter_v2.abi",
+      "selector_fingerprint": "65a960a5d4073de795e1dcf0273a1ea6ef61d414d72441851552a4d1b98798f7"
+    },
+    "PANCAKE_V3_ROUTER_V3": {
+      "canonical_sha256": "7c82ca7d337e9ba8fe8bbaea46eeb93cf874040adc32722461e557d91e10700c",
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "item_count": 20,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:8453:0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+        "source_url": "https://sourcify.dev/server/v2/contract/8453/0x1b81D678ffb9C0263b24A97847620C99d213eB14?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:exactInputSingle((address,address,uint24,address,uint256,uint256,uint256,uint160))",
+        "function:pancakeV3SwapCallback(int256,int256,bytes)"
+      ],
+      "resource": "assets/dex/pancake/v3/router_v3.abi",
+      "selector_fingerprint": "40fd227a2a3b92b3f91c03a94a857962baf76b167e242009f4bdf339ff38c437"
+    },
+    "PANCAKE_V3_SELF_PERMIT": {
+      "canonical_sha256": "61f1999b8dfb96c57462f2749962c1250525b0fe113c99a92763084f6aa5806e",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 4,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/self_permit.abi",
+      "selector_fingerprint": "589a7184800a57eee279ed489d96fac4082a98b39c4586c4e102811a036401fc"
+    },
+    "PANCAKE_V3_SMART_ROUTER": {
+      "canonical_sha256": "6251cab40e85cb98b3a61f085da095f7ab5e583183629ac6ed5476e0a2b9fe1d",
+      "contract_role": "router",
+      "interface_name": "SmartRouter",
+      "item_count": 51,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@pancakeswap/v3-core/1.0.2",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:56:0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x13f4EA83D0bd40E75C8222255bc855a974568Dd4?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:exactInputStableSwap(address[],uint256[],uint256,uint256,address)",
+        "function:factoryV2()"
+      ],
+      "resource": "assets/dex/pancake/v3/smart_router.abi",
+      "selector_fingerprint": "9694c2ec42751925fe507def44e978e11ec8a86d9084bc728988e0d6498cfe1e"
+    },
+    "PANCAKE_V3_STAKER": {
+      "canonical_sha256": "17e051fe47e848ef3aa715167db31a39c1073e89e92f084d4190992d1d170031",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 25,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/pancake/v3/staker.abi",
+      "selector_fingerprint": "095259513fa9c2a67676e88813b8d343688fa2713f1f1c3e3be2a565e2776fec"
+    },
+    "SHADOW_CLMM_V3_FACTORY": {
+      "canonical_sha256": "4572d94bb7f9853b91a744209c5d9bbc7c733a53209ce29bc8fb353e4a57dc1d",
+      "contract_role": "factory",
+      "interface_name": "ShadowV3Factory",
+      "item_count": 30,
+      "license": {
+        "evidence_url": "https://github.com/Shadow-Exchange/shadow-core/tree/bb3fa4fc6a257aee99cdcf58a0b8b38e51d4a9f7",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:146:0xcD2d0637c94fe77C2896BbCBB174cefFb08DE6d7",
+        "source_url": "https://sonicscan.org/address/0xcD2d0637c94fe77C2896BbCBB174cefFb08DE6d7#code",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPool(address,address,int24,uint160)",
+        "function:getPool(address,address,int24)"
+      ],
+      "resource": "assets/dex/shadow/clmm/v3/factory.abi",
+      "selector_fingerprint": "864145a617cd78c8962c4ab696f636e866b6593c9585b173da2ff0c58e5f0847"
+    },
+    "SHADOW_CLMM_V3_ROUTER": {
+      "canonical_sha256": "2ff12f872a86b38cccd940c9812c8a96b26c98c561e51207317e66ad5371a3d6",
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "item_count": 22,
+      "license": {
+        "evidence_url": "https://github.com/Shadow-Exchange/shadow-core/tree/bb3fa4fc6a257aee99cdcf58a0b8b38e51d4a9f7",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:146:0x5543c6176feb9b4b179078205d7c29eea2e2d695",
+        "source_url": "https://sonicscan.org/address/0x5543c6176feb9b4b179078205d7c29eea2e2d695#code",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:exactInputSingle((address,address,int24,address,uint256,uint256,uint256,uint160))",
+        "function:uniswapV3SwapCallback(int256,int256,bytes)"
+      ],
+      "resource": "assets/dex/shadow/clmm/v3/router.abi",
+      "selector_fingerprint": "b03e088ca828e23ac394d75cb26598370bf0d3aba10dfc4314d4b8a63a69f658"
+    },
+    "UNISWAP_BSC_ROUTER": {
+      "canonical_sha256": "90a727a5edc45740fefcbbfd785b8d6f48b87c163f508f7867a71443aa3c1924",
+      "contract_role": "router",
+      "interface_name": null,
+      "item_count": 42,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/bsc/router.abi",
+      "selector_fingerprint": "2f3d23023d2dfce605b4ce7c23d2ed6ac258d5b6bd17b71fb31ed0962ddf57a5"
+    },
+    "UNISWAP_V1_EXCHANGE": {
+      "canonical_sha256": "e280a5e7f3db15ff9a8c73b8743fb38b481a9056cd83d7a870369058c8622157",
+      "contract_role": "pool",
+      "interface_name": "Exchange",
+      "item_count": 41,
+      "license": {
+        "evidence_url": "https://github.com/Uniswap/v1-contracts/blob/c10c08d81d6114f694baa8bd32f555a40f6264da/LICENSE.md",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-3.0-only"
+      },
+      "provenance": {
+        "immutable_ref": "git:Uniswap/v1-contracts@c10c08d81d6114f694baa8bd32f555a40f6264da",
+        "source_url": "https://github.com/Uniswap/v1-contracts/blob/c10c08d81d6114f694baa8bd32f555a40f6264da/abi/uniswap_exchange.json",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:addLiquidity(uint256,uint256,uint256)",
+        "function:tokenToTokenSwapInput(uint256,uint256,uint256,uint256,address)"
+      ],
+      "resource": "assets/dex/uniswap/v1/exchange.abi",
+      "selector_fingerprint": "7f4945ce9520d2b1befe72c645327142deff27b948a05e3cff1580e84736fdd3"
+    },
+    "UNISWAP_V1_FACTORY": {
+      "canonical_sha256": "7bd5129d1a7a708db6e3cf9b0769644a980a58d45d1c868c4d0420a3ef1850b5",
+      "contract_role": "factory",
+      "interface_name": null,
+      "item_count": 8,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v1/factory.abi",
+      "selector_fingerprint": "c26211cb817fb7841316481ec52cc3d79743b3ec8db7ccef271f0e022f00ae40"
+    },
+    "UNISWAP_V2_FACTORY": {
+      "canonical_sha256": "d1c2e2633fdc88d5319a34fc887f9044edd25447734f4b8839c1e4172651a3e7",
+      "contract_role": "factory",
+      "interface_name": "IUniswapV2Factory",
+      "item_count": 10,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@uniswap/v2-core/1.0.1",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-3.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "npm:@uniswap/v2-core@1.0.1#sha512-MtybtkUPSyysqLY2U210NBDeCHX+ltHt3oADGdjqoThZaFRDKwM6k1Nb3F0A3hk5hwuQvytFWhrWHOEq6nVJ8Q==",
+        "source_url": "https://registry.npmjs.org/@uniswap/v2-core/-/v2-core-1.0.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPair(address,address)",
+        "function:getPair(address,address)"
+      ],
+      "resource": "assets/dex/uniswap/v2/factory.abi",
+      "selector_fingerprint": "a6bd892e4ce82eb7a9da1a9608fbbef51774507445b47558c5050b76ba87f530"
+    },
+    "UNISWAP_V2_PAIR": {
+      "canonical_sha256": "028a21c54379447a103cca879cf45adc2fbebd50fc7ed5d7e1f6f93e5a5aad3d",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 34,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v2/pair.abi",
+      "selector_fingerprint": "97088676cb821a8be00bb5ba525af102737a4d56d54e428ae1e06f86d42f7896"
+    },
+    "UNISWAP_V2_ROUTER": {
+      "canonical_sha256": "6e79ecda8373ea27fceeff14d4fd6c587524bf3241cd26919048d6572164cac5",
+      "contract_role": "router",
+      "interface_name": "IUniswapV2Router02",
+      "item_count": 26,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@uniswap/v2-periphery/1.1.0-beta.0",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-3.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "npm:@uniswap/v2-periphery@1.1.0-beta.0#sha512-6dkwAMKza8nzqYiXEr2D86dgW3TTavUvCR0w2Tu33bAbM8Ah43LKAzH7oKKPRT5VJQaMi1jtkGs1E8JPor1n5g==",
+        "source_url": "https://registry.npmjs.org/@uniswap/v2-periphery/-/v2-periphery-1.1.0-beta.0.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:factory()",
+        "function:swapExactTokensForTokens(uint256,uint256,address[],address,uint256)"
+      ],
+      "resource": "assets/dex/uniswap/v2/router.abi",
+      "selector_fingerprint": "6214be925b388c6dd1f43cd2afa7ab4e07a56552c3b5f04610983eac6b034c6a"
+    },
+    "UNISWAP_V3_FACTORY": {
+      "canonical_sha256": "bc35264145b07eab583fe83363e3b4c2a218b2adae2d45434a6a1cec13f4d9b7",
+      "contract_role": "factory",
+      "interface_name": "UniswapV3Factory",
+      "item_count": 11,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@uniswap/v3-core/1.0.1",
+        "redistribution": "allowed",
+        "spdx_expression": "BUSL-1.1"
+      },
+      "provenance": {
+        "immutable_ref": "npm:@uniswap/v3-core@1.0.1#sha512-7pVk4hEm00j9tc71Y9+ssYpO6ytkeI0y7WE9P6UcmNzhxPePwyAxImuhVsTqWK9YFvzgtvzJHi64pBl4jUzKMQ==",
+        "source_url": "https://registry.npmjs.org/@uniswap/v3-core/-/v3-core-1.0.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPool(address,address,uint24)",
+        "function:getPool(address,address,uint24)"
+      ],
+      "resource": "assets/dex/uniswap/v3/factory.abi",
+      "selector_fingerprint": "cd87d99e85d6cf2f2870353f2a081e5c24aee307dd4f89f7b4d21af560705501"
+    },
+    "UNISWAP_V3_MULTICALL": {
+      "canonical_sha256": "5624e7e2d97e4e671972ca5b85d135268385671e7ae776b0ef68306e48ef8f52",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 12,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v3/multicall.abi",
+      "selector_fingerprint": "6f603f1a5817b0a1c9ea4081098cb15806e3793a255fda2c91f9b3c5062cae6c"
+    },
+    "UNISWAP_V3_NON_FUNGIBLE_POSITION_MANAGE": {
+      "canonical_sha256": "82528e836584af021aa9c1cb9c0463eef2758a146f8a5221fdaa366060132c83",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 46,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v3/non_fungible_position_manage.abi",
+      "selector_fingerprint": "226d6efa3ef70a94dc1c9a1e87231a6311f6cbd03b4578544592517009febd66"
+    },
+    "UNISWAP_V3_POOL": {
+      "canonical_sha256": "ad35708734bf3131a452370efa32b747caaca88b3276e9711cfef4b0d7a67c1e",
+      "contract_role": "pool",
+      "interface_name": null,
+      "item_count": 36,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v3/pool.abi",
+      "selector_fingerprint": "51fc9e70e6d93ecebac6064eda20cfc0e399d4c9cc63077824a03d61ad99bf8c"
+    },
+    "UNISWAP_V3_QUOTER": {
+      "canonical_sha256": "d925fe9e86207a35aa9cd1e40e37679eba6385922ca5ff1feee3abb374f9b74a",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 8,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v3/quoter.abi",
+      "selector_fingerprint": "e24b7f6a5e04426b72aea9eb2778e2367be1b2e9f6b5ccff09ccc1363e8f376c"
+    },
+    "UNISWAP_V3_ROUTER": {
+      "canonical_sha256": "4f9cef44420f7884ef393c9a2d67a9794c1ec97d6f0b91f27c96ccdd7234e5cf",
+      "contract_role": "router",
+      "interface_name": null,
+      "item_count": 19,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/dex/uniswap/v3/router.abi",
+      "selector_fingerprint": "24590a5482c310459bb5e2a795af6238497944bb1da7e2138fd1fe6ddf7ef35a"
+    },
+    "UNISWAP_V3_ROUTER_02": {
+      "canonical_sha256": "a033fab2857177de4ee6e840a7f266bf7ba1281cf476ee4d68be0fb4019a5845",
+      "contract_role": "router",
+      "interface_name": "SwapRouter02",
+      "item_count": 41,
+      "license": {
+        "evidence_url": "https://registry.npmjs.org/@uniswap/swap-router-contracts/1.3.1",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "npm:@uniswap/swap-router-contracts@1.3.1#sha512-mh/YNbwKb7Mut96VuEtL+Z5bRe0xVIbjjiryn+iMMrK2sFKhR4duk/86mEz0UO5gSx4pQIw9G5276P5heY/7Rg==",
+        "source_url": "https://registry.npmjs.org/@uniswap/swap-router-contracts/-/swap-router-contracts-1.3.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+        "function:factory()"
+      ],
+      "resource": "assets/dex/uniswap/v3/router_02.abi",
+      "selector_fingerprint": "824785c313e49dc2cb4fc508b712e180ced147e1841087c354db8f5492c264cc"
+    },
+    "VELODROME_SLIPSTREAM_V3_FACTORY": {
+      "canonical_sha256": "aded721c3990da8bae7a270bbade6bceec10bf97a37732ce27574ba1bd2ae672",
+      "contract_role": "factory",
+      "interface_name": "CLFactory",
+      "item_count": 36,
+      "license": {
+        "evidence_url": "https://github.com/velodrome-finance/slipstream/tree/193a6b85f836a229b76a8df3541a284a2368427b",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:10:0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879",
+        "source_url": "https://sourcify.dev/server/v2/contract/10/0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:createPool(address,address,int24,uint160)",
+        "function:getPool(address,address,int24)"
+      ],
+      "resource": "assets/dex/velodrome/slipstream/v3/factory.abi",
+      "selector_fingerprint": "8951d2c3ff9fcfa0d67c2ecff11fdc24c6c782c5f7f175c7ccd0cfe870496ce5"
+    },
+    "VELODROME_SLIPSTREAM_V3_ROUTER": {
+      "canonical_sha256": "6723eb22409036c418032c077d5889416fcb0cdb454600efb46c9a250137b11a",
+      "contract_role": "router",
+      "interface_name": "SwapRouter",
+      "item_count": 19,
+      "license": {
+        "evidence_url": "https://github.com/velodrome-finance/slipstream/tree/193a6b85f836a229b76a8df3541a284a2368427b",
+        "redistribution": "allowed",
+        "spdx_expression": "GPL-2.0-or-later"
+      },
+      "provenance": {
+        "immutable_ref": "chain:10:0xbA3aEe516399388C779463183d00bB579f5041Ca",
+        "source_url": "https://sourcify.dev/server/v2/contract/10/0xbA3aEe516399388C779463183d00bB579f5041Ca?fields=abi,metadata",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:exactInputSingle((address,address,int24,address,uint256,uint256,uint256,uint160))",
+        "function:factory()"
+      ],
+      "resource": "assets/dex/velodrome/slipstream/v3/router.abi",
+      "selector_fingerprint": "77293356956453b0c2c5b484f7f8ea3ed3b7249f843578586abf64b335082ec6"
+    },
+    "WETH9": {
+      "canonical_sha256": "ef60c7b37939199aa2437ec2c832688e1eb77d2b4c472fd9ab06ccf8bad71522",
+      "contract_role": "other",
+      "interface_name": null,
+      "item_count": 16,
+      "license": {
+        "redistribution": "legacy_exception",
+        "spdx_expression": "NOASSERTION"
+      },
+      "provenance": {
+        "reason": "Pre-0.3 asset retained for compatibility; provenance review is still required.",
+        "source_url": null,
+        "status": "legacy"
+      },
+      "required_signatures": [],
+      "resource": "assets/tokens/weth9.abi",
+      "selector_fingerprint": "e4f6973d578e7efd951279b8be7b59a5d6cabed0b38525040250bae3a8c045bd"
+    }
+  },
+  "schema_version": 1
+}

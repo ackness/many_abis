@@ -1,0 +1,46 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "xlayer",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://web3.okx.com/onchainos/dev-docs/xlayer/developer/build-on-xlayer/network-information",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 196,
+    "charts": {
+      "default": "https://www.okx.com/web3/explorer/x-layer/evm/address/{address}"
+    },
+    "dex": {
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-xlayer-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0x4B2ab38DBF28D31D467aA8993f6c2585981D6804",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0x4f0C28f5926AFDA16bf2506D5D9e57Ea190f9bcA",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://www.okx.com/web3/explorer/xlayer",
+    "name": "X Layer Mainnet",
+    "rpc": [
+      "https://rpc.xlayer.tech",
+      "https://xlayerrpc.okx.com"
+    ],
+    "stable_coins": {
+      "USDC": "0xB6CEceAB302E2E4948951eE7843FC24E92933061",
+      "USDG": "0x4ae46a509F6b1D9056937BA4500cb143933D2dc8",
+      "USDT0": "0x779Ded0c9e1022225f8E0630b35a9b54bE713736"
+    },
+    "weth": {
+      "address": "0xe538905cf8410324e03A5A23C1c177a474D59b2b",
+      "name": "Wrapped OKB",
+      "symbol": "WOKB"
+    }
+  }
+}

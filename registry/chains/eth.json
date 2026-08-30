@@ -1,0 +1,58 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "eth",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://ethereum.org/en/developers/docs/networks/",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 1,
+    "charts": {
+      "Sell/Buy On Uniswap-V2": "https://app.uniswap.org/#/swap?outputCurrency:{address}&use:V2",
+      "default": "https://dexscreener.com/ethereum/{lp_address}",
+      "dexscreener": "https://dexscreener.com/ethereum/{lp_address}",
+      "dextools": "https://www.dextools.io/app/uniswap/pair-explorer/{address}"
+    },
+    "dex": {
+      "uniswap_v2": {
+        "factory_address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+        "name": "Uniswap V2",
+        "router_address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "website": "https://app.uniswap.org/"
+      },
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-ethereum-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://etherscan.io/",
+    "name": "Ethereum Chain",
+    "rpc": [
+      "https://ethereum-rpc.publicnode.com"
+    ],
+    "stable_coins": {
+      "DAI": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "PYUSD": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+      "USDC": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "USDS": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+      "USDT": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "USDe": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
+      "USD1": "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d"
+    },
+    "weth": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "name": "Wrapped ETH",
+      "symbol": "WETH"
+    }
+  }
+}

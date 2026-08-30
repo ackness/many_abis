@@ -1,0 +1,65 @@
+{
+  "$schema": "../schemas/chain-source.schema.json",
+  "schema_version": 1,
+  "slug": "bsc",
+  "verified_at": "2026-08-30",
+  "provenance": {
+    "chain": "https://docs.bnbchain.org/bnb-smart-chain/developers/json_rpc/bsc_rpc/",
+    "review": "../../docs/chain-data-sources.md"
+  },
+  "data": {
+    "chain_id": 56,
+    "charts": {
+      "default": "https://dexscreener.com/bsc/{lp_address}",
+      "dexscreener": "https://dexscreener.com/bsc/{lp_address}"
+    },
+    "dex": {
+      "pancake_v2": {
+        "factory_address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+        "name": "PancakeSwap v2",
+        "router_address": "0x10ED43C718714eb63d5aA57B78B54704E256024E",
+        "website": "https://pancakeswap.finance/swap"
+      },
+      "pancake_v3": {
+        "deployment_source": "https://developer.pancakeswap.finance/contracts/v3/addresses",
+        "factory_abi": "PANCAKE_V3_FACTORY",
+        "factory_address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+        "name": "PancakeSwap v3",
+        "protocol_family": "pancake_v3",
+        "protocol_version": "3",
+        "router_abi": "PANCAKE_V3_SMART_ROUTER",
+        "router_address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+        "website": "https://pancakeswap.finance/swap"
+      },
+      "uniswap_v3": {
+        "deployment_source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-bnb-deployments",
+        "factory_abi": "UNISWAP_V3_FACTORY",
+        "factory_address": "0xdB1d10011AD0Ff90774D0C6Bb92e5C5c8b4461F7",
+        "name": "Uniswap V3",
+        "protocol_family": "uniswap_v3",
+        "protocol_version": "3",
+        "router_abi": "UNISWAP_V3_ROUTER_02",
+        "router_address": "0xB971eF87ede563556b2ED4b1C0b0019111Dd85d2",
+        "router_variant": "SwapRouter02",
+        "website": "https://app.uniswap.org/"
+      }
+    },
+    "explorer": "https://bscscan.com/",
+    "name": "Binance Smart Chain Mainnet",
+    "rpc": [
+      "https://bsc-dataseed.bnbchain.org",
+      "https://bsc.publicnode.com"
+    ],
+    "stable_coins": {
+      "USDC.binance-peg": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "USDT.binance-peg": "0x55d398326f99059ff775485246999027b3197955",
+      "FDUSD": "0xc5f0f7b66764F6ec8C8Dff7BA683102295E16409",
+      "USD1": "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d"
+    },
+    "weth": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "name": "Wrapped BNB",
+      "symbol": "WBNB"
+    }
+  }
+}

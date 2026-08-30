@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ackness/many_abis/registry/schemas/abi-metadata.schema.json",
+  "title": "many-abis audited ABI metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "abis"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "abis": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contract_role",
+          "interface_name",
+          "required_signatures",
+          "license",
+          "provenance"
+        ],
+        "properties": {
+          "contract_role": {
+            "enum": [
+              "factory",
+              "other",
+              "pool",
+              "router"
+            ]
+          },
+          "interface_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required_signatures": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^(error|event|function):"
+            }
+          },
+          "license": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "spdx_expression",
+              "redistribution",
+              "evidence_url"
+            ],
+            "properties": {
+              "spdx_expression": {
+                "type": "string",
+                "minLength": 1
+              },
+              "redistribution": {
+                "const": "allowed"
+              },
+              "evidence_url": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              }
+            }
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "source_url",
+              "immutable_ref"
+            ],
+            "properties": {
+              "status": {
+                "const": "verified"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              },
+              "immutable_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
