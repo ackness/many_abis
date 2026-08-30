@@ -31,10 +31,17 @@
         "properties": {
           "contract_role": {
             "enum": [
+              "access",
               "factory",
+              "oracle",
               "other",
               "pool",
-              "router"
+              "proxy",
+              "router",
+              "signature",
+              "token",
+              "utility",
+              "vault"
             ]
           },
           "interface_name": {
@@ -82,6 +89,10 @@
               "immutable_ref"
             ],
             "properties": {
+              "artifact_path": {
+                "type": "string",
+                "minLength": 1
+              },
               "status": {
                 "const": "verified"
               },

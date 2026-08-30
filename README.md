@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.3.0-green)
+![Version](https://img.shields.io/badge/many--abis-v0.3.1-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -98,6 +98,12 @@ print(ma.ABIS["ERC20"])
 print(ma.get_abi("erc20"))
 print(ma.loaded_abis())
 
+# Common contract interfaces are available through the same lazy registry.
+print(ma.ABIS.ERC4626)
+print(ma.ABIS.CHAINLINK_AGGREGATOR_V3)
+print(ma.ABIS.MULTICALL3)
+print(ma.ABIS.UNISWAP_PERMIT2)
+
 
 # ======================================================================
 # get abi from address using etherscan api
@@ -163,7 +169,9 @@ Do not edit `many_abis/assets/utils/chains.json`, `abi-index.json`, generated
 documentation, or `many_abis/abis.pyi` directly. Generation is deterministic
 and never accesses the network. See the generated [chain registry](docs/generated/supported-chains.md),
 [ABI provenance](docs/generated/abi-provenance.md), and the detailed
-[verification policy](docs/chain-data-sources.md).
+[verification policy](docs/chain-data-sources.md). Usage-specific caveats for
+standards, oracles, multicall, Permit2, and proxy events are documented in
+[common contract ABIs](docs/common-contract-abis.md).
 Pre-0.3 ABI files without complete provenance are pinned by canonical hash in
 `registry/legacy-abi-allowlist.json`; new or changed ABI files must instead add
 audited metadata, an immutable source reference, license evidence, and required

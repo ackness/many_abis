@@ -372,6 +372,30 @@
       "resource": "assets/dex/aerodrome/slipstream/v3/router.abi",
       "selector_fingerprint": "77293356956453b0c2c5b484f7f8ea3ed3b7249f843578586abf64b335082ec6"
     },
+    "CHAINLINK_AGGREGATOR_V3": {
+      "canonical_sha256": "4033192d711ea3401146cf48e206b62afd431607247832fd4577a9887f89dbeb",
+      "contract_role": "oracle",
+      "interface_name": "AggregatorV3Interface",
+      "item_count": 5,
+      "license": {
+        "evidence_url": "https://github.com/smartcontractkit/chainlink-evm/blob/contracts-v1.5.0/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/abi/v0.8/shared/AggregatorV3Interface.abi.json",
+        "immutable_ref": "npm:@chainlink/contracts@1.5.0#sha512-1fGJwjvivqAxvVOTqZUEXGR54CATtg0vjcXgSIk4Cfoad2nUhSG/qaWHXjLg1CkNTeOoteoxGQcpP/HiA5HsUA==",
+        "source_url": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-1.5.0.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:decimals()",
+        "function:getRoundData(uint80)",
+        "function:latestRoundData()"
+      ],
+      "resource": "assets/contracts/chainlink/aggregator_v3.abi",
+      "selector_fingerprint": "25ac13e2bbef191fe18419ff90074d4fe626464807d2a0e67bb23e1a9c14e45e"
+    },
     "ERC1155": {
       "canonical_sha256": "82d3dbf0f6e34a75c26a9471e7a262260c78e64c00c8c726abfb5058202b982f",
       "contract_role": "other",
@@ -390,6 +414,50 @@
       "resource": "assets/erc/ERC1155.abi",
       "selector_fingerprint": "50ea10343cf6109aa36851bc400d196b757637c792b8752a00186bd8186c868c"
     },
+    "ERC1271": {
+      "canonical_sha256": "5721ab6bdea982cbd7690bcc59d90ba0b53da853a52c50fbeeb0cb88de1dcf4b",
+      "contract_role": "signature",
+      "interface_name": "IERC1271",
+      "item_count": 1,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IERC1271.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:isValidSignature(bytes32,bytes)"
+      ],
+      "resource": "assets/contracts/erc1271.abi",
+      "selector_fingerprint": "2f36f3d19becb3a0b73f2c4692e0bd42f8f92fff64d5ac72a83f97e5002b714d"
+    },
+    "ERC165": {
+      "canonical_sha256": "fc839607f64e5467d99b3595b1238161897b3d186fa7ddc7d190df4b4e73ca46",
+      "contract_role": "utility",
+      "interface_name": "IERC165",
+      "item_count": 1,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IERC165.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:supportsInterface(bytes4)"
+      ],
+      "resource": "assets/contracts/erc165.abi",
+      "selector_fingerprint": "63178b60fbcdcde35346a50692195f706fc886cf3927ba324164b35d2f1abdd3"
+    },
     "ERC20": {
       "canonical_sha256": "8677cba24af40b66f2a87b4d236f9a27d3d4a5de946c01e8443fc6c29ef9a5b0",
       "contract_role": "other",
@@ -407,6 +475,78 @@
       "required_signatures": [],
       "resource": "assets/erc/ERC20.abi",
       "selector_fingerprint": "f55b901c07748957594c029dc8db5b9c9c1a5cfcff838a200d7b6d32a087b4ce"
+    },
+    "ERC20_PERMIT": {
+      "canonical_sha256": "0870cfbd0a83906160018e9917de6b4a4999d5d7f157134df2bbd468e18e3df3",
+      "contract_role": "token",
+      "interface_name": "IERC20Permit",
+      "item_count": 3,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IERC20Permit.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:DOMAIN_SEPARATOR()",
+        "function:nonces(address)",
+        "function:permit(address,address,uint256,uint256,uint8,bytes32,bytes32)"
+      ],
+      "resource": "assets/contracts/erc20_permit.abi",
+      "selector_fingerprint": "b88e70bba4fe5030ad510a5bfb319d82a7ee0eead881d0e466cda9dd0f67feb4"
+    },
+    "ERC2981": {
+      "canonical_sha256": "aacd60a298b69f44e9d96171c56834a694c547138a5eb0c6a45ac5c905db20ca",
+      "contract_role": "token",
+      "interface_name": "IERC2981",
+      "item_count": 2,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IERC2981.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:royaltyInfo(uint256,uint256)",
+        "function:supportsInterface(bytes4)"
+      ],
+      "resource": "assets/contracts/erc2981.abi",
+      "selector_fingerprint": "6f08cccdb33fe41ae62e401e84125fc43bc404bbced17cb5a17e991b68f966d3"
+    },
+    "ERC4626": {
+      "canonical_sha256": "88aba979731928030849ebbb33cfecbf95e4d6745bd208fd29957ddffa18278e",
+      "contract_role": "vault",
+      "interface_name": "IERC4626",
+      "item_count": 29,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IERC4626.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:asset()",
+        "function:deposit(uint256,address)",
+        "function:redeem(uint256,address,address)",
+        "function:totalAssets()"
+      ],
+      "resource": "assets/contracts/erc4626.abi",
+      "selector_fingerprint": "ca79061cdea9bff14e7a9d169913a06fb739adfbc13f6846a4e8f28ba1977e24"
     },
     "ERC721": {
       "canonical_sha256": "e3bddd053577712c64ef76885f838b36da9b1f785a23181945cf27871294d637",
@@ -541,6 +681,79 @@
       ],
       "resource": "assets/dex/lfj/liquidity_book/v2_2/router.abi",
       "selector_fingerprint": "05bbbbd66132d236a376e48223dcccc841a805f22130345292cb56b3576c941b"
+    },
+    "MULTICALL3": {
+      "canonical_sha256": "2407bc7c0820a63c0b5221e3344b86d28de2f2166b78a098361cab65d5506c4e",
+      "contract_role": "utility",
+      "interface_name": "Multicall3",
+      "item_count": 16,
+      "license": {
+        "evidence_url": "https://github.com/mds1/multicall3/blob/a1fa0644fa412cd3237ef7081458ecb2ffad7dbe/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "Multicall3.json#abi",
+        "immutable_ref": "git:mds1/multicall3@a1fa0644fa412cd3237ef7081458ecb2ffad7dbe#release:v3.1.0",
+        "source_url": "https://github.com/mds1/multicall3/releases/download/v3.1.0/Multicall3.json",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:aggregate((address,bytes)[])",
+        "function:aggregate3((address,bool,bytes)[])",
+        "function:aggregate3Value((address,bool,uint256,bytes)[])",
+        "function:tryAggregate(bool,(address,bytes)[])"
+      ],
+      "resource": "assets/contracts/multicall3.abi",
+      "selector_fingerprint": "fd21140a7ec6d4f395e48940e5e35e2d2af49bb85a1015944c83cac56daa7be9"
+    },
+    "OPENZEPPELIN_ACCESS_CONTROL_V5": {
+      "canonical_sha256": "bc72d531de7a497a2bf073bc17ab61882bb79de92e1a1ebdd81134246a92eb8d",
+      "contract_role": "access",
+      "interface_name": "IAccessControl",
+      "item_count": 10,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IAccessControl.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:getRoleAdmin(bytes32)",
+        "function:hasRole(bytes32,address)",
+        "function:renounceRole(bytes32,address)"
+      ],
+      "resource": "assets/contracts/openzeppelin/access_control_v5.abi",
+      "selector_fingerprint": "147edf421d4603605a973f9173f838269f6466e7d46dae08f4c7ec7beb399e5a"
+    },
+    "OPENZEPPELIN_IERC1967": {
+      "canonical_sha256": "8fe688091f63e8483a5ffac5ed387ab69faa4cc6e58ca237031d5a94e18bf8af",
+      "contract_role": "proxy",
+      "interface_name": "IERC1967",
+      "item_count": 3,
+      "license": {
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "package/build/contracts/IERC1967.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w==",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "event:AdminChanged(address,address)",
+        "event:BeaconUpgraded(address)",
+        "event:Upgraded(address)"
+      ],
+      "resource": "assets/contracts/openzeppelin/ierc1967.abi",
+      "selector_fingerprint": "75ebf0d20ac18d289b132605a39ac33a3b74d681521180753b83d616302445d6"
     },
     "PANCAKE_V3_BASE_FACTORY": {
       "canonical_sha256": "cbc4009d9af160beb55d60f0b38fcc0ffa3969e432d5bcac5321e56119f55dbe",
@@ -839,6 +1052,34 @@
       "required_signatures": [],
       "resource": "assets/dex/uniswap/bsc/router.abi",
       "selector_fingerprint": "2f3d23023d2dfce605b4ce7c23d2ed6ac258d5b6bd17b71fb31ed0962ddf57a5"
+    },
+    "UNISWAP_PERMIT2": {
+      "canonical_sha256": "28c807df09f0d09db5a55b95280d544ca01952232e393f76f00ccb4b37cc3ef0",
+      "contract_role": "token",
+      "interface_name": "Permit2",
+      "item_count": 31,
+      "license": {
+        "evidence_url": "https://github.com/Uniswap/permit2/blob/cc306b601f172c51bc04334a109e98340456620b/LICENSE",
+        "redistribution": "allowed",
+        "spdx_expression": "MIT"
+      },
+      "provenance": {
+        "artifact_path": "forge:out/Permit2.sol/Permit2.json#abi (solc 0.8.17)",
+        "immutable_ref": "git:Uniswap/permit2@cc306b601f172c51bc04334a109e98340456620b#solc:0.8.17",
+        "source_url": "https://github.com/Uniswap/permit2/blob/cc306b601f172c51bc04334a109e98340456620b/src/Permit2.sol",
+        "status": "verified"
+      },
+      "required_signatures": [
+        "function:DOMAIN_SEPARATOR()",
+        "function:allowance(address,address,address)",
+        "function:nonceBitmap(address,uint256)",
+        "function:permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)",
+        "function:permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)",
+        "function:permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)",
+        "function:transferFrom(address,address,uint160,address)"
+      ],
+      "resource": "assets/contracts/uniswap/permit2.abi",
+      "selector_fingerprint": "0499abd1b36bbfa802f6e8735faf29b54c4b3527b35bdc1dd3c49eba88af409a"
     },
     "UNISWAP_V1_EXCHANGE": {
       "canonical_sha256": "e280a5e7f3db15ff9a8c73b8743fb38b481a9056cd83d7a870369058c8622157",

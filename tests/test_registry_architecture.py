@@ -50,7 +50,7 @@ class GeneratedRegistryTests(unittest.TestCase):
         abi_paths = sorted(ASSETS_ROOT.rglob("*.abi"))
 
         self.assertEqual(len(manifest), len(abi_paths))
-        self.assertEqual(len(manifest), 59)
+        self.assertEqual(len(manifest), 69)
         self.assertEqual(
             {entry["resource"] for entry in manifest.values()},
             {
@@ -84,7 +84,7 @@ class GeneratedRegistryTests(unittest.TestCase):
 
         self.assertEqual(set(audited) | set(legacy), set(manifest))
         self.assertTrue(set(audited).isdisjoint(legacy))
-        self.assertEqual(len(audited), 19)
+        self.assertEqual(len(audited), 29)
         self.assertEqual(len(legacy), 40)
         for name, details in legacy.items():
             with self.subTest(abi=name):
@@ -163,6 +163,90 @@ class GeneratedRegistryTests(unittest.TestCase):
                 self.assertIn(required, function_names)
                 self.assertNotIn(forbidden, function_names)
 
+    def test_common_contract_abis_match_fixed_official_artifacts(self):
+        expected = {
+            "CHAINLINK_AGGREGATOR_V3": (
+                "4033192d711ea3401146cf48e206b62afd431607247832fd4577a9887f89dbeb",
+                "oracle",
+                5,
+            ),
+            "ERC1271": (
+                "5721ab6bdea982cbd7690bcc59d90ba0b53da853a52c50fbeeb0cb88de1dcf4b",
+                "signature",
+                1,
+            ),
+            "ERC165": (
+                "fc839607f64e5467d99b3595b1238161897b3d186fa7ddc7d190df4b4e73ca46",
+                "utility",
+                1,
+            ),
+            "ERC20_PERMIT": (
+                "0870cfbd0a83906160018e9917de6b4a4999d5d7f157134df2bbd468e18e3df3",
+                "token",
+                3,
+            ),
+            "ERC2981": (
+                "aacd60a298b69f44e9d96171c56834a694c547138a5eb0c6a45ac5c905db20ca",
+                "token",
+                2,
+            ),
+            "ERC4626": (
+                "88aba979731928030849ebbb33cfecbf95e4d6745bd208fd29957ddffa18278e",
+                "vault",
+                29,
+            ),
+            "MULTICALL3": (
+                "2407bc7c0820a63c0b5221e3344b86d28de2f2166b78a098361cab65d5506c4e",
+                "utility",
+                16,
+            ),
+            "OPENZEPPELIN_ACCESS_CONTROL_V5": (
+                "bc72d531de7a497a2bf073bc17ab61882bb79de92e1a1ebdd81134246a92eb8d",
+                "access",
+                10,
+            ),
+            "OPENZEPPELIN_IERC1967": (
+                "8fe688091f63e8483a5ffac5ed387ab69faa4cc6e58ca237031d5a94e18bf8af",
+                "proxy",
+                3,
+            ),
+            "UNISWAP_PERMIT2": (
+                "28c807df09f0d09db5a55b95280d544ca01952232e393f76f00ccb4b37cc3ef0",
+                "token",
+                31,
+            ),
+        }
+        manifest = json.loads(ABI_INDEX.read_text(encoding="utf-8"))["abis"]
+
+        for name, (canonical_hash, role, item_count) in expected.items():
+            entry = manifest[name]
+            with self.subTest(abi=name):
+                self.assertEqual(entry["canonical_sha256"], canonical_hash)
+                self.assertEqual(entry["contract_role"], role)
+                self.assertEqual(entry["item_count"], item_count)
+                self.assertEqual(entry["provenance"]["status"], "verified")
+                self.assertTrue(entry["provenance"]["artifact_path"])
+                self.assertEqual(entry["license"]["redistribution"], "allowed")
+
+        proxy_events = json.loads(
+            (
+                PACKAGE_ROOT
+                / manifest["OPENZEPPELIN_IERC1967"]["resource"]
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(proxy_events)
+        self.assertEqual({item["type"] for item in proxy_events}, {"event"})
+
+        permit = json.loads(
+            (PACKAGE_ROOT / manifest["ERC20_PERMIT"]["resource"]).read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(
+            {item["name"] for item in permit if item["type"] == "function"},
+            {"DOMAIN_SEPARATOR", "nonces", "permit"},
+        )
+
     def test_python_sources_parse_as_python_3_8(self):
         paths = (
             list(PACKAGE_ROOT.glob("*.py"))
@@ -209,7 +293,7 @@ json.loads = guarded_loads
 requests.Session.get = fail_network
 import many_abis as ma
 assert ma.loaded_abis() == []
-assert len(ma.ALL_ABIS_NAME) == 59
+assert len(ma.ALL_ABIS_NAME) == 69
 '''
         result = subprocess.run(
             [sys.executable, "-c", code],
@@ -219,8 +303,8 @@ assert len(ma.ALL_ABIS_NAME) == 59
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 59)
-        self.assertEqual(len(self.ma.supported_abis()), 59)
+        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 69)
+        self.assertEqual(len(self.ma.supported_abis()), 69)
         self.assertEqual(self.ma.loaded_abis(), [])
 
     def test_legacy_and_new_abi_access_load_once(self):
@@ -255,7 +339,7 @@ assert len(ma.ALL_ABIS_NAME) == 59
         _, second = self.ma.all_abis()
 
         self.assertEqual(names, self.ma.ALL_ABIS_NAME)
-        self.assertEqual(len(first), 59)
+        self.assertEqual(len(first), 69)
         self.assertIsNot(first, second)
         self.assertIsNot(first.ERC20, second.ERC20)
         self.assertEqual(self.ma.loaded_abis(), [])

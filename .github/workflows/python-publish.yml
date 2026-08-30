@@ -60,9 +60,9 @@ jobs:
 
         root = Path("/tmp/many-abis-release")
         assert m.loaded_abis() == []
-        assert len(m.ALL_ABIS_NAME) == 59
+        assert len(m.ALL_ABIS_NAME) == 69
         assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
-        assert len(m.loaded_abis()) == 59
+        assert len(m.loaded_abis()) == 69
         assert (root / "many_abis" / "abis.pyi").is_file()
         assert (root / "many_abis" / "py.typed").is_file()
         license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))

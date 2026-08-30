@@ -2,6 +2,207 @@
   "$schema": "schemas/abi-metadata.schema.json",
   "schema_version": 1,
   "abis": {
+    "CHAINLINK_AGGREGATOR_V3": {
+      "contract_role": "oracle",
+      "interface_name": "AggregatorV3Interface",
+      "required_signatures": [
+        "function:decimals()",
+        "function:getRoundData(uint80)",
+        "function:latestRoundData()"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/smartcontractkit/chainlink-evm/blob/contracts-v1.5.0/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@chainlink/contracts/-/contracts-1.5.0.tgz",
+        "artifact_path": "package/abi/v0.8/shared/AggregatorV3Interface.abi.json",
+        "immutable_ref": "npm:@chainlink/contracts@1.5.0#sha512-1fGJwjvivqAxvVOTqZUEXGR54CATtg0vjcXgSIk4Cfoad2nUhSG/qaWHXjLg1CkNTeOoteoxGQcpP/HiA5HsUA=="
+      }
+    },
+    "ERC1271": {
+      "contract_role": "signature",
+      "interface_name": "IERC1271",
+      "required_signatures": [
+        "function:isValidSignature(bytes32,bytes)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC1271.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC165": {
+      "contract_role": "utility",
+      "interface_name": "IERC165",
+      "required_signatures": [
+        "function:supportsInterface(bytes4)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC165.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC20_PERMIT": {
+      "contract_role": "token",
+      "interface_name": "IERC20Permit",
+      "required_signatures": [
+        "function:DOMAIN_SEPARATOR()",
+        "function:nonces(address)",
+        "function:permit(address,address,uint256,uint256,uint8,bytes32,bytes32)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC20Permit.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC2981": {
+      "contract_role": "token",
+      "interface_name": "IERC2981",
+      "required_signatures": [
+        "function:royaltyInfo(uint256,uint256)",
+        "function:supportsInterface(bytes4)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC2981.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC4626": {
+      "contract_role": "vault",
+      "interface_name": "IERC4626",
+      "required_signatures": [
+        "function:asset()",
+        "function:deposit(uint256,address)",
+        "function:redeem(uint256,address,address)",
+        "function:totalAssets()"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC4626.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "OPENZEPPELIN_ACCESS_CONTROL_V5": {
+      "contract_role": "access",
+      "interface_name": "IAccessControl",
+      "required_signatures": [
+        "function:getRoleAdmin(bytes32)",
+        "function:hasRole(bytes32,address)",
+        "function:renounceRole(bytes32,address)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IAccessControl.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "OPENZEPPELIN_IERC1967": {
+      "contract_role": "proxy",
+      "interface_name": "IERC1967",
+      "required_signatures": [
+        "event:AdminChanged(address,address)",
+        "event:BeaconUpgraded(address)",
+        "event:Upgraded(address)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC1967.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "MULTICALL3": {
+      "contract_role": "utility",
+      "interface_name": "Multicall3",
+      "required_signatures": [
+        "function:aggregate((address,bytes)[])",
+        "function:aggregate3((address,bool,bytes)[])",
+        "function:aggregate3Value((address,bool,uint256,bytes)[])",
+        "function:tryAggregate(bool,(address,bytes)[])"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/mds1/multicall3/blob/a1fa0644fa412cd3237ef7081458ecb2ffad7dbe/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://github.com/mds1/multicall3/releases/download/v3.1.0/Multicall3.json",
+        "artifact_path": "Multicall3.json#abi",
+        "immutable_ref": "git:mds1/multicall3@a1fa0644fa412cd3237ef7081458ecb2ffad7dbe#release:v3.1.0"
+      }
+    },
+    "UNISWAP_PERMIT2": {
+      "contract_role": "token",
+      "interface_name": "Permit2",
+      "required_signatures": [
+        "function:DOMAIN_SEPARATOR()",
+        "function:allowance(address,address,address)",
+        "function:nonceBitmap(address,uint256)",
+        "function:permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)",
+        "function:permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)",
+        "function:permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)",
+        "function:transferFrom(address,address,uint160,address)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/permit2/blob/cc306b601f172c51bc04334a109e98340456620b/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://github.com/Uniswap/permit2/blob/cc306b601f172c51bc04334a109e98340456620b/src/Permit2.sol",
+        "artifact_path": "forge:out/Permit2.sol/Permit2.json#abi (solc 0.8.17)",
+        "immutable_ref": "git:Uniswap/permit2@cc306b601f172c51bc04334a109e98340456620b#solc:0.8.17"
+      }
+    },
     "AAVE_V2_LENDING_POOL_ADDRESSES_PROVIDER": {
       "contract_role": "other",
       "interface_name": "LendingPoolAddressesProvider",

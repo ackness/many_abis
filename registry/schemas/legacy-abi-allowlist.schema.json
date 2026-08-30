@@ -33,10 +33,17 @@
           },
           "contract_role": {
             "enum": [
+              "access",
               "factory",
+              "oracle",
               "other",
               "pool",
-              "router"
+              "proxy",
+              "router",
+              "signature",
+              "token",
+              "utility",
+              "vault"
             ]
           },
           "reason": {

@@ -500,10 +500,14 @@ def build_third_party_notices(abi_index: Mapping[str, Any]) -> str:
     ]
     for name, entry in known:
         source = entry["provenance"].get("source_url") or "not recorded"
+        evidence = entry["license"].get("evidence_url") or "not recorded"
         lines.extend(
             [
-                "- `{}`: `{}`; source: {}".format(
-                    name, entry["license"]["spdx_expression"], source
+                "- `{}`: `{}`; ABI source: {}; license evidence: {}".format(
+                    name,
+                    entry["license"]["spdx_expression"],
+                    source,
+                    evidence,
                 )
             ]
         )

@@ -4,6 +4,16 @@ This file is generated from the ABI assets and `registry/abi-metadata.json`.
 
 | ABI | Role | Items | Canonical SHA-256 | Provenance | License |
 | --- | --- | ---: | --- | --- | --- |
+| `CHAINLINK_AGGREGATOR_V3` | oracle | 5 | `4033192d711ea340` | [source](https://registry.npmjs.org/@chainlink/contracts/-/contracts-1.5.0.tgz) | MIT (allowed) |
+| `ERC1271` | signature | 1 | `5721ab6bdea982cb` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `ERC165` | utility | 1 | `fc839607f64e5467` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `ERC20_PERMIT` | token | 3 | `0870cfbd0a839061` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `ERC2981` | token | 2 | `aacd60a298b69f44` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `ERC4626` | vault | 29 | `88aba97973192803` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `MULTICALL3` | utility | 16 | `2407bc7c0820a63c` | [source](https://github.com/mds1/multicall3/releases/download/v3.1.0/Multicall3.json) | MIT (allowed) |
+| `OPENZEPPELIN_ACCESS_CONTROL_V5` | access | 10 | `bc72d531de7a497a` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `OPENZEPPELIN_IERC1967` | proxy | 3 | `8fe688091f63e848` | [source](https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz) | MIT (allowed) |
+| `UNISWAP_PERMIT2` | token | 31 | `28c807df09f0d09d` | [source](https://github.com/Uniswap/permit2/blob/cc306b601f172c51bc04334a109e98340456620b/src/Permit2.sol) | MIT (allowed) |
 | `AAVE_V1_ATOKEN` | other | 35 | `217c0e1d09c9d5e7` | legacy | NOASSERTION (legacy_exception) |
 | `AAVE_V1_LENDING_POOL` | pool | 32 | `6dc9fb20c7a68934` | legacy | NOASSERTION (legacy_exception) |
 | `AAVE_V1_LENDING_POOL_ADDRESSES_PROVIDER` | other | 41 | `7530bfbdcc8b9460` | legacy | NOASSERTION (legacy_exception) |
