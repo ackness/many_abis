@@ -135,3 +135,5 @@ temp.json
 .vscode/*
 test/*
 *test*
+!tests/
+!tests/*.py

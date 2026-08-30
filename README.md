@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.1.9-green)
+![Version](https://img.shields.io/badge/many--abis-v0.2.0-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -18,39 +18,49 @@ Now we support dex:
 
 - arbitrum:
   - [1] [SushiSwap](https://app.sushi.com/en/swap)
+  - [2] [Uniswap V3](https://app.uniswap.org/)
 - avalanche:
-  - [1] [traderjoexyz](https://traderjoexyz.com/#/home)
+  - [1] [LFJ Liquidity Book V2.2](https://lfj.gg/avalanche/trade)
+- base:
+  - [1] [Aerodrome Slipstream (Gauges V3)](https://aerodrome.finance/swap)
+  - [2] [Uniswap V3](https://app.uniswap.org/)
+  - [3] [PancakeSwap V3](https://pancakeswap.finance/swap)
 - bsc:
-  - [1] [ApeSwap Finance](https://app.apeswap.finance/swap)
-  - [2] [BiSwap](https://exchange.biswap.org/#/swap)
-  - [3] [MDEX (BSC)](https://bsc.mdex.co/#/swap/)
-  - [4] [PancakeSwap v2](https://pancakeswap.finance/swap)
-  - [5] [PancakeSwap v3](https://pancakeswap.finance/swap)
-  - [6] [Uniswap](https://app.uniswap.org/#/swap)
+  - [1] [PancakeSwap v2](https://pancakeswap.finance/swap)
+  - [2] [PancakeSwap v3](https://pancakeswap.finance/swap)
+  - [3] [Uniswap V3](https://app.uniswap.org/)
 - bsc-test:
   - [1] [PancakeSwap v2 (TEST)]()
-  - [2] [PancakeSwap v3 (TEST)](https://pancakeswap.finance/swap?chain:bscTestnet)
+  - [2] [PancakeSwap v3 (TEST)](https://pancakeswap.finance/swap?chain=bscTestnet)
 - cronos:
-  - [1] [Mad Meerkat Finance](https://mm.finance/swap)
+  - [1] [VVS Finance V2](https://vvs.finance/swap)
 - eth:
   - [1] [Uniswap V2](https://app.uniswap.org/)
   - [2] [Uniswap V3](https://app.uniswap.org/)
-- fantom:
-  - [1] [SpiritSwap](https://www.spiritswap.finance/)
-  - [2] [SpookySwap](https://spookyswap.finance/)
-- heco:
-  - [1] [MDEX (HECO)](https://ht.mdex.co/#/swap/)
-- kcc:
-  - [1] [KoffeeSwap](https://koffeeswap.exchange/)
-- moonriver:
-  - [1] [Solarbeam](https://app.solarbeam.io/exchange/swap)
-- okx:
-  - [1] [CherrySwap](https://www.cherryswap.net/)
+- monad:
+  - [1] [Uniswap V3](https://app.uniswap.org/)
 - polygon:
   - [1] [QuickSwap](https://quickswap.exchange/)
+  - [2] [Uniswap V3](https://app.uniswap.org/)
 - optimism:
   - [1] [Uniswap V3](https://app.uniswap.org/#/swap)
-  - [2] [Velodrome V1](https://app.velodrome.finance/swap)
+  - [2] [Velodrome Slipstream](https://velodrome.finance/swap)
+- robinhood:
+  - [1] [Uniswap V3](https://app.uniswap.org/)
+- sonic:
+  - [1] [Shadow Exchange CLMM](https://www.shadow.so/)
+- unichain:
+  - [1] [Uniswap V3](https://app.uniswap.org/)
+- xlayer:
+  - [1] [Uniswap V3](https://app.uniswap.org/)
+
+---
+
+Chain, token, RPC, and DEX contract entries follow the documented
+[source and verification policy](https://github.com/ackness/many_abis/blob/main/docs/chain-data-sources.md). DEX volume is used
+to prioritize candidates, while official deployment documentation and on-chain
+bytecode are required before an address is added. These checks do not replace a
+smart-contract security audit.
 
 ---
 
@@ -89,7 +99,7 @@ print(ma.ABIS.ERC20)
 # ======================================================================
 # get abi from address using etherscan api
 ma.get_abi_from_address(
-    "0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6",
+    "0x10ED43C718714eb63d5aA57B78B54704E256024E",
     "YOUR API KEY",
     ma.CHAIN_CONTRACT_API.BSC
 )
@@ -98,7 +108,9 @@ ma.get_abi_from_address(
 # chains
 chains = ma.all_chains()
 print(chains)
-# ['arbitrum', 'avalanche', 'bsc', 'bsc-test', 'cronos', 'eth', 'fantom', 'heco', 'kcc', 'moonriver', 'okx', 'polygon', 'optimism']
+# ['arbitrum', 'avalanche', 'base', 'bsc', 'bsc-test', 'cronos', 'eth',
+#  'hyperevm', 'monad', 'optimism', 'polygon', 'robinhood', 'sonic',
+#  'unichain', 'xlayer']
 
 # different methods to get chain
 bsc = ma.get_chain_by_id(chain_id=56)

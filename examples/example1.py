@@ -14,7 +14,7 @@ print(ma.ABIS.ERC20)
 # ======================================================================
 # get abi from address using etherscan api
 ma.get_abi_from_address(
-    "0x0841BD0B734E4F5853f0dD8d7Ea041c241fb0Da6",
+    "0x10ED43C718714eb63d5aA57B78B54704E256024E",
     "YOUR API KEY",
     ma.CHAIN_CONTRACT_API.BSC
 )
@@ -23,7 +23,9 @@ ma.get_abi_from_address(
 # chains
 chains = ma.all_chains()
 print(chains)
-# ['arbitrum-one', 'avax-c', 'bsc', 'bsc-test', 'cronos', 'eth', 'fantom', 'heco', 'kcc', 'moonriver', 'okex', 'polygon']
+# ['arbitrum', 'avalanche', 'base', 'bsc', 'bsc-test', 'cronos', 'eth',
+#  'hyperevm', 'monad', 'optimism', 'polygon', 'robinhood', 'sonic',
+#  'unichain', 'xlayer']
 
 # different methods to get chain
 bsc = ma.get_chain_by_id(chain_id=56)

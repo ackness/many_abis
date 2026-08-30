@@ -1,4 +1,4 @@
-from typing import Iterable, Mapping, Sequence
+from typing import Iterable, Mapping, Optional, Sequence
 
 
 class WethMetaData:
@@ -8,9 +8,16 @@ class WethMetaData:
 
 
 class SingleDexMetaData:
+    deployment_source: Optional[str]
+    factory_abi: Optional[str]
     factory_address: str
     router_address: str
     name: str
+    protocol_family: Optional[str]
+    protocol_version: Optional[str]
+    router_abi: Optional[str]
+    router_variant: Optional[str]
+    status: Optional[str]
     website: str
 
 
@@ -21,27 +28,33 @@ class ChainMetaData:
     explorer: str
     name: str
     rpc: Sequence[str]
+    status: Optional[str]
     stable_coins: Mapping[str, str]
+    test_coins: Optional[Mapping[str, str]]
     weth: WethMetaData
 
 
 class ChainsMetaData:
     eth: ChainMetaData
     bsc: ChainMetaData
+    base: ChainMetaData
     polygon: ChainMetaData
-    heco: ChainMetaData
-    fantom: ChainMetaData
+    sonic: ChainMetaData
     arbitrum: ChainMetaData
     cronos: ChainMetaData
     avalanche: ChainMetaData
-    kcc: ChainMetaData
-    moonriver: ChainMetaData
-    okx: ChainMetaData
+    hyperevm: ChainMetaData
+    monad: ChainMetaData
+    robinhood: ChainMetaData
+    unichain: ChainMetaData
+    xlayer: ChainMetaData
     bsc_test: ChainMetaData
     optimism: ChainMetaData
 
 
 class ABIMetaData(Iterable):
+    AERODROME_SLIPSTREAM_V3_FACTORY: Sequence[Mapping]
+    AERODROME_SLIPSTREAM_V3_ROUTER: Sequence[Mapping]
     AAVE_V1_ATOKEN: Sequence[Mapping]
     AAVE_V1_LENDING_POOL: Sequence[Mapping]
     AAVE_V1_LENDING_POOL_ADDRESSES_PROVIDER: Sequence[Mapping]
@@ -63,6 +76,10 @@ class ABIMetaData(Iterable):
     JOE_V2_FACTORY: Sequence[Mapping]
     JOE_V2_PAIR: Sequence[Mapping]
     JOE_V2_ROUTER: Sequence[Mapping]
+    LFJ_LIQUIDITY_BOOK_V2_2_FACTORY: Sequence[Mapping]
+    LFJ_LIQUIDITY_BOOK_V2_2_ROUTER: Sequence[Mapping]
+    PANCAKE_V3_BASE_FACTORY: Sequence[Mapping]
+    PANCAKE_V3_FACTORY: Sequence[Mapping]
     PANCAKE_V3_IPERIPHERY_PAYMENTS_WITH_FEE: Sequence[Mapping]
     PANCAKE_V3_MASTER_CHEF_V3: Sequence[Mapping]
     PANCAKE_V3_NON_FUNGIBLE_POSITION_MANAGER: Sequence[Mapping]
@@ -71,7 +88,10 @@ class ABIMetaData(Iterable):
     PANCAKE_V3_QUOTER_V2: Sequence[Mapping]
     PANCAKE_V3_ROUTER_V3: Sequence[Mapping]
     PANCAKE_V3_SELF_PERMIT: Sequence[Mapping]
+    PANCAKE_V3_SMART_ROUTER: Sequence[Mapping]
     PANCAKE_V3_STAKER: Sequence[Mapping]
+    SHADOW_CLMM_V3_FACTORY: Sequence[Mapping]
+    SHADOW_CLMM_V3_ROUTER: Sequence[Mapping]
     UNISWAP_BSC_ROUTER: Sequence[Mapping]
     UNISWAP_V1_EXCHANGE: Sequence[Mapping]
     UNISWAP_V1_FACTORY: Sequence[Mapping]
@@ -84,6 +104,9 @@ class ABIMetaData(Iterable):
     UNISWAP_V3_POOL: Sequence[Mapping]
     UNISWAP_V3_QUOTER: Sequence[Mapping]
     UNISWAP_V3_ROUTER: Sequence[Mapping]
+    UNISWAP_V3_ROUTER_02: Sequence[Mapping]
+    VELODROME_SLIPSTREAM_V3_FACTORY: Sequence[Mapping]
+    VELODROME_SLIPSTREAM_V3_ROUTER: Sequence[Mapping]
     ERC1155: Sequence[Mapping]
     ERC20: Sequence[Mapping]
     ERC721: Sequence[Mapping]
