@@ -48,6 +48,31 @@ def load_abi_manifest() -> Dict[str, Any]:
     return manifest
 
 
+def _load_index_manifest(relative_path: str, collection: str) -> Dict[str, Any]:
+    manifest = _load_json_resource(relative_path)
+    if (
+        not isinstance(manifest, dict)
+        or manifest.get("schema_version") != 1
+        or not isinstance(manifest.get(collection), dict)
+    ):
+        raise ValueError("Unsupported {} manifest".format(collection))
+    return manifest
+
+
+def load_contract_manifest() -> Dict[str, Any]:
+    return _load_index_manifest("assets/contract-index.json", "contracts")
+
+
+def load_token_manifest() -> Dict[str, Any]:
+    return _load_index_manifest("assets/token-index.json", "tokens")
+
+
+def load_verification_manifest() -> Dict[str, Any]:
+    return _load_index_manifest(
+        "assets/verification-snapshots.json", "snapshots"
+    )
+
+
 def load_abi(name: str) -> List[Dict[str, Any]]:
     """Load one ABI using its legacy path relative to ``assets``.
 

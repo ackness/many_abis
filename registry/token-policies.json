@@ -1,0 +1,110 @@
+{
+  "$schema": "schemas/token-policies.schema.json",
+  "schema_version": 1,
+  "tokens": {
+    "arbitrum:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "arbitrum:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    },
+    "avalanche:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "base:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "bsc:USDC.binance-peg": {
+      "evidence_url": "https://bscscan.com/token/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+      "origin": "bridged"
+    },
+    "bsc:USDT.binance-peg": {
+      "evidence_url": "https://bscscan.com/token/0x55d398326f99059ff775485246999027b3197955",
+      "origin": "bridged"
+    },
+    "bsc:FDUSD": {
+      "evidence_url": "https://www.firstdigitallabs.com/fdusd",
+      "origin": "issuer_native"
+    },
+    "bsc:USD1": {
+      "evidence_url": "https://www.bitgo.com/usd1",
+      "origin": "issuer_native"
+    },
+    "cronos:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "eth:PYUSD": {
+      "evidence_url": "https://docs.paxos.com/guides/stablecoin/pyusd/mainnet",
+      "origin": "issuer_native"
+    },
+    "eth:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "eth:USDS": {
+      "evidence_url": "https://developers.skyeco.com/guides/skylink/usds-ethereum-solana-bridge/",
+      "origin": "protocol_native"
+    },
+    "eth:USDT": {
+      "evidence_url": "https://tether.to/en/supported-protocols/",
+      "origin": "issuer_native"
+    },
+    "eth:USDe": {
+      "evidence_url": "https://docs.ethena.fi/api-documentation/overview",
+      "origin": "protocol_native"
+    },
+    "eth:USD1": {
+      "evidence_url": "https://www.bitgo.com/usd1",
+      "origin": "issuer_native"
+    },
+    "hyperevm:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    },
+    "monad:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    },
+    "optimism:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "optimism:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    },
+    "polygon:USDC": {
+      "evidence_url": "https://developers.circle.com/stablecoins/usdc-contract-addresses",
+      "origin": "issuer_native"
+    },
+    "polygon:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    },
+    "robinhood:USDG.oft": {
+      "evidence_url": "https://docs.paxos.com/guides/stablecoin/usdg/mainnet",
+      "origin": "bridged"
+    },
+    "unichain:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    },
+    "xlayer:USDC": {
+      "evidence_url": "https://www.circle.com/blog/now-available-native-usdc-cctp-on-x-layer",
+      "origin": "issuer_native"
+    },
+    "xlayer:USDG": {
+      "evidence_url": "https://docs.paxos.com/guides/stablecoin/usdg/mainnet",
+      "origin": "issuer_native"
+    },
+    "xlayer:USDT0": {
+      "evidence_url": "https://docs.usdt0.to/api/deployments",
+      "origin": "bridged"
+    }
+  }
+}

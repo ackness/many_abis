@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ackness/many_abis/registry/schemas/verification-snapshots.schema.json",
+  "title": "many-abis on-chain verification snapshots",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "snapshots"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "snapshots": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*:0x[0-9a-f]{40}$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/snapshot"
+      }
+    }
+  },
+  "$defs": {
+    "address_or_null": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^0x[0-9a-fA-F]{40}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "address",
+        "block_hash",
+        "block_number",
+        "block_tag",
+        "chain",
+        "chain_id",
+        "code_size",
+        "eip1967",
+        "observed_at",
+        "rpc_url",
+        "runtime_code_keccak256",
+        "token_metadata"
+      ],
+      "properties": {
+        "address": {
+          "type": "string",
+          "pattern": "^0x[0-9a-fA-F]{40}$"
+        },
+        "block_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "block_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "block_tag": {
+          "enum": [
+            "latest",
+            "safe",
+            "finalized"
+          ]
+        },
+        "chain": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "chain_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "code_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "eip1967": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "admin",
+            "beacon",
+            "implementation",
+            "implementation_code_keccak256"
+          ],
+          "properties": {
+            "admin": {
+              "$ref": "#/$defs/address_or_null"
+            },
+            "beacon": {
+              "$ref": "#/$defs/address_or_null"
+            },
+            "implementation": {
+              "$ref": "#/$defs/address_or_null"
+            },
+            "implementation_code_keccak256": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/hash"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rpc_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "runtime_code_keccak256": {
+          "$ref": "#/$defs/hash"
+        },
+        "token_metadata": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/token_metadata"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "token_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decimals",
+        "symbol"
+      ],
+      "properties": {
+        "decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "symbol": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    }
+  }
+}

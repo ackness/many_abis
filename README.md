@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.3.1-green)
+![Version](https://img.shields.io/badge/many--abis-v0.4.0-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -104,6 +104,18 @@ print(ma.ABIS.CHAINLINK_AGGREGATOR_V3)
 print(ma.ABIS.MULTICALL3)
 print(ma.ABIS.UNISWAP_PERMIT2)
 
+# Inspect ABI provenance without loading the ABI array.
+print(ma.get_abi_info("ERC5267"))
+print(ma.find_abis(contract_role="signature"))
+
+# Query the generated contract, token, and pinned on-chain evidence catalogs.
+router = ma.get_contract("base:dex:uniswap-v3:router")
+usdc = ma.get_token("base", "USDC")
+snapshot = ma.get_verification("base", usdc["address"])
+print(router["abi"])
+print(usdc["origin"], usdc["decimals"])
+print(snapshot["block_number"], snapshot["runtime_code_keccak256"])
+
 
 # ======================================================================
 # get abi from address using etherscan api
@@ -158,11 +170,20 @@ Runtime data is generated offline. Edit one reviewed source file under
 `registry/chains/` or `registry/abi-metadata.json`, then regenerate and verify:
 
 ```bash
-python -m pip install -r requirements-dev.txt
+python -m pip install -e . -r requirements-dev.txt
 python scripts/generate_registry.py --write
 python scripts/generate_registry.py --check
 python -m unittest discover -s tests -v
 python -m mypy
+```
+
+On-chain evidence refreshes are explicit network operations and are separate
+from the offline generator. Refresh only through the reviewed RPC list, inspect
+the diff, and then regenerate:
+
+```bash
+python scripts/refresh_verifications.py --chain base --write
+python scripts/generate_registry.py --write
 ```
 
 Do not edit `many_abis/assets/utils/chains.json`, `abi-index.json`, generated
@@ -174,6 +195,9 @@ standards, oracles, multicall, Permit2, and proxy events are documented in
 [common contract ABIs](docs/common-contract-abis.md). API-driven bridge and
 aggregator boundaries are documented in
 [cross-chain aggregators](docs/cross-chain-aggregators.md).
+The generated contract/token catalogs, snapshot semantics, proxy limitations,
+and query API are documented in
+[registry verification](docs/registry-verification.md).
 Pre-0.3 ABI files without complete provenance are pinned by canonical hash in
 `registry/legacy-abi-allowlist.json`; new or changed ABI files must instead add
 verified provenance metadata, an immutable source reference, license evidence,

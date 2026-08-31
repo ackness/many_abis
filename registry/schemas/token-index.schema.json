@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ackness/many_abis/registry/schemas/token-index.schema.json",
+  "title": "many-abis generated token index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tokens"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "address",
+          "chain",
+          "chain_id",
+          "configured_symbol",
+          "decimals",
+          "evidence_url",
+          "name",
+          "observed_symbol",
+          "origin",
+          "role",
+          "token_id",
+          "verification_id"
+        ],
+        "properties": {
+          "address": {
+            "type": "string",
+            "pattern": "^0x[0-9a-fA-F]{40}$"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "chain_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "configured_symbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decimals": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "evidence_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "observed_symbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "origin": {
+            "enum": [
+              "bridged",
+              "issuer_native",
+              "protocol_native",
+              "test",
+              "unknown",
+              "wrapped_native"
+            ]
+          },
+          "role": {
+            "enum": [
+              "stablecoin",
+              "test_token",
+              "wrapped_native"
+            ]
+          },
+          "token_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

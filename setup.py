@@ -48,6 +48,7 @@ setup(
     ],
     install_requires=[
         "eth_utils",
+        "eth-hash[pycryptodome]>=0.3.1,<1",
         "addict",
         "requests",
         'importlib_resources>=5.10,<7; python_version < "3.9"',

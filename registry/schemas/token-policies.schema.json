@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ackness/many_abis/registry/schemas/token-policies.schema.json",
+  "title": "many-abis token policy overrides",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "tokens"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_url",
+          "origin"
+        ],
+        "properties": {
+          "evidence_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "origin": {
+            "enum": [
+              "bridged",
+              "issuer_native",
+              "protocol_native",
+              "test",
+              "unknown",
+              "wrapped_native"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

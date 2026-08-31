@@ -118,6 +118,156 @@
         "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
       }
     },
+    "ERC5267": {
+      "contract_role": "signature",
+      "interface_name": "IERC5267",
+      "required_signatures": [
+        "event:EIP712DomainChanged()",
+        "function:eip712Domain()"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC5267.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC6093_ERC1155_ERRORS": {
+      "contract_role": "utility",
+      "interface_name": "IERC1155Errors",
+      "required_signatures": [
+        "error:ERC1155InsufficientBalance(address,uint256,uint256,uint256)",
+        "error:ERC1155InvalidApprover(address)",
+        "error:ERC1155InvalidArrayLength(uint256,uint256)",
+        "error:ERC1155InvalidOperator(address)",
+        "error:ERC1155InvalidReceiver(address)",
+        "error:ERC1155InvalidSender(address)",
+        "error:ERC1155MissingApprovalForAll(address,address)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC1155Errors.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC6093_ERC20_ERRORS": {
+      "contract_role": "utility",
+      "interface_name": "IERC20Errors",
+      "required_signatures": [
+        "error:ERC20InsufficientAllowance(address,uint256,uint256)",
+        "error:ERC20InsufficientBalance(address,uint256,uint256)",
+        "error:ERC20InvalidApprover(address)",
+        "error:ERC20InvalidReceiver(address)",
+        "error:ERC20InvalidSender(address)",
+        "error:ERC20InvalidSpender(address)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC20Errors.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC6093_ERC721_ERRORS": {
+      "contract_role": "utility",
+      "interface_name": "IERC721Errors",
+      "required_signatures": [
+        "error:ERC721IncorrectOwner(address,uint256,address)",
+        "error:ERC721InsufficientApproval(address,uint256)",
+        "error:ERC721InvalidApprover(address)",
+        "error:ERC721InvalidOperator(address)",
+        "error:ERC721InvalidOwner(address)",
+        "error:ERC721InvalidReceiver(address)",
+        "error:ERC721InvalidSender(address)",
+        "error:ERC721NonexistentToken(uint256)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC721Errors.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC6909": {
+      "contract_role": "token",
+      "interface_name": "IERC6909",
+      "required_signatures": [
+        "event:Approval(address,address,uint256,uint256)",
+        "event:OperatorSet(address,address,bool)",
+        "event:Transfer(address,address,address,uint256,uint256)",
+        "function:allowance(address,address,uint256)",
+        "function:approve(address,uint256,uint256)",
+        "function:balanceOf(address,uint256)",
+        "function:isOperator(address,address)",
+        "function:setOperator(address,bool)",
+        "function:supportsInterface(bytes4)",
+        "function:transfer(address,uint256,uint256)",
+        "function:transferFrom(address,address,uint256,uint256)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC6909.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
+    "ERC6909_METADATA": {
+      "contract_role": "token",
+      "interface_name": "IERC6909Metadata",
+      "required_signatures": [
+        "event:Approval(address,address,uint256,uint256)",
+        "event:OperatorSet(address,address,bool)",
+        "event:Transfer(address,address,address,uint256,uint256)",
+        "function:allowance(address,address,uint256)",
+        "function:approve(address,uint256,uint256)",
+        "function:balanceOf(address,uint256)",
+        "function:decimals(uint256)",
+        "function:isOperator(address,address)",
+        "function:name(uint256)",
+        "function:setOperator(address,bool)",
+        "function:supportsInterface(bytes4)",
+        "function:symbol(uint256)",
+        "function:transfer(address,uint256,uint256)",
+        "function:transferFrom(address,address,uint256,uint256)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v5.6.1/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.6.1.tgz",
+        "artifact_path": "package/build/contracts/IERC6909Metadata.json#abi",
+        "immutable_ref": "npm:@openzeppelin/contracts@5.6.1#sha512-Ly6SlsVJ3mj+b18W3R8gNufB7dTICT105fJhodGAGgyC2oqnBAhqSiNDJ8V8DLY05cCz81GLI0CU5vNYA1EC/w=="
+      }
+    },
     "OPENZEPPELIN_ACCESS_CONTROL_V5": {
       "contract_role": "access",
       "interface_name": "IAccessControl",
@@ -488,6 +638,58 @@
       "provenance": {
         "status": "verified",
         "source_url": "https://registry.npmjs.org/@uniswap/v3-core/-/v3-core-1.0.1.tgz",
+        "immutable_ref": "npm:@uniswap/v3-core@1.0.1#sha512-7pVk4hEm00j9tc71Y9+ssYpO6ytkeI0y7WE9P6UcmNzhxPePwyAxImuhVsTqWK9YFvzgtvzJHi64pBl4jUzKMQ=="
+      }
+    },
+    "UNISWAP_V3_POOL_EVENTS": {
+      "contract_role": "pool",
+      "interface_name": "IUniswapV3PoolEvents",
+      "required_signatures": [
+        "event:Burn(address,int24,int24,uint128,uint256,uint256)",
+        "event:Collect(address,address,int24,int24,uint128,uint128)",
+        "event:CollectProtocol(address,address,uint128,uint128)",
+        "event:Flash(address,address,uint256,uint256,uint256,uint256)",
+        "event:IncreaseObservationCardinalityNext(uint16,uint16)",
+        "event:Initialize(uint160,int24)",
+        "event:Mint(address,address,int24,int24,uint128,uint256,uint256)",
+        "event:SetFeeProtocol(uint8,uint8,uint8,uint8)",
+        "event:Swap(address,address,int256,int256,uint160,uint128,int24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://raw.githubusercontent.com/Uniswap/v3-core/ed88be38ab2032d82bf10ac6f8d03aa631889d48/contracts/interfaces/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v3-core/-/v3-core-1.0.1.tgz",
+        "artifact_path": "package/artifacts/contracts/interfaces/pool/IUniswapV3PoolEvents.sol/IUniswapV3PoolEvents.json#abi",
+        "immutable_ref": "npm:@uniswap/v3-core@1.0.1#sha512-7pVk4hEm00j9tc71Y9+ssYpO6ytkeI0y7WE9P6UcmNzhxPePwyAxImuhVsTqWK9YFvzgtvzJHi64pBl4jUzKMQ=="
+      }
+    },
+    "UNISWAP_V3_POOL_STATE": {
+      "contract_role": "pool",
+      "interface_name": "IUniswapV3PoolState",
+      "required_signatures": [
+        "function:feeGrowthGlobal0X128()",
+        "function:feeGrowthGlobal1X128()",
+        "function:liquidity()",
+        "function:observations(uint256)",
+        "function:positions(bytes32)",
+        "function:protocolFees()",
+        "function:slot0()",
+        "function:tickBitmap(int16)",
+        "function:ticks(int24)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://raw.githubusercontent.com/Uniswap/v3-core/ed88be38ab2032d82bf10ac6f8d03aa631889d48/contracts/interfaces/LICENSE"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v3-core/-/v3-core-1.0.1.tgz",
+        "artifact_path": "package/artifacts/contracts/interfaces/pool/IUniswapV3PoolState.sol/IUniswapV3PoolState.json#abi",
         "immutable_ref": "npm:@uniswap/v3-core@1.0.1#sha512-7pVk4hEm00j9tc71Y9+ssYpO6ytkeI0y7WE9P6UcmNzhxPePwyAxImuhVsTqWK9YFvzgtvzJHi64pBl4jUzKMQ=="
       }
     },

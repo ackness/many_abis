@@ -42,11 +42,13 @@ jobs:
           import many_abis as m
 
           root = Path("/tmp/many-abis-wheel")
-          assert m.__version__ == "0.3.1"
-          assert len(m.ALL_ABIS_NAME) == 69
+          assert m.__version__ == "0.4.0"
+          assert len(m.ALL_ABIS_NAME) == 77
           assert m.loaded_abis() == []
           assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
-          assert len(m.loaded_abis()) == 69
+          assert len(m.loaded_abis()) == 77
+          assert len(m.all_contract_ids()) == 99
+          assert len(m.all_token_ids()) == 53
           assert (root / "many_abis" / "abis.pyi").is_file()
           assert (root / "many_abis" / "py.typed").is_file()
           license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))

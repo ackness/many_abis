@@ -50,7 +50,7 @@ class GeneratedRegistryTests(unittest.TestCase):
         abi_paths = sorted(ASSETS_ROOT.rglob("*.abi"))
 
         self.assertEqual(len(manifest), len(abi_paths))
-        self.assertEqual(len(manifest), 69)
+        self.assertEqual(len(manifest), 77)
         self.assertEqual(
             {entry["resource"] for entry in manifest.values()},
             {
@@ -84,7 +84,7 @@ class GeneratedRegistryTests(unittest.TestCase):
 
         self.assertEqual(set(audited) | set(legacy), set(manifest))
         self.assertTrue(set(audited).isdisjoint(legacy))
-        self.assertEqual(len(audited), 29)
+        self.assertEqual(len(audited), 37)
         self.assertEqual(len(legacy), 40)
         for name, details in legacy.items():
             with self.subTest(abi=name):
@@ -195,6 +195,36 @@ class GeneratedRegistryTests(unittest.TestCase):
                 "vault",
                 29,
             ),
+            "ERC5267": (
+                "f1e87151c8635b01ae77e263e813ceeb486d9df6c35300055cb85c248421f55f",
+                "signature",
+                2,
+            ),
+            "ERC6093_ERC1155_ERRORS": (
+                "4788991d085e0b9990603501d1cab5fcb830c3429fad3d59a421afc27d2ab708",
+                "utility",
+                7,
+            ),
+            "ERC6093_ERC20_ERRORS": (
+                "851ca5f5bf60a11262c78d710c46d935f0d7dde2b760ba7d7f199d273d2bcf71",
+                "utility",
+                6,
+            ),
+            "ERC6093_ERC721_ERRORS": (
+                "22cb31c1805339cc470a1ef3b5cb08b468e465bd624e68529ea9b72fbb87621f",
+                "utility",
+                8,
+            ),
+            "ERC6909": (
+                "30b53c3e4dbd8581092b18d2fc237e39dc152007f9d73de64a466c119b7b6cab",
+                "token",
+                11,
+            ),
+            "ERC6909_METADATA": (
+                "494be78ce5cbcc90d0fcb6ba3060009ef83058f0fe079f2df87e4570798baad9",
+                "token",
+                14,
+            ),
             "MULTICALL3": (
                 "2407bc7c0820a63c0b5221e3344b86d28de2f2166b78a098361cab65d5506c4e",
                 "utility",
@@ -214,6 +244,16 @@ class GeneratedRegistryTests(unittest.TestCase):
                 "28c807df09f0d09db5a55b95280d544ca01952232e393f76f00ccb4b37cc3ef0",
                 "token",
                 31,
+            ),
+            "UNISWAP_V3_POOL_EVENTS": (
+                "666acad093a50294d65df87845456ae2a8882e6037160320dd2cfe55735acb1a",
+                "pool",
+                9,
+            ),
+            "UNISWAP_V3_POOL_STATE": (
+                "b74b941dd9da63369720494e5596d7370d7bb25902f62581f790bdd2591e03ed",
+                "pool",
+                9,
             ),
         }
         manifest = json.loads(ABI_INDEX.read_text(encoding="utf-8"))["abis"]
@@ -292,8 +332,12 @@ def fail_network(*args, **kwargs):
 json.loads = guarded_loads
 requests.Session.get = fail_network
 import many_abis as ma
+import many_abis.catalog as catalog
 assert ma.loaded_abis() == []
-assert len(ma.ALL_ABIS_NAME) == 69
+assert len(ma.ALL_ABIS_NAME) == 77
+assert catalog._CONTRACTS is None
+assert catalog._TOKENS is None
+assert catalog._VERIFICATIONS is None
 '''
         result = subprocess.run(
             [sys.executable, "-c", code],
@@ -303,8 +347,8 @@ assert len(ma.ALL_ABIS_NAME) == 69
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 69)
-        self.assertEqual(len(self.ma.supported_abis()), 69)
+        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 77)
+        self.assertEqual(len(self.ma.supported_abis()), 77)
         self.assertEqual(self.ma.loaded_abis(), [])
 
     def test_legacy_and_new_abi_access_load_once(self):
@@ -339,7 +383,7 @@ assert len(ma.ALL_ABIS_NAME) == 69
         _, second = self.ma.all_abis()
 
         self.assertEqual(names, self.ma.ALL_ABIS_NAME)
-        self.assertEqual(len(first), 69)
+        self.assertEqual(len(first), 77)
         self.assertIsNot(first, second)
         self.assertIsNot(first.ERC20, second.ERC20)
         self.assertEqual(self.ma.loaded_abis(), [])

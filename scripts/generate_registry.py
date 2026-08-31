@@ -10,6 +10,7 @@ import tempfile
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
+from eth_utils import is_checksum_address
 from jsonschema import Draft202012Validator, FormatChecker
 
 
@@ -18,21 +19,35 @@ CHAIN_SOURCE_DIR = ROOT / "registry" / "chains"
 CHAIN_ORDER_PATH = ROOT / "registry" / "chain-order.json"
 ABI_METADATA_PATH = ROOT / "registry" / "abi-metadata.json"
 ABI_LEGACY_ALLOWLIST_PATH = ROOT / "registry" / "legacy-abi-allowlist.json"
+TOKEN_POLICIES_PATH = ROOT / "registry" / "token-policies.json"
+VERIFICATION_SNAPSHOTS_PATH = ROOT / "registry" / "verification-snapshots.json"
 SCHEMA_DIR = ROOT / "registry" / "schemas"
 CHAIN_SOURCE_SCHEMA_PATH = SCHEMA_DIR / "chain-source.schema.json"
 ABI_METADATA_SCHEMA_PATH = SCHEMA_DIR / "abi-metadata.schema.json"
 ABI_LEGACY_SCHEMA_PATH = SCHEMA_DIR / "legacy-abi-allowlist.schema.json"
 ABI_INDEX_SCHEMA_PATH = SCHEMA_DIR / "abi-index.schema.json"
+TOKEN_POLICIES_SCHEMA_PATH = SCHEMA_DIR / "token-policies.schema.json"
+VERIFICATION_SNAPSHOTS_SCHEMA_PATH = (
+    SCHEMA_DIR / "verification-snapshots.schema.json"
+)
+CONTRACT_INDEX_SCHEMA_PATH = SCHEMA_DIR / "contract-index.schema.json"
+TOKEN_INDEX_SCHEMA_PATH = SCHEMA_DIR / "token-index.schema.json"
 ASSETS_DIR = ROOT / "many_abis" / "assets"
 CHAINS_OUTPUT = ASSETS_DIR / "utils" / "chains.json"
 ABI_INDEX_OUTPUT = ASSETS_DIR / "abi-index.json"
+CONTRACT_INDEX_OUTPUT = ASSETS_DIR / "contract-index.json"
+TOKEN_INDEX_OUTPUT = ASSETS_DIR / "token-index.json"
+VERIFICATION_SNAPSHOTS_OUTPUT = ASSETS_DIR / "verification-snapshots.json"
 ABI_STUB_OUTPUT = ROOT / "many_abis" / "abis.pyi"
 SUPPORTED_CHAINS_OUTPUT = ROOT / "docs" / "generated" / "supported-chains.md"
 ABI_PROVENANCE_OUTPUT = ROOT / "docs" / "generated" / "abi-provenance.md"
+CONTRACT_CATALOG_DOC_OUTPUT = ROOT / "docs" / "generated" / "contract-catalog.md"
+TOKEN_CATALOG_DOC_OUTPUT = ROOT / "docs" / "generated" / "token-catalog.md"
 THIRD_PARTY_OUTPUT = ROOT / "THIRD_PARTY_NOTICES.md"
 
 ADDRESS_RE = re.compile(r"^0x[0-9a-fA-F]{40}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+ID_PART_RE = re.compile(r"[^a-z0-9]+")
 REQUIRED_CHAIN_FIELDS = {
     "chain_id",
     "charts",
@@ -104,6 +119,16 @@ def _validate_address(address: Any, location: str) -> None:
     _require(
         isinstance(address, str) and bool(ADDRESS_RE.fullmatch(address)),
         "{} must be a 20-byte EVM address".format(location),
+    )
+    _require(
+        int(address, 16) != 0,
+        "{} must not be the zero address".format(location),
+    )
+    body = address[2:]
+    mixed_case = body.lower() != body and body.upper() != body
+    _require(
+        not mixed_case or is_checksum_address(address),
+        "{} has an invalid EIP-55 checksum".format(location),
     )
 
 
@@ -214,6 +239,246 @@ def build_chains() -> Dict[str, Any]:
         chains[slug] = chain
     _require(bool(chains), "registry/chains contains no chain sources")
     return chains
+
+
+def _id_part(value: str) -> str:
+    normalized = ID_PART_RE.sub("-", value.lower()).strip("-")
+    _require(bool(normalized), "registry identifier parts cannot be empty")
+    return normalized
+
+
+def _verification_id(chain: str, address: str) -> str:
+    return "{}:{}".format(chain, address.lower())
+
+
+def _load_chain_sources(chains: Mapping[str, Any]) -> Dict[str, Any]:
+    sources = {}
+    for slug in chains:
+        source = _read_json(CHAIN_SOURCE_DIR / (slug + ".json"))
+        _require(source.get("slug") == slug, "{} source slug changed".format(slug))
+        sources[slug] = source
+    return sources
+
+
+def _add_contract(
+    contracts: Dict[str, Any], contract_id: str, record: Mapping[str, Any]
+) -> None:
+    _require(contract_id not in contracts, "duplicate contract id: {}".format(contract_id))
+    value = dict(record)
+    value["contract_id"] = contract_id
+    contracts[contract_id] = value
+
+
+def _build_contract_records(
+    chains: Mapping[str, Any], token_policies: Mapping[str, Any]
+) -> Dict[str, Any]:
+    sources = _load_chain_sources(chains)
+    contracts = {}
+    for chain_slug, chain in chains.items():
+        source = sources[chain_slug]
+        common = {
+            "chain": chain_slug,
+            "chain_id": chain["chain_id"],
+            "source_reviewed_at": source["verified_at"],
+        }
+        for dex_slug, dex in chain["dex"].items():
+            protocol = dex.get("protocol_family") or dex_slug
+            for role in ("factory", "router"):
+                contract_id = "{}:dex:{}:{}".format(
+                    chain_slug, _id_part(dex_slug), role
+                )
+                _add_contract(
+                    contracts,
+                    contract_id,
+                    dict(
+                        common,
+                        abi=dex.get(role + "_abi"),
+                        address=dex[role + "_address"],
+                        name="{} {}".format(dex["name"], role.title()),
+                        protocol=protocol,
+                        protocol_version=dex.get("protocol_version"),
+                        role=role,
+                        source_url=dex.get("deployment_source"),
+                        verification_id=_verification_id(
+                            chain_slug, dex[role + "_address"]
+                        ),
+                    ),
+                )
+
+        token_groups = (
+            ("stable_coins", "stablecoin"),
+            ("test_coins", "test_token"),
+        )
+        for field, role in token_groups:
+            for symbol, address in chain.get(field, {}).items():
+                token_id = "{}:{}".format(chain_slug, symbol)
+                policy = token_policies.get(token_id, {})
+                contract_id = "{}:token:{}:{}".format(
+                    chain_slug, role.replace("_", "-"), _id_part(symbol)
+                )
+                _add_contract(
+                    contracts,
+                    contract_id,
+                    dict(
+                        common,
+                        abi=None,
+                        address=address,
+                        name=symbol,
+                        protocol=None,
+                        protocol_version=None,
+                        role=role,
+                        source_url=policy.get("evidence_url"),
+                        verification_id=_verification_id(chain_slug, address),
+                    ),
+                )
+
+        wrapped = chain["weth"]
+        wrapped_id = "{}:token:wrapped-native:{}".format(
+            chain_slug, _id_part(wrapped["symbol"])
+        )
+        _add_contract(
+            contracts,
+            wrapped_id,
+            dict(
+                common,
+                abi=None,
+                address=wrapped["address"],
+                name=wrapped["name"],
+                protocol=None,
+                protocol_version=None,
+                role="wrapped_native",
+                source_url=source["provenance"]["chain"],
+                verification_id=_verification_id(chain_slug, wrapped["address"]),
+            ),
+        )
+    return contracts
+
+
+def _default_token_origin(role: str) -> str:
+    if role == "wrapped_native":
+        return "wrapped_native"
+    if role == "test_token":
+        return "test"
+    return "unknown"
+
+
+def build_catalogs(
+    chains: Mapping[str, Any], abi_index: Mapping[str, Any]
+) -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
+    token_policy_document = _read_json(TOKEN_POLICIES_PATH)
+    snapshot_document = _read_json(VERIFICATION_SNAPSHOTS_PATH)
+    _validate_schema(
+        token_policy_document,
+        TOKEN_POLICIES_SCHEMA_PATH,
+        "registry/token-policies.json",
+    )
+    _validate_schema(
+        snapshot_document,
+        VERIFICATION_SNAPSHOTS_SCHEMA_PATH,
+        "registry/verification-snapshots.json",
+    )
+    token_policies = token_policy_document["tokens"]
+    snapshots = snapshot_document["snapshots"]
+    contracts = _build_contract_records(chains, token_policies)
+
+    expected_verifications = {
+        record["verification_id"] for record in contracts.values()
+    }
+    _require(
+        set(snapshots) == expected_verifications,
+        "verification snapshots must exactly cover every registered chain address",
+    )
+
+    abi_entries = abi_index["abis"]
+    for contract_id, contract in contracts.items():
+        abi_name = contract["abi"]
+        if abi_name is not None:
+            _require(
+                abi_name in abi_entries,
+                "{} references unknown ABI {}".format(contract_id, abi_name),
+            )
+        snapshot = snapshots[contract["verification_id"]]
+        _require(
+            snapshot["chain"] == contract["chain"]
+            and snapshot["chain_id"] == contract["chain_id"]
+            and snapshot["address"].lower() == contract["address"].lower(),
+            "{} verification identity does not match its contract".format(contract_id),
+        )
+        implementation = snapshot["eip1967"]["implementation"]
+        implementation_hash = snapshot["eip1967"][
+            "implementation_code_keccak256"
+        ]
+        _require(
+            (implementation is None) == (implementation_hash is None),
+            "{} implementation and code hash must appear together".format(
+                contract_id
+            ),
+        )
+
+    tokens = {}
+    token_contracts = {
+        contract_id: contract
+        for contract_id, contract in contracts.items()
+        if contract["role"] in {"stablecoin", "test_token", "wrapped_native"}
+    }
+    token_lookup_keys = set()
+    for contract_id, contract in token_contracts.items():
+        configured_symbol = contract["name"]
+        name = None
+        if contract["role"] == "wrapped_native":
+            chain = chains[contract["chain"]]
+            configured_symbol = chain["weth"]["symbol"]
+            name = chain["weth"]["name"]
+        token_id = "{}:{}".format(contract["chain"], configured_symbol)
+        _require(token_id not in tokens, "duplicate token id: {}".format(token_id))
+        lookup_key = (contract["chain"], configured_symbol.casefold())
+        _require(
+            lookup_key not in token_lookup_keys,
+            "duplicate case-insensitive token symbol: {}".format(token_id),
+        )
+        token_lookup_keys.add(lookup_key)
+        snapshot = snapshots[contract["verification_id"]]
+        observed = snapshot["token_metadata"]
+        _require(
+            observed is not None,
+            "{} must include on-chain token metadata".format(contract_id),
+        )
+        policy = token_policies.get(token_id, {})
+        tokens[token_id] = {
+            "address": contract["address"],
+            "chain": contract["chain"],
+            "chain_id": contract["chain_id"],
+            "configured_symbol": configured_symbol,
+            "decimals": observed["decimals"],
+            "evidence_url": policy.get("evidence_url") or contract["source_url"],
+            "name": name,
+            "observed_symbol": observed["symbol"],
+            "origin": policy.get("origin")
+            or _default_token_origin(contract["role"]),
+            "role": contract["role"],
+            "token_id": token_id,
+            "verification_id": contract["verification_id"],
+        }
+
+    unknown_policies = sorted(set(token_policies) - set(tokens))
+    _require(
+        not unknown_policies,
+        "token policies reference unknown tokens: {}".format(
+            ", ".join(unknown_policies)
+        ),
+    )
+
+    contract_index = {"schema_version": 1, "contracts": contracts}
+    token_index = {"schema_version": 1, "tokens": tokens}
+    _validate_schema(
+        contract_index, CONTRACT_INDEX_SCHEMA_PATH, "generated contract index"
+    )
+    _validate_schema(token_index, TOKEN_INDEX_SCHEMA_PATH, "generated token index")
+    runtime_snapshots = {
+        "schema_version": 1,
+        "snapshots": snapshots,
+    }
+    return contract_index, token_index, runtime_snapshots
 
 
 def _abi_name(path: Path) -> str:
@@ -420,6 +685,12 @@ ALL_ABIS_NAME: List[str]
 
 def all_abis() -> Tuple[List[str], Mapping[str, ABI]]: ...
 def get_abi(name: str) -> ABI: ...
+def get_abi_info(name: str) -> Dict[str, Any]: ...
+def find_abis(
+    contract_role: Optional[str] = ...,
+    interface_name: Optional[str] = ...,
+    provenance_status: Optional[str] = ...,
+) -> List[str]: ...
 def clear_abi_cache() -> None: ...
 def loaded_abis() -> List[str]: ...
 def get_abi_from_address(
@@ -479,6 +750,78 @@ def build_abi_provenance(abi_index: Mapping[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_contract_catalog(
+    contract_index: Mapping[str, Any], snapshot_index: Mapping[str, Any]
+) -> str:
+    contracts = contract_index["contracts"]
+    snapshots = snapshot_index["snapshots"]
+    chains = sorted({record["chain"] for record in contracts.values()})
+    lines = [
+        "# Contract verification catalog",
+        "",
+        "This file is generated from the chain registry and pinned on-chain",
+        "verification snapshots. A code hash proves observed bytecode identity at",
+        "one block; it is not a security audit or a promise that mutable contracts",
+        "will keep the same implementation.",
+        "",
+        "| Chain | Logical contracts | Unique addresses | EIP-1967 implementations | Snapshot block |",
+        "| --- | ---: | ---: | ---: | ---: |",
+    ]
+    for chain in chains:
+        chain_contracts = [
+            record for record in contracts.values() if record["chain"] == chain
+        ]
+        verification_ids = {
+            record["verification_id"] for record in chain_contracts
+        }
+        chain_snapshots = [snapshots[key] for key in verification_ids]
+        blocks = sorted({snapshot["block_number"] for snapshot in chain_snapshots})
+        proxy_count = sum(
+            snapshot["eip1967"]["implementation"] is not None
+            or snapshot["eip1967"]["beacon"] is not None
+            for snapshot in chain_snapshots
+        )
+        block_text = ", ".join(str(block) for block in blocks)
+        lines.append(
+            "| `{}` | {} | {} | {} | {} |".format(
+                chain,
+                len(chain_contracts),
+                len(verification_ids),
+                proxy_count,
+                block_text,
+            )
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_token_catalog(token_index: Mapping[str, Any]) -> str:
+    lines = [
+        "# Token catalog",
+        "",
+        "This file is generated from current chain defaults, conservative origin",
+        "policies, and on-chain metadata observed at the linked verification",
+        "snapshot. `unknown` means the registry does not make an origin claim.",
+        "",
+        "| Chain | Configured symbol | On-chain symbol | Decimals | Origin | Address | Evidence |",
+        "| --- | --- | --- | ---: | --- | --- | --- |",
+    ]
+    for token in token_index["tokens"].values():
+        evidence = token["evidence_url"]
+        evidence_text = "[source]({})".format(evidence) if evidence else "—"
+        lines.append(
+            "| `{}` | `{}` | `{}` | {} | {} | `{}` | {} |".format(
+                token["chain"],
+                token["configured_symbol"],
+                token["observed_symbol"],
+                token["decimals"],
+                token["origin"],
+                token["address"],
+                evidence_text,
+            )
+        )
+    return "\n".join(lines) + "\n"
+
+
 def build_third_party_notices(abi_index: Mapping[str, Any]) -> str:
     known = []
     legacy = []
@@ -530,12 +873,20 @@ def build_outputs() -> Dict[Path, bytes]:
     chains = build_chains()
     abi_index, names = build_abi_index()
     validate_abi_references(chains, abi_index)
+    contract_index, token_index, snapshot_index = build_catalogs(chains, abi_index)
     return {
         CHAINS_OUTPUT: _json_bytes(chains, sort_keys=False),
         ABI_INDEX_OUTPUT: _json_bytes(abi_index),
+        CONTRACT_INDEX_OUTPUT: _json_bytes(contract_index),
+        TOKEN_INDEX_OUTPUT: _json_bytes(token_index),
+        VERIFICATION_SNAPSHOTS_OUTPUT: _json_bytes(snapshot_index),
         ABI_STUB_OUTPUT: _text_bytes(build_abi_stub(names)),
         SUPPORTED_CHAINS_OUTPUT: _text_bytes(build_supported_chains(chains)),
         ABI_PROVENANCE_OUTPUT: _text_bytes(build_abi_provenance(abi_index)),
+        CONTRACT_CATALOG_DOC_OUTPUT: _text_bytes(
+            build_contract_catalog(contract_index, snapshot_index)
+        ),
+        TOKEN_CATALOG_DOC_OUTPUT: _text_bytes(build_token_catalog(token_index)),
         THIRD_PARTY_OUTPUT: _text_bytes(build_third_party_notices(abi_index)),
     }
 
