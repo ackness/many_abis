@@ -171,8 +171,10 @@ and never accesses the network. See the generated [chain registry](docs/generate
 [ABI provenance](docs/generated/abi-provenance.md), and the detailed
 [verification policy](docs/chain-data-sources.md). Usage-specific caveats for
 standards, oracles, multicall, Permit2, and proxy events are documented in
-[common contract ABIs](docs/common-contract-abis.md).
+[common contract ABIs](docs/common-contract-abis.md). API-driven bridge and
+aggregator boundaries are documented in
+[cross-chain aggregators](docs/cross-chain-aggregators.md).
 Pre-0.3 ABI files without complete provenance are pinned by canonical hash in
 `registry/legacy-abi-allowlist.json`; new or changed ABI files must instead add
-audited metadata, an immutable source reference, license evidence, and required
-function/event signatures.
+verified provenance metadata, an immutable source reference, license evidence,
+and required function/event signatures.
