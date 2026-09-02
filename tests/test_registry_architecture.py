@@ -5,8 +5,8 @@ import subprocess
 import sys
 import unittest
 from concurrent.futures import ThreadPoolExecutor
+from copy import deepcopy
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_ROOT = ROOT / "many_abis"
@@ -50,7 +50,7 @@ class GeneratedRegistryTests(unittest.TestCase):
         abi_paths = sorted(ASSETS_ROOT.rglob("*.abi"))
 
         self.assertEqual(len(manifest), len(abi_paths))
-        self.assertEqual(len(manifest), 77)
+        self.assertEqual(len(manifest), 37)
         self.assertEqual(
             {entry["resource"] for entry in manifest.values()},
             {
@@ -82,16 +82,40 @@ class GeneratedRegistryTests(unittest.TestCase):
             )
         )["abis"]
 
-        self.assertEqual(set(audited) | set(legacy), set(manifest))
+        self.assertEqual(set(audited), set(manifest))
         self.assertTrue(set(audited).isdisjoint(legacy))
         self.assertEqual(len(audited), 37)
         self.assertEqual(len(legacy), 40)
-        for name, details in legacy.items():
+        for name, details in audited.items():
             with self.subTest(abi=name):
                 self.assertEqual(
                     details["canonical_sha256"],
                     manifest[name]["canonical_sha256"],
                 )
+
+        quarantine_root = ROOT / "registry" / "legacy-abis"
+        quarantined = {}
+        for path in quarantine_root.rglob("*.abi"):
+            parts = path.relative_to(quarantine_root).with_suffix("").parts[1:]
+            name = "_".join(parts).upper()
+            abi = json.loads(path.read_text(encoding="utf-8"))
+            canonical = json.dumps(
+                abi, ensure_ascii=False, separators=(",", ":"), sort_keys=True
+            ).encode("utf-8")
+            quarantined[name] = hashlib.sha256(canonical).hexdigest()
+
+        self.assertEqual(set(quarantined), set(legacy))
+        self.assertTrue(set(quarantined).isdisjoint(manifest))
+        for name, canonical_sha256 in quarantined.items():
+            with self.subTest(quarantined_abi=name):
+                self.assertEqual(
+                    canonical_sha256,
+                    legacy[name]["canonical_sha256"],
+                )
+
+        from many_abis.meta import ABIMetaData
+
+        self.assertEqual(set(ABIMetaData.__annotations__), set(audited))
 
     def test_runtime_abi_references_are_audited(self):
         chains = json.loads(CHAIN_OUTPUT.read_text(encoding="utf-8"))
@@ -130,6 +154,43 @@ class GeneratedRegistryTests(unittest.TestCase):
         )
 
         self.assertTrue(errors)
+
+    def test_rpc_urls_reject_credentials_query_and_fragment(self):
+        from jsonschema import Draft202012Validator, FormatChecker
+
+        from scripts.generate_registry import RegistryError, _validate_chain
+
+        schema = json.loads(
+            (ROOT / "registry" / "schemas" / "chain-source.schema.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        source = json.loads(
+            (ROOT / "registry" / "chains" / "base.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        validator = Draft202012Validator(schema, format_checker=FormatChecker())
+        invalid_urls = (
+            "https://user:password@rpc.example/path",
+            "https://rpc.example/path?api_key=secret",
+            "https://rpc.example/path#fragment",
+        )
+        for rpc_url in invalid_urls:
+            candidate = deepcopy(source)
+            candidate["data"]["rpc"] = [rpc_url]
+            with self.subTest(rpc_url=rpc_url):
+                self.assertTrue(list(validator.iter_errors(candidate)))
+                with self.assertRaises(RegistryError):
+                    _validate_chain("base", candidate)
+
+        candidate = deepcopy(source)
+        candidate["data"]["rpc"] = ["https://rpc.example/path/to/endpoint"]
+        self.assertFalse(list(validator.iter_errors(candidate)))
+        self.assertEqual(
+            _validate_chain("base", candidate)["rpc"],
+            candidate["data"]["rpc"],
+        )
 
     def test_historically_mislabeled_abis_are_corrected(self):
         checks = {
@@ -287,7 +348,7 @@ class GeneratedRegistryTests(unittest.TestCase):
             {"DOMAIN_SEPARATOR", "nonces", "permit"},
         )
 
-    def test_python_sources_parse_as_python_3_8(self):
+    def test_python_sources_parse_as_python_3_13(self):
         paths = (
             list(PACKAGE_ROOT.glob("*.py"))
             + list(PACKAGE_ROOT.glob("*.pyi"))
@@ -298,7 +359,7 @@ class GeneratedRegistryTests(unittest.TestCase):
                 ast.parse(
                     path.read_text(encoding="utf-8"),
                     filename=str(path),
-                    feature_version=(3, 8),
+                    feature_version=(3, 13),
                 )
 
 
@@ -334,7 +395,7 @@ requests.Session.get = fail_network
 import many_abis as ma
 import many_abis.catalog as catalog
 assert ma.loaded_abis() == []
-assert len(ma.ALL_ABIS_NAME) == 77
+assert len(ma.ALL_ABIS_NAME) == 37
 assert catalog._CONTRACTS is None
 assert catalog._TOKENS is None
 assert catalog._VERIFICATIONS is None
@@ -347,30 +408,33 @@ assert catalog._VERIFICATIONS is None
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 77)
-        self.assertEqual(len(self.ma.supported_abis()), 77)
+        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 37)
+        self.assertEqual(len(self.ma.supported_abis()), 37)
         self.assertEqual(self.ma.loaded_abis(), [])
 
-    def test_legacy_and_new_abi_access_load_once(self):
+    def test_verified_abi_access_loads_once(self):
         from addict import Dict
 
-        first = self.ma.ABIS.ERC20
-        self.assertIs(first, self.ma.ABIS["ERC20"])
-        self.assertIs(first, self.ma.get_abi("erc20"))
-        self.assertEqual(self.ma.loaded_abis(), ["ERC20"])
+        first = self.ma.ABIS.ERC165
+        self.assertIs(first, self.ma.ABIS["ERC165"])
+        self.assertIs(first, self.ma.get_abi("erc165"))
+        self.assertEqual(self.ma.loaded_abis(), ["ERC165"])
         self.assertIsInstance(first[0], Dict)
         self.assertEqual(first[0].type, first[0]["type"])
 
     def test_concurrent_first_access_returns_one_cached_object(self):
         with ThreadPoolExecutor(max_workers=8) as executor:
-            values = list(executor.map(lambda _: self.ma.get_abi("ERC721"), range(32)))
+            values = list(executor.map(lambda _: self.ma.get_abi("ERC5267"), range(32)))
 
         self.assertTrue(all(value is values[0] for value in values))
-        self.assertEqual(self.ma.loaded_abis(), ["ERC721"])
+        self.assertEqual(self.ma.loaded_abis(), ["ERC5267"])
 
-    def test_legacy_load_abi_is_eager_and_returns_fresh_plain_data(self):
-        first = self.ma.load_abi("erc/ERC20")
-        second = self.ma.load_abi("erc/ERC20.abi")
+    def test_load_abi_excludes_quarantined_legacy_content(self):
+        with self.assertRaises(FileNotFoundError):
+            self.ma.load_abi("erc/ERC20")
+
+        first = self.ma.load_abi("contracts/erc165")
+        second = self.ma.load_abi("contracts/erc165.abi")
 
         self.assertEqual(first, second)
         self.assertIsNot(first, second)
@@ -378,34 +442,34 @@ assert catalog._VERIFICATIONS is None
         self.assertIsInstance(first[0], dict)
         self.assertEqual(self.ma.loaded_abis(), [])
 
-    def test_legacy_all_abis_returns_fresh_eager_addict_data(self):
+    def test_all_abis_returns_fresh_eager_addict_data(self):
         names, first = self.ma.all_abis()
         _, second = self.ma.all_abis()
 
         self.assertEqual(names, self.ma.ALL_ABIS_NAME)
-        self.assertEqual(len(first), 77)
+        self.assertEqual(len(first), 37)
         self.assertIsNot(first, second)
-        self.assertIsNot(first.ERC20, second.ERC20)
+        self.assertIsNot(first.ERC165, second.ERC165)
         self.assertEqual(self.ma.loaded_abis(), [])
 
-    def test_registry_copy_and_to_dict_keep_legacy_shapes(self):
+    def test_registry_copy_and_to_dict_keep_compatibility_shapes(self):
         from addict import Dict
 
-        cached = self.ma.ABIS.ERC20
+        cached = self.ma.ABIS.ERC165
         shallow = self.ma.ABIS.copy()
         plain = self.ma.ABIS.to_dict()
 
         self.assertIsInstance(shallow, Dict)
-        self.assertIs(shallow.ERC20, cached)
+        self.assertIs(shallow.ERC165, cached)
         self.assertIsInstance(plain, dict)
-        self.assertNotIsInstance(plain["ERC20"][0], Dict)
+        self.assertNotIsInstance(plain["ERC165"][0], Dict)
 
     def test_registry_is_read_only_and_path_traversal_is_rejected(self):
         with self.assertRaises(TypeError):
-            self.ma.ABIS["ERC20"] = []
+            self.ma.ABIS["ERC165"] = []
         with self.assertRaises(AttributeError):
-            self.ma.ABIS.ERC20 = []
-        self.assertIn("ERC20", self.ma.ABIS)
+            self.ma.ABIS.ERC165 = []
+        self.assertIn("ERC165", self.ma.ABIS)
         self.assertEqual(self.ma.loaded_abis(), [])
         with self.assertRaises(KeyError):
             self.ma.ABIS["NOT_REAL"]

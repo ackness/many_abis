@@ -1,18 +1,150 @@
 from collections.abc import Mapping
 from copy import deepcopy
 from threading import RLock
-from typing import Any, Dict as TypingDict, Iterator, List, Optional, Tuple, cast
+from typing import (
+    Any,
+    Dict as TypingDict,
+    Iterable,
+    Iterator,
+    List,
+    NoReturn,
+    Optional,
+    Self,
+    SupportsIndex,
+    Tuple,
+    Union,
+    cast,
+)
 
 import requests
 from addict import Dict
+from eth_utils import is_address, to_checksum_address
 
+from .constants import ETHERSCAN_V2_API, _CHAIN_API_TO_ID
 from .meta import ABIMetaData
 from .utils import _load_json_resource, load_abi_manifest
+from .version import __version__
 
 
 ABI = List[TypingDict[str, Any]]
 _ABI_INDEX = dict(load_abi_manifest()["abis"])
 ALL_ABIS_NAME = list(_ABI_INDEX)
+_READ_ONLY_ABI_ERROR = "Cached ABI values are read-only; deepcopy before mutating"
+
+
+def _read_only_abi() -> NoReturn:
+    raise TypeError(_READ_ONLY_ABI_ERROR)
+
+
+class _ReadOnlyABIList(list[Any]):
+    """A list-shaped, recursively read-only cached ABI value."""
+
+    def __setitem__(self, key: Any, value: Any) -> None:
+        _read_only_abi()
+
+    def __delitem__(self, key: Any) -> None:
+        _read_only_abi()
+
+    def __iadd__(self, value: Iterable[Any]) -> Self:  # type: ignore[misc]
+        _read_only_abi()
+
+    def __imul__(self, value: SupportsIndex) -> Self:
+        _read_only_abi()
+
+    def append(self, value: Any) -> None:
+        _read_only_abi()
+
+    def clear(self) -> None:
+        _read_only_abi()
+
+    def extend(self, value: Any) -> None:
+        _read_only_abi()
+
+    def insert(self, index: SupportsIndex, value: Any) -> None:
+        _read_only_abi()
+
+    def pop(self, index: SupportsIndex = -1):
+        _read_only_abi()
+
+    def remove(self, value: Any) -> None:
+        _read_only_abi()
+
+    def reverse(self) -> None:
+        _read_only_abi()
+
+    def sort(self, *args: Any, **kwargs: Any) -> None:
+        _read_only_abi()
+
+    def __deepcopy__(self, memo: TypingDict[int, Any]):
+        return _thaw_abi_value(self, memo)
+
+
+class _ReadOnlyABIDict(Dict):
+    """An Addict-compatible, recursively read-only cached ABI item."""
+
+    def __init__(self, value: Mapping) -> None:
+        dict.__init__(self)
+        for key, item in value.items():
+            dict.__setitem__(self, key, _freeze_abi_value(item))
+
+    def __setitem__(self, key: Any, value: Any) -> None:
+        _read_only_abi()
+
+    def __delitem__(self, key: Any) -> None:
+        _read_only_abi()
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        _read_only_abi()
+
+    def __delattr__(self, name: str) -> None:
+        _read_only_abi()
+
+    def __ior__(self, value: Any):
+        _read_only_abi()
+
+    def clear(self) -> None:
+        _read_only_abi()
+
+    def pop(self, key: Any, default: Any = None):
+        _read_only_abi()
+
+    def popitem(self):
+        _read_only_abi()
+
+    def setdefault(self, key: Any, default: Any = None):
+        _read_only_abi()
+
+    def update(self, *args: Any, **kwargs: Any) -> None:
+        _read_only_abi()
+
+    def __deepcopy__(self, memo: TypingDict[int, Any]):
+        return _thaw_abi_value(self, memo)
+
+
+def _freeze_abi_value(value: Any) -> Any:
+    if isinstance(value, Mapping):
+        return _ReadOnlyABIDict(value)
+    if isinstance(value, list):
+        return _ReadOnlyABIList(_freeze_abi_value(item) for item in value)
+    return value
+
+
+def _thaw_abi_value(value: Any, memo: TypingDict[int, Any]) -> Any:
+    existing = memo.get(id(value))
+    if existing is not None:
+        return existing
+    if isinstance(value, _ReadOnlyABIDict):
+        result = Dict()
+        memo[id(value)] = result
+        for key, item in value.items():
+            dict.__setitem__(result, deepcopy(key, memo), deepcopy(item, memo))
+        return result
+    if isinstance(value, _ReadOnlyABIList):
+        result = []
+        memo[id(value)] = result
+        result.extend(deepcopy(item, memo) for item in value)
+        return result
+    return deepcopy(value, memo)
 
 
 def _load_indexed_abi(entry: TypingDict[str, Any]):
@@ -25,7 +157,7 @@ def _load_indexed_abi(entry: TypingDict[str, Any]):
 
 
 class _LazyABIRegistry(Mapping):
-    """Read-only registry that parses each ABI at most once, on demand."""
+    """Read-only registry that caches immutable, list-shaped ABI values."""
 
     __slots__ = ("_cache", "_index", "_lock")
 
@@ -47,7 +179,7 @@ class _LazyABIRegistry(Mapping):
             if name in self._cache:
                 return self._cache[name]
 
-            value = _load_indexed_abi(entry)
+            value = _freeze_abi_value(_load_indexed_abi(entry))
             self._cache[name] = value
             return value
 
@@ -100,7 +232,7 @@ ABIS = cast(ABIMetaData, _LazyABIRegistry(_ABI_INDEX))
 
 
 def get_abi(name: str):
-    """Return a cached ABI by its canonical public name."""
+    """Return a recursively read-only ABI by its canonical public name."""
     if not isinstance(name, str):
         raise TypeError("ABI name must be a string")
     return cast(_LazyABIRegistry, ABIS)[name.upper()]
@@ -159,22 +291,82 @@ def all_abis() -> Tuple[List[str], ABIMetaData]:
     return list(_ABI_INDEX), cast(ABIMetaData, Dict(values))
 
 
+def _validated_chain_id(value: Any) -> int:
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise TypeError("chain_id must be an integer")
+    if value <= 0 or value > (1 << 63) - 1:
+        raise ValueError("chain_id must be a positive 63-bit integer")
+    return value
+
+
+def _resolve_chain_id(
+    chain_api: Optional[Union[str, int]], chain_id: Optional[int]
+) -> int:
+    if chain_api is not None and chain_id is not None:
+        raise ValueError("pass chain_id or chain_api, not both")
+    if chain_id is not None:
+        return _validated_chain_id(chain_id)
+    if isinstance(chain_api, int) and not isinstance(chain_api, bool):
+        return _validated_chain_id(chain_api)
+    if isinstance(chain_api, str):
+        try:
+            return _CHAIN_API_TO_ID[chain_api]
+        except KeyError as exc:
+            raise ValueError(
+                "chain_api must be an exact trusted CHAIN_CONTRACT_API constant; "
+                "use chain_id for new code"
+            ) from exc
+    if chain_api is None:
+        raise ValueError("chain_id is required")
+    raise TypeError("chain_api must be a trusted string selector or integer chain ID")
+
+
 def get_abi_from_address(
     address: str,
     api_key: str,
-    chain_api: str,
+    chain_api: Optional[Union[str, int]] = None,
+    *,
+    chain_id: Optional[int] = None,
 ) -> Optional[str]:
-    """Fetch a verified ABI string from an Etherscan-compatible API."""
+    """Fetch an ABI from Etherscan V2 without accepting an arbitrary endpoint.
+
+    New code should pass ``chain_id``. The positional ``chain_api`` argument is
+    retained only for exact constants exported by ``CHAIN_CONTRACT_API`` and
+    for integer chain IDs; arbitrary URL templates are rejected before any
+    network request.
+    """
+    if not isinstance(address, str):
+        raise TypeError("address must be a string")
+    if not is_address(address) or int(address, 16) == 0:
+        raise ValueError("address must be a non-zero 20-byte EVM address")
+    if not isinstance(api_key, str):
+        raise TypeError("api_key must be a string")
+    if not api_key or len(api_key) > 256 or any(ord(char) < 0x20 for char in api_key):
+        raise ValueError("api_key must be a non-empty value without control characters")
+    resolved_chain_id = _resolve_chain_id(chain_api, chain_id)
+
+    params = {
+        "chainid": str(resolved_chain_id),
+        "module": "contract",
+        "action": "getabi",
+        "address": to_checksum_address(address),
+        "apikey": api_key,
+    }
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (compatible; many-abis/{}; "
+            "+https://github.com/ackness/many_abis)"
+        ).format(__version__)
+    }
     try:
-        query = chain_api.format(contract_address=address, api_key=api_key)
-        headers = {
-            "User-Agent": (
-                "Mozilla/5.0 (compatible; many-abis/0.3; "
-                "+https://github.com/ackness/many_abis)"
-            )
-        }
         with requests.Session() as session:
-            response = session.get(query, headers=headers, timeout=15)
+            response = session.get(
+                ETHERSCAN_V2_API,
+                params=params,
+                headers=headers,
+                timeout=(5, 15),
+                allow_redirects=False,
+            )
             response.raise_for_status()
             result = response.json()
         if not isinstance(result, dict):
@@ -183,5 +375,5 @@ def get_abi_from_address(
             value = result.get("result")
             return value if isinstance(value, str) else None
         return None
-    except (requests.RequestException, ValueError, KeyError, IndexError):
+    except (requests.RequestException, ValueError):
         return None

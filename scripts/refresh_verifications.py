@@ -8,6 +8,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
+from urllib.parse import urlsplit
 
 import requests
 from eth_utils import keccak, to_checksum_address
@@ -36,6 +37,19 @@ SYMBOL_SELECTOR = "0x95d89b41"
 
 class VerificationError(RuntimeError):
     pass
+
+
+def _rpc_log_label(rpc_url: str) -> str:
+    """Return a credential-free RPC label suitable for CI output."""
+    parsed = urlsplit(rpc_url)
+    hostname = parsed.hostname or "invalid-rpc"
+    try:
+        port = parsed.port
+    except ValueError:
+        port = None
+    if port is not None:
+        hostname = "{}:{}".format(hostname, port)
+    return "{}://{}".format(parsed.scheme or "https", hostname)
 
 
 def _read_json(path: Path) -> Any:
@@ -424,7 +438,9 @@ def _collect_chain(
                     }
                 return snapshots, rpc_url, block_number
         except (requests.RequestException, VerificationError, ValueError) as exc:
-            errors.append("{}: {}".format(rpc_url, exc))
+            errors.append(
+                "{}: {}".format(_rpc_log_label(rpc_url), type(exc).__name__)
+            )
     raise VerificationError("{} failed: {}".format(slug, "; ".join(errors)))
 
 
@@ -464,7 +480,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         retained.update(snapshots)
         print(
             "{}: {} addresses at block {} via {}".format(
-                slug, len(snapshots), block_number, rpc_url
+                slug, len(snapshots), block_number, _rpc_log_label(rpc_url)
             )
         )
 

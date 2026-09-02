@@ -100,7 +100,7 @@
     },
     "xlayer:USDG": {
       "evidence_url": "https://docs.paxos.com/guides/stablecoin/usdg/mainnet",
-      "origin": "issuer_native"
+      "origin": "bridged"
     },
     "xlayer:USDT0": {
       "evidence_url": "https://docs.usdt0.to/api/deployments",

@@ -1,11 +1,7 @@
 import json
+from importlib.resources import files as _resource_files
 from pathlib import PurePosixPath
 from typing import Any, Dict, List
-
-try:
-    from importlib.resources import files as _resource_files  # type: ignore[attr-defined]
-except ImportError:  # pragma: no cover - exercised on Python 3.8
-    from importlib_resources import files as _resource_files
 
 
 _PACKAGE_NAME = "many_abis"

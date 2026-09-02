@@ -1,10 +1,10 @@
 import json
 import unittest
+from copy import deepcopy
 from pathlib import Path
 from unittest.mock import Mock, patch
 
 from eth_utils import keccak, to_checksum_address
-
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS_ROOT = ROOT / "many_abis" / "assets"
@@ -108,6 +108,72 @@ class GeneratedCatalogTests(unittest.TestCase):
             self.tokens["arbitrum:USDT0"]["observed_symbol"], "USD₮0"
         )
         self.assertEqual(self.tokens["avalanche:USDT"]["origin"], "unknown")
+        self.assertEqual(self.tokens["xlayer:USDG"]["origin"], "bridged")
+        self.assertEqual(
+            self.tokens["robinhood:USDG.oft"]["origin"], "bridged"
+        )
+
+    def test_contract_provenance_status_is_role_aware(self):
+        legacy_dex = []
+        for contract_id, contract in self.contracts.items():
+            with self.subTest(contract=contract_id):
+                if contract["provenance_status"] == "verified":
+                    self.assertTrue(contract["source_url"])
+                    if contract["role"] in {"factory", "router"}:
+                        self.assertTrue(contract["abi"])
+                else:
+                    self.assertEqual(
+                        contract["provenance_status"], "legacy_unverified"
+                    )
+                    if contract["role"] in {"factory", "router"}:
+                        self.assertTrue(
+                            contract["source_url"] is None
+                            or contract["abi"] is None
+                        )
+                        legacy_dex.append(contract_id)
+                    else:
+                        self.assertIsNone(contract["source_url"])
+        self.assertEqual(len(legacy_dex), 10)
+
+    def test_snapshot_validator_rejects_untrusted_rpc_and_zero_slot(self):
+        from scripts.generate_registry import (
+            RegistryError,
+            _validate_contract_snapshot,
+        )
+
+        contract_id = "base:dex:uniswap-v3:router"
+        contract = self.contracts[contract_id]
+        snapshot = self.verifications[contract["verification_id"]]
+        chain = self.chains[contract["chain"]]
+
+        untrusted_rpc = deepcopy(snapshot)
+        untrusted_rpc["rpc_url"] = "https://rpc.example/not-registered"
+        with self.assertRaises(RegistryError):
+            _validate_contract_snapshot(
+                contract_id, contract, untrusted_rpc, chain
+            )
+
+        zero_address = deepcopy(snapshot)
+        zero_address["address"] = "0x" + "0" * 40
+        with self.assertRaises(RegistryError):
+            _validate_contract_snapshot(
+                contract_id, contract, zero_address, chain
+            )
+
+        zero_slot = deepcopy(snapshot)
+        zero_slot["eip1967"]["admin"] = "0x" + "0" * 40
+        with self.assertRaises(RegistryError):
+            _validate_contract_snapshot(contract_id, contract, zero_slot, chain)
+
+    def test_rpc_log_label_never_exposes_credentials_or_paths(self):
+        from scripts.refresh_verifications import _rpc_log_label
+
+        rpc_url = "https://user:secret@rpc.example/private-token?apikey=secret"
+        label = _rpc_log_label(rpc_url)
+
+        self.assertEqual(label, "https://rpc.example")
+        self.assertNotIn("secret", label)
+        self.assertNotIn("private-token", label)
 
     def test_address_validation_rejects_zero_and_bad_checksum(self):
         from scripts.generate_registry import RegistryError, _validate_address

@@ -66,6 +66,8 @@ smart-contract security audit.
 
 ## Installation
 
+Python 3.13 or newer is required.
+
 - Download
 
 ```bash
@@ -93,9 +95,9 @@ print(ma.ALL_ABIS_NAME)
 print(ma.ABIS)
 
 # The first access loads and caches only this ABI. Dot and item access work.
-print(ma.ABIS.ERC20)
-print(ma.ABIS["ERC20"])
-print(ma.get_abi("erc20"))
+print(ma.ABIS.ERC20_PERMIT)
+print(ma.ABIS["ERC20_PERMIT"])
+print(ma.get_abi("erc20_permit"))
 print(ma.loaded_abis())
 
 # Common contract interfaces are available through the same lazy registry.
@@ -188,17 +190,25 @@ python scripts/generate_registry.py --write
 
 Do not edit `many_abis/assets/utils/chains.json`, `abi-index.json`, generated
 documentation, or `many_abis/abis.pyi` directly. Generation is deterministic
-and never accesses the network. See the generated [chain registry](docs/generated/supported-chains.md),
-[ABI provenance](docs/generated/abi-provenance.md), and the detailed
-[verification policy](docs/chain-data-sources.md). Usage-specific caveats for
+and never accesses the network. See the generated [chain registry](https://github.com/ackness/many_abis/blob/main/docs/generated/supported-chains.md),
+[ABI provenance](https://github.com/ackness/many_abis/blob/main/docs/generated/abi-provenance.md), and the detailed
+[verification policy](https://github.com/ackness/many_abis/blob/main/docs/chain-data-sources.md). Usage-specific caveats for
 standards, oracles, multicall, Permit2, and proxy events are documented in
-[common contract ABIs](docs/common-contract-abis.md). API-driven bridge and
+[common contract ABIs](https://github.com/ackness/many_abis/blob/main/docs/common-contract-abis.md). API-driven bridge and
 aggregator boundaries are documented in
-[cross-chain aggregators](docs/cross-chain-aggregators.md).
+[cross-chain aggregators](https://github.com/ackness/many_abis/blob/main/docs/cross-chain-aggregators.md).
 The generated contract/token catalogs, snapshot semantics, proxy limitations,
 and query API are documented in
-[registry verification](docs/registry-verification.md).
-Pre-0.3 ABI files without complete provenance are pinned by canonical hash in
-`registry/legacy-abi-allowlist.json`; new or changed ABI files must instead add
-verified provenance metadata, an immutable source reference, license evidence,
-and required function/event signatures.
+[registry verification](https://github.com/ackness/many_abis/blob/main/docs/registry-verification.md).
+Pre-0.3 ABI files without complete provenance are quarantined under
+`registry/legacy-abis/` and are not included in the runtime package or PyPI
+artifacts. Public ABIs require verified provenance, an immutable source
+reference, license evidence, and required function/event signatures.
+
+## License and provenance
+
+Original Python code is MIT-licensed. Bundled verified ABI data remains subject
+to its recorded upstream terms. See
+[THIRD_PARTY_NOTICES.md](https://github.com/ackness/many_abis/blob/main/THIRD_PARTY_NOTICES.md)
+and the license texts shipped under `LICENSES/`. Quarantined legacy ABI files
+have unresolved provenance or licensing and are not part of the distribution.

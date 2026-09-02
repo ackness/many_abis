@@ -4,18 +4,24 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8", "3.12"]
+        python-version: ["3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
+          cache: pip
       - run: python -m pip install --upgrade pip
       - run: python -m pip install .
       - run: python -m pip install -r requirements-dev.txt
@@ -26,27 +32,31 @@ jobs:
   wheel:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          python-version: "3.12"
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+          cache: pip
       - run: python -m pip install -r requirements-dev.txt
-      - run: python -m build
+      - run: python scripts/build_release_artifacts.py --output-dir dist
+      - run: python scripts/check_distribution.py dist
+      - run: python -m twine check dist/*
       - run: python -m pip install --target /tmp/many-abis-wheel dist/*.whl
       - name: Verify installed wheel resources
         working-directory: /tmp
         run: |
           PYTHONPATH=/tmp/many-abis-wheel python - <<'PY'
+          from importlib.metadata import version
           from pathlib import Path
 
           import many_abis as m
 
           root = Path("/tmp/many-abis-wheel")
-          assert m.__version__ == "0.4.0"
-          assert len(m.ALL_ABIS_NAME) == 77
+          assert version("many-abis") == m.__version__
           assert m.loaded_abis() == []
           assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
-          assert len(m.loaded_abis()) == 77
           assert len(m.all_contract_ids()) == 99
           assert len(m.all_token_ids()) == 53
           assert (root / "many_abis" / "abis.pyi").is_file()
@@ -55,4 +65,5 @@ jobs:
           assert len(license_dirs) == 1
           assert (license_dirs[0] / "LICENSE").is_file()
           assert (license_dirs[0] / "THIRD_PARTY_NOTICES.md").is_file()
+          assert (license_dirs[0] / "LICENSES" / "GPL-2.0.txt").is_file()
           PY

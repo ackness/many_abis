@@ -1,11 +1,14 @@
 include README.md
 include LICENSE
 include THIRD_PARTY_NOTICES.md
+recursive-include LICENSES *
 include pyproject.toml
-include requirements-dev.txt
 include many_abis/abis.pyi
 include many_abis/py.typed
 recursive-include many_abis/assets *.abi *.json
-recursive-include registry *.json
-recursive-include scripts *.py
-recursive-include docs *.md
+prune registry
+prune scripts
+prune docs
+prune tests
+global-exclude *.py[cod]
+global-exclude .DS_Store

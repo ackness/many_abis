@@ -9,16 +9,17 @@ import re
 import tempfile
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
+from urllib.parse import urlsplit
 
 from eth_utils import is_checksum_address
 from jsonschema import Draft202012Validator, FormatChecker
-
 
 ROOT = Path(__file__).resolve().parents[1]
 CHAIN_SOURCE_DIR = ROOT / "registry" / "chains"
 CHAIN_ORDER_PATH = ROOT / "registry" / "chain-order.json"
 ABI_METADATA_PATH = ROOT / "registry" / "abi-metadata.json"
 ABI_LEGACY_ALLOWLIST_PATH = ROOT / "registry" / "legacy-abi-allowlist.json"
+LEGACY_ABI_DIR = ROOT / "registry" / "legacy-abis"
 TOKEN_POLICIES_PATH = ROOT / "registry" / "token-policies.json"
 VERIFICATION_SNAPSHOTS_PATH = ROOT / "registry" / "verification-snapshots.json"
 SCHEMA_DIR = ROOT / "registry" / "schemas"
@@ -168,9 +169,19 @@ def _validate_chain(slug: str, source: Mapping[str, Any]) -> Dict[str, Any]:
         "{}: one to three RPC URLs are required".format(slug),
     )
     for rpc in chain["rpc"]:
+        parsed_rpc = urlsplit(rpc) if isinstance(rpc, str) else None
         _require(
-            isinstance(rpc, str) and rpc.startswith("https://"),
-            "{}: RPC URLs must use HTTPS".format(slug),
+            parsed_rpc is not None
+            and parsed_rpc.scheme == "https"
+            and bool(parsed_rpc.hostname)
+            and parsed_rpc.username is None
+            and parsed_rpc.password is None
+            and "@" not in parsed_rpc.netloc
+            and not parsed_rpc.query
+            and not parsed_rpc.fragment,
+            "{}: RPC URLs must use HTTPS without credentials, query, or fragment".format(
+                slug
+            ),
         )
 
     _validate_address(chain["weth"]["address"], "{}.weth".format(slug))
@@ -284,6 +295,12 @@ def _build_contract_records(
         for dex_slug, dex in chain["dex"].items():
             protocol = dex.get("protocol_family") or dex_slug
             for role in ("factory", "router"):
+                abi_name = dex.get(role + "_abi")
+                provenance_status = (
+                    "verified"
+                    if dex.get("deployment_source") and abi_name
+                    else "legacy_unverified"
+                )
                 contract_id = "{}:dex:{}:{}".format(
                     chain_slug, _id_part(dex_slug), role
                 )
@@ -292,11 +309,12 @@ def _build_contract_records(
                     contract_id,
                     dict(
                         common,
-                        abi=dex.get(role + "_abi"),
+                        abi=abi_name,
                         address=dex[role + "_address"],
                         name="{} {}".format(dex["name"], role.title()),
                         protocol=protocol,
                         protocol_version=dex.get("protocol_version"),
+                        provenance_status=provenance_status,
                         role=role,
                         source_url=dex.get("deployment_source"),
                         verification_id=_verification_id(
@@ -313,6 +331,7 @@ def _build_contract_records(
             for symbol, address in chain.get(field, {}).items():
                 token_id = "{}:{}".format(chain_slug, symbol)
                 policy = token_policies.get(token_id, {})
+                evidence_url = policy.get("evidence_url")
                 contract_id = "{}:token:{}:{}".format(
                     chain_slug, role.replace("_", "-"), _id_part(symbol)
                 )
@@ -326,8 +345,11 @@ def _build_contract_records(
                         name=symbol,
                         protocol=None,
                         protocol_version=None,
+                        provenance_status=(
+                            "verified" if evidence_url else "legacy_unverified"
+                        ),
                         role=role,
-                        source_url=policy.get("evidence_url"),
+                        source_url=evidence_url,
                         verification_id=_verification_id(chain_slug, address),
                     ),
                 )
@@ -346,6 +368,7 @@ def _build_contract_records(
                 name=wrapped["name"],
                 protocol=None,
                 protocol_version=None,
+                provenance_status="verified",
                 role="wrapped_native",
                 source_url=source["provenance"]["chain"],
                 verification_id=_verification_id(chain_slug, wrapped["address"]),
@@ -360,6 +383,44 @@ def _default_token_origin(role: str) -> str:
     if role == "test_token":
         return "test"
     return "unknown"
+
+
+def _validate_contract_snapshot(
+    contract_id: str,
+    contract: Mapping[str, Any],
+    snapshot: Mapping[str, Any],
+    chain: Mapping[str, Any],
+) -> None:
+    _require(
+        snapshot["rpc_url"] in chain["rpc"],
+        "{} snapshot RPC is not registered for its chain".format(contract_id),
+    )
+    _validate_address(
+        snapshot["address"], "{}.snapshot.address".format(contract_id)
+    )
+    _require(
+        snapshot["chain"] == contract["chain"]
+        and snapshot["chain_id"] == contract["chain_id"]
+        and snapshot["address"].lower() == contract["address"].lower(),
+        "{} verification identity does not match its contract".format(contract_id),
+    )
+    implementation = snapshot["eip1967"]["implementation"]
+    implementation_hash = snapshot["eip1967"][
+        "implementation_code_keccak256"
+    ]
+    for slot_name in ("admin", "beacon", "implementation"):
+        slot_address = snapshot["eip1967"][slot_name]
+        if slot_address is not None:
+            _validate_address(
+                slot_address,
+                "{}.snapshot.eip1967.{}".format(contract_id, slot_name),
+            )
+    _require(
+        (implementation is None) == (implementation_hash is None),
+        "{} implementation and code hash must appear together".format(
+            contract_id
+        ),
+    )
 
 
 def build_catalogs(
@@ -397,22 +458,22 @@ def build_catalogs(
                 abi_name in abi_entries,
                 "{} references unknown ABI {}".format(contract_id, abi_name),
             )
-        snapshot = snapshots[contract["verification_id"]]
-        _require(
-            snapshot["chain"] == contract["chain"]
-            and snapshot["chain_id"] == contract["chain_id"]
-            and snapshot["address"].lower() == contract["address"].lower(),
-            "{} verification identity does not match its contract".format(contract_id),
+        requires_abi = contract["role"] in {"factory", "router"}
+        expected_provenance_status = (
+            "verified"
+            if contract["source_url"] and (abi_name is not None or not requires_abi)
+            else "legacy_unverified"
         )
-        implementation = snapshot["eip1967"]["implementation"]
-        implementation_hash = snapshot["eip1967"][
-            "implementation_code_keccak256"
-        ]
         _require(
-            (implementation is None) == (implementation_hash is None),
-            "{} implementation and code hash must appear together".format(
-                contract_id
-            ),
+            contract["provenance_status"] == expected_provenance_status,
+            "{} has inconsistent provenance_status".format(contract_id),
+        )
+        snapshot = snapshots[contract["verification_id"]]
+        _validate_contract_snapshot(
+            contract_id,
+            contract,
+            snapshot,
+            chains[contract["chain"]],
         )
 
     tokens = {}
@@ -481,11 +542,18 @@ def build_catalogs(
     return contract_index, token_index, runtime_snapshots
 
 
-def _abi_name(path: Path) -> str:
-    relative = path.relative_to(ASSETS_DIR).with_suffix("")
+def _abi_name(path: Path, root: Path = ASSETS_DIR) -> str:
+    relative = path.relative_to(root).with_suffix("")
     parts = relative.parts[1:]
     _require(bool(parts), "invalid ABI resource path: {}".format(path))
     return "_".join(parts).upper()
+
+
+def _canonical_abi_sha256(abi: Sequence[Mapping[str, Any]]) -> str:
+    canonical = json.dumps(
+        abi, ensure_ascii=False, separators=(",", ":"), sort_keys=True
+    ).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
 
 
 def _canonical_type(parameter: Mapping[str, Any]) -> str:
@@ -540,74 +608,84 @@ def build_abi_index() -> Tuple[Dict[str, Any], List[str]]:
         "ABI names cannot be both audited and legacy: {}".format(", ".join(overlap)),
     )
 
+    _require(LEGACY_ABI_DIR.is_dir(), "registry/legacy-abis is missing")
+    quarantined = {}
+    for path in sorted(LEGACY_ABI_DIR.rglob("*.abi")):
+        abi = _read_json(path)
+        _require(isinstance(abi, list), "{} must contain a JSON array".format(path))
+        name = _abi_name(path, LEGACY_ABI_DIR)
+        _require(
+            name not in quarantined,
+            "duplicate quarantined ABI name: {}".format(name),
+        )
+        details = legacy.get(name)
+        _require(
+            details is not None,
+            "{} is not present in the legacy ABI allowlist".format(name),
+        )
+        canonical_sha256 = _canonical_abi_sha256(abi)
+        _require(
+            details["canonical_sha256"] == canonical_sha256,
+            "{} quarantined ABI changed; audit it instead of updating the allowlist blindly".format(
+                name
+            ),
+        )
+        quarantined[name] = canonical_sha256
+    missing_quarantine = sorted(set(legacy) - set(quarantined))
+    _require(
+        not missing_quarantine,
+        "legacy ABI registry references missing quarantine files: {}".format(
+            ", ".join(missing_quarantine)
+        ),
+    )
+
     entries = {}
     for path in sorted(ASSETS_DIR.rglob("*.abi")):
         abi = _read_json(path)
         _require(isinstance(abi, list), "{} must contain a JSON array".format(path))
         name = _abi_name(path)
         _require(name not in entries, "duplicate ABI name: {}".format(name))
+        _require(
+            name not in legacy,
+            "{} is a quarantined legacy ABI and cannot be distributed".format(name),
+        )
         resource = path.relative_to(ROOT / "many_abis").as_posix()
-        canonical = json.dumps(
-            abi, ensure_ascii=False, separators=(",", ":"), sort_keys=True
-        ).encode("utf-8")
-        canonical_sha256 = hashlib.sha256(canonical).hexdigest()
+        canonical_sha256 = _canonical_abi_sha256(abi)
         signatures = _abi_signatures(abi)
         details = metadata.get(name)
-        legacy_details = legacy.get(name)
         _require(
-            details is not None or legacy_details is not None,
-            "{} is not present in audited metadata or the explicit legacy allowlist".format(name),
+            details is not None,
+            "{} is not present in audited ABI metadata".format(name),
         )
 
-        if details is not None:
-            missing_signatures = sorted(
-                set(details["required_signatures"]) - set(signatures)
-            )
-            _require(
-                not missing_signatures,
-                "{} is missing required signatures: {}".format(
-                    name, ", ".join(missing_signatures)
-                ),
-            )
-            contract_role = details["contract_role"]
-            interface_name = details["interface_name"]
-            license_data = details["license"]
-            provenance = details["provenance"]
-            required_signatures = details["required_signatures"]
-        else:
-            if legacy_details is None:
-                raise RegistryError("{} is missing legacy metadata".format(name))
-            _require(
-                legacy_details["canonical_sha256"] == canonical_sha256,
-                "{} legacy ABI changed; audit it instead of updating the allowlist blindly".format(name),
-            )
-            contract_role = legacy_details["contract_role"]
-            interface_name = None
-            license_data = {
-                "redistribution": "legacy_exception",
-                "spdx_expression": "NOASSERTION",
-            }
-            provenance = {
-                "reason": legacy_details["reason"],
-                "source_url": None,
-                "status": "legacy",
-            }
-            required_signatures = []
+        _require(
+            details["canonical_sha256"] == canonical_sha256,
+            "{} verified ABI content does not match canonical_sha256".format(name),
+        )
+        missing_signatures = sorted(
+            set(details["required_signatures"]) - set(signatures)
+        )
+        _require(
+            not missing_signatures,
+            "{} is missing required signatures: {}".format(
+                name, ", ".join(missing_signatures)
+            ),
+        )
 
         entry = {
             "canonical_sha256": canonical_sha256,
-            "contract_role": contract_role,
-            "interface_name": interface_name,
+            "contract_role": details["contract_role"],
+            "interface_name": details["interface_name"],
             "item_count": len(abi),
-            "license": license_data,
-            "provenance": provenance,
-            "required_signatures": required_signatures,
+            "license": details["license"],
+            "provenance": details["provenance"],
+            "required_signatures": details["required_signatures"],
             "resource": resource,
             "selector_fingerprint": _selector_fingerprint(abi),
         }
         entries[name] = entry
 
-    unknown_metadata = sorted((set(metadata) | set(legacy)) - set(entries))
+    unknown_metadata = sorted(set(metadata) - set(entries))
     _require(
         not unknown_metadata,
         "ABI registry references missing names: {}".format(", ".join(unknown_metadata)),
@@ -667,7 +745,7 @@ def build_abi_stub(names: Sequence[str]) -> str:
         "    @property\n    def {}(self) -> ABI: ...".format(name)
         for name in names
     )
-    return """from typing import Any, Dict, Iterator, List, Mapping, Optional, Tuple
+    return """from typing import Any, Dict, Iterator, List, Mapping, Optional, Tuple, Union
 
 ABI = List[Dict[str, Any]]
 
@@ -694,7 +772,11 @@ def find_abis(
 def clear_abi_cache() -> None: ...
 def loaded_abis() -> List[str]: ...
 def get_abi_from_address(
-    address: str, api_key: str, chain_api: str
+    address: str,
+    api_key: str,
+    chain_api: Optional[Union[str, int]] = ...,
+    *,
+    chain_id: Optional[int] = ...,
 ) -> Optional[str]: ...
 """.format(attributes=attributes)
 
@@ -727,6 +809,8 @@ def build_abi_provenance(abi_index: Mapping[str, Any]) -> str:
         "# ABI provenance",
         "",
         "This file is generated from the ABI assets and `registry/abi-metadata.json`.",
+        "Only verified ABIs are distributed. Legacy ABI audit records and content are",
+        "quarantined under `registry/` and are unavailable through the runtime API.",
         "",
         "| ABI | Role | Items | Canonical SHA-256 | Provenance | License |",
         "| --- | --- | ---: | --- | --- | --- |",
@@ -762,7 +846,8 @@ def build_contract_catalog(
         "This file is generated from the chain registry and pinned on-chain",
         "verification snapshots. A code hash proves observed bytecode identity at",
         "one block; it is not a security audit or a promise that mutable contracts",
-        "will keep the same implementation.",
+        "will keep the same implementation. Public RPC endpoints are not guaranteed",
+        "to retain archive state, so long-term replay of a snapshot may be unavailable.",
         "",
         "| Chain | Logical contracts | Unique addresses | EIP-1967 implementations | Snapshot block |",
         "| --- | ---: | ---: | ---: | ---: |",
@@ -822,21 +907,20 @@ def build_token_catalog(token_index: Mapping[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def build_third_party_notices(abi_index: Mapping[str, Any]) -> str:
+def build_third_party_notices(
+    abi_index: Mapping[str, Any], quarantined_names: Sequence[str]
+) -> str:
     known = []
-    legacy = []
     for name, entry in abi_index["abis"].items():
-        license_data = entry["license"]
-        if license_data["redistribution"] == "legacy_exception":
-            legacy.append(name)
-        else:
-            known.append((name, entry))
+        known.append((name, entry))
 
     lines = [
         "# Third-party notices",
         "",
         "`many-abis` includes ABI data derived from third-party smart-contract projects.",
         "The project license does not replace the upstream terms recorded below.",
+        "Full upstream/standard license texts and copyright notices are bundled under",
+        "`LICENSES/`; including them is not a legal or smart-contract security conclusion.",
         "",
         "## Recorded upstream terms",
         "",
@@ -857,12 +941,13 @@ def build_third_party_notices(abi_index: Mapping[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Legacy provenance exceptions",
+            "## Quarantined legacy ABI records",
             "",
-            "The following pre-existing ABI files require a future provenance and license",
-            "review. No new ABI should use this exception:",
+            "The following pre-existing ABI files still require provenance and license",
+            "review. Their content is retained under `registry/legacy-abis/` for audit",
+            "history only; it is not included in the Python package or runtime ABI index:",
             "",
-            ", ".join("`{}`".format(name) for name in legacy),
+            ", ".join("`{}`".format(name) for name in quarantined_names),
             "",
         ]
     )
@@ -872,6 +957,9 @@ def build_third_party_notices(abi_index: Mapping[str, Any]) -> str:
 def build_outputs() -> Dict[Path, bytes]:
     chains = build_chains()
     abi_index, names = build_abi_index()
+    quarantined_names = sorted(
+        _read_json(ABI_LEGACY_ALLOWLIST_PATH)["abis"]
+    )
     validate_abi_references(chains, abi_index)
     contract_index, token_index, snapshot_index = build_catalogs(chains, abi_index)
     return {
@@ -887,7 +975,9 @@ def build_outputs() -> Dict[Path, bytes]:
             build_contract_catalog(contract_index, snapshot_index)
         ),
         TOKEN_CATALOG_DOC_OUTPUT: _text_bytes(build_token_catalog(token_index)),
-        THIRD_PARTY_OUTPUT: _text_bytes(build_third_party_notices(abi_index)),
+        THIRD_PARTY_OUTPUT: _text_bytes(
+            build_third_party_notices(abi_index, quarantined_names)
+        ),
     }
 
 

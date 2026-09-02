@@ -26,6 +26,7 @@
           "name",
           "protocol",
           "protocol_version",
+          "provenance_status",
           "role",
           "source_url",
           "verification_id",
@@ -67,6 +68,12 @@
             "type": [
               "string",
               "null"
+            ]
+          },
+          "provenance_status": {
+            "enum": [
+              "legacy_unverified",
+              "verified"
             ]
           },
           "role": {

@@ -710,7 +710,7 @@
       "evidence_url": "https://docs.paxos.com/guides/stablecoin/usdg/mainnet",
       "name": null,
       "observed_symbol": "USDG",
-      "origin": "issuer_native",
+      "origin": "bridged",
       "role": "stablecoin",
       "token_id": "xlayer:USDG",
       "verification_id": "xlayer:0x4ae46a509f6b1d9056937ba4500cb143933d2dc8"

@@ -3,7 +3,8 @@
 This file is generated from the chain registry and pinned on-chain
 verification snapshots. A code hash proves observed bytecode identity at
 one block; it is not a security audit or a promise that mutable contracts
-will keep the same implementation.
+will keep the same implementation. Public RPC endpoints are not guaranteed
+to retain archive state, so long-term replay of a snapshot may be unavailable.
 
 | Chain | Logical contracts | Unique addresses | EIP-1967 implementations | Snapshot block |
 | --- | ---: | ---: | ---: | ---: |

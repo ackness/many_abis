@@ -56,6 +56,6 @@ snapshot. `unknown` means the registry does not make an origin claim.
 | `unichain` | `USDT0` | `USD₮0` | 6 | bridged | `0x9151434b16b9763660705744891fA906F660EcC5` | [source](https://docs.usdt0.to/api/deployments) |
 | `unichain` | `WETH` | `WETH` | 18 | wrapped_native | `0x4200000000000000000000000000000000000006` | [source](https://developers.uniswap.org/docs/unichain/technical-information/network-information) |
 | `xlayer` | `USDC` | `USDC` | 6 | issuer_native | `0xB6CEceAB302E2E4948951eE7843FC24E92933061` | [source](https://www.circle.com/blog/now-available-native-usdc-cctp-on-x-layer) |
-| `xlayer` | `USDG` | `USDG` | 6 | issuer_native | `0x4ae46a509F6b1D9056937BA4500cb143933D2dc8` | [source](https://docs.paxos.com/guides/stablecoin/usdg/mainnet) |
+| `xlayer` | `USDG` | `USDG` | 6 | bridged | `0x4ae46a509F6b1D9056937BA4500cb143933D2dc8` | [source](https://docs.paxos.com/guides/stablecoin/usdg/mainnet) |
 | `xlayer` | `USDT0` | `USD₮0` | 6 | bridged | `0x779Ded0c9e1022225f8E0630b35a9b54bE713736` | [source](https://docs.usdt0.to/api/deployments) |
 | `xlayer` | `WOKB` | `WOKB` | 18 | wrapped_native | `0xe538905cf8410324e03A5A23C1c177a474D59b2b` | [source](https://web3.okx.com/onchainos/dev-docs/xlayer/developer/build-on-xlayer/network-information) |

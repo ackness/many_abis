@@ -95,7 +95,7 @@
           "items": {
             "type": "string",
             "format": "uri",
-            "pattern": "^https://"
+            "pattern": "^https://[^/?#@]+(?:/[^?#]*)?$"
           }
         },
         "stable_coins": {

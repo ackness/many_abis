@@ -1,16 +1,15 @@
-# This workflow will upload a Python Package using Twine when a release is created
-# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Upload Python Package
+name: Publish Python package
 
 on:
   release:
-    types: [created]
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pypi-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
 
 jobs:
   verify:
@@ -18,62 +17,105 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8", "3.12"]
+        python-version: ["3.13", "3.14"]
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python-version }}
-    - run: python -m pip install --upgrade pip
-    - run: python -m pip install .
-    - run: python -m pip install -r requirements-dev.txt
-    - run: python scripts/generate_registry.py --check
-    - run: python -m unittest discover -s tests -v
-    - run: python -m mypy
+      - name: Check out the release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install .
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python scripts/generate_registry.py --check
+      - run: python -m unittest discover -s tests -v
+      - run: python -m mypy
 
-  deploy:
+  build:
     needs: verify
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install .
-        python -m pip install -r requirements-dev.txt
-    - name: Build package
-      run: python -m build
-    - name: Smoke-test wheel outside source tree
-      run: |
-        python -m pip install --target /tmp/many-abis-release dist/*.whl
-        cd /tmp
-        PYTHONPATH=/tmp/many-abis-release python - <<'PY'
-        from pathlib import Path
+      - name: Check out the release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.release.tag_name }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install release tooling
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+      - name: Verify release tag and package version
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: python scripts/check_release_tag.py "$RELEASE_TAG"
+      - name: Build reproducible distributions from clean source archives
+        run: python scripts/build_release_artifacts.py --output-dir dist
+      - name: Verify distribution contents and metadata
+        run: |
+          python scripts/check_distribution.py dist
+          python -m twine check dist/*
+      - name: Smoke-test wheel outside the source tree
+        run: |
+          python -m pip install --target /tmp/many-abis-release dist/*.whl
+          cd /tmp
+          PYTHONPATH=/tmp/many-abis-release python - <<'PY'
+          from importlib.metadata import version
+          from pathlib import Path
 
-        import many_abis as m
+          import many_abis as m
 
-        root = Path("/tmp/many-abis-release")
-        assert m.loaded_abis() == []
-        assert len(m.ALL_ABIS_NAME) == 77
-        assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
-        assert len(m.loaded_abis()) == 77
-        assert len(m.all_contract_ids()) == 99
-        assert len(m.all_token_ids()) == 53
-        assert (root / "many_abis" / "abis.pyi").is_file()
-        assert (root / "many_abis" / "py.typed").is_file()
-        license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))
-        assert len(license_dirs) == 1
-        assert (license_dirs[0] / "LICENSE").is_file()
-        assert (license_dirs[0] / "THIRD_PARTY_NOTICES.md").is_file()
-        PY
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+          root = Path("/tmp/many-abis-release")
+          assert version("many-abis") == m.__version__
+          assert m.loaded_abis() == []
+          assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
+          assert len(m.all_contract_ids()) == 99
+          assert len(m.all_token_ids()) == 53
+          assert (root / "many_abis" / "abis.pyi").is_file()
+          assert (root / "many_abis" / "py.typed").is_file()
+          license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))
+          assert len(license_dirs) == 1
+          assert (license_dirs[0] / "LICENSE").is_file()
+          assert (license_dirs[0] / "THIRD_PARTY_NOTICES.md").is_file()
+          assert (license_dirs[0] / "LICENSES" / "GPL-2.0.txt").is_file()
+          PY
+      - name: Upload immutable release artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: python-distributions
+          path: dist/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 1
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/many-abis
+    permissions:
+      id-token: write
+    steps:
+      - name: Download verified release artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: python-distributions
+          path: dist
+      - name: Publish with PyPI Trusted Publishing and PEP 740 attestations
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+        with:
+          attestations: true
+          packages-dir: dist
+          print-hash: true
+          verify-metadata: true
