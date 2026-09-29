@@ -1,6 +1,6 @@
 # Many Abis
 
-![Version](https://img.shields.io/badge/many--abis-v0.4.0-green)
+![Version](https://img.shields.io/badge/many--abis-v0.5.0-green)
 ![Pypi](https://img.shields.io/pypi/dm/many-abis)
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/ackness/many_abis?style=social)
@@ -222,11 +222,11 @@ and [uv GitHub Actions guide](https://docs.astral.sh/uv/guides/integration/githu
 Commit and push the release files, including the workflow and `uv.lock`. Set
 `project.version` in `pyproject.toml` to the new version, and refresh `uv.lock`
 with `uv lock`. The runtime version comes from installed package metadata.
-Create a matching tag, such as `v0.4.0` for
-version `0.4.0`, on that commit, then **publish a GitHub Release** for the tag.
+Create a matching tag, such as `v0.5.0` for
+version `0.5.0`, on that commit, then **publish a GitHub Release** for the tag.
 Pushing a tag alone or saving a draft release does not trigger publishing.
 Published prereleases also trigger this workflow; use a matching prerelease
-package version such as `0.4.1rc1` and tag `v0.4.1rc1`.
+package version such as `0.5.1rc1` and tag `v0.5.1rc1`.
 
 The workflow tests Python 3.13 and 3.14, checks the tag against the package
 version, builds and validates the wheel and source distribution, then publishes
