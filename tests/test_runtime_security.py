@@ -188,7 +188,7 @@ class ExplorerRequestSecurityTests(unittest.TestCase):
         )
         self.assertEqual(kwargs["timeout"], (5, 15))
         self.assertFalse(kwargs["allow_redirects"])
-        self.assertIn("many-abis/0.4.0", kwargs["headers"]["User-Agent"])
+        self.assertIn("many-abis/{}".format(ma.__version__), kwargs["headers"]["User-Agent"])
 
     def test_known_current_and_legacy_templates_are_selectors_only(self):
         for chain_api in (ma.CHAIN_CONTRACT_API.BSC, LEGACY_BSC_API):

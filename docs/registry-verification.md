@@ -8,7 +8,7 @@ the same chain objects.
 
 | Packaged file | Purpose | Source |
 | --- | --- | --- |
-| `assets/contract-index.json` | Logical DEX factory/router and token records | `registry/chains/*.json` plus token policy overrides |
+| `assets/contract-index.json` | Logical protocol components and token records | `registry/chains/*.json`, `registry/deployments/*.json`, and token policy overrides |
 | `assets/token-index.json` | Configured and on-chain symbols, decimals, and conservative origin labels | Chain sources, token policies, and snapshots |
 | `assets/verification-snapshots.json` | Block-pinned runtime code and EIP-1967 observations | `registry/verification-snapshots.json` |
 
@@ -16,7 +16,12 @@ The contract index identifies a logical role such as
 `base:dex:uniswap-v3:router`. Verification records instead use
 `chain:lowercase-address`, because one address can serve more than one logical
 role and the same address can contain different code on different chains.
-`source_reviewed_at` is the review date of the parent chain source; it is not a
+Explicit deployments add roles such as `pool_manager`, `state_view`, `quoter`,
+`position_manager`, `vault`, and `permit2`, without inventing factories for
+singleton protocols. They use IDs such as `base:dex:uniswap-v4:state_view`.
+`deployment_version` records the reviewed deployment release or revision;
+the referenced ABI has its own immutable source in `get_abi_info()`.
+`source_reviewed_at` is the review date of the chain or deployment source; it is not a
 claim that the contract passed a security review.
 
 ## Snapshot semantics
@@ -78,6 +83,17 @@ uv run python scripts/generate_registry.py --write
 uv run python scripts/generate_registry.py --check
 uv run python -m unittest discover -s tests -v
 ```
+
+When adding deployments, `--missing-only` collects evidence for new addresses
+and preserves existing snapshots. The generator rejects duplicate logical
+deployments, unknown chains, mismatched ABI roles, and missing or extraneous
+address snapshots. New protocol interfaces also need reviewed bindings in
+`DEPLOYMENT_ABIS` in the generator; this prevents mixing CL/Bin managers or
+StateView/Quoter ABIs with the same broad ABI role. Full refreshes also include
+explicit deployments.
+
+See [singleton DEX usage](singleton-dexes.md) for Uniswap v4 and PancakeSwap
+Infinity read-only examples and version boundaries.
 
 The refresh aborts before writing when a chain ID is wrong, a registered address
 has no runtime bytecode, a Token metadata call is unusable, or an EIP-1967

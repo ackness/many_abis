@@ -16,6 +16,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 CHAIN_SOURCE_DIR = ROOT / "registry" / "chains"
+DEPLOYMENT_SOURCE_DIR = ROOT / "registry" / "deployments"
 CHAIN_ORDER_PATH = ROOT / "registry" / "chain-order.json"
 ABI_METADATA_PATH = ROOT / "registry" / "abi-metadata.json"
 ABI_LEGACY_ALLOWLIST_PATH = ROOT / "registry" / "legacy-abi-allowlist.json"
@@ -32,6 +33,7 @@ VERIFICATION_SNAPSHOTS_SCHEMA_PATH = (
     SCHEMA_DIR / "verification-snapshots.schema.json"
 )
 CONTRACT_INDEX_SCHEMA_PATH = SCHEMA_DIR / "contract-index.schema.json"
+DEPLOYMENTS_SCHEMA_PATH = SCHEMA_DIR / "deployments.schema.json"
 TOKEN_INDEX_SCHEMA_PATH = SCHEMA_DIR / "token-index.schema.json"
 ASSETS_DIR = ROOT / "many_abis" / "assets"
 CHAINS_OUTPUT = ASSETS_DIR / "utils" / "chains.json"
@@ -58,6 +60,42 @@ REQUIRED_CHAIN_FIELDS = {
     "rpc",
     "stable_coins",
     "weth",
+}
+DEPLOYMENT_ABI_ROLES = {
+    "pool_manager": "pool",
+    "state_view": "utility",
+    "quoter": "utility",
+    "position_manager": "other",
+    "router": "router",
+    "permit2": "token",
+    "vault": "vault",
+}
+# Approved bindings prevent interfaces with the same broad ABI role (for example,
+# StateView/Quoter or CL/Bin managers) from being accidentally interchanged.
+DEPLOYMENT_ABIS = {
+    "uniswap-v4": {
+        "pool_manager": "UNISWAP_V4_POOL_MANAGER",
+        "state_view": "UNISWAP_V4_STATE_VIEW",
+        "quoter": "UNISWAP_V4_QUOTER",
+        "position_manager": "UNISWAP_V4_POSITION_MANAGER",
+    },
+    "uniswap-universal-router-2-1-2": {"router": "UNISWAP_UNIVERSAL_ROUTER_V2_1_2"},
+    "uniswap-permit2": {"permit2": "UNISWAP_PERMIT2"},
+    "pancake-infinity-cl": {
+        "pool_manager": "PANCAKE_INFINITY_CL_POOL_MANAGER",
+        "quoter": "PANCAKE_INFINITY_CL_QUOTER",
+        "position_manager": "PANCAKE_INFINITY_CL_POSITION_MANAGER",
+    },
+    "pancake-infinity-bin": {
+        "pool_manager": "PANCAKE_INFINITY_BIN_POOL_MANAGER",
+        "quoter": "PANCAKE_INFINITY_BIN_QUOTER",
+        "position_manager": "PANCAKE_INFINITY_BIN_POSITION_MANAGER",
+    },
+    "pancake-infinity": {
+        "vault": "PANCAKE_INFINITY_VAULT",
+        "router": "PANCAKE_INFINITY_UNIVERSAL_ROUTER",
+        "permit2": "UNISWAP_PERMIT2",
+    },
 }
 
 
@@ -280,6 +318,30 @@ def _add_contract(
     contracts[contract_id] = value
 
 
+def _load_deployments(chains: Mapping[str, Any]) -> List[Dict[str, Any]]:
+    """Read explicit deployments without changing the legacy chain data shape."""
+    deployments = []
+    seen = set()
+    for path in sorted(DEPLOYMENT_SOURCE_DIR.glob("*.json")):
+        document = _read_json(path)
+        _validate_schema(document, DEPLOYMENTS_SCHEMA_PATH, path.name)
+        for record in document["deployments"]:
+            location = "{}:{}:{}".format(
+                record["chain"], record["deployment"], record["role"]
+            )
+            _require(record["chain"] in chains, "{}: unknown chain".format(location))
+            _validate_address(record["address"], location)
+            expected_abi = DEPLOYMENT_ABIS.get(record["deployment"], {}).get(record["role"])
+            _require(
+                expected_abi is not None and record["abi"] == expected_abi,
+                "{}: unapproved deployment/role/ABI binding".format(location),
+            )
+            _require(location not in seen, "duplicate deployment: {}".format(location))
+            seen.add(location)
+            deployments.append(record)
+    return deployments
+
+
 def _build_contract_records(
     chains: Mapping[str, Any], token_policies: Mapping[str, Any]
 ) -> Dict[str, Any]:
@@ -374,6 +436,20 @@ def _build_contract_records(
                 verification_id=_verification_id(chain_slug, wrapped["address"]),
             ),
         )
+    for deployment in _load_deployments(chains):
+        slug = deployment["chain"]
+        contract_id = "{}:dex:{}:{}".format(
+            slug, deployment["deployment"], deployment["role"]
+        )
+        record = {
+            key: value for key, value in deployment.items() if key != "deployment"
+        }
+        record.update(
+            chain_id=chains[slug]["chain_id"],
+            provenance_status="verified",
+            verification_id=_verification_id(slug, deployment["address"]),
+        )
+        _add_contract(contracts, contract_id, record)
     return contracts
 
 
@@ -458,7 +534,14 @@ def build_catalogs(
                 abi_name in abi_entries,
                 "{} references unknown ABI {}".format(contract_id, abi_name),
             )
-        requires_abi = contract["role"] in {"factory", "router"}
+        if "deployment_version" in contract:
+            _require(abi_name is not None, "{} requires an ABI".format(contract_id))
+            expected_role = DEPLOYMENT_ABI_ROLES[contract["role"]]
+            _require(
+                abi_entries[abi_name]["contract_role"] == expected_role,
+                "{} requires a {} ABI".format(contract_id, expected_role),
+            )
+        requires_abi = contract["role"] in {"factory", "router"} or "deployment_version" in contract
         expected_provenance_status = (
             "verified"
             if contract["source_url"] and (abi_name is not None or not requires_abi)
@@ -782,10 +865,12 @@ def get_abi_from_address(
 
 
 def build_supported_chains(chains: Mapping[str, Any]) -> str:
+    deployments = _load_deployments(chains)
     lines = [
         "# Supported chains and DEX deployments",
         "",
-        "This file is generated from `registry/chains/*.json`. Do not edit it directly.",
+        "Generated from `registry/chains/*.json` and `registry/deployments/*.json`.",
+        "Do not edit it directly. Singleton components are available in the contract catalog.",
         "",
         "| Slug | Chain ID | Chain | Stablecoins | DEX deployments |",
         "| --- | ---: | --- | --- | --- |",
@@ -798,7 +883,14 @@ def build_supported_chains(chains: Mapping[str, Any]) -> str:
                 chain["name"],
                 ", ".join("`{}`".format(name) for name in chain["stable_coins"])
                 or "—",
-                ", ".join("`{}`".format(name) for name in chain["dex"]) or "—",
+                ", ".join(
+                    "`{}`".format(name) for name in sorted(
+                        set(chain["dex"]) | {
+                            record["deployment"] for record in deployments
+                            if record["chain"] == slug
+                        }
+                    )
+                ) or "—",
             )
         )
     return "\n".join(lines) + "\n"

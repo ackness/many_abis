@@ -22,7 +22,7 @@ def build_summary(chain_slug: str) -> dict[str, Any]:
         "dex_contracts": [
             contract
             for contract in contracts
-            if contract["role"] in {"factory", "router"}
+            if ":dex:" in contract["contract_id"]
         ],
         "tokens": ma.list_tokens(chain=chain_slug),
     }

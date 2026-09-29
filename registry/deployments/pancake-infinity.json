@@ -1,0 +1,123 @@
+{
+  "$schema": "../schemas/deployments.schema.json",
+  "schema_version": 1,
+  "deployments": [
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "vault",
+      "name": "PancakeSwap Infinity Vault",
+      "address": "0x238a358808379702088667322f80aC48bAd5e6c4",
+      "abi": "PANCAKE_INFINITY_VAULT",
+      "source_url": "https://github.com/pancakeswap/infinity-core/blob/d0e879334da8ea789a895d864dbe34259ea9fb65/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity-cl",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "pool_manager",
+      "name": "PancakeSwap Infinity CLPoolManager",
+      "address": "0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b",
+      "abi": "PANCAKE_INFINITY_CL_POOL_MANAGER",
+      "source_url": "https://github.com/pancakeswap/infinity-core/blob/d0e879334da8ea789a895d864dbe34259ea9fb65/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity-bin",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "pool_manager",
+      "name": "PancakeSwap Infinity BinPoolManager",
+      "address": "0xC697d2898e0D09264376196696c51D7aBbbAA4a9",
+      "abi": "PANCAKE_INFINITY_BIN_POOL_MANAGER",
+      "source_url": "https://github.com/pancakeswap/infinity-core/blob/d0e879334da8ea789a895d864dbe34259ea9fb65/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity-cl",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "position_manager",
+      "name": "PancakeSwap Infinity CLPositionManager",
+      "address": "0x55f4c8abA71A1e923edC303eb4fEfF14608cC226",
+      "abi": "PANCAKE_INFINITY_CL_POSITION_MANAGER",
+      "source_url": "https://github.com/pancakeswap/infinity-periphery/blob/4efea658a051305052a948c74632c01470e769e2/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity-bin",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "position_manager",
+      "name": "PancakeSwap Infinity BinPositionManager",
+      "address": "0x3D311D6283Dd8aB90bb0031835C8e606349e2850",
+      "abi": "PANCAKE_INFINITY_BIN_POSITION_MANAGER",
+      "source_url": "https://github.com/pancakeswap/infinity-periphery/blob/4efea658a051305052a948c74632c01470e769e2/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity-cl",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "quoter",
+      "name": "PancakeSwap Infinity CLQuoter",
+      "address": "0xd0737C9762912dD34c3271197E362Aa736Df0926",
+      "abi": "PANCAKE_INFINITY_CL_QUOTER",
+      "source_url": "https://github.com/pancakeswap/infinity-periphery/blob/4efea658a051305052a948c74632c01470e769e2/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity-bin",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "quoter",
+      "name": "PancakeSwap Infinity BinQuoter",
+      "address": "0xC631f4B0Fc2Dd68AD45f74B2942628db117dD359",
+      "abi": "PANCAKE_INFINITY_BIN_QUOTER",
+      "source_url": "https://github.com/pancakeswap/infinity-periphery/blob/4efea658a051305052a948c74632c01470e769e2/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.0"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "router",
+      "name": "PancakeSwap Infinity UniversalRouter",
+      "address": "0xd9c500dff816a1da21a48a732d3498bf09dc9aeb",
+      "abi": "PANCAKE_INFINITY_UNIVERSAL_ROUTER",
+      "source_url": "https://github.com/pancakeswap/infinity-universal-router/blob/923a357fa07e9b527d5aefeec724c1bb12189da0/deploy-addresses/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "1.0.1"
+    },
+    {
+      "chain": "bsc",
+      "deployment": "pancake-infinity",
+      "protocol": "pancakeswap",
+      "protocol_version": "infinity",
+      "role": "permit2",
+      "name": "PancakeSwap Permit2",
+      "address": "0x31c2F6fcFf4F8759b3Bd5Bf0e1084A055615c768",
+      "abi": "UNISWAP_PERMIT2",
+      "source_url": "https://github.com/pancakeswap/infinity-periphery/blob/4efea658a051305052a948c74632c01470e769e2/script/config/bsc-mainnet.json",
+      "source_reviewed_at": "2026-09-29",
+      "deployment_version": "sourcify:56:0x31c2f6fcff4f8759b3bd5bf0e1084a055615c768"
+    }
+  ]
+}

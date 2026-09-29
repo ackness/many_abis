@@ -76,11 +76,19 @@ def _write_json(path: Path, value: Any) -> None:
 
 
 def _load_chains() -> Dict[str, Any]:
+    if __package__:
+        from .generate_registry import _load_deployments
+    else:
+        from generate_registry import _load_deployments
+
     order = _read_json(CHAIN_ORDER_PATH)["chains"]
-    return {
+    chains = {
         slug: _read_json(CHAIN_SOURCE_DIR / (slug + ".json"))["data"]
         for slug in order
     }
+    for deployment in _load_deployments(chains):
+        chains[deployment["chain"]].setdefault("deployments", []).append(deployment)
+    return chains
 
 
 def _chain_targets(chain: Mapping[str, Any]) -> Dict[str, Tuple[str, bool]]:
@@ -103,6 +111,8 @@ def _chain_targets(chain: Mapping[str, Any]) -> Dict[str, Tuple[str, bool]]:
     for dex in chain["dex"].values():
         add(dex["factory_address"], False)
         add(dex["router_address"], False)
+    for deployment in chain.get("deployments", []):
+        add(deployment["address"], False)
     return targets
 
 
@@ -280,8 +290,14 @@ def _collect_chain(
     chain: Mapping[str, Any],
     block_tag: str,
     timeout: float,
+    addresses: Optional[Sequence[str]] = None,
 ) -> Tuple[Dict[str, Any], str, int]:
     targets = _chain_targets(chain)
+    if addresses is not None:
+        selected = {address.lower() for address in addresses}
+        if not selected or not selected.issubset(targets):
+            raise VerificationError("addresses must select registered chain targets")
+        targets = {key: value for key, value in targets.items() if key in selected}
     errors = []
     for rpc_url in chain["rpc"]:
         try:
@@ -458,6 +474,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         default="latest",
     )
     parser.add_argument("--timeout", type=float, default=30.0)
+    parser.add_argument(
+        "--missing-only", action="store_true",
+        help="collect new addresses while preserving existing pinned snapshots",
+    )
     parser.add_argument("--write", action="store_true")
     arguments = parser.parse_args(argv)
 
@@ -471,11 +491,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     retained = {
         key: value
         for key, value in document.get("snapshots", {}).items()
-        if value.get("chain") not in selected
+        if arguments.missing_only or value.get("chain") not in selected
     }
     for slug in selected:
+        addresses = None
+        if arguments.missing_only:
+            addresses = [
+                address for address in _chain_targets(chains[slug])
+                if "{}:{}".format(slug, address) not in retained
+            ]
+            if not addresses:
+                continue
         snapshots, rpc_url, block_number = _collect_chain(
-            slug, chains[slug], arguments.block_tag, arguments.timeout
+            slug, chains[slug], arguments.block_tag, arguments.timeout, addresses
         )
         retained.update(snapshots)
         print(

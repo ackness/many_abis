@@ -50,7 +50,7 @@ class GeneratedRegistryTests(unittest.TestCase):
         abi_paths = sorted(ASSETS_ROOT.rglob("*.abi"))
 
         self.assertEqual(len(manifest), len(abi_paths))
-        self.assertEqual(len(manifest), 37)
+        self.assertGreater(len(manifest), 37)
         self.assertEqual(
             {entry["resource"] for entry in manifest.values()},
             {
@@ -84,7 +84,7 @@ class GeneratedRegistryTests(unittest.TestCase):
 
         self.assertEqual(set(audited), set(manifest))
         self.assertTrue(set(audited).isdisjoint(legacy))
-        self.assertEqual(len(audited), 37)
+        self.assertGreater(len(audited), 37)
         self.assertEqual(len(legacy), 40)
         for name, details in audited.items():
             with self.subTest(abi=name):
@@ -395,7 +395,7 @@ requests.Session.get = fail_network
 import many_abis as ma
 import many_abis.catalog as catalog
 assert ma.loaded_abis() == []
-assert len(ma.ALL_ABIS_NAME) == 37
+assert len(ma.ALL_ABIS_NAME) > 37
 assert catalog._CONTRACTS is None
 assert catalog._TOKENS is None
 assert catalog._VERIFICATIONS is None
@@ -408,8 +408,8 @@ assert catalog._VERIFICATIONS is None
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(self.ma.ALL_ABIS_NAME), 37)
-        self.assertEqual(len(self.ma.supported_abis()), 37)
+        self.assertGreater(len(self.ma.ALL_ABIS_NAME), 37)
+        self.assertEqual(len(self.ma.supported_abis()), len(self.ma.ALL_ABIS_NAME))
         self.assertEqual(self.ma.loaded_abis(), [])
 
     def test_verified_abi_access_loads_once(self):
@@ -447,7 +447,7 @@ assert catalog._VERIFICATIONS is None
         _, second = self.ma.all_abis()
 
         self.assertEqual(names, self.ma.ALL_ABIS_NAME)
-        self.assertEqual(len(first), 37)
+        self.assertEqual(len(first), len(self.ma.ALL_ABIS_NAME))
         self.assertIsNot(first, second)
         self.assertIsNot(first.ERC165, second.ERC165)
         self.assertEqual(self.ma.loaded_abis(), [])

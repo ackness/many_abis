@@ -38,14 +38,18 @@ class ExampleTests(unittest.TestCase):
         payload = json.loads(result.stdout)
 
         self.assertEqual(payload["chain"]["chain_id"], 8453)
-        self.assertEqual(len(payload["dex_contracts"]), 6)
+        self.assertGreater(len(payload["dex_contracts"]), 6)
+        self.assertIn(
+            "base:dex:uniswap-v4:state_view",
+            {record["contract_id"] for record in payload["dex_contracts"]},
+        )
         self.assertEqual(
             {token["configured_symbol"] for token in payload["tokens"]},
             {"USDC", "WETH"},
         )
 
     def test_network_examples_offer_help_without_network_access(self):
-        for script in ("etherscan_lookup.py", "web3_contract.py"):
+        for script in ("etherscan_lookup.py", "web3_contract.py", "singleton_pools.py"):
             with self.subTest(script=script):
                 result = self._run("examples/{}".format(script), "--help")
                 self.assertIn("usage:", result.stdout.lower())

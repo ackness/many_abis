@@ -1,0 +1,866 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "AppUnregistered",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "CurrencyNotSettled",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "FeeCurrencySynced",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "LockerAlreadySet",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "locker",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "MustClearExactPositiveDelta",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "NoLocker",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "OwnableInvalidOwner",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "SettleNonNativeCurrencyWithValue",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "AppRegistered",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "app",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "Approval",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "spender",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "indexed": true,
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "OperatorSet",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "operator",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "approved",
+        "type": "bool",
+        "indexed": false,
+        "internalType": "bool"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "OwnershipTransferStarted",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "OwnershipTransferred",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "Transfer",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "caller",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "from",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "to",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "indexed": true,
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "acceptOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "accountAppBalanceDelta",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency0",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "currency1",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "delta",
+        "type": "int256",
+        "internalType": "BalanceDelta"
+      },
+      {
+        "name": "settler",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "hookDelta",
+        "type": "int256",
+        "internalType": "BalanceDelta"
+      },
+      {
+        "name": "hook",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "accountAppBalanceDelta",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "delta",
+        "type": "int128",
+        "internalType": "int128"
+      },
+      {
+        "name": "settler",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "accountAppBalanceDelta",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency0",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "currency1",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "delta",
+        "type": "int256",
+        "internalType": "BalanceDelta"
+      },
+      {
+        "name": "settler",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "allowance",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "spender",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "approve",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "spender",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "balanceOf",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "balance",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "burn",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "from",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "clear",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "collectFee",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "currencyDelta",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "settler",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "int256",
+        "internalType": "int256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getLocker",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getUnsettledDeltasCount",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "getVaultReserve",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "isAppRegistered",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "app",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "isRegistered",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "isOperator",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "operator",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "isOperator",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "lock",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "mint",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "to",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "owner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "pendingOwner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "registerApp",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "app",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "renounceOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "reservesOfApp",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "app",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "reserve",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "setOperator",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "operator",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "approved",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "settle",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "settleFor",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "recipient",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "supportsInterface",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "interfaceId",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "sync",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "take",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "to",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "transfer",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "receiver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "transferFrom",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "sender",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "receiver",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "transferOwnership",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]

@@ -783,6 +783,295 @@
         "immutable_ref": "chain:10:0xbA3aEe516399388C779463183d00bB579f5041Ca"
       },
       "canonical_sha256": "6723eb22409036c418032c077d5889416fcb0cdb454600efb46c9a250137b11a"
+    },
+    "PANCAKE_INFINITY_VAULT": {
+      "contract_role": "vault",
+      "interface_name": "Vault",
+      "required_signatures": [
+        "function:getLocker()",
+        "function:reservesOfApp(address,address)",
+        "event:AppRegistered(address)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0x238a358808379702088667322f80aC48bAd5e6c4?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x238a358808379702088667322f80aC48bAd5e6c4?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0x238a358808379702088667322f80ac48bad5e6c4#metadata-sha256:e9ed34d737557793d672d1dee6bf7dad91eacffdf6c798f6283a435c5e122557"
+      },
+      "canonical_sha256": "2b13b212624f3851df84a2cb6579cc1bf3e00dbc80b9f58d8add94cd0e713062"
+    },
+    "PANCAKE_INFINITY_CL_POOL_MANAGER": {
+      "contract_role": "pool",
+      "interface_name": "CLPoolManager",
+      "required_signatures": [
+        "function:vault()",
+        "function:getSlot0(bytes32)",
+        "function:getLiquidity(bytes32)",
+        "function:poolIdToPoolKey(bytes32)",
+        "event:Initialize(bytes32,address,address,address,uint24,bytes32,uint160,int24)",
+        "event:Swap(bytes32,address,int128,int128,uint160,uint128,int24,uint24,uint16)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0xa0ffb9c1ce1fe56963b0321b32e7a0302114058b#metadata-sha256:59f57e4fd84cb1948e2701dc68996374a5a5e7559bc6589fe7c0de2d7309dd44"
+      },
+      "canonical_sha256": "a72dfe2d431a16f08bf63e206e7a94d2caad07521af70ed88b9742fecee7c496"
+    },
+    "PANCAKE_INFINITY_BIN_POOL_MANAGER": {
+      "contract_role": "pool",
+      "interface_name": "BinPoolManager",
+      "required_signatures": [
+        "function:vault()",
+        "function:getSlot0(bytes32)",
+        "function:getBin(bytes32,uint24)",
+        "function:poolIdToPoolKey(bytes32)",
+        "event:Initialize(bytes32,address,address,address,uint24,bytes32,uint24)",
+        "event:Swap(bytes32,address,int128,int128,uint24,uint24,uint16)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0xC697d2898e0D09264376196696c51D7aBbbAA4a9?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0xC697d2898e0D09264376196696c51D7aBbbAA4a9?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0xc697d2898e0d09264376196696c51d7abbbaa4a9#metadata-sha256:c6019687a0f25ab1f9e5433c4d1cf3f4d1b013edcd5e1bf8bb5b523c32c61798"
+      },
+      "canonical_sha256": "e7bde89e878bcf7cb8f3ac97412e17f0e3a67a6907e5e5db42cb94ebde8e8d70"
+    },
+    "PANCAKE_INFINITY_CL_POSITION_MANAGER": {
+      "contract_role": "other",
+      "interface_name": "CLPositionManager",
+      "required_signatures": [
+        "function:vault()",
+        "function:clPoolManager()",
+        "function:permit2()",
+        "function:getPoolAndPositionInfo(uint256)",
+        "function:modifyLiquidities(bytes,uint256)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0x55f4c8abA71A1e923edC303eb4fEfF14608cC226?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x55f4c8abA71A1e923edC303eb4fEfF14608cC226?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0x55f4c8aba71a1e923edc303eb4feff14608cc226#metadata-sha256:18c6ed507a63c72eb720a1de8263b7ae29e56af3f8b9aca617f6b1509a5a1cd0"
+      },
+      "canonical_sha256": "6ee42095e817ec55a9d56308fd9458a490439a0f0e9af12fed9b26719df129aa"
+    },
+    "PANCAKE_INFINITY_BIN_POSITION_MANAGER": {
+      "contract_role": "other",
+      "interface_name": "BinPositionManager",
+      "required_signatures": [
+        "function:vault()",
+        "function:binPoolManager()",
+        "function:permit2()",
+        "function:modifyLiquidities(bytes,uint256)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0x3D311D6283Dd8aB90bb0031835C8e606349e2850?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0x3D311D6283Dd8aB90bb0031835C8e606349e2850?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0x3d311d6283dd8ab90bb0031835c8e606349e2850#metadata-sha256:175f78e2d4654d4a0b8994515d1996069e5d7c9a9c7ff9e6f1b710b2378970d7"
+      },
+      "canonical_sha256": "bc0e2d0342e1bd4505ab3f58b5f15d6a397feaa7ccc1782fa71c8dbbd135b65e"
+    },
+    "PANCAKE_INFINITY_CL_QUOTER": {
+      "contract_role": "utility",
+      "interface_name": "CLQuoter",
+      "required_signatures": [
+        "function:poolManager()",
+        "function:vault()",
+        "function:quoteExactInputSingle(((address,address,address,address,uint24,bytes32),bool,uint128,bytes))"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0xd0737C9762912dD34c3271197E362Aa736Df0926?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0xd0737C9762912dD34c3271197E362Aa736Df0926?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0xd0737c9762912dd34c3271197e362aa736df0926#metadata-sha256:079975f97a4cb49a3ae756e0bc7bb71e3f0cd890838d213144ac766f7afc76b4"
+      },
+      "canonical_sha256": "881b7cde94aa8e9dfbbd23def51b01f3ef1318ce989e56c02c32418360452653"
+    },
+    "PANCAKE_INFINITY_BIN_QUOTER": {
+      "contract_role": "utility",
+      "interface_name": "BinQuoter",
+      "required_signatures": [
+        "function:poolManager()",
+        "function:vault()",
+        "function:quoteExactInputSingle(((address,address,address,address,uint24,bytes32),bool,uint128,bytes))"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0xC631f4B0Fc2Dd68AD45f74B2942628db117dD359?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0xC631f4B0Fc2Dd68AD45f74B2942628db117dD359?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0xc631f4b0fc2dd68ad45f74b2942628db117dd359#metadata-sha256:9294d1313c51ae44146783dbc7308c8039f6b7bf8684c4c9d16457c952548570"
+      },
+      "canonical_sha256": "ce1d9da92d8105ca458892ef82493a6dedad8823e12f0bea7a8a95a1518aacfd"
+    },
+    "PANCAKE_INFINITY_UNIVERSAL_ROUTER": {
+      "contract_role": "router",
+      "interface_name": "UniversalRouter",
+      "required_signatures": [
+        "function:clPoolManager()",
+        "function:binPoolManager()",
+        "function:vault()",
+        "function:execute(bytes,bytes[])",
+        "function:execute(bytes,bytes[],uint256)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-2.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://sourcify.dev/server/v2/contract/56/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb?fields=sources"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/56/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb?fields=abi,metadata",
+        "artifact_path": "abi",
+        "immutable_ref": "sourcify:56:0xd9c500dff816a1da21a48a732d3498bf09dc9aeb#metadata-sha256:ef192d5b2810f7bf5ed8aa9523ef596eb6de34388cf678f68cb0964cf9330875"
+      },
+      "canonical_sha256": "d3534b1f2837b044c7ba33c6b2a515bb7ba82e0a26026903e603c0f0bad16417"
+    },
+    "UNISWAP_V4_POOL_MANAGER": {
+      "contract_role": "pool",
+      "interface_name": "IPoolManager",
+      "required_signatures": [
+        "function:initialize((address,address,uint24,int24,address),uint160)",
+        "function:swap((address,address,uint24,int24,address),(bool,int256,uint160),bytes)",
+        "event:Initialize(bytes32,address,address,uint24,int24,address,uint160,int24)",
+        "event:ModifyLiquidity(bytes32,address,int24,int24,int256,bytes32)",
+        "event:Swap(bytes32,address,int128,int128,uint160,uint128,int24,uint24)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/v4-core/blob/af7c077a438d5556b75f0ca722c6d3d53a7a1a9b/src/interfaces/IPoolManager.sol"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v4-core/-/v4-core-1.0.0.tgz",
+        "artifact_path": "package/src/interfaces/IPoolManager.sol#abi (forge inspect, solc 0.8.26)",
+        "immutable_ref": "npm:@uniswap/v4-core@1.0.0#sha512-D4umIVLp3W9dfxiNSwZxNxtbhChln3MlUq0uaSccknJk6aj12HgbDGWI4v5/47G10+9Wthrdcgt2T7eibpE1JQ=="
+      },
+      "canonical_sha256": "05f044eefbe9dedba7311b0bb39fd6b0f9c523fbc1cc4f04790958a089c60366"
+    },
+    "UNISWAP_V4_STATE_VIEW": {
+      "contract_role": "utility",
+      "interface_name": "StateView",
+      "required_signatures": [
+        "function:poolManager()",
+        "function:getSlot0(bytes32)",
+        "function:getLiquidity(bytes32)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/v4-periphery/blob/93cdc0a02edf7417531f619adef10514f3206477/src/lens/StateView.sol"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v4-periphery/-/v4-periphery-1.0.0.tgz",
+        "artifact_path": "package/src/lens/StateView.sol#abi (forge inspect, solc 0.8.26)",
+        "immutable_ref": "npm:@uniswap/v4-periphery@1.0.0#sha512-qsxgu4qKwbYxB15YtMhOtTI35G7nr+rqXoBquUg2BAUx85mGGpjBKTAJfF2bexCC4T0oBgna9BMb3gjk/tISkw=="
+      },
+      "canonical_sha256": "cce0f6078188d85be01993c19af5004cece8b35cd74d5452000867e5f156c261"
+    },
+    "UNISWAP_V4_QUOTER": {
+      "contract_role": "utility",
+      "interface_name": "V4Quoter",
+      "required_signatures": [
+        "function:poolManager()",
+        "function:quoteExactInputSingle(((address,address,uint24,int24,address),bool,uint128,bytes))",
+        "function:quoteExactOutputSingle(((address,address,uint24,int24,address),bool,uint128,bytes))"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/v4-periphery/blob/93cdc0a02edf7417531f619adef10514f3206477/src/lens/V4Quoter.sol"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v4-periphery/-/v4-periphery-1.0.0.tgz",
+        "artifact_path": "package/src/lens/V4Quoter.sol#abi (forge inspect, solc 0.8.26)",
+        "immutable_ref": "npm:@uniswap/v4-periphery@1.0.0#sha512-qsxgu4qKwbYxB15YtMhOtTI35G7nr+rqXoBquUg2BAUx85mGGpjBKTAJfF2bexCC4T0oBgna9BMb3gjk/tISkw=="
+      },
+      "canonical_sha256": "c3071bae70d0211233533a9095695d066721891522729cbc67a8dd688d6debde"
+    },
+    "UNISWAP_V4_POSITION_MANAGER": {
+      "contract_role": "other",
+      "interface_name": "PositionManager",
+      "required_signatures": [
+        "function:poolManager()",
+        "function:permit2()",
+        "function:getPositionLiquidity(uint256)",
+        "event:Transfer(address,address,uint256)"
+      ],
+      "license": {
+        "spdx_expression": "MIT",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/v4-periphery/blob/93cdc0a02edf7417531f619adef10514f3206477/src/PositionManager.sol"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://registry.npmjs.org/@uniswap/v4-periphery/-/v4-periphery-1.0.0.tgz",
+        "artifact_path": "package/src/PositionManager.sol#abi (forge inspect, solc 0.8.26)",
+        "immutable_ref": "npm:@uniswap/v4-periphery@1.0.0#sha512-qsxgu4qKwbYxB15YtMhOtTI35G7nr+rqXoBquUg2BAUx85mGGpjBKTAJfF2bexCC4T0oBgna9BMb3gjk/tISkw=="
+      },
+      "canonical_sha256": "2e34d2fb6bc6599bd4ebccdc443dc06085bbb23a8f90c96568e29c6a86ef6f2e"
+    },
+    "UNISWAP_UNIVERSAL_ROUTER_V2_1_2": {
+      "contract_role": "router",
+      "interface_name": "UniversalRouter",
+      "required_signatures": [
+        "function:execute(bytes,bytes[])",
+        "function:execute(bytes,bytes[],uint256)",
+        "function:poolManager()",
+        "function:V4_POSITION_MANAGER()",
+        "function:noncesUsed(address,bytes32)"
+      ],
+      "license": {
+        "spdx_expression": "GPL-3.0-or-later",
+        "redistribution": "allowed",
+        "evidence_url": "https://github.com/Uniswap/universal-router/blob/802fe4c18f47300e0f183e2a42e9146ec2ea9fc3/contracts/UniversalRouter.sol"
+      },
+      "provenance": {
+        "status": "verified",
+        "source_url": "https://sourcify.dev/server/v2/contract/1/0x23617e59A5925b2A4Bf75d73ff6711cD0b29De85?fields=abi,metadata",
+        "artifact_path": "deployed Ethereum UniversalRouter#v2.1.2 Sourcify verified ABI",
+        "immutable_ref": "sourcify:1:0x23617e59A5925b2A4Bf75d73ff6711cD0b29De85#abi-sha256:30f4154d2c26f3fa9f38db052ec37f3522f49429750cb6e3edeb52f750795f4b"
+      },
+      "canonical_sha256": "30f4154d2c26f3fa9f38db052ec37f3522f49429750cb6e3edeb52f750795f4b"
     }
   }
 }

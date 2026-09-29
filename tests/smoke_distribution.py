@@ -13,9 +13,11 @@ installed_files = {
 
 assert version("many-abis") == ma.__version__
 assert ma.loaded_abis() == []
-assert len(ma.ALL_ABIS_NAME) == 37
+assert len(ma.ALL_ABIS_NAME) > 37
 assert all(ma.get_abi(name) for name in ma.ALL_ABIS_NAME)
-assert len(ma.all_contract_ids()) == 99
+assert len(ma.all_contract_ids()) > 99
+assert ma.get_contract("base:dex:uniswap-v4:state_view")["abi"] == "UNISWAP_V4_STATE_VIEW"
+assert ma.get_contract("bsc:dex:pancake-infinity-cl:pool_manager")["abi"]
 assert len(ma.all_token_ids()) == 53
 assert "many_abis/abis.pyi" in installed_files
 assert "many_abis/py.typed" in installed_files

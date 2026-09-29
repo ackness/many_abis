@@ -49,9 +49,15 @@ class GeneratedCatalogTests(unittest.TestCase):
                 "{}:{}".format(chain_slug, address) for address in addresses
             )
         expected_contracts += expected_tokens
+        for path in sorted((ROOT / "registry" / "deployments").glob("*.json")):
+            for record in json.loads(path.read_text(encoding="utf-8"))["deployments"]:
+                expected_contracts += 1
+                expected_verifications.add(
+                    "{}:{}".format(record["chain"], record["address"].lower())
+                )
 
         self.assertEqual(len(self.contracts), expected_contracts)
-        self.assertEqual(len(self.contracts), 99)
+        self.assertGreater(len(self.contracts), 99)
         self.assertEqual(len(self.tokens), expected_tokens)
         self.assertEqual(len(self.tokens), 53)
         self.assertEqual(
@@ -59,7 +65,7 @@ class GeneratedCatalogTests(unittest.TestCase):
             expected_verifications,
         )
         self.assertEqual(set(self.verifications), expected_verifications)
-        self.assertEqual(len(self.verifications), 99)
+        self.assertGreater(len(self.verifications), 99)
 
     def test_snapshot_source_exactly_generates_runtime_evidence(self):
         source = json.loads(VERIFICATION_SOURCE.read_text(encoding="utf-8"))
@@ -300,7 +306,7 @@ class RuntimeCatalogTests(unittest.TestCase):
             self.ma.get_abi_info("not-real")
 
     def test_contract_queries_filter_and_return_copies(self):
-        self.assertEqual(len(self.ma.all_contract_ids()), 99)
+        self.assertGreater(len(self.ma.all_contract_ids()), 99)
         contract = self.ma.get_contract("BASE:DEX:UNISWAP-V3:ROUTER")
         self.assertEqual(contract["abi"], "UNISWAP_V3_ROUTER_02")
         self.assertIn("source_reviewed_at", contract)

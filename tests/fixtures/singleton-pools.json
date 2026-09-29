@@ -1,0 +1,46 @@
+[
+  {
+    "chain": "base",
+    "protocol": "uniswap-v4",
+    "pool_id": "0xe87077fd043c1a6afa5256104acb1d1eb5ca5bc031ee57f9d96c8172ead4bef8",
+    "pool_key": {
+      "currency0": "0x0000000000000000000000000000000000000000",
+      "currency1": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "fee": 100,
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "tickSpacing": 1
+    },
+    "zero_for_one": true,
+    "amount_in": 1000000000000000
+  },
+  {
+    "chain": "bsc",
+    "protocol": "pancake-infinity-cl",
+    "pool_id": "0x32a805e65a3219a79707ab3e75443d75160d798de46613fc960d39cd4a96bb22",
+    "pool_key": {
+      "currency0": "0x55d398326f99059fF775485246999027B3197955",
+      "currency1": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "poolManager": "0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b",
+      "fee": 1,
+      "parameters": "0x0000000000000000000000000000000000000000000000000000000000010000"
+    },
+    "zero_for_one": true,
+    "amount_in": 1000000000000000
+  },
+  {
+    "chain": "bsc",
+    "protocol": "pancake-infinity-bin",
+    "pool_id": "0xa859b22e97f32d4c7b1d9788044697712cb7183d294ed7aa1832799c1739e5cf",
+    "pool_key": {
+      "currency0": "0x55d398326f99059fF775485246999027B3197955",
+      "currency1": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "hooks": "0x0000000000000000000000000000000000000000",
+      "poolManager": "0xC697d2898e0D09264376196696c51D7aBbbAA4a9",
+      "fee": 67,
+      "parameters": "0x0000000000000000000000000000000000000000000000000000000000010000"
+    },
+    "zero_for_one": true,
+    "amount_in": 1000000000000000
+  }
+]
