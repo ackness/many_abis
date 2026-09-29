@@ -13,6 +13,7 @@ the verified ABI set:
 | `MIT` (Chainlink) | `MIT-Chainlink.txt` |
 | `MIT` (Multicall3) | `MIT-Multicall3.txt` |
 | `MIT` (Permit2) | `MIT-Permit2.txt` |
+| `MIT` (Uniswap V4 interfaces/periphery) | `MIT-Uniswap-V4.txt` |
 | `MIT` (LFJ) | `MIT-LFJ.txt` |
 | `GPL-2.0-or-later` | `GPL-2.0.txt` |
 | `GPL-3.0-only`, `GPL-3.0-or-later` | `GPL-3.0.txt` |
@@ -32,3 +33,10 @@ audit or a legal conclusion about an ABI.
 
 Legacy ABI files with unresolved provenance or licensing are quarantined in
 the source repository and are not included in wheel or sdist artifacts.
+
+`MIT-Uniswap-V4.txt` is the upstream v4-core `licenses/MIT_LICENSE` at
+`af7c077a438d5556b75f0ca722c6d3d53a7a1a9b`; the v4-periphery 1.0.0 license
+has the same terms and copyright. Only the MIT `IPoolManager` interface ABI
+is included from v4-core; this does not relicense its BUSL implementation.
+The Infinity implementation ABIs use GPL-2.0-or-later, and Universal Router
+v2.1.2 uses GPL-3.0-or-later; the corresponding GNU texts are already included.

@@ -53,3 +53,17 @@ It reads `factory()` from the registered Uniswap V3 router and compares the
 result with the registered factory address. Never treat a successful call, an
 ABI provenance record, or a pinned bytecode snapshot as a smart-contract
 security audit.
+
+## Uniswap v4 and PancakeSwap Infinity
+
+`singleton_pools.py` reads initialized pool state, simulates quotes using
+`eth_call`, and decodes supplied event logs. It checks the RPC chain ID before
+calling a registered contract and never signs or broadcasts transactions.
+
+```bash
+uv run --with web3 python examples/singleton_pools.py --help
+uv run python examples/inspect_catalog.py --chain bsc --json
+```
+
+See [singleton DEX usage](../docs/singleton-dexes.md) for PoolKey formats,
+commands, deployment versions, and the distinction between Infinity CL and Bin.

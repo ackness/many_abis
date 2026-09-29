@@ -1,0 +1,864 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "params",
+        "type": "tuple",
+        "components": [
+          {
+            "name": "permit2",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "weth9",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v2Factory",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v3Factory",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "pairInitCodeHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "poolInitCodeHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "v4PoolManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v3NFTPositionManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v4PositionManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "spokePool",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "internalType": "struct RouterParameters"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "AddressEmptyCode",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "target",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "AddressInsufficientBalance",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "BalanceTooLow",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "ContractLocked",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "DeltaNotNegative",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ]
+  },
+  {
+    "name": "DeltaNotPositive",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ]
+  },
+  {
+    "name": "ECDSAInvalidSignature",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "ECDSAInvalidSignatureLength",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "length",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "ECDSAInvalidSignatureS",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "s",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ]
+  },
+  {
+    "name": "ETHNotAccepted",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "ExecutionFailed",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "commandIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "message",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ]
+  },
+  {
+    "name": "FailedInnerCall",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "FromAddressIsNotOwner",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InputLengthMismatch",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InsufficientBalance",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InsufficientETH",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InsufficientToken",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidAction",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "action",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ]
+  },
+  {
+    "name": "InvalidBips",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidCommandType",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "commandType",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "InvalidEthSender",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidHopPriceLength",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidPath",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidPortion",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidReserves",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidShortString",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "LengthMismatch",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "NonceAlreadyUsed",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "NotAuthorizedForToken",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "NotPoolManager",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "OnlyMintAllowed",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "SafeERC20FailedOperation",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "SliceOutOfBounds",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "StringTooLong",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "str",
+        "type": "string",
+        "internalType": "string"
+      }
+    ]
+  },
+  {
+    "name": "TransactionDeadlinePassed",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "UnsafeCast",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "UnsupportedAction",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "action",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V2InvalidHopPriceLength",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V2InvalidPath",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V2TooLittleReceived",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V2TooLittleReceivedPerHop",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "hopIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V2TooMuchRequested",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3HopPriceAndPathLengthMismatch",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3InvalidAmountOut",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3InvalidCaller",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3InvalidSwap",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3TooLittleReceived",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3TooLittleReceivedPerHop",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "hopIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V3TooMuchRequested",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3TooMuchRequestedPerHop",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "hopIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4ExactOutputUnfilled",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "amountOutRequested",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountOutReceived",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4TooLittleReceived",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "minAmountOutReceived",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountReceived",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4TooLittleReceivedPerHop",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "hopIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4TooLittleReceivedPerHopSingle",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4TooMuchRequested",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "maxAmountInRequested",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountRequested",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4TooMuchRequestedPerHop",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "hopIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V4TooMuchRequestedPerHopSingle",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "EIP712DomainChanged",
+    "type": "event",
+    "inputs": [],
+    "anonymous": false
+  },
+  {
+    "name": "SPOKE_POOL",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IV3SpokePool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "V3_POSITION_MANAGER",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract INonfungiblePositionManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "V4_POSITION_MANAGER",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IPositionManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "eip712Domain",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "fields",
+        "type": "bytes1",
+        "internalType": "bytes1"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "chainId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "verifyingContract",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "salt",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "extensions",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "execute",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "commands",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "inputs",
+        "type": "bytes[]",
+        "internalType": "bytes[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "execute",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "commands",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "inputs",
+        "type": "bytes[]",
+        "internalType": "bytes[]"
+      },
+      {
+        "name": "deadline",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "executeSigned",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "commands",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "inputs",
+        "type": "bytes[]",
+        "internalType": "bytes[]"
+      },
+      {
+        "name": "intent",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "data",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "verifySender",
+        "type": "bool",
+        "internalType": "bool"
+      },
+      {
+        "name": "nonce",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "signature",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "deadline",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "msgSender",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "noncesUsed",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "nonce",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "used",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "poolManager",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IPoolManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "signedRouteContext",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "signer",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "intent",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      },
+      {
+        "name": "data",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "uniswapV3SwapCallback",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "amount0Delta",
+        "type": "int256",
+        "internalType": "int256"
+      },
+      {
+        "name": "amount1Delta",
+        "type": "int256",
+        "internalType": "int256"
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "unlockCallback",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "receive",
+    "stateMutability": "payable"
+  }
+]

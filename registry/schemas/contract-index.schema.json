@@ -79,9 +79,15 @@
           "role": {
             "enum": [
               "factory",
+              "permit2",
+              "pool_manager",
+              "position_manager",
+              "quoter",
               "router",
               "stablecoin",
+              "state_view",
               "test_token",
+              "vault",
               "wrapped_native"
             ]
           },
@@ -99,6 +105,10 @@
           "source_reviewed_at": {
             "type": "string",
             "format": "date"
+          },
+          "deployment_version": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }

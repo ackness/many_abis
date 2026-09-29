@@ -27,6 +27,8 @@ jobs:
       - run: uv sync --locked --dev
       - run: uv run --frozen python scripts/generate_registry.py --check
       - run: uv run --frozen python -m unittest discover -s tests -v
+      - name: Check optional web3 examples offline
+        run: uv run --frozen --with web3==8.0.0 python -m unittest discover -s tests -p test_singleton_examples.py -v
       - run: uv run --frozen mypy
 
   wheel:

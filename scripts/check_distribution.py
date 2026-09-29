@@ -29,6 +29,7 @@ EXPECTED_LICENSES = {
     "LICENSES/MIT-Multicall3.txt",
     "LICENSES/MIT-OpenZeppelin.txt",
     "LICENSES/MIT-Permit2.txt",
+    "LICENSES/MIT-Uniswap-V4.txt",
     "LICENSES/README.md",
 }
 EXPECTED_EXAMPLES = {
@@ -37,6 +38,7 @@ EXPECTED_EXAMPLES = {
     "examples/inspect_catalog.py",
     "examples/quickstart.py",
     "examples/web3_contract.py",
+    "examples/singleton_pools.py",
 }
 MINIMUM_LICENSE_SIZES = {
     "LICENSES/AGPL-3.0.txt": 30_000,
@@ -48,6 +50,7 @@ MINIMUM_LICENSE_SIZES = {
     "LICENSES/MIT-Multicall3.txt": 900,
     "LICENSES/MIT-OpenZeppelin.txt": 900,
     "LICENSES/MIT-Permit2.txt": 900,
+    "LICENSES/MIT-Uniswap-V4.txt": 900,
 }
 FORBIDDEN_PATH_PARTS = {
     ".env",

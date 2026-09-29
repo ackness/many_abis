@@ -1,0 +1,786 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "params",
+        "type": "tuple",
+        "components": [
+          {
+            "name": "permit2",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "weth9",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v2Factory",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v3Factory",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v3Deployer",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v2InitCodeHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "v3InitCodeHash",
+            "type": "bytes32",
+            "internalType": "bytes32"
+          },
+          {
+            "name": "stableFactory",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "stableInfo",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "infiVault",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "infiClPoolManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "infiBinPoolManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "v3NFTPositionManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "infiClPositionManager",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "infiBinPositionManager",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "internalType": "struct RouterParameters"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "BalanceTooLow",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "ContractLocked",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "DeltaNotNegative",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ]
+  },
+  {
+    "name": "DeltaNotPositive",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "currency",
+        "type": "address",
+        "internalType": "Currency"
+      }
+    ]
+  },
+  {
+    "name": "ETHNotAccepted",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "EnforcedPause",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "ExecutionFailed",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "commandIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "message",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ]
+  },
+  {
+    "name": "ExpectedPause",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "FromAddressIsNotOwner",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InputLengthMismatch",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InsufficientBalance",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InsufficientETH",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InsufficientToken",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidAction",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "action",
+        "type": "bytes4",
+        "internalType": "bytes4"
+      }
+    ]
+  },
+  {
+    "name": "InvalidBips",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidCommandType",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "commandType",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "InvalidEthSender",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidPath",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidPoolAddress",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidPoolLength",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "InvalidReserves",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "LengthMismatch",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "NotAuthorizedForToken",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "tokenId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "NotVault",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "OnlyAddLiqudityAllowed",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "OnlyMintAllowed",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "OwnableInvalidOwner",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "name": "SafeCastOverflow",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "SliceOutOfBounds",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "StableInvalidPath",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "StableTooLittleReceived",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "StableTooMuchRequested",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "TooLittleReceived",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "minAmountOutReceived",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountReceived",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "TooMuchRequested",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "maxAmountInRequested",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountRequested",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "TransactionDeadlinePassed",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "UnsafeCast",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "UnsupportedAction",
+    "type": "error",
+    "inputs": [
+      {
+        "name": "action",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ]
+  },
+  {
+    "name": "V2InvalidPath",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V2TooLittleReceived",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V2TooMuchRequested",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3InvalidAmountOut",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3InvalidCaller",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3InvalidSwap",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3TooLittleReceived",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "V3TooMuchRequested",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "OwnershipTransferStarted",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "OwnershipTransferred",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "previousOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newOwner",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "Paused",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "SetStableSwap",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "factory",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "info",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "Unpaused",
+    "type": "event",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "name": "INFI_BIN_POSITION_MANAGER",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IPositionManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "INFI_CL_POSITION_MANAGER",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IPositionManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "V3_POSITION_MANAGER",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IV3NonfungiblePositionManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "acceptOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "binPoolManager",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IBinPoolManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "clPoolManager",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract ICLPoolManager"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "execute",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "commands",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "inputs",
+        "type": "bytes[]",
+        "internalType": "bytes[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "execute",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "commands",
+        "type": "bytes",
+        "internalType": "bytes"
+      },
+      {
+        "name": "inputs",
+        "type": "bytes[]",
+        "internalType": "bytes[]"
+      },
+      {
+        "name": "deadline",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "name": "lockAcquired",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "msgSender",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "owner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "pancakeV3SwapCallback",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "amount0Delta",
+        "type": "int256",
+        "internalType": "int256"
+      },
+      {
+        "name": "amount1Delta",
+        "type": "int256",
+        "internalType": "int256"
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "internalType": "bytes"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "pause",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "paused",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "pendingOwner",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "renounceOwnership",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "setStableSwap",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_factory",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_info",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "stableSwapFactory",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "stableSwapInfo",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "name": "transferOwnership",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "newOwner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "unpause",
+    "type": "function",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "vault",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IVault"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "receive",
+    "stateMutability": "payable"
+  }
+]

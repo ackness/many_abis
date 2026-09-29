@@ -1,0 +1,92 @@
+[
+  {
+    "chain": "base",
+    "protocol": "uniswap-v4",
+    "raw_log": {
+      "address": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+      "topics": [
+        "0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f",
+        "0xe87077fd043c1a6afa5256104acb1d1eb5ca5bc031ee57f9d96c8172ead4bef8",
+        "0x000000000000000000000000111116053f09d34a7eae8102887004445176ca11"
+      ],
+      "data": "0x000000000000000000000000000000000000000000000000000340a9bab9a34affffffffffffffffffffffffffffffffffffffffffffffffffffffffffda2c7d000000000000000000000000000000000000000000036952064d59aa3dff654e0000000000000000000000000000000000000000000000000000348f80eea78afffffffffffffffffffffffffffffffffffffffffffffffffffffffffffcfd65000000000000000000000000000000000000000000000000000000000000007d",
+      "blockHash": "0x3f227c60981dd30264f5ffb00c399023a47038e99f3fb390298fbec91db33f65",
+      "blockNumber": "0x318bb25",
+      "blockTimestamp": "0x6abbd32d",
+      "transactionHash": "0x30e967628711c10ebd0a1cf45490ae36485d61d5a176eb29d9c9c14f470b83cd",
+      "transactionIndex": "0x1e",
+      "logIndex": "0x7d",
+      "removed": false
+    },
+    "expected": {
+      "id": "0xe87077fd043c1a6afa5256104acb1d1eb5ca5bc031ee57f9d96c8172ead4bef8",
+      "sender": "0x111116053F09d34a7Eae8102887004445176CA11",
+      "amount0": 915522656510794,
+      "amount1": -2478979,
+      "sqrtPriceX96": 4124139026676969608537422,
+      "liquidity": 57790948091786,
+      "tick": -197275,
+      "fee": 125
+    }
+  },
+  {
+    "chain": "bsc",
+    "protocol": "pancake-infinity-cl",
+    "raw_log": {
+      "address": "0xa0ffb9c1ce1fe56963b0321b32e7a0302114058b",
+      "topics": [
+        "0x04206ad2b7c0f463bff3dd4f33c5735b0f2957a351e4f79763a4fa9e775dd237",
+        "0x32a805e65a3219a79707ab3e75443d75160d798de46613fc960d39cd4a96bb22",
+        "0x00000000000000000000000017516b91bfcce77ede028e875cde37a8a4b113cd"
+      ],
+      "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffbaf53fdbd26e800000000000000000000000000000000000000000000000000045045c0fa7e196660000000000000000000000000000000000000000fff436e02341f9af0f97dac20000000000000000000000000000000000000000005189fbd5b290223e7777a5fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001",
+      "blockHash": "0x68d20fcb806dd2c8c743467f7ef9702231f3c8d960562e55b879df60fcea495d",
+      "blockNumber": "0x76f5630",
+      "blockTimestamp": "0x6abbd2d0",
+      "transactionHash": "0x3ec2e09886037d2078d4bac2b76083029f9d3f70de36b6dca41b631cf6b56a8d",
+      "transactionIndex": "0x4a",
+      "logIndex": "0x27d",
+      "removed": false
+    },
+    "expected": {
+      "id": "0x32a805e65a3219a79707ab3e75443d75160d798de46613fc960d39cd4a96bb22",
+      "sender": "0x17516b91bfCCe77EDE028E875cDE37A8A4b113cD",
+      "amount0": -4975000000000000000,
+      "amount1": 4973201110834714214,
+      "sqrtPriceX96": 79213914546830295710318451394,
+      "liquidity": 98574601128229158327383973,
+      "tick": -4,
+      "fee": 2,
+      "protocolFee": 1
+    }
+  },
+  {
+    "chain": "bsc",
+    "protocol": "pancake-infinity-bin",
+    "raw_log": {
+      "address": "0xc697d2898e0d09264376196696c51d7abbbaa4a9",
+      "topics": [
+        "0x3e8aae37f890eb1f9d63dd4d2062f3f0be757848a0f0760e4f3e53dad556e861",
+        "0xa859b22e97f32d4c7b1d9788044697712cb7183d294ed7aa1832799c1739e5cf",
+        "0x0000000000000000000000002d9d6e538bd3f22323932782aaf89446cacaf9d3"
+      ],
+      "data": "0x0000000000000000000000000000000000000000000000007a972c90eab4b4fdffffffffffffffffffffffffffffffffffffffffffffffff856f21f6e2c5500000000000000000000000000000000000000000000000000000000000007ffffd00000000000000000000000000000000000000000000000000000000000000630000000000000000000000000000000000000000000000000000000000000020",
+      "blockHash": "0xa0b0db84847a2851a8c5c71185c0f7cbb120aba1d8a8017b9de08a682bd69ef0",
+      "blockNumber": "0x76f554c",
+      "blockTimestamp": "0x6abbd26a",
+      "transactionHash": "0x61a09cb22f25bc782b43263114455e380e40368f2c766650e7a9854f92e2daa2",
+      "transactionIndex": "0xc",
+      "logIndex": "0xaa",
+      "removed": false
+    },
+    "expected": {
+      "id": "0xa859b22e97f32d4c7b1d9788044697712cb7183d294ed7aa1832799c1739e5cf",
+      "sender": "0x2D9d6e538Bd3f22323932782aaf89446caCAF9d3",
+      "amount0": 8833578195035141373,
+      "amount1": -8831803000000000000,
+      "activeId": 8388605,
+      "fee": 99,
+      "protocolFee": 32
+    }
+  }
+]

@@ -13,7 +13,14 @@ pinned on-chain evidence for blockchain developers.
 
 ---
 
-Supported DEX deployments:
+Uniswap v4 singleton contracts and the BSC PancakeSwap Infinity CLAMM/LBAMM
+contracts are available through `get_contract()` and `list_contracts()`, including
+pool managers, quoters, position managers, routers, and shared dependencies.
+See [singleton DEX usage](https://github.com/ackness/many_abis/blob/main/docs/singleton-dexes.md) for read-only state, quote,
+and event decoding examples. The generated
+[deployment catalog](https://github.com/ackness/many_abis/blob/main/docs/generated/supported-chains.md) lists chain coverage.
+
+Legacy factory/router DEX deployments:
 
 ---
 
@@ -130,7 +137,7 @@ lookup, and optional `web3.py` integration in the
 ## Registry maintenance
 
 Runtime data is generated offline. Edit one reviewed source file under
-`registry/chains/` or `registry/abi-metadata.json`, then regenerate and verify:
+`registry/chains/`, `registry/deployments/`, or `registry/abi-metadata.json`, then regenerate and verify:
 
 ```bash
 uv sync --locked --dev

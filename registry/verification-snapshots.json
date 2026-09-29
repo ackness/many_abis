@@ -2,6 +2,25 @@
   "$schema": "schemas/verification-snapshots.schema.json",
   "schema_version": 1,
   "snapshots": {
+    "arbitrum:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0xadde8882e0a6c70b3ac67b674efeda93d22b63274fb400247c04367cfed789d6",
+      "block_number": 510061961,
+      "block_tag": "latest",
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.720675Z",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "runtime_code_keccak256": "0x9e51dcb64cf56fc09a82cb41edbc17c6a2250f18dbd1b91e884c0aca02acd57c",
+      "token_metadata": null
+    },
     "arbitrum:0x1b02da8cb0d097eb8d57a175b88c7d8b47997506": {
       "address": "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
       "block_hash": "0x1338705892d8890fc973b191eb95d0ab67b55a6e28dae8778dfb3e04bdeaa6fc",
@@ -40,6 +59,63 @@
       "runtime_code_keccak256": "0x4d7b8525cd5d14343fa67a732fba5b24cddba11620ca88392f4ec6c52f91fd69",
       "token_metadata": null
     },
+    "arbitrum:0x2d01411773c8c24805306e89a41f7855c3c4fe65": {
+      "address": "0x2d01411773c8C24805306E89A41F7855C3c4Fe65",
+      "block_hash": "0xadde8882e0a6c70b3ac67b674efeda93d22b63274fb400247c04367cfed789d6",
+      "block_number": 510061961,
+      "block_tag": "latest",
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.720675Z",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "runtime_code_keccak256": "0x51536ca9d25ebbc535351834b75115ba1843fb402c003d65ead6c760be6cc1c0",
+      "token_metadata": null
+    },
+    "arbitrum:0x360e68faccca8ca495c1b759fd9eee466db9fb32": {
+      "address": "0x360E68faCcca8cA495c1B759Fd9EEe466db9FB32",
+      "block_hash": "0xadde8882e0a6c70b3ac67b674efeda93d22b63274fb400247c04367cfed789d6",
+      "block_number": 510061961,
+      "block_tag": "latest",
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.720675Z",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "runtime_code_keccak256": "0xe4b2759e456c9c4ef763e3b4e257c5105e1ba283d7de8b131dd321197de794a4",
+      "token_metadata": null
+    },
+    "arbitrum:0x3972c00f7ed4885e145823eb7c655375d275a1c5": {
+      "address": "0x3972C00f7ed4885e145823eb7C655375d275A1C5",
+      "block_hash": "0xadde8882e0a6c70b3ac67b674efeda93d22b63274fb400247c04367cfed789d6",
+      "block_number": 510061961,
+      "block_tag": "latest",
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.720675Z",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "runtime_code_keccak256": "0x98305ebcd33e8989a8e941072ffe9bc6dac7912ccb9d097befa2d17696da37ff",
+      "token_metadata": null
+    },
     "arbitrum:0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45": {
       "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       "block_hash": "0x1338705892d8890fc973b191eb95d0ab67b55a6e28dae8778dfb3e04bdeaa6fc",
@@ -57,6 +133,25 @@
       "observed_at": "2026-08-31T10:35:23.026683Z",
       "rpc_url": "https://arb1.arbitrum.io/rpc",
       "runtime_code_keccak256": "0x209f9820ed7257d51c2f96ee837e8ec057b44774899f4be16fc45bd30cbb16f6",
+      "token_metadata": null
+    },
+    "arbitrum:0x76fd297e2d437cd7f76d50f01afe6160f86e9990": {
+      "address": "0x76Fd297e2D437cd7f76d50F01AfE6160f86e9990",
+      "block_hash": "0xadde8882e0a6c70b3ac67b674efeda93d22b63274fb400247c04367cfed789d6",
+      "block_number": 510061961,
+      "block_tag": "latest",
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.720675Z",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "runtime_code_keccak256": "0x4c0e823a0cd44b6b2d9485e774c421cf929db3996096d9b84ee6b23525184b9e",
       "token_metadata": null
     },
     "arbitrum:0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
@@ -122,6 +217,25 @@
       "runtime_code_keccak256": "0xeba2e349904f5b2c1f6086ffb00d5c7efb4a2c8ea8af2efccfd1c812c7869b6c",
       "token_metadata": null
     },
+    "arbitrum:0xd88f38f930b7952f2db2432cb002e7abbf3dd869": {
+      "address": "0xd88F38F930b7952f2DB2432Cb002E7abbF3dD869",
+      "block_hash": "0xadde8882e0a6c70b3ac67b674efeda93d22b63274fb400247c04367cfed789d6",
+      "block_number": 510061961,
+      "block_tag": "latest",
+      "chain": "arbitrum",
+      "chain_id": 42161,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.720675Z",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "runtime_code_keccak256": "0x6156ddaa1c8cd2c26d37455a5dc57b1761dc2848856426c0ac261ae0c7fecd68",
+      "token_metadata": null
+    },
     "arbitrum:0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
       "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
       "block_hash": "0x1338705892d8890fc973b191eb95d0ab67b55a6e28dae8778dfb3e04bdeaa6fc",
@@ -144,6 +258,44 @@
         "symbol": "USD₮0"
       }
     },
+    "avalanche:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x5ca2dd20fe19d626a5dd5b667f2ecdbcfbf74d753fe35d5fb48d48b639506024",
+      "block_number": 96396724,
+      "block_tag": "latest",
+      "chain": "avalanche",
+      "chain_id": 43114,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.353299Z",
+      "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
+      "runtime_code_keccak256": "0x081beff14e75c5a5c1e60740445f58d54ba0fef228148a11d3e4287dc3551cbb",
+      "token_metadata": null
+    },
+    "avalanche:0x06380c0e0912312b5150364b9dc4542ba0dbbc85": {
+      "address": "0x06380C0e0912312B5150364B9DC4542BA0DbBc85",
+      "block_hash": "0x5ca2dd20fe19d626a5dd5b667f2ecdbcfbf74d753fe35d5fb48d48b639506024",
+      "block_number": 96396724,
+      "block_tag": "latest",
+      "chain": "avalanche",
+      "chain_id": 43114,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.353299Z",
+      "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
+      "runtime_code_keccak256": "0x0e5890635bcd695d35faa8275bbdbc24ac7bdae2ce7a16a351399549e107bc60",
+      "token_metadata": null
+    },
     "avalanche:0x18556da13313f3532c54711497a8fedac273220e": {
       "address": "0x18556DA13313f3532c54711497A8FedAC273220E",
       "block_hash": "0xfaa0ba160b0804e1406c77e198bf9f6ba6696750ebd4167a4d701a09b6c582a4",
@@ -161,6 +313,25 @@
       "observed_at": "2026-08-31T10:35:28.046257Z",
       "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
       "runtime_code_keccak256": "0xa8ae69689a904932bb9895e9c1ee6e0b3bc8715e6a04793d3134fda8103a5cd7",
+      "token_metadata": null
+    },
+    "avalanche:0x661e93cca42afacb172121ef892830ca3b70f08d": {
+      "address": "0x661E93cca42AfacB172121EF892830cA3b70F08d",
+      "block_hash": "0x5ca2dd20fe19d626a5dd5b667f2ecdbcfbf74d753fe35d5fb48d48b639506024",
+      "block_number": 96396724,
+      "block_tag": "latest",
+      "chain": "avalanche",
+      "chain_id": 43114,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.353299Z",
+      "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
+      "runtime_code_keccak256": "0x39821d3bb1dd8bd39de51a4f9ebd6ca19e41085645765cf4576405ee31c7dd83",
       "token_metadata": null
     },
     "avalanche:0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7": {
@@ -226,6 +397,25 @@
       "runtime_code_keccak256": "0x24760bc3bcdceb37006bed0ee363ff2f93f79242e14c19dcd135d606cad3d249",
       "token_metadata": null
     },
+    "avalanche:0xb74b1f14d2754acfcbbe1a221023a5cf50ab8acd": {
+      "address": "0xB74b1F14d2754AcfcbBe1a221023a5cf50Ab8ACD",
+      "block_hash": "0x5ca2dd20fe19d626a5dd5b667f2ecdbcfbf74d753fe35d5fb48d48b639506024",
+      "block_number": 96396724,
+      "block_tag": "latest",
+      "chain": "avalanche",
+      "chain_id": 43114,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.353299Z",
+      "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
+      "runtime_code_keccak256": "0xabd80e476783c8cf55c44af17dcc96990359b5999a61075fd2402858f92311ff",
+      "token_metadata": null
+    },
     "avalanche:0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": {
       "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
       "block_hash": "0xfaa0ba160b0804e1406c77e198bf9f6ba6696750ebd4167a4d701a09b6c582a4",
@@ -248,6 +438,63 @@
         "symbol": "USDC"
       }
     },
+    "avalanche:0xbe40675bb704506a3c2ccfb762dcfd1e979845c2": {
+      "address": "0xbE40675BB704506a3c2Ccfb762DCFd1e979845C2",
+      "block_hash": "0x5ca2dd20fe19d626a5dd5b667f2ecdbcfbf74d753fe35d5fb48d48b639506024",
+      "block_number": 96396724,
+      "block_tag": "latest",
+      "chain": "avalanche",
+      "chain_id": 43114,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.353299Z",
+      "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
+      "runtime_code_keccak256": "0xd19dc2c1d48e835934a1078a0fb9fd46a7ed16dc6b4e096064042ba8f88e4ce0",
+      "token_metadata": null
+    },
+    "avalanche:0xc3c9e198c735a4b97e3e683f391ccbdd60b69286": {
+      "address": "0xc3c9e198C735a4b97e3e683f391cCBDD60B69286",
+      "block_hash": "0x5ca2dd20fe19d626a5dd5b667f2ecdbcfbf74d753fe35d5fb48d48b639506024",
+      "block_number": 96396724,
+      "block_tag": "latest",
+      "chain": "avalanche",
+      "chain_id": 43114,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:24.353299Z",
+      "rpc_url": "https://api.avax.network/ext/bc/C/rpc",
+      "runtime_code_keccak256": "0xcdd0b0d68cfe8320a26c2e239a229000727f7771849027f847d82252e95f9571",
+      "token_metadata": null
+    },
+    "base:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x97103c501b590369bccdb0c5c151a1af6921eaa6c42262aa38d013a4e5e09411",
+      "block_number": 51952218,
+      "block_tag": "latest",
+      "chain": "base",
+      "chain_id": 8453,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:37.129040Z",
+      "rpc_url": "https://mainnet.base.org",
+      "runtime_code_keccak256": "0xa67739abc3ede9dbdc0491636c67d6a14ac07fab9030c3f509b1eb7b11dff8ed",
+      "token_metadata": null
+    },
     "base:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865": {
       "address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
       "block_hash": "0x7555a6a616f6aa96c69ffc3d33f10745dcffeacd5c858ba4073754e9ad3a8d16",
@@ -265,6 +512,25 @@
       "observed_at": "2026-08-31T10:35:48.704139Z",
       "rpc_url": "https://mainnet.base.org",
       "runtime_code_keccak256": "0x8191d3ab1d55d3da9822199f28865415c99566b6f1aee4a4b16713f57930678c",
+      "token_metadata": null
+    },
+    "base:0x0d5e0f971ed27fbff6c2837bf31316121532048d": {
+      "address": "0x0d5e0F971ED27FBfF6c2837bf31316121532048D",
+      "block_hash": "0x97103c501b590369bccdb0c5c151a1af6921eaa6c42262aa38d013a4e5e09411",
+      "block_number": 51952218,
+      "block_tag": "latest",
+      "chain": "base",
+      "chain_id": 8453,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:37.129040Z",
+      "rpc_url": "https://mainnet.base.org",
+      "runtime_code_keccak256": "0x9a5c0cdd56325bef0e48cdab071a4b6a7f877e1271c2e08510998d724a038bb3",
       "token_metadata": null
     },
     "base:0x1b81d678ffb9c0263b24a97847620c99d213eb14": {
@@ -346,6 +612,25 @@
         "symbol": "WETH"
       }
     },
+    "base:0x498581ff718922c3f8e6a244956af099b2652b2b": {
+      "address": "0x498581fF718922c3f8e6A244956aF099B2652b2b",
+      "block_hash": "0x97103c501b590369bccdb0c5c151a1af6921eaa6c42262aa38d013a4e5e09411",
+      "block_number": 51952218,
+      "block_tag": "latest",
+      "chain": "base",
+      "chain_id": 8453,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:37.129040Z",
+      "rpc_url": "https://mainnet.base.org",
+      "runtime_code_keccak256": "0x83b2af6e9f3158defc2811cbcb0db71ecf8b2ba2abea39c39e370ac5c6f43eb6",
+      "token_metadata": null
+    },
     "base:0x698cb2b6dd822994581fea6ea4fc755d1363a92f": {
       "address": "0x698Cb2b6dd822994581fEa6eA4Fc755d1363A92F",
       "block_hash": "0x7555a6a616f6aa96c69ffc3d33f10745dcffeacd5c858ba4073754e9ad3a8d16",
@@ -363,6 +648,25 @@
       "observed_at": "2026-08-31T10:35:48.704139Z",
       "rpc_url": "https://mainnet.base.org",
       "runtime_code_keccak256": "0xfedc4e21e1097b0ec1b4f1aa901cf645c22f9e5d297727b0f37275ee1d083df4",
+      "token_metadata": null
+    },
+    "base:0x7c5f5a4bbd8fd63184577525326123b519429bdc": {
+      "address": "0x7C5f5A4bBd8fD63184577525326123B519429bDc",
+      "block_hash": "0x97103c501b590369bccdb0c5c151a1af6921eaa6c42262aa38d013a4e5e09411",
+      "block_number": 51952218,
+      "block_tag": "latest",
+      "chain": "base",
+      "chain_id": 8453,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:37.129040Z",
+      "rpc_url": "https://mainnet.base.org",
+      "runtime_code_keccak256": "0x243f9e091ddf11c7c04e28059fdbbf1bab82b72d414fafb8e096c097aaeb622a",
       "token_metadata": null
     },
     "base:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
@@ -386,6 +690,44 @@
         "decimals": 6,
         "symbol": "USDC"
       }
+    },
+    "base:0xa3c0c9b65bad0b08107aa264b0f3db444b867a71": {
+      "address": "0xA3c0c9b65baD0b08107Aa264b0f3dB444b867A71",
+      "block_hash": "0x97103c501b590369bccdb0c5c151a1af6921eaa6c42262aa38d013a4e5e09411",
+      "block_number": 51952218,
+      "block_tag": "latest",
+      "chain": "base",
+      "chain_id": 8453,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:37.129040Z",
+      "rpc_url": "https://mainnet.base.org",
+      "runtime_code_keccak256": "0xbbd5859677ef5491143133e8ed2b8faa0272f6fc2cbae94c53e79cc8c0538545",
+      "token_metadata": null
+    },
+    "base:0xd6145b2d3f379919e8cdeda7b97e37c4b2ca9c40": {
+      "address": "0xd6145b2D3F379919E8CdEda7B97e37c4b2Ca9c40",
+      "block_hash": "0x97103c501b590369bccdb0c5c151a1af6921eaa6c42262aa38d013a4e5e09411",
+      "block_number": 51952218,
+      "block_tag": "latest",
+      "chain": "base",
+      "chain_id": 8453,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:37.129040Z",
+      "rpc_url": "https://mainnet.base.org",
+      "runtime_code_keccak256": "0x816c75fe7f6ccf8fe8b14825091e8dff301fe7ffd4b962f89b2981a747facc08",
+      "token_metadata": null
     },
     "base:0xf8f2eb4940cfe7d13603dddd87f123820fc061ef": {
       "address": "0xf8f2eB4940CFE7d13603DDDD87f123820Fc061Ef",
@@ -614,6 +956,25 @@
         "symbol": "BUSD"
       }
     },
+    "bsc:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x48774d936722dd7002887f307f58bcddb3eeabad39149e7dcb5c08e4ebe3310f",
+      "token_metadata": null
+    },
     "bsc:0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865": {
       "address": "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
       "block_hash": "0x2c0a0164d2c689d75dc2e06ad25bba4354fefaf4d535827d2055f62cf468f1a8",
@@ -671,6 +1032,82 @@
       "runtime_code_keccak256": "0x25cbde77f2ef6d474c31f738e67ab99e604471170d8a0ab4f544cbaba969d078",
       "token_metadata": null
     },
+    "bsc:0x238a358808379702088667322f80ac48bad5e6c4": {
+      "address": "0x238a358808379702088667322f80aC48bAd5e6c4",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 8347,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x678bab6ace02b3fc508054b194f3f70190a0621f51bcae69be33cc5416031908",
+      "token_metadata": null
+    },
+    "bsc:0x28e2ea090877bf75740558f6bfb36a5ffee9e9df": {
+      "address": "0x28e2Ea090877bF75740558f6BFB36A5ffeE9e9dF",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x48752321ee7abf0d2a17c30679df9a1ddd14dc75d28b26e2509b76396145a005",
+      "token_metadata": null
+    },
+    "bsc:0x31c2f6fcff4f8759b3bd5bf0e1084a055615c768": {
+      "address": "0x31c2F6fcFf4F8759b3Bd5Bf0e1084A055615c768",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 7020,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0xb8e27757651b074ffccdca43caff003b9f071d45ee74c379fad1a5a67ecaf9d6",
+      "token_metadata": null
+    },
+    "bsc:0x3d311d6283dd8ab90bb0031835c8e606349e2850": {
+      "address": "0x3D311D6283Dd8aB90bb0031835C8e606349e2850",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 17435,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x858f77c095ca0f5bcd9af54dc6d46ac5f40cbb47dee9b85dea6c02b68d4206bf",
+      "token_metadata": null
+    },
     "bsc:0x55d398326f99059ff775485246999027b3197955": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "block_hash": "0x2c0a0164d2c689d75dc2e06ad25bba4354fefaf4d535827d2055f62cf468f1a8",
@@ -692,6 +1129,44 @@
         "decimals": 18,
         "symbol": "USDT"
       }
+    },
+    "bsc:0x55f4c8aba71a1e923edc303eb4feff14608cc226": {
+      "address": "0x55f4c8abA71A1e923edC303eb4fEfF14608cC226",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 24004,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0xe8fea1721cd1cb164280e02614b06d7d8033dcc81ed6fa97f5e7cc63341d34ed",
+      "token_metadata": null
+    },
+    "bsc:0x7a4a5c919ae2541aed11041a1aeee68f1287f95b": {
+      "address": "0x7A4a5c919aE2541AeD11041A1AEeE68f1287f95b",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x07867576e9a6a0fdcead21a487dce04eae6161fb350edc8c56954c09fa015ef0",
+      "token_metadata": null
     },
     "bsc:0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": {
       "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
@@ -736,6 +1211,44 @@
         "decimals": 18,
         "symbol": "USD1"
       }
+    },
+    "bsc:0x9f75dd27d6664c475b90e105573e550ff69437b0": {
+      "address": "0x9F75dD27D6664c475B90e105573E550ff69437B0",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0xaa14bdb3b2246fb3d795e19c7ca78e8908539f593344b9ff971ce3bdf2d06d08",
+      "token_metadata": null
+    },
+    "bsc:0xa0ffb9c1ce1fe56963b0321b32e7a0302114058b": {
+      "address": "0xa0FfB9c1CE1Fe56963B0321B32E7A0302114058b",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 20885,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x3caf72836cb6603c6af03bba1578ec70ece8c3e5b1d0ef73667b5fbd74b02a0f",
+      "token_metadata": null
     },
     "bsc:0xb971ef87ede563556b2ed4b1c0b0019111dd85d2": {
       "address": "0xB971eF87ede563556b2ED4b1C0b0019111Dd85d2",
@@ -800,6 +1313,44 @@
         "symbol": "FDUSD"
       }
     },
+    "bsc:0xc631f4b0fc2dd68ad45f74b2942628db117dd359": {
+      "address": "0xC631f4B0Fc2Dd68AD45f74B2942628db117dD359",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 6839,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0xc0dd2ba73b8b0828979a2613ca0720757957a838948c382b6a2daa21978908b3",
+      "token_metadata": null
+    },
+    "bsc:0xc697d2898e0d09264376196696c51d7abbbaa4a9": {
+      "address": "0xC697d2898e0D09264376196696c51D7aBbbAA4a9",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 23821,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x9e95edb558f2fb05a0d5a96b57cd59400d39b1b7c02a4fc7a8a158b3d092835f",
+      "token_metadata": null
+    },
     "bsc:0xca143ce32fe78f1f7019d7d551a6402fc5350c73": {
       "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
       "block_hash": "0x2c0a0164d2c689d75dc2e06ad25bba4354fefaf4d535827d2055f62cf468f1a8",
@@ -819,6 +1370,63 @@
       "runtime_code_keccak256": "0x9e8d17faaee69b053be6ac65b2b2c317741d770cb5fbdd9512536d17e9e076ca",
       "token_metadata": null
     },
+    "bsc:0xd0737c9762912dd34c3271197e362aa736df0926": {
+      "address": "0xd0737C9762912dD34c3271197E362Aa736Df0926",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 6998,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0xea33a8800aa8ae11b9f480ad21b06e5708f9a1989b88cd8f270e43a8b8a223ce",
+      "token_metadata": null
+    },
+    "bsc:0xd13dd3d6e93f276fafc9db9e6bb47c1180aee0c4": {
+      "address": "0xd13Dd3D6E93f276FAfc9Db9E6BB47C1180aeE0c4",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x5bbb9e82e49709fea04b2f873a6ad149a983ddf7eafc86f0fe79ad0a8c512d2b",
+      "token_metadata": null
+    },
+    "bsc:0xd9c500dff816a1da21a48a732d3498bf09dc9aeb": {
+      "address": "0xd9C500DfF816a1Da21A48A732d3498Bf09dc9AEB",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 24350,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0x475a0fac42fef6f5939a066498de529e7b79906eccfbb147ace899c8d21a898b",
+      "token_metadata": null
+    },
     "bsc:0xdb1d10011ad0ff90774d0c6bb92e5c5c8b4461f7": {
       "address": "0xdB1d10011AD0Ff90774D0C6Bb92e5C5c8b4461F7",
       "block_hash": "0x2c0a0164d2c689d75dc2e06ad25bba4354fefaf4d535827d2055f62cf468f1a8",
@@ -836,6 +1444,25 @@
       "observed_at": "2026-08-31T10:35:52.528096Z",
       "rpc_url": "https://bsc-dataseed.bnbchain.org",
       "runtime_code_keccak256": "0x34b1009d0f004e58da791225992645e2df7697ac71ac89dc5e80469c4ef7e322",
+      "token_metadata": null
+    },
+    "bsc:0xdc264714f68d84cf29bc605589405e78bdbe7c9f": {
+      "address": "0xDc264714F68d84CF29BC605589405E78bDBE7C9f",
+      "block_hash": "0xf3cbda4dddec5cb6569c302d5833cced374b9d35060d5b205644848249bfc2ea",
+      "block_number": 124736301,
+      "block_tag": "latest",
+      "chain": "bsc",
+      "chain_id": 56,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:55:52.661839Z",
+      "rpc_url": "https://bsc-dataseed.bnbchain.org",
+      "runtime_code_keccak256": "0xe867d0c9a826a351e9d8cefc0fa947d71a497b9ecb0395380814a064fc8465a4",
       "token_metadata": null
     },
     "cronos:0x145863eb42cf62847a6ca784e6416c1682b1b2ae": {
@@ -920,6 +1547,44 @@
         "symbol": "WCRO"
       }
     },
+    "eth:0x000000000004444c5dc75cb358380d2e3de08a90": {
+      "address": "0x000000000004444c5dc75cB358380D2e3dE08A90",
+      "block_hash": "0x975048e90644354faa005dd183cfee4d94e48ccaf8c2b13f683b7dcb24a0d8ce",
+      "block_number": 26083861,
+      "block_tag": "latest",
+      "chain": "eth",
+      "chain_id": 1,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:23.924376Z",
+      "rpc_url": "https://ethereum-rpc.publicnode.com",
+      "runtime_code_keccak256": "0x785f1014552b7ce7d5fb7d0c970ca60edee94fd00425d7ca21609acac7ce1293",
+      "token_metadata": null
+    },
+    "eth:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x975048e90644354faa005dd183cfee4d94e48ccaf8c2b13f683b7dcb24a0d8ce",
+      "block_number": 26083861,
+      "block_tag": "latest",
+      "chain": "eth",
+      "chain_id": 1,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:23.924376Z",
+      "rpc_url": "https://ethereum-rpc.publicnode.com",
+      "runtime_code_keccak256": "0xc67d1657868aa5146eaf24fb879fb1fdec3d2d493b3683a61c9c2f4fb2851131",
+      "token_metadata": null
+    },
     "eth:0x1f98431c8ad98523631ae4a59f267346ea31f984": {
       "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
       "block_hash": "0x8ce3d69b884cc11c7ec8a230df877cdb7b50645e75117f81e5a5b66a0b8193ff",
@@ -937,6 +1602,25 @@
       "observed_at": "2026-08-31T10:36:02.232099Z",
       "rpc_url": "https://ethereum-rpc.publicnode.com",
       "runtime_code_keccak256": "0x4d7b8525cd5d14343fa67a732fba5b24cddba11620ca88392f4ec6c52f91fd69",
+      "token_metadata": null
+    },
+    "eth:0x23617e59a5925b2a4bf75d73ff6711cd0b29de85": {
+      "address": "0x23617e59A5925b2A4Bf75d73ff6711cD0b29De85",
+      "block_hash": "0x975048e90644354faa005dd183cfee4d94e48ccaf8c2b13f683b7dcb24a0d8ce",
+      "block_number": 26083861,
+      "block_tag": "latest",
+      "chain": "eth",
+      "chain_id": 1,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:23.924376Z",
+      "rpc_url": "https://ethereum-rpc.publicnode.com",
+      "runtime_code_keccak256": "0x55e6b334152096d60367d7ab24241948b31e8d0e66adc8b81cba049a19f9d2ac",
       "token_metadata": null
     },
     "eth:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
@@ -960,6 +1644,25 @@
         "decimals": 18,
         "symbol": "USDe"
       }
+    },
+    "eth:0x52f0e24d1c21c8a0cb1e5a5dd6198556bd9e1203": {
+      "address": "0x52F0E24D1c21C8A0cB1e5a5dD6198556BD9E1203",
+      "block_hash": "0x975048e90644354faa005dd183cfee4d94e48ccaf8c2b13f683b7dcb24a0d8ce",
+      "block_number": 26083861,
+      "block_tag": "latest",
+      "chain": "eth",
+      "chain_id": 1,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:23.924376Z",
+      "rpc_url": "https://ethereum-rpc.publicnode.com",
+      "runtime_code_keccak256": "0x06de58fa119c5deaa7a667fb92d3894e25d9160e62fb82c8d86d43b47eefe441",
+      "token_metadata": null
     },
     "eth:0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f": {
       "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
@@ -1062,6 +1765,25 @@
       "runtime_code_keccak256": "0xa324bc7db3d091b6f1a2d526e48a9c7039e03b3cc35f7d44b15ac7a1544c11d2",
       "token_metadata": null
     },
+    "eth:0x7ffe42c4a5deea5b0fec41c94c136cf115597227": {
+      "address": "0x7fFE42C4a5DEeA5b0feC41C94C136Cf115597227",
+      "block_hash": "0x975048e90644354faa005dd183cfee4d94e48ccaf8c2b13f683b7dcb24a0d8ce",
+      "block_number": 26083861,
+      "block_tag": "latest",
+      "chain": "eth",
+      "chain_id": 1,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:23.924376Z",
+      "rpc_url": "https://ethereum-rpc.publicnode.com",
+      "runtime_code_keccak256": "0xd7947778589cf4aac9a092a4451292a2056380941635ab7006d3c691d8dfd878",
+      "token_metadata": null
+    },
     "eth:0x8d0d000ee44948fc98c9b98a4fa4921476f08b0d": {
       "address": "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d",
       "block_hash": "0x8ce3d69b884cc11c7ec8a230df877cdb7b50645e75117f81e5a5b66a0b8193ff",
@@ -1105,6 +1827,25 @@
         "decimals": 6,
         "symbol": "USDC"
       }
+    },
+    "eth:0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e": {
+      "address": "0xbD216513d74C8cf14cf4747E6AaA6420FF64ee9e",
+      "block_hash": "0x975048e90644354faa005dd183cfee4d94e48ccaf8c2b13f683b7dcb24a0d8ce",
+      "block_number": 26083861,
+      "block_tag": "latest",
+      "chain": "eth",
+      "chain_id": 1,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:23.924376Z",
+      "rpc_url": "https://ethereum-rpc.publicnode.com",
+      "runtime_code_keccak256": "0x77e36c08b19959a30dde46dec9abe6208e371ff2f56884a56fe1e1a53615528b",
+      "token_metadata": null
     },
     "eth:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
       "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -1172,6 +1913,101 @@
         "symbol": "USDS"
       }
     },
+    "hyperevm:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x9efb98531b8b8f92259b5501f48faa77b8175f73ab5c677cfae2b9d619e50fce",
+      "block_number": 47211215,
+      "block_tag": "latest",
+      "chain": "hyperevm",
+      "chain_id": 999,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:31.698145Z",
+      "rpc_url": "https://rpc.hyperliquid.xyz/evm",
+      "runtime_code_keccak256": "0x10f4ff92b79ad2dca1393ef990940a13e25fb56afd1ff4a6e15853b069020da0",
+      "token_metadata": null
+    },
+    "hyperevm:0x0d7ab5b3db668128aff6f70c4ebc71d7d4da9bf9": {
+      "address": "0x0d7Ab5B3db668128Aff6F70C4eBC71D7d4DA9bf9",
+      "block_hash": "0x9efb98531b8b8f92259b5501f48faa77b8175f73ab5c677cfae2b9d619e50fce",
+      "block_number": 47211215,
+      "block_tag": "latest",
+      "chain": "hyperevm",
+      "chain_id": 999,
+      "code_size": 19965,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:31.698145Z",
+      "rpc_url": "https://rpc.hyperliquid.xyz/evm",
+      "runtime_code_keccak256": "0x2d12f142154780f14b5e65fd3c3309d2c9ecb5da33c4e181d473d15e15407d80",
+      "token_metadata": null
+    },
+    "hyperevm:0x108bfe38532c98f8cd8d7ab49c9ddaa3675a1c5e": {
+      "address": "0x108Bfe38532C98f8Cd8D7Ab49c9dDAa3675a1c5e",
+      "block_hash": "0x9efb98531b8b8f92259b5501f48faa77b8175f73ab5c677cfae2b9d619e50fce",
+      "block_number": 47211215,
+      "block_tag": "latest",
+      "chain": "hyperevm",
+      "chain_id": 999,
+      "code_size": 6118,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:31.698145Z",
+      "rpc_url": "https://rpc.hyperliquid.xyz/evm",
+      "runtime_code_keccak256": "0x7038b70bee7a400e92efa7bbfe2aa3b6ea9bf5fec9601d504c2d2dba268bb831",
+      "token_metadata": null
+    },
+    "hyperevm:0x12d4fd9c5dedd00ab8a0bce2cf0167bbf94b6b1f": {
+      "address": "0x12D4Fd9C5DeDd00ab8a0bCe2CF0167bbf94b6B1F",
+      "block_hash": "0x9efb98531b8b8f92259b5501f48faa77b8175f73ab5c677cfae2b9d619e50fce",
+      "block_number": 47211215,
+      "block_tag": "latest",
+      "chain": "hyperevm",
+      "chain_id": 999,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:31.698145Z",
+      "rpc_url": "https://rpc.hyperliquid.xyz/evm",
+      "runtime_code_keccak256": "0x7846a5013818d482274dd4895ff7a7190967ec6a4936fa071f3fbd48a7d2d5be",
+      "token_metadata": null
+    },
+    "hyperevm:0x1656326235cb9e34cb58cade53ae30789ab32a1a": {
+      "address": "0x1656326235cb9E34Cb58CaDe53AE30789AB32A1A",
+      "block_hash": "0x9efb98531b8b8f92259b5501f48faa77b8175f73ab5c677cfae2b9d619e50fce",
+      "block_number": 47211215,
+      "block_tag": "latest",
+      "chain": "hyperevm",
+      "chain_id": 999,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:31.698145Z",
+      "rpc_url": "https://rpc.hyperliquid.xyz/evm",
+      "runtime_code_keccak256": "0xd655ab42f4f80273ba93b07b8ac024a1ea834f0c24bdd50a7ec04e87633b1ad5",
+      "token_metadata": null
+    },
     "hyperevm:0x5555555555555555555555555555555555555555": {
       "address": "0x5555555555555555555555555555555555555555",
       "block_hash": "0x6f374fa166f5f944d1796e1bc75fedbf9438b4c03d7650234e20fb213bfe45cb",
@@ -1238,6 +2074,63 @@
         "symbol": "USD₮0"
       }
     },
+    "hyperevm:0xed270a1bcdc63cf1356d695e7f40961d4819d6bf": {
+      "address": "0xeD270A1Bcdc63cf1356D695e7f40961d4819d6bF",
+      "block_hash": "0x9efb98531b8b8f92259b5501f48faa77b8175f73ab5c677cfae2b9d619e50fce",
+      "block_number": 47211215,
+      "block_tag": "latest",
+      "chain": "hyperevm",
+      "chain_id": 999,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:31.698145Z",
+      "rpc_url": "https://rpc.hyperliquid.xyz/evm",
+      "runtime_code_keccak256": "0x0710561487244e5d288bd93fe4c055a4a33fd486a07e8b4c982124c57c6d3224",
+      "token_metadata": null
+    },
+    "monad:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0xf971186d3c788d1217c281c9fd0bbe6dbbe1373bafb689e7087ab2747d2c09f1",
+      "block_number": 109065536,
+      "block_tag": "latest",
+      "chain": "monad",
+      "chain_id": 143,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:26.206725Z",
+      "rpc_url": "https://rpc.monad.xyz",
+      "runtime_code_keccak256": "0x332f9ca0fbd282f4a9b16f5332870dc98addc5172dd5e48ab6fa7c9be3d10fa0",
+      "token_metadata": null
+    },
+    "monad:0x188d586ddcf52439676ca21a244753fa19f9ea8e": {
+      "address": "0x188d586Ddcf52439676Ca21A244753fA19F9Ea8e",
+      "block_hash": "0xf971186d3c788d1217c281c9fd0bbe6dbbe1373bafb689e7087ab2747d2c09f1",
+      "block_number": 109065536,
+      "block_tag": "latest",
+      "chain": "monad",
+      "chain_id": 143,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:26.206725Z",
+      "rpc_url": "https://rpc.monad.xyz",
+      "runtime_code_keccak256": "0xf5d7a45765367807b101f825ec74004078c79bd96c621e481c608ee22f7336d4",
+      "token_metadata": null
+    },
     "monad:0x204faca1764b154221e35c0d20abb3c525710498": {
       "address": "0x204FAca1764B154221e35c0d20aBb3c525710498",
       "block_hash": "0x7c533b305c332fcd8055f9acee9721b8e94ea5fc3388bbe898abc4e91a18eab5",
@@ -1279,6 +2172,25 @@
         "symbol": "WMON"
       }
     },
+    "monad:0x5b7ec4a94ff9bedb700fb82ab09d5846972f4016": {
+      "address": "0x5b7eC4a94fF9beDb700fb82aB09d5846972F4016",
+      "block_hash": "0xf971186d3c788d1217c281c9fd0bbe6dbbe1373bafb689e7087ab2747d2c09f1",
+      "block_number": 109065536,
+      "block_tag": "latest",
+      "chain": "monad",
+      "chain_id": 143,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:26.206725Z",
+      "rpc_url": "https://rpc.monad.xyz",
+      "runtime_code_keccak256": "0x1a75f5a91d9fa7e4ffefa5211d4dc39c1a7cc520d3be59b631e9b9a6ec49ffc0",
+      "token_metadata": null
+    },
     "monad:0x754704bc059f8c67012fed69bc8a327a5aafb603": {
       "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
       "block_hash": "0x7c533b305c332fcd8055f9acee9721b8e94ea5fc3388bbe898abc4e91a18eab5",
@@ -1300,6 +2212,63 @@
         "decimals": 6,
         "symbol": "USDC"
       }
+    },
+    "monad:0x77395f3b2e73ae90843717371294fa97cc419d64": {
+      "address": "0x77395F3b2E73aE90843717371294fa97cC419D64",
+      "block_hash": "0xf971186d3c788d1217c281c9fd0bbe6dbbe1373bafb689e7087ab2747d2c09f1",
+      "block_number": 109065536,
+      "block_tag": "latest",
+      "chain": "monad",
+      "chain_id": 143,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:26.206725Z",
+      "rpc_url": "https://rpc.monad.xyz",
+      "runtime_code_keccak256": "0x9f14dd3281369ca12d9a58c95a78f3387437dd24fa958631514361d9a52621ed",
+      "token_metadata": null
+    },
+    "monad:0xa222dd357a9076d1091ed6aa2e16c9742dd26891": {
+      "address": "0xa222Dd357A9076d1091Ed6Aa2e16C9742dD26891",
+      "block_hash": "0xf971186d3c788d1217c281c9fd0bbe6dbbe1373bafb689e7087ab2747d2c09f1",
+      "block_number": 109065536,
+      "block_tag": "latest",
+      "chain": "monad",
+      "chain_id": 143,
+      "code_size": 6118,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:26.206725Z",
+      "rpc_url": "https://rpc.monad.xyz",
+      "runtime_code_keccak256": "0x3666b10d21aee597139d129b378b2cdaeaaaaaffeb142c1f64366a7bd5be8b3b",
+      "token_metadata": null
+    },
+    "monad:0xa6ce4f10d83dbddac17e68e1837ca9ce6a1b596e": {
+      "address": "0xa6CE4F10d83dBdDAc17E68e1837ca9cE6a1b596e",
+      "block_hash": "0xf971186d3c788d1217c281c9fd0bbe6dbbe1373bafb689e7087ab2747d2c09f1",
+      "block_number": 109065536,
+      "block_tag": "latest",
+      "chain": "monad",
+      "chain_id": 143,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:26.206725Z",
+      "rpc_url": "https://rpc.monad.xyz",
+      "runtime_code_keccak256": "0xcb07a717d70f36cf270f1a6ed44163097e4dc8acbafb1d412cdb38f46af4b421",
+      "token_metadata": null
     },
     "monad:0xe7cd86e13ac4309349f30b3435a9d337750fc82d": {
       "address": "0xe7cd86e13AC4309349F30B3435a9d337750fC82D",
@@ -1340,6 +2309,25 @@
       "observed_at": "2026-08-31T10:36:07.905067Z",
       "rpc_url": "https://rpc.monad.xyz",
       "runtime_code_keccak256": "0xe38b18a40559752e867d4e6039977e65754dddb68c3c254ec46aebb2195391b6",
+      "token_metadata": null
+    },
+    "optimism:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x5cc7630b55d5ff11c24470aaca26b263b45b08a56059ad092a49d51936e97816",
+      "block_number": 157547504,
+      "block_tag": "latest",
+      "chain": "optimism",
+      "chain_id": 10,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:41.127685Z",
+      "rpc_url": "https://mainnet.optimism.io",
+      "runtime_code_keccak256": "0x375714c2c948abd47bf468552c0a842d0e8002ca721efd85061a1297d6824617",
       "token_metadata": null
     },
     "optimism:0x01bff41798a0bcf287b996046ca68b395dbc1071": {
@@ -1386,6 +2374,25 @@
         "symbol": "USDC"
       }
     },
+    "optimism:0x1f3131a13296fb91c90870043742c3cdbff1a8d7": {
+      "address": "0x1f3131A13296FB91C90870043742C3CDBFF1A8d7",
+      "block_hash": "0x5cc7630b55d5ff11c24470aaca26b263b45b08a56059ad092a49d51936e97816",
+      "block_number": 157547504,
+      "block_tag": "latest",
+      "chain": "optimism",
+      "chain_id": 10,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:41.127685Z",
+      "rpc_url": "https://mainnet.optimism.io",
+      "runtime_code_keccak256": "0x4bdf57db85ef25f0b28d136bdd4aa4aa4bca4a772f9bd9569d55bca99e8474d2",
+      "token_metadata": null
+    },
     "optimism:0x1f98431c8ad98523631ae4a59f267346ea31f984": {
       "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
       "block_hash": "0xf7c0dfac27595b19e829b7db6518284e132c2e0341e0a2da7c1f5ecbf9622ef2",
@@ -1403,6 +2410,25 @@
       "observed_at": "2026-08-31T10:37:08.403479Z",
       "rpc_url": "https://mainnet.optimism.io",
       "runtime_code_keccak256": "0x4d7b8525cd5d14343fa67a732fba5b24cddba11620ca88392f4ec6c52f91fd69",
+      "token_metadata": null
+    },
+    "optimism:0x3c3ea4b57a46241e54610e5f022e5c45859a1017": {
+      "address": "0x3C3Ea4B57a46241e54610e5f022E5c45859A1017",
+      "block_hash": "0x5cc7630b55d5ff11c24470aaca26b263b45b08a56059ad092a49d51936e97816",
+      "block_number": 157547504,
+      "block_tag": "latest",
+      "chain": "optimism",
+      "chain_id": 10,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:41.127685Z",
+      "rpc_url": "https://mainnet.optimism.io",
+      "runtime_code_keccak256": "0xe4322627bfc2ef92e06ca70f93e897a78882ec7023c411c498846e87318f37de",
       "token_metadata": null
     },
     "optimism:0x4200000000000000000000000000000000000006": {
@@ -1468,6 +2494,25 @@
         "symbol": "EURA"
       }
     },
+    "optimism:0x9a13f98cb987694c9f086b1f5eb990eea8264ec3": {
+      "address": "0x9a13F98Cb987694C9F086b1F5eB990EeA8264Ec3",
+      "block_hash": "0x5cc7630b55d5ff11c24470aaca26b263b45b08a56059ad092a49d51936e97816",
+      "block_number": 157547504,
+      "block_tag": "latest",
+      "chain": "optimism",
+      "chain_id": 10,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:41.127685Z",
+      "rpc_url": "https://mainnet.optimism.io",
+      "runtime_code_keccak256": "0xa17a06da5d39984d2a3ef2704e090496d7f3658a65fda0b81c5cd6e809e5c5e4",
+      "token_metadata": null
+    },
     "optimism:0xba3aee516399388c779463183d00bb579f5041ca": {
       "address": "0xbA3aEe516399388C779463183d00bB579f5041Ca",
       "block_hash": "0xf7c0dfac27595b19e829b7db6518284e132c2e0341e0a2da7c1f5ecbf9622ef2",
@@ -1487,6 +2532,44 @@
       "runtime_code_keccak256": "0xd03800b94f63cbb830ead9ea30ae60f28308c49432dfdf89721d479941a00845",
       "token_metadata": null
     },
+    "optimism:0xc09255d86db563cbc11c2fcf4a0c512e160111b4": {
+      "address": "0xC09255D86DB563cBc11C2fCf4a0C512e160111B4",
+      "block_hash": "0x5cc7630b55d5ff11c24470aaca26b263b45b08a56059ad092a49d51936e97816",
+      "block_number": 157547504,
+      "block_tag": "latest",
+      "chain": "optimism",
+      "chain_id": 10,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:41.127685Z",
+      "rpc_url": "https://mainnet.optimism.io",
+      "runtime_code_keccak256": "0xba894f04adabac264993bc9ef53287533533d1448b8c20704db67d04ef514ef2",
+      "token_metadata": null
+    },
+    "optimism:0xc18a3169788f4f75a170290584eca6395c75ecdb": {
+      "address": "0xc18a3169788F4F75A170290584ECA6395C75Ecdb",
+      "block_hash": "0x5cc7630b55d5ff11c24470aaca26b263b45b08a56059ad092a49d51936e97816",
+      "block_number": 157547504,
+      "block_tag": "latest",
+      "chain": "optimism",
+      "chain_id": 10,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:41.127685Z",
+      "rpc_url": "https://mainnet.optimism.io",
+      "runtime_code_keccak256": "0xc31866232a94a497dbed6e1938ec3ab3f7fb6f0124a26d5ee0f31cf50b32b303",
+      "token_metadata": null
+    },
     "optimism:0xe13dd1fba721aa81a1826d9523ac9bc7d260c879": {
       "address": "0xe13Dd1fbA721Aa81a1826D9523AC9BC7d260c879",
       "block_hash": "0xf7c0dfac27595b19e829b7db6518284e132c2e0341e0a2da7c1f5ecbf9622ef2",
@@ -1504,6 +2587,25 @@
       "observed_at": "2026-08-31T10:37:08.403479Z",
       "rpc_url": "https://mainnet.optimism.io",
       "runtime_code_keccak256": "0xe6ce7d505ef62fec70e5fd128e3449c19a7cbc6acc2e29a5236fb8bded8988d2",
+      "token_metadata": null
+    },
+    "polygon:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x8b7c977068fdbcc750a1da61f045ba8764bd6e47d2571270635b75d2f9014321",
+      "block_number": 94659097,
+      "block_tag": "latest",
+      "chain": "polygon",
+      "chain_id": 137,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:36.602300Z",
+      "rpc_url": "https://polygon.drpc.org",
+      "runtime_code_keccak256": "0xdb0dd198c1767513d04589d8b3da05423ddc97e543440f84afe0e216693af9bb",
       "token_metadata": null
     },
     "polygon:0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270": {
@@ -1527,6 +2629,25 @@
         "decimals": 18,
         "symbol": "WPOL"
       }
+    },
+    "polygon:0x1ec2ebf4f37e7363fdfe3551602425af0b3ceef9": {
+      "address": "0x1Ec2eBf4F37E7363FDfe3551602425af0B3ceef9",
+      "block_hash": "0x8b7c977068fdbcc750a1da61f045ba8764bd6e47d2571270635b75d2f9014321",
+      "block_number": 94659097,
+      "block_tag": "latest",
+      "chain": "polygon",
+      "chain_id": 137,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:36.602300Z",
+      "rpc_url": "https://polygon.drpc.org",
+      "runtime_code_keccak256": "0x876d8664907d1fa2b3f00e6f49671585abd614c836f110b36c1e76fd407e67ba",
+      "token_metadata": null
     },
     "polygon:0x1f98431c8ad98523631ae4a59f267346ea31f984": {
       "address": "0x1F98431c8aD98523631AE4a59f267346ea31F984",
@@ -1588,6 +2709,44 @@
       "runtime_code_keccak256": "0xbab145d02e7005f0d84c6c1639d39b799b0ea16df99ebbdaf5a14d9da820b4e0",
       "token_metadata": null
     },
+    "polygon:0x5ea1bd7974c8a611cbab0bdcafcb1d9cc9b3ba5a": {
+      "address": "0x5eA1bD7974c8A611cBAB0bDCAFcB1D9CC9b3BA5a",
+      "block_hash": "0x8b7c977068fdbcc750a1da61f045ba8764bd6e47d2571270635b75d2f9014321",
+      "block_number": 94659097,
+      "block_tag": "latest",
+      "chain": "polygon",
+      "chain_id": 137,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:36.602300Z",
+      "rpc_url": "https://polygon.drpc.org",
+      "runtime_code_keccak256": "0x7dc64bb4b52657a626a2cc9589d5db335ac6e51eea0d15fef3822d0293c21098",
+      "token_metadata": null
+    },
+    "polygon:0x67366782805870060151383f4bbff9dab53e5cd6": {
+      "address": "0x67366782805870060151383F4BbFF9daB53e5cD6",
+      "block_hash": "0x8b7c977068fdbcc750a1da61f045ba8764bd6e47d2571270635b75d2f9014321",
+      "block_number": 94659097,
+      "block_tag": "latest",
+      "chain": "polygon",
+      "chain_id": 137,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:36.602300Z",
+      "rpc_url": "https://polygon.drpc.org",
+      "runtime_code_keccak256": "0xcfd0bc71e4f75b0c3e078e53baad950360d3e9f62b55c48b556f9de967aa80f7",
+      "token_metadata": null
+    },
     "polygon:0x68b3465833fb72a70ecdf485e0e4c7bd8665fc45": {
       "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
       "block_hash": "0x241ea2e56a8c885bd6c700ee60ddde1c097b809cc9f556bbc25de8837e6797ef",
@@ -1626,6 +2785,25 @@
       "runtime_code_keccak256": "0xf1ce1bb9d7403281292baa290f5c56136484cc34395dc3666ad7f94c79f99b71",
       "token_metadata": null
     },
+    "polygon:0xb3d5c3dfc3a7aebff71895a7191796bffc2c81b9": {
+      "address": "0xb3d5c3Dfc3a7aEbFF71895A7191796BFFc2c81b9",
+      "block_hash": "0x8b7c977068fdbcc750a1da61f045ba8764bd6e47d2571270635b75d2f9014321",
+      "block_number": 94659097,
+      "block_tag": "latest",
+      "chain": "polygon",
+      "chain_id": 137,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:36.602300Z",
+      "rpc_url": "https://polygon.drpc.org",
+      "runtime_code_keccak256": "0x57943bde684fc70aff2a90a730bea2d5cd19031ac2abf488ae9ff827f55000e1",
+      "token_metadata": null
+    },
     "polygon:0xc2132d05d31c914a87c6611c10748aeb04b58e8f": {
       "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
       "block_hash": "0x241ea2e56a8c885bd6c700ee60ddde1c097b809cc9f556bbc25de8837e6797ef",
@@ -1647,6 +2825,44 @@
         "decimals": 6,
         "symbol": "USDT0"
       }
+    },
+    "polygon:0xdc264714f68d84cf29bc605589405e78bdbe7c9f": {
+      "address": "0xDc264714F68d84CF29BC605589405E78bDBE7C9f",
+      "block_hash": "0x8b7c977068fdbcc750a1da61f045ba8764bd6e47d2571270635b75d2f9014321",
+      "block_number": 94659097,
+      "block_tag": "latest",
+      "chain": "polygon",
+      "chain_id": 137,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:36.602300Z",
+      "rpc_url": "https://polygon.drpc.org",
+      "runtime_code_keccak256": "0x370874a6575cc7bd5cef1d58b30d0ce5905a90a54e955695573d2e896f1e9733",
+      "token_metadata": null
+    },
+    "robinhood:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x2dc59d0833ff4887569c5e4525557855f9d8865b96b199efe91621dde5f2e0dc",
+      "block_number": 75744643,
+      "block_tag": "latest",
+      "chain": "robinhood",
+      "chain_id": 4663,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:28.220651Z",
+      "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
+      "runtime_code_keccak256": "0x5208783f52488f7d3493e5e38311ab707c1d75457fe472a19b0b4d57d66a7fca",
+      "token_metadata": null
     },
     "robinhood:0x0bd7d308f8e1639fab988df18a8011f41eacad73": {
       "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
@@ -1689,6 +2905,44 @@
       "runtime_code_keccak256": "0xec72b1abd1f2faee020cfea9c646bd8994f9fb389054f6e574f103a895091739",
       "token_metadata": null
     },
+    "robinhood:0x204faca1764b154221e35c0d20abb3c525710498": {
+      "address": "0x204FAca1764B154221e35c0d20aBb3c525710498",
+      "block_hash": "0x2dc59d0833ff4887569c5e4525557855f9d8865b96b199efe91621dde5f2e0dc",
+      "block_number": 75744643,
+      "block_tag": "latest",
+      "chain": "robinhood",
+      "chain_id": 4663,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:28.220651Z",
+      "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
+      "runtime_code_keccak256": "0x76b92a5bba2dd32019a64eb421f1750e78c6ba044dbfa6840b722eb5ac63d296",
+      "token_metadata": null
+    },
+    "robinhood:0x58daec3116aae6d93017baaea7749052e8a04fa7": {
+      "address": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+      "block_hash": "0x2dc59d0833ff4887569c5e4525557855f9d8865b96b199efe91621dde5f2e0dc",
+      "block_number": 75744643,
+      "block_tag": "latest",
+      "chain": "robinhood",
+      "chain_id": 4663,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:28.220651Z",
+      "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
+      "runtime_code_keccak256": "0xc873e135dc9aaec88489cfbad146b4cb49d6a32e0d80326377784b7ba17670b2",
+      "token_metadata": null
+    },
     "robinhood:0x5fc5360d0400a0fd4f2af552add042d716f1d168": {
       "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
       "block_hash": "0x3144ff9b7e9887c7fb2a62fd1abdee6a74c614631e8a1c21931a1e4a51407fd6",
@@ -1711,6 +2965,44 @@
         "symbol": "USDG"
       }
     },
+    "robinhood:0x8366a39cc670b4001a1121b8f6a443a643e40951": {
+      "address": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "block_hash": "0x2dc59d0833ff4887569c5e4525557855f9d8865b96b199efe91621dde5f2e0dc",
+      "block_number": 75744643,
+      "block_tag": "latest",
+      "chain": "robinhood",
+      "chain_id": 4663,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:28.220651Z",
+      "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
+      "runtime_code_keccak256": "0xbd3881180b547f5fe817545743cfb4343e96b1bc6640dcd70c106b0066e95626",
+      "token_metadata": null
+    },
+    "robinhood:0x8dc178efb8111bb0973dd9d722ebeff267c98f94": {
+      "address": "0x8Dc178eFB8111BB0973Dd9d722ebeFF267c98F94",
+      "block_hash": "0x2dc59d0833ff4887569c5e4525557855f9d8865b96b199efe91621dde5f2e0dc",
+      "block_number": 75744643,
+      "block_tag": "latest",
+      "chain": "robinhood",
+      "chain_id": 4663,
+      "code_size": 6118,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:28.220651Z",
+      "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
+      "runtime_code_keccak256": "0xd707b1da8cb165e5ea35a3b4450d971eb562ec171e23492aa117036b78a868f6",
+      "token_metadata": null
+    },
     "robinhood:0xcaf681a66d020601342297493863e78c959e5cb2": {
       "address": "0xCaf681a66D020601342297493863E78C959E5cb2",
       "block_hash": "0x3144ff9b7e9887c7fb2a62fd1abdee6a74c614631e8a1c21931a1e4a51407fd6",
@@ -1728,6 +3020,25 @@
       "observed_at": "2026-08-31T10:37:14.801554Z",
       "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
       "runtime_code_keccak256": "0x6f36c378e272c6324c48f045182bcb54bd8ad654cf9ebd42e8893d52c4cb25dc",
+      "token_metadata": null
+    },
+    "robinhood:0xf3334192d15450cdd385c8b70e03f9a6bd9e673b": {
+      "address": "0xF3334192D15450CdD385c8B70e03f9A6bD9E673b",
+      "block_hash": "0x2dc59d0833ff4887569c5e4525557855f9d8865b96b199efe91621dde5f2e0dc",
+      "block_number": 75744643,
+      "block_tag": "latest",
+      "chain": "robinhood",
+      "chain_id": 4663,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:28.220651Z",
+      "rpc_url": "https://rpc.mainnet.chain.robinhood.com",
+      "runtime_code_keccak256": "0x7d9c591e0956fd89d98feb4ffcfe8bf1f7a62bd485edd979fa21d104b49878a6",
       "token_metadata": null
     },
     "sonic:0x039e2fb66102314ce7b64ce5ce3e5183bc94ad38": {
@@ -1812,6 +3123,25 @@
       "runtime_code_keccak256": "0xe618bc72e7b7629a9e1ed58c62e02a67c8e8be0d8823204f0a7ee522a5b114ea",
       "token_metadata": null
     },
+    "unichain:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0xbc0f70ff62ea1de873ce0746453893049eacdba952d60a69926c4a3138dcf1b7",
+      "block_number": 59945428,
+      "block_tag": "latest",
+      "chain": "unichain",
+      "chain_id": 130,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.374260Z",
+      "rpc_url": "https://mainnet.unichain.org",
+      "runtime_code_keccak256": "0x145d01cce12e7b786df3b4238520a506e69103acc347b013d7c73e50da8df591",
+      "token_metadata": null
+    },
     "unichain:0x078d782b760474a361dda0af3839290b0ef57ad6": {
       "address": "0x078D782b760474a361dDA0AF3839290b0EF57AD6",
       "block_hash": "0x1af438cffe3ac771acec9622a09c7cac9b49e64db6f0707f16fe64f2c631d1fe",
@@ -1853,6 +3183,44 @@
       "runtime_code_keccak256": "0x8f8409fa29820f69dfd4336632637217348bb38993c4e69fa5a3a68216af4793",
       "token_metadata": null
     },
+    "unichain:0x1f98400000000000000000000000000000000004": {
+      "address": "0x1F98400000000000000000000000000000000004",
+      "block_hash": "0xbc0f70ff62ea1de873ce0746453893049eacdba952d60a69926c4a3138dcf1b7",
+      "block_number": 59945428,
+      "block_tag": "latest",
+      "chain": "unichain",
+      "chain_id": 130,
+      "code_size": 24050,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.374260Z",
+      "rpc_url": "https://mainnet.unichain.org",
+      "runtime_code_keccak256": "0x0092eba5db5c7b4a3adbeb5708998d71bd09ad0ab2c299e66ea3f39075e1d249",
+      "token_metadata": null
+    },
+    "unichain:0x333e3c607b141b18ff6de9f258db6e77fe7491e0": {
+      "address": "0x333E3C607B141b18fF6de9f258db6e77fE7491E0",
+      "block_hash": "0xbc0f70ff62ea1de873ce0746453893049eacdba952d60a69926c4a3138dcf1b7",
+      "block_number": 59945428,
+      "block_tag": "latest",
+      "chain": "unichain",
+      "chain_id": 130,
+      "code_size": 5820,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.374260Z",
+      "rpc_url": "https://mainnet.unichain.org",
+      "runtime_code_keccak256": "0xf60149253e58cb69fe2b67346bc5f1ea331ff51f04c57f97e456225c5ad54119",
+      "token_metadata": null
+    },
     "unichain:0x4200000000000000000000000000000000000006": {
       "address": "0x4200000000000000000000000000000000000006",
       "block_hash": "0x1af438cffe3ac771acec9622a09c7cac9b49e64db6f0707f16fe64f2c631d1fe",
@@ -1875,6 +3243,25 @@
         "symbol": "WETH"
       }
     },
+    "unichain:0x4529a01c7a0410167c5740c487a8de60232617bf": {
+      "address": "0x4529A01c7A0410167c5740C487A8DE60232617bf",
+      "block_hash": "0xbc0f70ff62ea1de873ce0746453893049eacdba952d60a69926c4a3138dcf1b7",
+      "block_number": 59945428,
+      "block_tag": "latest",
+      "chain": "unichain",
+      "chain_id": 130,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.374260Z",
+      "rpc_url": "https://mainnet.unichain.org",
+      "runtime_code_keccak256": "0x9b8dd0bc00039cced1336c17f2933187219b9812e18b1310b688de7ae961b25f",
+      "token_metadata": null
+    },
     "unichain:0x73855d06de49d0fe4a9c42636ba96c62da12ff9c": {
       "address": "0x73855d06DE49d0fe4A9c42636Ba96c62da12FF9C",
       "block_hash": "0x1af438cffe3ac771acec9622a09c7cac9b49e64db6f0707f16fe64f2c631d1fe",
@@ -1892,6 +3279,25 @@
       "observed_at": "2026-08-31T10:37:33.049025Z",
       "rpc_url": "https://mainnet.unichain.org",
       "runtime_code_keccak256": "0xf0592e2665871b07b43adf09c56c4f651cff6cc04a410d1ecfc426faa4f1a178",
+      "token_metadata": null
+    },
+    "unichain:0x86e8631a016f9068c3f085faf484ee3f5fdee8f2": {
+      "address": "0x86e8631A016F9068C3f085fAF484Ee3F5fDee8f2",
+      "block_hash": "0xbc0f70ff62ea1de873ce0746453893049eacdba952d60a69926c4a3138dcf1b7",
+      "block_number": 59945428,
+      "block_tag": "latest",
+      "chain": "unichain",
+      "chain_id": 130,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.374260Z",
+      "rpc_url": "https://mainnet.unichain.org",
+      "runtime_code_keccak256": "0xa88b57f25068fe707a4d745194de91edef5c8218bf272b255c2d5bc4b832cb10",
       "token_metadata": null
     },
     "unichain:0x9151434b16b9763660705744891fa906f660ecc5": {
@@ -1915,6 +3321,82 @@
         "decimals": 6,
         "symbol": "USD₮0"
       }
+    },
+    "unichain:0xd1b797d92d87b688193a2b976efc8d577d204343": {
+      "address": "0xD1b797D92d87B688193A2B976eFc8D577D204343",
+      "block_hash": "0xbc0f70ff62ea1de873ce0746453893049eacdba952d60a69926c4a3138dcf1b7",
+      "block_number": 59945428,
+      "block_tag": "latest",
+      "chain": "unichain",
+      "chain_id": 130,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.374260Z",
+      "rpc_url": "https://mainnet.unichain.org",
+      "runtime_code_keccak256": "0xf5bedf4598147c1359b12f9c6b5d827e210c62c1a00ccc2702abc8039b99ee8f",
+      "token_metadata": null
+    },
+    "xlayer:0x000000000022d473030f116ddee9f6b43ac78ba3": {
+      "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "block_hash": "0x210bd5fc9a385709ce01424ad6a853e51fb602bb45145763bfe11d39defdb54c",
+      "block_number": 71924755,
+      "block_tag": "latest",
+      "chain": "xlayer",
+      "chain_id": 196,
+      "code_size": 9152,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.534075Z",
+      "rpc_url": "https://rpc.xlayer.tech",
+      "runtime_code_keccak256": "0xe2fbd4d9ddf7f3f1a2b804e92988cb7075e72967945e1f4d53f72a0767b161ab",
+      "token_metadata": null
+    },
+    "xlayer:0x1cd182c94fcf42277b80dbb9060f88024809e61e": {
+      "address": "0x1cd182C94fcF42277B80DBB9060F88024809E61E",
+      "block_hash": "0x210bd5fc9a385709ce01424ad6a853e51fb602bb45145763bfe11d39defdb54c",
+      "block_number": 71924755,
+      "block_tag": "latest",
+      "chain": "xlayer",
+      "chain_id": 196,
+      "code_size": 24380,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.534075Z",
+      "rpc_url": "https://rpc.xlayer.tech",
+      "runtime_code_keccak256": "0x37640cd0c70e55679af0bbfa3ad017c904fa0bf38ec1d3b9078d9ac933bf9439",
+      "token_metadata": null
+    },
+    "xlayer:0x360e68faccca8ca495c1b759fd9eee466db9fb32": {
+      "address": "0x360E68faCcca8cA495c1B759Fd9EEe466db9FB32",
+      "block_hash": "0x210bd5fc9a385709ce01424ad6a853e51fb602bb45145763bfe11d39defdb54c",
+      "block_number": 71924755,
+      "block_tag": "latest",
+      "chain": "xlayer",
+      "chain_id": 196,
+      "code_size": 24009,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.534075Z",
+      "rpc_url": "https://rpc.xlayer.tech",
+      "runtime_code_keccak256": "0xe4b2759e456c9c4ef763e3b4e257c5105e1ba283d7de8b131dd321197de794a4",
+      "token_metadata": null
     },
     "xlayer:0x4ae46a509f6b1d9056937ba4500cb143933d2dc8": {
       "address": "0x4ae46a509F6b1D9056937BA4500cb143933D2dc8",
@@ -1976,6 +3458,25 @@
       "runtime_code_keccak256": "0x83ee2f04768ca84e762b139bf36844bf7efbd75b3c7cc898705169eacb9d5102",
       "token_metadata": null
     },
+    "xlayer:0x76fd297e2d437cd7f76d50f01afe6160f86e9990": {
+      "address": "0x76Fd297e2D437cd7f76d50F01AfE6160f86e9990",
+      "block_hash": "0x210bd5fc9a385709ce01424ad6a853e51fb602bb45145763bfe11d39defdb54c",
+      "block_number": 71924755,
+      "block_tag": "latest",
+      "chain": "xlayer",
+      "chain_id": 196,
+      "code_size": 3531,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.534075Z",
+      "rpc_url": "https://rpc.xlayer.tech",
+      "runtime_code_keccak256": "0x4c0e823a0cd44b6b2d9485e774c421cf929db3996096d9b84ee6b23525184b9e",
+      "token_metadata": null
+    },
     "xlayer:0x779ded0c9e1022225f8e0630b35a9b54be713736": {
       "address": "0x779Ded0c9e1022225f8E0630b35a9b54bE713736",
       "block_hash": "0x521348e67d795c9711ee418f5b0492e680ed0353a74f11437ae2a2b79d89b292",
@@ -1998,6 +3499,25 @@
         "symbol": "USD₮0"
       }
     },
+    "xlayer:0x8928074ca1b241d8ec02815881c1af11e8bc5219": {
+      "address": "0x8928074CA1b241D8Ec02815881c1Af11E8bC5219",
+      "block_hash": "0x210bd5fc9a385709ce01424ad6a853e51fb602bb45145763bfe11d39defdb54c",
+      "block_number": 71924755,
+      "block_tag": "latest",
+      "chain": "xlayer",
+      "chain_id": 196,
+      "code_size": 6118,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.534075Z",
+      "rpc_url": "https://rpc.xlayer.tech",
+      "runtime_code_keccak256": "0xdd1f782f9c7691a491917f19f786e88660fce880ebfc1a84a448632cc47251eb",
+      "token_metadata": null
+    },
     "xlayer:0xb6ceceab302e2e4948951ee7843fc24e92933061": {
       "address": "0xB6CEceAB302E2E4948951eE7843FC24E92933061",
       "block_hash": "0x521348e67d795c9711ee418f5b0492e680ed0353a74f11437ae2a2b79d89b292",
@@ -2019,6 +3539,25 @@
         "decimals": 6,
         "symbol": "USDC"
       }
+    },
+    "xlayer:0xcf1eafc6928dc385a342e7c6491d371d2871458b": {
+      "address": "0xcF1EAFC6928dC385A342E7C6491d371d2871458b",
+      "block_hash": "0x210bd5fc9a385709ce01424ad6a853e51fb602bb45145763bfe11d39defdb54c",
+      "block_number": 71924755,
+      "block_tag": "latest",
+      "chain": "xlayer",
+      "chain_id": 196,
+      "code_size": 23877,
+      "eip1967": {
+        "admin": null,
+        "beacon": null,
+        "implementation": null,
+        "implementation_code_keccak256": null
+      },
+      "observed_at": "2026-09-29T14:56:42.534075Z",
+      "rpc_url": "https://rpc.xlayer.tech",
+      "runtime_code_keccak256": "0x2e2370d97bb44b08f5f31196159c569e122e216adf420457420c730330761c9d",
+      "token_metadata": null
     },
     "xlayer:0xe538905cf8410324e03a5a23c1c177a474d59b2b": {
       "address": "0xe538905cf8410324e03A5A23C1c177a474D59b2b",
