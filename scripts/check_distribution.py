@@ -9,6 +9,7 @@ import io
 import json
 import re
 import tarfile
+import tomllib
 import zipfile
 from email import policy
 from email.parser import BytesParser
@@ -29,6 +30,13 @@ EXPECTED_LICENSES = {
     "LICENSES/MIT-OpenZeppelin.txt",
     "LICENSES/MIT-Permit2.txt",
     "LICENSES/README.md",
+}
+EXPECTED_EXAMPLES = {
+    "examples/README.md",
+    "examples/etherscan_lookup.py",
+    "examples/inspect_catalog.py",
+    "examples/quickstart.py",
+    "examples/web3_contract.py",
 }
 MINIMUM_LICENSE_SIZES = {
     "LICENSES/AGPL-3.0.txt": 30_000,
@@ -62,10 +70,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _expected_version() -> str:
-    source = (ROOT / "many_abis" / "version.py").read_text(encoding="utf-8")
-    match = re.fullmatch(r'__version__\s*=\s*"([^"]+)"\s*', source)
-    _require(match is not None, "could not read the expected package version")
-    return match.group(1)
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8")).get(
+        "project"
+    )
+    _require(isinstance(project, dict), "pyproject.toml has no project table")
+    version = project.get("version")
+    _require(isinstance(version, str), "pyproject.toml has no literal project.version")
+    return version
 
 
 def _require(condition: bool, message: str) -> None:
@@ -86,7 +97,9 @@ def _check_names(names: Iterable[str], label: str) -> None:
             not lowered.intersection(FORBIDDEN_PATH_PARTS),
             "{} contains forbidden path: {}".format(label, name),
         )
-        _require(not name.endswith((".pyc", ".pyo")), "compiled Python file: {}".format(name))
+        _require(
+            not name.endswith((".pyc", ".pyo")), "compiled Python file: {}".format(name)
+        )
 
 
 def _check_content(files: Mapping[str, bytes], label: str) -> None:
@@ -96,7 +109,9 @@ def _check_content(files: Mapping[str, bytes], label: str) -> None:
         for pattern in FORBIDDEN_CONTENT:
             _require(
                 pattern.search(data) is None,
-                "{} contains private or credential-like content in {}".format(label, name),
+                "{} contains private or credential-like content in {}".format(
+                    label, name
+                ),
             )
         if name.endswith(".egg-info/SOURCES.txt"):
             _require(
@@ -139,13 +154,11 @@ def _check_wheel_file_set(names: Iterable[str], dist_info: str) -> None:
 def _check_sdist_file_set(names: Iterable[str], root: str) -> None:
     allowed_root_files = {
         "LICENSE",
-        "MANIFEST.in",
         "PKG-INFO",
         "README.md",
         "THIRD_PARTY_NOTICES.md",
         "pyproject.toml",
-        "setup.cfg",
-        "setup.py",
+        "pyproject.toml.orig",
     }
     allowed_egg_info = {
         "PKG-INFO",
@@ -155,13 +168,15 @@ def _check_sdist_file_set(names: Iterable[str], root: str) -> None:
         "top_level.txt",
     }
     for name in names:
-        relative = name[len(root):]
+        relative = name[len(root) :]
         if not relative:
             continue
         path = PurePosixPath(relative)
         if len(path.parts) == 1 and path.name in allowed_root_files:
             continue
         if path.parts[0] == "LICENSES":
+            continue
+        if path.parts[0] == "examples" and path.suffix in {".md", ".py"}:
             continue
         if _is_package_file(path):
             continue
@@ -182,10 +197,14 @@ def _license_suffixes(names: Iterable[str], marker: str) -> Dict[str, str]:
 
 def _check_abi_manifest(files: Mapping[str, bytes], package_prefix: str) -> None:
     manifest_name = package_prefix + "many_abis/assets/abi-index.json"
-    _require(manifest_name in files, "ABI manifest is missing: {}".format(manifest_name))
+    _require(
+        manifest_name in files, "ABI manifest is missing: {}".format(manifest_name)
+    )
     manifest = json.loads(files[manifest_name].decode("utf-8"))
     entries = manifest.get("abis")
-    _require(isinstance(entries, dict) and entries, "ABI manifest is empty or malformed")
+    _require(
+        isinstance(entries, dict) and entries, "ABI manifest is empty or malformed"
+    )
 
     resources = set()
     for name, entry in entries.items():
@@ -198,10 +217,16 @@ def _check_abi_manifest(files: Mapping[str, bytes], package_prefix: str) -> None
             "public ABI has unresolved licensing: {}".format(name),
         )
         resource = entry.get("resource")
-        _require(isinstance(resource, str) and resource.endswith(".abi"), "bad ABI resource")
+        _require(
+            isinstance(resource, str) and resource.endswith(".abi"), "bad ABI resource"
+        )
         resources.add(package_prefix + "many_abis/" + resource)
 
-    packaged = {name for name in files if name.startswith(package_prefix + "many_abis/") and name.endswith(".abi")}
+    packaged = {
+        name
+        for name in files
+        if name.startswith(package_prefix + "many_abis/") and name.endswith(".abi")
+    }
     _require(
         packaged == resources,
         "packaged ABI files do not exactly match the verified manifest",
@@ -211,10 +236,15 @@ def _check_abi_manifest(files: Mapping[str, bytes], package_prefix: str) -> None
 def _check_metadata(data: bytes) -> None:
     metadata = BytesParser(policy=policy.default).parsebytes(data)
     _require(metadata["Name"] == "many-abis", "unexpected distribution name")
-    _require(metadata["Version"] == _expected_version(), "unexpected distribution version")
+    _require(
+        metadata["Version"] == _expected_version(), "unexpected distribution version"
+    )
     _require(metadata["Requires-Python"] == ">=3.13", "unexpected Python requirement")
     _require(metadata.get("Author-email") is None, "author email must not be published")
-    _require(metadata["License"] == "MIT", "unexpected project-code license")
+    _require(
+        metadata["License-Expression"] == "MIT",
+        "unexpected project-code license expression",
+    )
     classifiers = set(metadata.get_all("Classifier", []))
     for required in {
         "Programming Language :: Python :: 3.13",
@@ -230,16 +260,22 @@ def _check_metadata(data: bytes) -> None:
 
 
 def _check_wheel(path: Path) -> None:
-    _require(path.name.endswith("-py3-none-any.whl"), "wheel must be platform independent")
+    _require(
+        path.name.endswith("-py3-none-any.whl"), "wheel must be platform independent"
+    )
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
         _check_names(names, "wheel")
         files = {name: archive.read(name) for name in names if not name.endswith("/")}
         _check_content(files, "wheel")
 
-        metadata_names = [name for name in names if name.endswith(".dist-info/METADATA")]
+        metadata_names = [
+            name for name in names if name.endswith(".dist-info/METADATA")
+        ]
         record_names = [name for name in names if name.endswith(".dist-info/RECORD")]
-        _require(len(metadata_names) == len(record_names) == 1, "wheel metadata is ambiguous")
+        _require(
+            len(metadata_names) == len(record_names) == 1, "wheel metadata is ambiguous"
+        )
         dist_info = metadata_names[0].rsplit("/", 1)[0]
         _check_wheel_file_set(names, dist_info)
         _check_metadata(files[metadata_names[0]])
@@ -251,16 +287,25 @@ def _check_wheel(path: Path) -> None:
                 continue
             algorithm, encoded = digest.split("=", 1)
             payload = files[name]
-            actual = base64.urlsafe_b64encode(
-                hashlib.new(algorithm, payload).digest()
-            ).rstrip(b"=").decode("ascii")
+            actual = (
+                base64.urlsafe_b64encode(hashlib.new(algorithm, payload).digest())
+                .rstrip(b"=")
+                .decode("ascii")
+            )
             _require(actual == encoded, "wheel RECORD digest mismatch: {}".format(name))
-            _require(len(payload) == int(size), "wheel RECORD size mismatch: {}".format(name))
+            _require(
+                len(payload) == int(size), "wheel RECORD size mismatch: {}".format(name)
+            )
 
-        licenses = _license_suffixes(names, ".dist-info/licenses/")
-        _require(set(licenses) == EXPECTED_LICENSES, "wheel license file set is incomplete")
+        licenses = _license_suffixes(files, ".dist-info/licenses/")
+        _require(
+            set(licenses) == EXPECTED_LICENSES, "wheel license file set is incomplete"
+        )
         for suffix, minimum in MINIMUM_LICENSE_SIZES.items():
-            _require(len(files[licenses[suffix]]) >= minimum, "license text is truncated: {}".format(suffix))
+            _require(
+                len(files[licenses[suffix]]) >= minimum,
+                "license text is truncated: {}".format(suffix),
+            )
 
 
 def _check_sdist(path: Path) -> None:
@@ -298,14 +343,35 @@ def _check_sdist(path: Path) -> None:
         _check_sdist_file_set(files, root)
         _check_abi_manifest(files, root)
 
-        licenses = {
-            name[len(root):]: name
+        original_pyproject = root + "pyproject.toml.orig"
+        _require(
+            files.get(original_pyproject) == (ROOT / "pyproject.toml").read_bytes(),
+            "sdist does not preserve the reviewed original pyproject.toml",
+        )
+
+        examples = {
+            name[len(root) :]
             for name in files
-            if name[len(root):] in EXPECTED_LICENSES
+            if name[len(root) :].startswith("examples/")
         }
-        _require(set(licenses) == EXPECTED_LICENSES, "sdist license file set is incomplete")
+        _require(
+            examples == EXPECTED_EXAMPLES,
+            "sdist example file set is incomplete or unexpected",
+        )
+
+        licenses = {
+            name[len(root) :]: name
+            for name in files
+            if name[len(root) :] in EXPECTED_LICENSES
+        }
+        _require(
+            set(licenses) == EXPECTED_LICENSES, "sdist license file set is incomplete"
+        )
         for suffix, minimum in MINIMUM_LICENSE_SIZES.items():
-            _require(len(files[licenses[suffix]]) >= minimum, "license text is truncated: {}".format(suffix))
+            _require(
+                len(files[licenses[suffix]]) >= minimum,
+                "license text is truncated: {}".format(suffix),
+            )
 
 
 def main() -> int:
@@ -323,7 +389,9 @@ def main() -> int:
     )
     _check_wheel(wheels[0])
     _check_sdist(sdists[0])
-    print("distribution contents verified: {} {}".format(wheels[0].name, sdists[0].name))
+    print(
+        "distribution contents verified: {} {}".format(wheels[0].name, sdists[0].name)
+    )
     return 0
 
 

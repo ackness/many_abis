@@ -18,16 +18,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
+          version: "0.12.9"
           python-version: ${{ matrix.python-version }}
-          cache: pip
-      - run: python -m pip install --upgrade pip
-      - run: python -m pip install .
-      - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/generate_registry.py --check
-      - run: python -m unittest discover -s tests -v
-      - run: python -m mypy
+          enable-cache: true
+      - run: uv sync --locked --dev
+      - run: uv run --frozen python scripts/generate_registry.py --check
+      - run: uv run --frozen python -m unittest discover -s tests -v
+      - run: uv run --frozen mypy
 
   wheel:
     runs-on: ubuntu-latest
@@ -35,35 +35,17 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
+          version: "0.12.9"
           python-version: "3.13"
-          cache: pip
-      - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/build_release_artifacts.py --output-dir dist
-      - run: python scripts/check_distribution.py dist
-      - run: python -m twine check dist/*
-      - run: python -m pip install --target /tmp/many-abis-wheel dist/*.whl
-      - name: Verify installed wheel resources
-        working-directory: /tmp
-        run: |
-          PYTHONPATH=/tmp/many-abis-wheel python - <<'PY'
-          from importlib.metadata import version
-          from pathlib import Path
-
-          import many_abis as m
-
-          root = Path("/tmp/many-abis-wheel")
-          assert version("many-abis") == m.__version__
-          assert m.loaded_abis() == []
-          assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
-          assert len(m.all_contract_ids()) == 99
-          assert len(m.all_token_ids()) == 53
-          assert (root / "many_abis" / "abis.pyi").is_file()
-          assert (root / "many_abis" / "py.typed").is_file()
-          license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))
-          assert len(license_dirs) == 1
-          assert (license_dirs[0] / "LICENSE").is_file()
-          assert (license_dirs[0] / "THIRD_PARTY_NOTICES.md").is_file()
-          assert (license_dirs[0] / "LICENSES" / "GPL-2.0.txt").is_file()
-          PY
+          enable-cache: true
+      - run: uv sync --locked --dev
+      - run: uv run --frozen python scripts/build_release_artifacts.py --output-dir dist
+      - run: uv run --frozen python scripts/check_distribution.py dist
+      - run: uv run --frozen twine check dist/*
+      - name: Smoke-test wheel
+        run: uv run --isolated --no-project --with ./dist/*.whl python tests/smoke_distribution.py
+      - name: Smoke-test source distribution
+        run: uv run --isolated --no-project --with ./dist/*.tar.gz python tests/smoke_distribution.py

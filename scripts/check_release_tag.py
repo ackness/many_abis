@@ -4,11 +4,12 @@
 import re
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION_FILE = ROOT / "many_abis" / "version.py"
+PYPROJECT = ROOT / "pyproject.toml"
 
 
 def _git(*args: str) -> str:
@@ -28,20 +29,20 @@ def main() -> int:
 
     release_tag = sys.argv[1]
     if not re.fullmatch(r"v[0-9A-Za-z][0-9A-Za-z._+-]*", release_tag):
-        raise SystemExit("release tag has an unsupported format: {!r}".format(release_tag))
+        raise SystemExit(
+            "release tag has an unsupported format: {!r}".format(release_tag)
+        )
 
-    match = re.fullmatch(
-        r'__version__\s*=\s*"([^"]+)"\s*',
-        VERSION_FILE.read_text(encoding="utf-8"),
-    )
-    if match is None:
-        raise SystemExit("many_abis/version.py must contain one literal __version__")
+    project = tomllib.loads(PYPROJECT.read_text(encoding="utf-8")).get("project")
+    if not isinstance(project, dict) or not isinstance(project.get("version"), str):
+        raise SystemExit("pyproject.toml must contain one literal project.version")
+    version = project["version"]
 
-    expected_tag = "v{}".format(match.group(1))
+    expected_tag = "v{}".format(version)
     if release_tag != expected_tag:
         raise SystemExit(
             "release tag {!r} does not match package version {!r}".format(
-                release_tag, match.group(1)
+                release_tag, version
             )
         )
 

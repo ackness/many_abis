@@ -9,7 +9,6 @@ import io
 import os
 import shutil
 import subprocess
-import sys
 import tarfile
 import tempfile
 from pathlib import Path
@@ -17,6 +16,7 @@ from typing import Dict
 
 
 ROOT = Path(__file__).resolve().parents[1]
+UV = shutil.which("uv")
 
 
 def _run(*args: str, cwd: Path = ROOT, env: Dict[str, str] | None = None) -> str:
@@ -48,7 +48,9 @@ def _normalize_sdist(path: Path, epoch: str) -> None:
             if member.isfile():
                 extracted = archive.extractfile(member)
                 if extracted is None:
-                    raise SystemExit("could not read sdist member: {}".format(member.name))
+                    raise SystemExit(
+                        "could not read sdist member: {}".format(member.name)
+                    )
                 payload = extracted.read()
             entries.append((copy.copy(member), payload))
 
@@ -98,12 +100,15 @@ def _build_once(base: Path, label: str, epoch: str) -> Dict[str, Path]:
     environment = dict(os.environ)
     environment["PYTHONHASHSEED"] = "0"
     environment["SOURCE_DATE_EPOCH"] = epoch
+    if UV is None:
+        raise SystemExit("uv is required; install it from https://docs.astral.sh/uv/")
     subprocess.run(
         [
-            sys.executable,
-            "-m",
+            UV,
             "build",
-            "--outdir",
+            "--no-sources",
+            "--no-create-gitignore",
+            "--out-dir",
             str(output),
             str(source),
         ],
@@ -144,7 +149,11 @@ def main() -> int:
 
         if set(first) != set(second):
             raise SystemExit("repeated builds produced different artifact names")
-        mismatches = [name for name in first if first[name].read_bytes() != second[name].read_bytes()]
+        mismatches = [
+            name
+            for name in first
+            if first[name].read_bytes() != second[name].read_bytes()
+        ]
         if mismatches:
             raise SystemExit(
                 "repeated clean builds were not byte-identical: {}".format(

@@ -73,10 +73,10 @@ The offline generator never contacts a network. Snapshot refresh is a separate,
 explicit command that uses only RPC URLs already admitted to the chain registry:
 
 ```bash
-python scripts/refresh_verifications.py --chain base --write
-python scripts/generate_registry.py --write
-python scripts/generate_registry.py --check
-python -m unittest discover -s tests -v
+uv run python scripts/refresh_verifications.py --chain base --write
+uv run python scripts/generate_registry.py --write
+uv run python scripts/generate_registry.py --check
+uv run python -m unittest discover -s tests -v
 ```
 
 The refresh aborts before writing when a chain ID is wrong, a registered address

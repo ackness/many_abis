@@ -24,17 +24,16 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
           persist-credentials: false
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
+          version: "0.12.9"
           python-version: ${{ matrix.python-version }}
-          cache: pip
-      - run: python -m pip install --upgrade pip
-      - run: python -m pip install .
-      - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/generate_registry.py --check
-      - run: python -m unittest discover -s tests -v
-      - run: python -m mypy
+          enable-cache: true
+      - run: uv sync --locked --dev
+      - run: uv run --frozen python scripts/generate_registry.py --check
+      - run: uv run --frozen python -m unittest discover -s tests -v
+      - run: uv run --frozen mypy
 
   build:
     needs: verify
@@ -46,49 +45,28 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.release.tag_name }}
           persist-credentials: false
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
+          version: "0.12.9"
           python-version: "3.13"
-          cache: pip
-      - name: Install release tooling
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements-dev.txt
+          enable-cache: false
+      - name: Sync locked release tooling
+        run: uv sync --locked --dev
       - name: Verify release tag and package version
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
-        run: python scripts/check_release_tag.py "$RELEASE_TAG"
+        run: uv run --frozen python scripts/check_release_tag.py "$RELEASE_TAG"
       - name: Build reproducible distributions from clean source archives
-        run: python scripts/build_release_artifacts.py --output-dir dist
+        run: uv run --frozen python scripts/build_release_artifacts.py --output-dir dist
       - name: Verify distribution contents and metadata
         run: |
-          python scripts/check_distribution.py dist
-          python -m twine check dist/*
-      - name: Smoke-test wheel outside the source tree
-        run: |
-          python -m pip install --target /tmp/many-abis-release dist/*.whl
-          cd /tmp
-          PYTHONPATH=/tmp/many-abis-release python - <<'PY'
-          from importlib.metadata import version
-          from pathlib import Path
-
-          import many_abis as m
-
-          root = Path("/tmp/many-abis-release")
-          assert version("many-abis") == m.__version__
-          assert m.loaded_abis() == []
-          assert all(m.get_abi(name) for name in m.ALL_ABIS_NAME)
-          assert len(m.all_contract_ids()) == 99
-          assert len(m.all_token_ids()) == 53
-          assert (root / "many_abis" / "abis.pyi").is_file()
-          assert (root / "many_abis" / "py.typed").is_file()
-          license_dirs = list(root.glob("many_abis-*.dist-info/licenses"))
-          assert len(license_dirs) == 1
-          assert (license_dirs[0] / "LICENSE").is_file()
-          assert (license_dirs[0] / "THIRD_PARTY_NOTICES.md").is_file()
-          assert (license_dirs[0] / "LICENSES" / "GPL-2.0.txt").is_file()
-          PY
+          uv run --frozen python scripts/check_distribution.py dist
+          uv run --frozen twine check dist/*
+      - name: Smoke-test wheel
+        run: uv run --isolated --no-project --with ./dist/*.whl python tests/smoke_distribution.py
+      - name: Smoke-test source distribution
+        run: uv run --isolated --no-project --with ./dist/*.tar.gz python tests/smoke_distribution.py
       - name: Upload immutable release artifacts
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -107,15 +85,17 @@ jobs:
     permissions:
       id-token: write
     steps:
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          version: "0.12.9"
+          enable-cache: false
       - name: Download verified release artifacts
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: python-distributions
           path: dist
-      - name: Publish with PyPI Trusted Publishing and PEP 740 attestations
-        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
-        with:
-          attestations: true
-          packages-dir: dist
-          print-hash: true
-          verify-metadata: true
+      - name: Generate PEP 740 attestations
+        uses: astral-sh/attest-action@f589a42a7efb6fe400b4f400de60b4bc90390027 # v0.0.6
+      - name: Publish with PyPI Trusted Publishing
+        run: uv publish --trusted-publishing always
