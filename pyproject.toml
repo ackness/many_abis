@@ -46,7 +46,7 @@ dependencies = [
     "eth-utils>=6,<7",
     "pycryptodome>=3.23,<4",
     "requests>=2.33,<3",
-    "urllib3>=2.7,<3",
+    "urllib3>=2.8.0,<3",
 ]
 
 [[project.authors]]

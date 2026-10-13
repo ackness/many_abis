@@ -60,6 +60,27 @@ class UvProjectTests(unittest.TestCase):
             with self.subTest(action_ref=action_ref):
                 self.assertRegex(action_ref, r"^[0-9a-f]{40}$")
 
+    def test_urllib3_security_floor_is_declared_and_locked(self):
+        self.assertIn(
+            "urllib3>=2.8.0,<3", self.configuration["project"]["dependencies"]
+        )
+        lockfile = tomllib.loads(LOCKFILE.read_text(encoding="utf-8"))
+        project = next(
+            package for package in lockfile["package"]
+            if package["name"] == "many-abis"
+        )
+        self.assertIn(
+            {"name": "urllib3", "specifier": ">=2.8.0,<3"},
+            project["metadata"]["requires-dist"],
+        )
+        urllib3 = next(
+            package for package in lockfile["package"]
+            if package["name"] == "urllib3"
+        )
+        version = tuple(map(int, urllib3["version"].split(".")))
+        self.assertGreaterEqual(version, (2, 8, 0))
+        self.assertLess(version, (3,))
+
 
 if __name__ == "__main__":
     unittest.main()
