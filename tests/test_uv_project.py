@@ -27,7 +27,7 @@ class UvProjectTests(unittest.TestCase):
             r"^uv_build>=.+,<0\.14$",
         )
         self.assertEqual(self.configuration["project"]["name"], "many-abis")
-        self.assertEqual(self.configuration["project"]["version"], "0.5.1")
+        self.assertEqual(self.configuration["project"]["version"], "0.5.2")
         self.assertEqual(self.configuration["project"]["requires-python"], ">=3.13")
         self.assertEqual(
             self.configuration["tool"]["uv"]["build-backend"]["module-name"],
