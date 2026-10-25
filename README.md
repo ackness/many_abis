@@ -74,7 +74,7 @@ smart-contract security audit.
 
 ## Installation
 
-Python 3.13 or newer is required.
+Python 3.13 or newer is required. Python 3.13, 3.14, and 3.15 are tested in CI.
 
 ```bash
 uv add many-abis
@@ -228,7 +228,7 @@ Pushing a tag alone or saving a draft release does not trigger publishing.
 Published prereleases also trigger this workflow; use a matching prerelease
 package version such as `0.5.1rc1` and tag `v0.5.1rc1`.
 
-The workflow tests Python 3.13 and 3.14, checks the tag against the package
+The workflow tests Python 3.13, 3.14, and 3.15, checks the tag against the package
 version, builds and validates the wheel and source distribution, then publishes
 those artifacts from a separate job with `id-token: write`. A failed check
 blocks publication. PyPI does not allow overwriting a published distribution;

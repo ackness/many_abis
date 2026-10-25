@@ -252,6 +252,7 @@ def _check_metadata(data: bytes) -> None:
     for required in {
         "Programming Language :: Python :: 3.13",
         "Programming Language :: Python :: 3.14",
+        "Programming Language :: Python :: 3.15",
         "Typing :: Typed",
     }:
         _require(required in classifiers, "missing classifier: {}".format(required))
